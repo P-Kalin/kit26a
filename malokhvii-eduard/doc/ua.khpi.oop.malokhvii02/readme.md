@@ -26,7 +26,7 @@
 
 <p align="center">
     <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii02/images/events.png?raw=true">
-    Рис. 1 - Діарграма взаємодії подій
+    Рис. 1 - Діаграма взаємодії подій
 </p>
 
 ## 2.2 Ієрархія та структура класів
@@ -39,12 +39,12 @@
 
 <p align="center">
     <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii02/images/ua.khpi.oop.malokhvii02.data.png?raw=true"><br/>
-    Рис. 2 - Діарграма класів із пакету data
+    Рис. 2 - Діаграма класів із пакету data
 </p>
 
 <p align="center">
     <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii02/images/ua.khpi.oop.malokhvii02.event.png?raw=true">
-    Рис. 3 - Діарграма класів із пакету event
+    Рис. 3 - Діаграма класів із пакету event
 </p>
 
 <p align="center">
