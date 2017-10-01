@@ -39,7 +39,7 @@
 
 <p align="center">
     <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii01/images/ua.khpi.oop.malokhvii01.png?raw=true">
-    Рис. 1 - Діарграма класів
+    Рис. 1 - Діаграма класів
 </p>
 
 ## 2.3 Опис програми
