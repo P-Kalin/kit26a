@@ -144,7 +144,7 @@ public class TaskPerformerForDecimalValues {
 </p>
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii01/images/variables.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii01/images/variables.png?raw=true"><br/>
     Рис. 3 - Демонстрація отриманих значень
 </p>
 
