@@ -12,9 +12,4 @@
 - [x] [Консольні програми для платформи Java SE. Прості алгоритми обробки даних](https://oop-khpi.github.io/#task_02)
 - [x] [Утилітарні класи. Обробка масивів і рядків](https://oop-khpi.github.io/#task_03)
 - [x] [Інтерактивні консольні програми для платформи Java SE](https://oop-khpi.github.io/#task_04)
-
----
-
-В очікуванні... :sleeping: :sleeping: :sleeping: :laughing:
-
----
+- [ ] В очікуванні... :sleeping::sleeping::sleeping::laughing:
