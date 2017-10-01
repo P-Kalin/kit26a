@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<head>
+<title>readme</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<h1>Лабораторна робота №4.</h1>
+<h1>ІНТЕРАКТИВНІ КОНСОЛЬНІ ПРОГРАМИ ДЛЯ ПЛАТФОРМИ JAVA SE</h1>
+<h2>Мета роботи:</h2>
+<ul>
+<li>Розробка інтерактивних консольних програм мовою Java.</li>
+<li>Реалізація діалогового режиму роботи з користувачем в консольних програмах.</li>
+</ul>
+<h3>1. Завдання / вимоги до лабораторної роботи:</h3>
+<ol>
+<li>Використовуючи програму рішення завдання лабораторної роботи №3, відповідно до прикладної задачі забезпечити обробку команд користувача у вигляді текстового меню:
+<ul>
+<li>введення даних;</li>
+<li>перегляд даних;</li>
+<li>виконання обчислень;</li>
+<li>відображення результату;</li>
+<li>завершення програми і т.д.</li>
+</ul>
+</li>
+<li>Забезпечити обробку параметрів командного рядка для визначення режиму роботи програми:
+<ul>
+<li>параметр "-h" чи "-help": відображається інформація про автора програми, призначення (індивідуальне завдання), детальний опис режимів роботи (пунктів меню та параметрів командного рядка);</li>
+<li>параметр "-d" чи "-debug": в процесі роботи програми відображаються додаткові дані, що полегшують налагодження та перевірку працездатності програми: діагностичні повідомлення, проміжні значення змінних, значення тимчасових змінних та ін.</li>
+</ul>
+</li>
+</ol>
+<h4>1.2 Розробник:</h4>
+<p><em>студент Литвин Ігнатій Ігоревич; КІТ-26А; Варіант №7</em></p>
+<h3>2. Розробка програми</h3>
+<h4>2.1 Ієрархія та структура класів</h4>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="https://camo.githubusercontent.com/f2f22edc549556e82c91981c8024df1a7a7f549b/68747470733a2f2f73382e686f7374696e676b617274696e6f6b2e636f6d2f75706c6f6164732f696d616765732f323031372f30392f39626232363163613535353239386438333433393835333562313936353935612e706e67" target="_blank"><img src="https://camo.githubusercontent.com/f2f22edc549556e82c91981c8024df1a7a7f549b/68747470733a2f2f73382e686f7374696e676b617274696e6f6b2e636f6d2f75706c6f6164732f696d616765732f323031372f30392f39626232363163613535353239386438333433393835333562313936353935612e706e67" alt="" data-canonical-src="https://s8.hostingkartinok.com/uploads/images/2017/09/9bb261ca555298d834398535b196595a.png" style="max-width:100%;"></a></td>
+</tr>
+<tr>
+<td align="center"><em>Рисунок 1 "Ієрархія та структура класів"</em></td>
+</tr></tbody></table>
+<h4>2.2 Опис програми</h4>
+<p>Програма реалізована  у вигляді інтерактивного текстового меню з підтримкою команд користувача.</p>
+<p>Основне призначення: використовуючи введений текст, визначає та виводить у вигляді таблиці, яких літер (голосних чи приголосних) більше в кожному реченні тексту.</p>
+<p>Для користувача доступні наступні команди:</p>
+<ul>
+<li>ENTRY - введення даних;</li>
+<li>VIEW - перегляд даних;</li>
+<li>CALC - виконання обчислень;</li>
+<li>RESULT - відображення результату;</li>
+<li>EXIT - завершення програми.</li>
+</ul>
+<p>Програма працює лише з текстом написаним на латинкою. Для обробки даних використовуються класи-утиліти. Регулярних вирази не використовуються при виконанні завдання.</p>
+<p>Також забезпечено обробку параметрів командного рядка для визначення режиму роботи програми:</p>
+<ul>
+<li>параметр "-h" чи "-help": відображається інформація про автора програми, призначення (індивідуальне завдання), детальний опис режимів роботи (пунктів меню та параметрів командного рядка);</li>
+<li>параметр "-d" чи "-debug": в процесі роботи програми відображаються додаткові дані, що полегшують налагодження та перевірку працездатності програми: діагностичні повідомлення, проміжні значення змінних, значення тимчасових змінних та ін.</li>
+</ul>
+<h4>2.3 Важливі фрагменти програми</h4>
+<pre><code>
+public class Main {
+	public static String LINE = "----------------------------------------------"
+			+ "--------------------------\n";
+	public static Scanner sc = new Scanner(System.in);
+	public static boolean isDebug = false;
+	public static String text = "";
+	public static ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();
+	public static boolean exit = false;
+
+	public static void main(String[] args) throws Exception {
+		for (String comand: args) {
+			if(comand.equals("-h") || comand.equals("-help")){
+				System.out.println(LINE);
+				System.out.format("Автор: студент КІТ-26А Литвин І.І.\n\n");
+				System.out.format("Призначення програми: Визначення та"
+						+ " виведення, яких літер (голосних чи приголосних)\n"
+						+ "більше в кожному реченні введеного тексту.\n\n");
+				System.out.format("	Опис пунктів меню та параметрів командного"
+						+ " рядка:\n\n");
+				System.out.format("	ENTRY - команда для вводу вхідних даних у"
+						+ " вигляді тексту\n\n");
+				System.out.format("	VIEW - команда перегляд введених даних"
+						+ "(відображає текст)\n\n");
+				System.out.format("	CALC - команда, що виконує пошук та"
+						+ " підрахунок голосних\n	та приголосних у кожному"
+						+ " речені тексту.\n\n");
+				System.out.format("	RESULT - відображення результату обчислень"
+						+ " у вигляді таблиці\n\n");
+				System.out.format("	EXIT - завершення програми, вихід\n\n");
+				System.out.format("	-h або -help відображається інформація про"
+						+ " автора програми,\n	призначення (індивідуальне"
+						+ " завдання), детальний опис режимів роботи\n	"
+						+ "(пунктів меню та параметрів командного рядка);\n\n");
+				System.out.format("	-d або -debug в процесі роботи програми"
+						+ " відображаються додаткові дані,\n	що полегшують"
+						+ " налагодження та перевірку працездатності "
+						+ "програми:\n	діагностичні повідомлення, проміжні "
+						+ "значення змінних,\n	значення тимчасових змінних"
+						+ " та ін.\n\n");
+				System.out.println(LINE);
+			}
+			if(comand.equals("-d") || comand.equals("-debug")){
+				isDebug = true;
+			}
+        }
+		System.out.format("	Список доступних команд:\n\n");
+		System.out.format("	ENTRY - введення даних\n");
+		System.out.format("	VIEW - перегляд даних\n");
+		System.out.format("	CALC - виконання обчислень\n");
+		System.out.format("	RESULT - відображення результату\n");
+		System.out.format("	EXIT - завершення програми\n");
+		do {
+			System.out.format("\n	Введіть команду: ");
+			ACTION cur = ACTION.valueOf(sc.next());
+			handleAction(cur);
+		} while (!exit);
+	}
+
+	public static void handleAction(ACTION action) throws Exception {
+		switch (action) {
+		case ENTRY:
+			if(Main.isDebug){
+				System.out.format("	Команда прийнята!\n");
+			}
+			System.out.format("\n	Введіть будь-ласка текст(латинкою):\n\n");
+			BufferedReader br = new BufferedReader(
+					new InputStreamReader(System.in));
+			text = br.readLine(); // Збереження тексту з буферу
+			if(Main.isDebug){
+				System.out.format("\nБуфер успішно створено!\n");
+				System.out.format("\nТекст з буферу збережено!\n");
+			}
+			break;
+		case VIEW:
+			if(Main.isDebug){
+				System.out.format("	Команда прийнята!\n");
+			}
+			System.out.format("\n\n%s\n\n", text);
+			if(Main.isDebug){
+				System.out.format("\nТекст успіщно виведено!\n");
+			}
+			break;
+		case CALC:
+			if(Main.isDebug){
+				System.out.format("	Команда прийнята!\n");
+			}
+			result = TextHelper.handleText(text);
+			break;
+		case RESULT:
+			if(Main.isDebug){
+				System.out.format("	Команда прийнята!\n");
+			}
+			ChartHelper.printChart(result);
+			break;
+		case EXIT:
+			if(Main.isDebug){
+				System.out.format("	Команда прийнята!\n");
+			}
+			exit = true;
+			break;
+		default:
+			System.err.println("Error data ^-(");
+			break;
+		}
+	}
+
+	public enum ACTION {
+		ENTRY, VIEW, CALC, RESULT, EXIT
+	}
+
+}
+
+
+class TextHelper {
+	public static String LINE = "----------------------------------------------"
+			+ "--------------------------\n";
+	private static final char DOT = '.'; // Крапка
+	private static final char EXCLAMATION = '!'; // Знак оклику
+	private static final char QUESTION = '?'; // Знак питання
+	private static int sentences = 0;
+	
+	/* Розбиває отриманний текст на речення */
+	public static ArrayList&lt;Integer&gt; handleText(String text) {
+
+		/* Список, що зберігає результат */
+		ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();
+		if(Main.isDebug){
+			System.out.format("\nСтворено список для"
+					+ " збереження результату!\n\n");
+			System.out.format("Початок опрацювання тексту!\n\n");
+		}
+		String temp = ""; // Буфер
+		for (int i = 0; i &lt; text.length(); ++i) {
+			char sign = text.charAt(i);
+			if (sign == DOT || sign == EXCLAMATION || sign == QUESTION) {
+				sentences++;
+				if(Main.isDebug){
+					System.out.format("Знайдено речення №%d:"
+							+ "\n%s\n\n", sentences, temp);
+				}
+				/* Кількість голосних */
+				int vowels = StringHelper.countVowel(temp);
+				/* Кількість приголосних */
+				int consonants = StringHelper.countConsonants(temp);
+				result.add(vowels);
+				result.add(consonants);
+				if(Main.isDebug){
+					System.out.format("Речення №%d знайдено:", sentences);
+					System.out.format("	голосних - %d", vowels);
+					System.out.format("	приголосних - %d\n", vowels);
+					System.out.format("Результат збережено!\n");
+					System.out.format("%s\n\n", LINE);
+					if(i &lt; text.length() - 1){
+						System.out.format("Опрацювання нового речення!\n\n");
+					}
+				}
+				temp = "";
+			} else {
+				/*if(Main.isDebug){
+					System.out.format("До речення додано символ:"
+							+ " %s\n\n", text.charAt(i));
+				}*/
+				temp += text.charAt(i);
+			}
+		}
+		if(Main.isDebug){
+			System.out.format("Текст успішно опрацьовано!\n\n");
+		}
+		return result;
+	}
+}
+
+
+class StringHelper {
+	/* Перелік голосних */
+	private static final String VOWELS = "aeiouyAEIOUY";
+	/* Перелік приголосних */
+	private static final String CONSONANTS = "bcdfghjklmnpqrstvwxz"
+			+ "BCDFGHJKLMNPQRSTVWXZ";
+
+	/* Перевіряє чи є символ голосною буквою */
+	public static boolean isVowel(char ch) {
+
+		return VOWELS.indexOf(ch) &gt;= 0;
+	}
+
+	/* Перевіряє чи є символ приголосною буквою */
+	public static boolean isConsonants(char ch) {
+
+		return CONSONANTS.indexOf(ch) &gt;= 0;
+	}
+
+	/* Підраховує голосні */
+	public static int countVowel(String sentence) {
+		
+		if(Main.isDebug){
+			System.out.format("Розпочато пошук і підрахунок голосних!\n\n");
+		}
+		int counter = 0;
+		for (int i = 0; i &lt; sentence.length(); ++i) {
+			if (isVowel(sentence.charAt(i))) {
+				if(Main.isDebug){
+					System.out.format("Знайдено голосну:"
+							+ " %s\n\n", sentence.charAt(i));
+				}
+				++counter;
+			}
+		}
+		if(Main.isDebug){
+			System.out.format("Пошук і підрахунок голосних успішно"
+					+ " закінчено!\n\n");
+		}
+		return counter;
+	}
+
+	/* Підраховує приголосні */
+	public static int countConsonants(String sentence) {
+
+		if(Main.isDebug){
+			System.out.format("Розпочато пошук і підрахунок приголосних!\n\n");
+		}
+		int counter = 0;
+		for (int i = 0; i &lt; sentence.length(); ++i) {
+			if (isConsonants(sentence.charAt(i))) {
+				if(Main.isDebug){
+					System.out.format("Знайдено приголосну:"
+							+ " %s\n\n", sentence.charAt(i));
+				}
+				++counter;
+			}
+		}
+		if(Main.isDebug){
+			System.out.format("Пошук і підрахунок приголосних успішно"
+					+ " закінчено!\n\n");
+		}
+		return counter;
+	}
+}
+
+
+class ChartHelper {
+	public static String LINE = "----------------------------------------------"
+			+ "--------------------------\n";
+
+	/* Виводить дані у вигляді таблиці */
+	public static void printChart(ArrayList&lt;Integer&gt; data) {
+		int counter = 0;
+		System.out.println(LINE);
+		if(Main.isDebug){
+			System.out.format("Розпочато виведення даних!\n\n");
+		}
+		System.out.format("	Реченя №	Голосних	Приголосних\n\n");
+		for (int i = 0; i &lt; data.size(); i += 2) {
+			counter++;
+			System.out.format("	%d		%d		%d\n", counter, data.get(i),
+					data.get(i + 1));
+			if(Main.isDebug){
+				System.out.format("Дані списку під індексом [%d] та [%d]"
+						+ " виведено!\n\n", i, i + 1);
+			}
+		}
+		if(Main.isDebug){
+			System.out.format("Виведення даних успішно закінчено!\n\n");
+		}
+		System.out.format("\n%s",LINE);
+	}
+}
+
+</code></pre>
+<h3>3. РЕЗУЛЬТАТ РОБОТИ</h3>
+<p><strong>Для налагодження роботи програми було успішно проведено її тестування.</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">Скріншоти роботи програми</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="https://camo.githubusercontent.com/0c6b248a25ccb15444ad4457a6c56addb15bbd4e/68747470733a2f2f73382e686f7374696e676b617274696e6f6b2e636f6d2f75706c6f6164732f696d616765732f323031372f30392f37656566383234643339363962623332343863306332616534376235323164342e706e67" target="_blank"><img src="https://camo.githubusercontent.com/0c6b248a25ccb15444ad4457a6c56addb15bbd4e/68747470733a2f2f73382e686f7374696e676b617274696e6f6b2e636f6d2f75706c6f6164732f696d616765732f323031372f30392f37656566383234643339363962623332343863306332616534376235323164342e706e67" alt="" data-canonical-src="https://s8.hostingkartinok.com/uploads/images/2017/09/7eef824d3969bb3248c0c2ae47b521d4.png" style="max-width:100%;"></a></td>
+</tr>
+<tr>
+<td align="center"><em>Рисунок 2 "Результат роботи програми"</em></td>
+</tr>
+<tr>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><a href="https://camo.githubusercontent.com/bbf114d300aed4b8cc2990d518a395d15b157e85/68747470733a2f2f73382e686f7374696e676b617274696e6f6b2e636f6d2f75706c6f6164732f696d616765732f323031372f30392f33616334613231613335653261646231386533653436643564356432383634622e706e67" target="_blank"><img src="https://camo.githubusercontent.com/bbf114d300aed4b8cc2990d518a395d15b157e85/68747470733a2f2f73382e686f7374696e676b617274696e6f6b2e636f6d2f75706c6f6164732f696d616765732f323031372f30392f33616334613231613335653261646231386533653436643564356432383634622e706e67" alt="" data-canonical-src="https://s8.hostingkartinok.com/uploads/images/2017/09/3ac4a21a35e2adb18e3e46d5d5d2864b.png" style="max-width:100%;"></a></td>
+</tr>
+<tr>
+<td align="center"><em>Рисунок 3 "Робота програми з параметрами -h -d"</em></td>
+</tr>
+<tr>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><a href="https://camo.githubusercontent.com/1f8faa8affc5390576d48747c11da3f5225872fd/68747470733a2f2f73382e686f7374696e676b617274696e6f6b2e636f6d2f75706c6f6164732f696d616765732f323031372f30392f33653132393334353861636232386337616635633038646139663031303361652e706e67" target="_blank"><img src="https://camo.githubusercontent.com/1f8faa8affc5390576d48747c11da3f5225872fd/68747470733a2f2f73382e686f7374696e676b617274696e6f6b2e636f6d2f75706c6f6164732f696d616765732f323031372f30392f33653132393334353861636232386337616635633038646139663031303361652e706e67" alt="" data-canonical-src="https://s8.hostingkartinok.com/uploads/images/2017/09/3e1293458acb28c7af5c08da9f0103ae.png" style="max-width:100%;"></a></td>
+</tr>
+<tr>
+<td align="center"><em>Рисунок 4 "Робота програми з параметром -d"</em></td>
+</tr></tbody></table>
+<h3>ВИСНОВКИ</h3>
+<p><strong><em>Створено і налагоджено програму, що повністю виконую поставлене індивідуальне завдання та відповідає вимогам.<br>
+Було отримано і вдосконалено навички у розробці інтерактивних консольних програм мовою Java.</em></strong></p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
