@@ -1,3 +1,4 @@
+[![](https://img.shields.io/badge/email-me-lightgrey.svg?style=flat)](mailto:malokhvii.ee@gmail.com)  [![](https://img.shields.io/badge/telegram-me-lightgrey.svg?style=flat)](https://t.me/malokhvii_ee)
 # Об'єктно-орієнтоване програмування
 
 ## Мета
