@@ -38,7 +38,7 @@
 Нижче наведено діаграму класів отриману за допомогою розширення для середи розробки Eclipse - ObjectAid UML Diagram.
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii01/images/ua.khpi.oop.malokhvii01.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii01/images/ua.khpi.oop.malokhvii01.png?raw=true">
     Рис. 1 - Діаграма класів
 </p>
 
@@ -139,12 +139,12 @@ public class TaskPerformerForDecimalValues {
 Нижче наведено покрокове виконання програми та результати роботи в режимі налагодження, не використовуючи виведення до консолі, згідно отриманого завдання.
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii01/images/debug.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii01/images/debug.png?raw=true">
     Рис. 2 - Демонстрація перспективи Debug
 </p>
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii01/images/variables.png?raw=true"><br/>
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii01/images/variables.png?raw=true"><br/>
     Рис. 3 - Демонстрація отриманих значень
 </p>
 
