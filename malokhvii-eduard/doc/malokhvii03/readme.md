@@ -31,12 +31,12 @@
 - text - містить у собі необхідні класи, для обробки тексту на наявнсть анаграм.
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii03/images/ua.khpi.oop.malokhvii03.text.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii03/images/ua.khpi.oop.malokhvii03.text.png?raw=true">
     Рис. 1 - Діаграма класів із пакету text
 </p>
 
 <p align="center">
-    <img    src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii03/images/ua.khpi.oop.malokhvii03.png?raw=true"> 
+    <img    src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii03/images/ua.khpi.oop.malokhvii03.png?raw=true"> 
     Рис. 2 - Загальна діаграма класів
 </p>
 
@@ -45,7 +45,7 @@
 Для надання інтерактивної оболнки використано рішення з пакету ua.khpi.oop.malokhvii04\. Для індексування вхідних слів було використано декілька хеш-таблиць та хеш-множину для збереження слів.
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii03/images/words-collection.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii03/images/words-collection.png?raw=true">
     Рис. 3 - Приклад стуктури колекції слів
 </p>
 
@@ -140,22 +140,22 @@ public final class Anagrams {
 Нижче наведено виведення обчислень у вигляді інтерактивної консолі.
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii03/images/application-1.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii03/images/application-1.png?raw=true">
     Рис. 3 - Приклад стуктури колекції слів 
 </p>
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii03/images/application-2.png?raw=true"> 
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii03/images/application-2.png?raw=true"> 
     Рис. 5 - Фрагмент демонстраційної програми
 </p> 
    
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii03/images/application-3.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii03/images/application-3.png?raw=true">
     Рис. 6 - Фрагмент демонстраційної програми
 </p>
     
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii03/images/application-4.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii03/images/application-4.png?raw=true">
     Рис. 7 - Фрагмент демонстраційної програми
 </p>
 
