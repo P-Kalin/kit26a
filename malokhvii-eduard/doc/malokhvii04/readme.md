@@ -36,17 +36,17 @@
 - сommand - містить у собі перелік команд, та фабрику для їх створення.
 
 <p align="center">
-  <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii04/images/ua.khpi.oop.malokhvii04.shell.png?raw=true">
+  <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/ua.khpi.oop.malokhvii04.shell.png?raw=true">
     Рис. 1 - Діаграма класів із пакету shell
 </p>
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii04/images/ua.khpi.oop.malokhvii04.shell.command.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/ua.khpi.oop.malokhvii04.shell.command.png?raw=true">
     Рис. 2 - Діаграма класів із пакету command
 </p>
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii04/images/ua.khpi.oop.malokhvii04.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/ua.khpi.oop.malokhvii04.png?raw=true">
     Рис. 3 - Загальна діаграма класів
 </p>
 
@@ -130,27 +130,27 @@ public final class Application {
 Нижче наведено виведення обчислень у вигляді інтерактивної консолі.
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii04/images/application-1.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/application-1.png?raw=true">
     Рис. 3 - Фрагмент демонстраційної програми
 </p>
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii04/images/application-2.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/application-2.png?raw=true">
     Рис. 4 - Фрагмент демонстраційної програми
 </p>
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii04/images/application-3.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/application-3.png?raw=true">
     Рис. 5 - Фрагмент демонстраційної програми
 </p>
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii04/images/application-4.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/application-4.png?raw=true">
     Рис. 6 - Фрагмент демонстраційної програми
 </p>
   
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/ua.khpi.oop.malokhvii04/images/application-5.png?raw=true">
+    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/application-5.png?raw=true">
     Рис. 7 - Фрагмент демонстраційної програми
 </p>
 
