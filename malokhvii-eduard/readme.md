@@ -2,7 +2,6 @@
 
 ## Розробник
 Малохвій Едуард Едуардович
-
 [![](https://img.shields.io/badge/email-me-lightgrey.svg?style=social)](mailto:malokhvii.ee@gmail.com)  [![](https://img.shields.io/badge/telegram-me-lightgrey.svg?style=social)](https://t.me/malokhvii_ee)
 
 ## Мета
