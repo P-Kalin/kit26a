@@ -10,13 +10,8 @@ public abstract class AbstractList<E> implements List<E> {
     protected int size;
 
     @Override
-    public final int size() {
-        return this.size;
-    }
-
-    @Override
-    public final boolean isEmpty() {
-        return this.size == 0;
+    public final boolean contains(final Object object) {
+        return indexOf(object) != -1;
     }
 
     @Override
@@ -29,6 +24,11 @@ public abstract class AbstractList<E> implements List<E> {
         }
 
         return true;
+    }
+
+    @Override
+    public final boolean isEmpty() {
+        return this.size == 0;
     }
 
     @Override
@@ -62,8 +62,8 @@ public abstract class AbstractList<E> implements List<E> {
     }
 
     @Override
-    public final boolean contains(final Object object) {
-        return indexOf(object) != -1;
+    public final int size() {
+        return this.size;
     }
 
     @Override
