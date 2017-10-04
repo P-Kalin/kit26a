@@ -50,6 +50,47 @@ public final class ArraySortUtil {
         }
     }
 
+    public static <T extends Comparable<T>> void shellSort(Array<T> array,
+            int sortOrder) {
+        int arraySize = array.size();
+        T temp;
+        int gap;
+
+        int i;
+        int j;
+        for (gap = arraySize >> 1; gap > 0; gap >>= 1) {
+            for (i = gap; i < arraySize; i++) {
+                temp = array.get(i);
+                for (j = i; j >= gap
+                        && array.get(j - gap).compareTo(temp) == sortOrder;
+                        j -= gap) {
+                    array.set(j, array.get(j - gap));
+                }
+                array.set(j, temp);
+            }
+        }
+    }
+
+    public static <T> void shellSort(Array<T> array, int sortOrder,
+            Comparator<T> comparator) {
+        int arraySize = array.size();
+        T temp;
+        int gap;
+
+        int i;
+        int j;
+        for (gap = arraySize >> 1; gap > 0; gap >>= 1) {
+            for (i = gap; i < arraySize; i++) {
+                temp = array.get(i);
+                for (j = i; j >= gap && comparator.compare(array.get(j - gap),
+                        temp) == sortOrder; j -= gap) {
+                    array.set(j, array.get(j - gap));
+                }
+                array.set(j, temp);
+            }
+        }
+    }
+
     private static <T> void swap(Array<T> array, int left, int right) {
         T temp = array.get(left);
         array.set(left, array.get(right));
