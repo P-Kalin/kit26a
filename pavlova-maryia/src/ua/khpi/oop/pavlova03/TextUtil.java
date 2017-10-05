@@ -31,7 +31,7 @@ public final class TextUtil {
 	 * Method for extracting all sentences from the text
 	 * 
 	 * @param text
-	 *            - input data
+	 *            input data
 	 * @return list of sentences
 	 */
 	public static Iterable<String> extractAllSentences(String text) {
@@ -42,7 +42,7 @@ public final class TextUtil {
 	 * Method for searching the longest word in each line
 	 * 
 	 * @param lines
-	 *            - list of sentences
+	 *            list of sentences
 	 * @return list of the longest words
 	 */
 	public static Iterable<String> findLongestWordsInLines(Iterable<String> lines) {
@@ -57,7 +57,7 @@ public final class TextUtil {
 	 * Method for searching the shortest word in each line
 	 * 
 	 * @param lines
-	 *            - list of sentences
+	 *            list of sentences
 	 * @return list of the shortest words
 	 */
 	public static Iterable<String> findShortestWordsInLines(Iterable<String> lines) {
@@ -72,9 +72,9 @@ public final class TextUtil {
 	 * Method for seaching an element by a special token
 	 * 
 	 * @param text
-	 *            - input data
+	 *            input data
 	 * @param comparator
-	 *            - token
+	 *            token
 	 * @return found word
 	 */
 	private static String findWordInText(String text, Comparator<String> comparator) {
@@ -87,7 +87,7 @@ public final class TextUtil {
 	 * Method for searching the longest word in the text
 	 * 
 	 * @param text
-	 *            - input data
+	 *            input data
 	 * @return found word
 	 */
 	public static String findLongestWordtInText(String text) {
@@ -108,7 +108,7 @@ public final class TextUtil {
 	 * Method for searching the shortest word in text
 	 * 
 	 * @param text
-	 *            - input data
+	 *            input data
 	 * @return found word
 	 */
 	public static String findShortestWordInText(String text) {
@@ -130,9 +130,9 @@ public final class TextUtil {
 	 * Method for extracting elements from text
 	 * 
 	 * @param text
-	 *            - input data
+	 *            input data
 	 * @param separators
-	 *            - special 'stop-symbols'
+	 *            special 'stop-symbols'
 	 * @return extracted elements
 	 */
 	public static Iterable<String> extractElementsFromText(String text, String separators) {
@@ -150,14 +150,10 @@ public final class TextUtil {
 	 * Method for extracting words from text
 	 * 
 	 * @param text
-	 *            - input data
+	 *            input data
 	 * @return extracted words
 	 */
 	public static Iterable<String> extractWordsFromText(String text) {
 		return extractElementsFromText(text, WORDS_SEPARATORS);
-	}
-
-	public static void print() {
-
 	}
 }
