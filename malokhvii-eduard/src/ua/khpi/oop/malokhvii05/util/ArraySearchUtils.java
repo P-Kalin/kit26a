@@ -62,6 +62,39 @@ public final class ArraySearchUtils {
         return INDEX_NOT_FOUND;
     }
 
+    public static <T extends Comparable<T>> int exponentialSearch(
+            Array<T> array, T value) {
+        if (array.isEmpty()) {
+            return INDEX_NOT_FOUND;
+        }
+
+        int index = 1;
+        int arraySize = array.size();
+        while (index < arraySize && array.get(index).compareTo(value) <= -1) {
+            index = index << 1;
+        }
+
+        return binarySearch(array, value, index >> 1,
+                Math.min(index, arraySize));
+    }
+
+    public static <T> int exponentialSearch(Array<T> array, T value,
+            Comparator<T> comparator) {
+        if (array.isEmpty()) {
+            return INDEX_NOT_FOUND;
+        }
+
+        int index = 1;
+        int arraySize = array.size();
+        while (index < arraySize
+                && comparator.compare(array.get(index), value) <= -1) {
+            index = index << 1;
+        }
+
+        return binarySearch(array, value, index >> 1,
+                Math.min(index, arraySize), comparator);
+    }
+
     public static <T extends Comparable<T>> int gallopSearch(Array<T> array,
             T value) {
         return gallopSearch(array, value, 0, array.size());
