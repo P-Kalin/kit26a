@@ -208,6 +208,47 @@ public final class ArraySortUtil {
         }
     }
 
+    public static <T extends Comparable<T>> void insertionSort(Array<T> array,
+            int sortOrder) {
+        boolean isReversed = sortOrder == ASCENDING_SORT_ORDER ? true : false;
+
+        T key;
+        int arraySize = array.size();
+
+        int i;
+        int j;
+        for (i = 1; i < arraySize; i++) {
+            key = array.get(i);
+            j = i - 1;
+            while (j >= 0 && isReversed == (array.get(j).compareTo(key) > 0)) {
+                array.set(j + 1, array.get(j));
+                j = j - 1;
+            }
+            array.set(j + 1, key);
+        }
+    }
+
+    public static <T> void insertionSort(Array<T> array, int sortOrder,
+            Comparator<T> comparator) {
+        boolean isReversed = sortOrder == ASCENDING_SORT_ORDER ? true : false;
+
+        T key;
+        int arraySize = array.size();
+
+        int i;
+        int j;
+        for (i = 1; i < arraySize; i++) {
+            key = array.get(i);
+            j = i - 1;
+            while (j >= 0 && isReversed == (comparator.compare(array.get(j),
+                    key) > 0)) {
+                array.set(j + 1, array.get(j));
+                j = j - 1;
+            }
+            array.set(j + 1, key);
+        }
+    }
+
     private static <T> int partition(Array<T> array, int left, int right,
             Comparator<T> comparator, int sortOrder) {
         boolean isReversed = sortOrder == ASCENDING_SORT_ORDER ? true : false;
