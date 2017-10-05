@@ -289,7 +289,7 @@ public final class Array<E> implements Collection<E> {
         return (E) oldElement;
     }
 
-    Object[] getData() {
+    public Object[] getData() {
         return data;
     }
 
