@@ -31,6 +31,68 @@ public final class ArraySortUtil {
         }
     }
 
+    @SuppressWarnings("unchecked")
+    private static <T> void bottomUpMerge(Object[] array, Object[] mergeBuffer,
+            int left, int chunkSize, Comparator<T> comparator,
+            boolean isReversed) {
+        int right = left + chunkSize;
+        int end = Math.min(left + chunkSize * 2 - 1, mergeBuffer.length - 1);
+
+        int leftIndex = left;
+        int rightIndex = right;
+
+        for (int i = 0; i <= end - left; i++) {
+            if (leftIndex < right && (rightIndex > end
+                    || isReversed == (comparator.compare((T) array[leftIndex],
+                            (T) array[rightIndex])) >= 0)) {
+                mergeBuffer[i] = array[leftIndex++];
+            } else {
+                mergeBuffer[i] = array[rightIndex++];
+            }
+        }
+
+        for (int i = left; i <= end; i++) {
+            array[i] = mergeBuffer[i - left];
+        }
+    }
+
+    public static <T> void bottomUpMergeSort(Array<T> array,
+            Comparator<T> comparator, int sortOrder) {
+        boolean isReversed = sortOrder == DESCENDING_SORT_ORDER ? true : false;
+
+        Object[] arrayData = array.getData();
+        Object[] mergeBuffer = new Object[array.size()];
+
+        int chunkSize = 1;
+        while (chunkSize < mergeBuffer.length) {
+            int i = 0;
+            while (i < mergeBuffer.length - chunkSize) {
+                bottomUpMerge(arrayData, mergeBuffer, i, chunkSize, comparator,
+                        isReversed);
+                i += chunkSize << 1;
+            }
+            chunkSize <<= 1;
+        }
+    }
+
+    public static <T extends Comparable<T>> void bottomUpMergeSort(
+            Array<T> array, int sortOrder) {
+        boolean isReversed = sortOrder == DESCENDING_SORT_ORDER ? true : false;
+
+        Object[] arrayData = array.getData();
+        Object[] mergeBuffer = new Object[array.size()];
+
+        int chunkSize = 1;
+        while (chunkSize < mergeBuffer.length) {
+            int i = 0;
+            while (i < mergeBuffer.length - chunkSize) {
+                bottomUpMerge(arrayData, mergeBuffer, i, chunkSize, isReversed);
+                i += chunkSize << 1;
+            }
+            chunkSize <<= 1;
+        }
+    }
+
     public static <T extends Comparable<T>> void bubbleSort(Array<T> array,
             int sortOrder) {
         int externalLoopBarrier = array.size();
@@ -71,68 +133,6 @@ public final class ArraySortUtil {
             if (isSwapped == false) {
                 break;
             }
-        }
-    }
-
-    @SuppressWarnings("unchecked")
-    private static <T> void buttomUpMerge(Object[] array, Object[] mergeBuffer,
-            int left, int chunkSize, Comparator<T> comparator,
-            boolean isReversed) {
-        int right = left + chunkSize;
-        int end = Math.min(left + chunkSize * 2 - 1, mergeBuffer.length - 1);
-
-        int leftIndex = left;
-        int rightIndex = right;
-
-        for (int i = 0; i <= end - left; i++) {
-            if (leftIndex < right && (rightIndex > end
-                    || isReversed == (comparator.compare((T) array[leftIndex],
-                            (T) array[rightIndex])) >= 0)) {
-                mergeBuffer[i] = array[leftIndex++];
-            } else {
-                mergeBuffer[i] = array[rightIndex++];
-            }
-        }
-
-        for (int i = left; i <= end; i++) {
-            array[i] = mergeBuffer[i - left];
-        }
-    }
-
-    public static <T> void buttomUpMergeSort(Array<T> array, Comparator<T> comparator,
-            int sortOrder) {
-        boolean isReversed = sortOrder == DESCENDING_SORT_ORDER ? true : false;
-
-        Object[] arrayData = array.getData();
-        Object[] mergeBuffer = new Object[array.size()];
-
-        int chunkSize = 1;
-        while (chunkSize < mergeBuffer.length) {
-            int i = 0;
-            while (i < mergeBuffer.length - chunkSize) {
-                buttomUpMerge(arrayData, mergeBuffer, i, chunkSize, comparator,
-                        isReversed);
-                i += chunkSize << 1;
-            }
-            chunkSize <<= 1;
-        }
-    }
-
-    public static <T extends Comparable<T>> void buttomUpMergeSort(Array<T> array,
-            int sortOrder) {
-        boolean isReversed = sortOrder == DESCENDING_SORT_ORDER ? true : false;
-
-        Object[] arrayData = array.getData();
-        Object[] mergeBuffer = new Object[array.size()];
-
-        int chunkSize = 1;
-        while (chunkSize < mergeBuffer.length) {
-            int i = 0;
-            while (i < mergeBuffer.length - chunkSize) {
-                bottomUpMerge(arrayData, mergeBuffer, i, chunkSize, isReversed);
-                i += chunkSize << 1;
-            }
-            chunkSize <<= 1;
         }
     }
 
@@ -348,6 +348,118 @@ public final class ArraySortUtil {
         T temp = array.get(left);
         array.set(left, array.get(right));
         array.set(right, temp);
+    }
+
+    @SuppressWarnings("unchecked")
+    private static <T extends Comparable<T>> Object[] topDownMergeSlices(
+            Object[] left, Object[] right, boolean isReversed) {
+        Object[] mergeBuffer = new Integer[left.length + right.length];
+
+        int leftIndex = 0;
+        int rightIndex = 0;
+        int resultIndex = 0;
+        while (leftIndex < left.length || rightIndex < right.length) {
+            if (leftIndex < left.length && rightIndex < right.length) {
+                if (isReversed == ((T) left[leftIndex])
+                        .compareTo((T) right[rightIndex]) < 1) {
+                    mergeBuffer[resultIndex++] = left[leftIndex++];
+                } else {
+                    mergeBuffer[resultIndex++] = right[rightIndex++];
+                }
+            } else if (leftIndex < left.length) {
+                mergeBuffer[resultIndex++] = left[leftIndex++];
+            } else if (rightIndex < right.length) {
+                mergeBuffer[resultIndex++] = right[rightIndex++];
+            }
+        }
+        return mergeBuffer;
+    }
+
+    @SuppressWarnings("unchecked")
+    private static <T> Object[] topDownMergeSlices(Object[] left,
+            Object[] right, boolean isReversed, Comparator<T> comparator) {
+        Object[] mergeBuffer = new Integer[left.length + right.length];
+
+        int leftIndex = 0;
+        int rightIndex = 0;
+        int resultIndex = 0;
+        while (leftIndex < left.length || rightIndex < right.length) {
+            if (leftIndex < left.length && rightIndex < right.length) {
+                if (isReversed == (comparator.compare((T) left[leftIndex],
+                        (T) right[rightIndex])) < 1) {
+                    mergeBuffer[resultIndex++] = left[leftIndex++];
+                } else {
+                    mergeBuffer[resultIndex++] = right[rightIndex++];
+                }
+            } else if (leftIndex < left.length) {
+                mergeBuffer[resultIndex++] = left[leftIndex++];
+            } else if (rightIndex < right.length) {
+                mergeBuffer[resultIndex++] = right[rightIndex++];
+            }
+        }
+        return mergeBuffer;
+    }
+
+    public static <T extends Comparable<T>> void topDownMergeSort(
+            Array<T> array, int sortOrder) {
+        boolean isReversed = sortOrder == ASCENDING_SORT_ORDER ? true : false;
+
+        Object[] arrayData = array.getData();
+        Object[] sortedArrayData = topDownMergeSort(array.toArray(),
+                isReversed);
+        System.arraycopy(sortedArrayData, 0, arrayData, 0,
+                arrayData.length - (arrayData.length - array.size()));
+    }
+
+    public static <T> void topDownMergeSort(Array<T> array, int sortOrder,
+            Comparator<T> comparator) {
+        boolean isReversed = sortOrder == ASCENDING_SORT_ORDER ? true : false;
+
+        Object[] arrayData = array.getData();
+        Object[] sortedArrayData = topDownMergeSort(array.toArray(), isReversed,
+                comparator);
+        System.arraycopy(sortedArrayData, 0, arrayData, 0,
+                arrayData.length - (arrayData.length - array.size()));
+    }
+
+    private static <T extends Comparable<T>> Object[] topDownMergeSort(
+            Object[] array, boolean isReversed) {
+        if (array.length <= 1) {
+            return array;
+        }
+
+        int middle = array.length >> 1;
+
+        Object[] left = new Object[middle];
+        Object[] right = new Object[array.length - middle];
+
+        System.arraycopy(array, 0, left, 0, left.length);
+        System.arraycopy(array, left.length, right, 0, right.length);
+
+        left = topDownMergeSort(left, isReversed);
+        right = topDownMergeSort(right, isReversed);
+
+        return topDownMergeSlices(left, right, isReversed);
+    }
+
+    private static <T> Object[] topDownMergeSort(Object[] array,
+            boolean isReversed, Comparator<T> comparator) {
+        if (array.length <= 1) {
+            return array;
+        }
+
+        int middle = array.length >> 1;
+
+        Object[] left = new Object[middle];
+        Object[] right = new Object[array.length - middle];
+
+        System.arraycopy(array, 0, left, 0, left.length);
+        System.arraycopy(array, left.length, right, 0, right.length);
+
+        left = topDownMergeSort(left, isReversed, comparator);
+        right = topDownMergeSort(right, isReversed, comparator);
+
+        return topDownMergeSlices(left, right, isReversed, comparator);
     }
 
     private ArraySortUtil() {
