@@ -6,6 +6,85 @@ public final class ArraySearchUtils {
 
     public static final int INDEX_NOT_FOUND = -1;
 
+    public static <T extends Comparable<T>> int binaryGallopSearch(
+            Array<T> array, T value) {
+        return binaryGallopSearch(array, value, 0, array.size());
+    }
+
+    public static <T extends Comparable<T>> int binaryGallopSearch(
+            Array<T> array, T value, Comparator<T> comparator) {
+        return binaryGallopSearch(array, value, 0, array.size(), comparator);
+    }
+
+    public static <T extends Comparable<T>> int binaryGallopSearch(
+            Array<T> array, T value, int left, int right) {
+        if (array.isEmpty()) {
+            return INDEX_NOT_FOUND;
+        }
+
+        int offset = 1;
+        T currentValue;
+        int nextIndex;
+        while (left <= right) {
+            currentValue = array.get(left);
+
+            if (currentValue.equals(value)) {
+                return left;
+            }
+
+            nextIndex = left + offset;
+            if (currentValue.compareTo(value) == 1 || nextIndex > right) {
+                if (currentValue.compareTo(value) == 1) {
+                    right = left;
+                }
+
+                left -= (offset >> 1);
+                left++;
+                return binarySearch(array, value, left, right);
+            }
+
+            left = nextIndex;
+            offset <<= 1;
+        }
+
+        return INDEX_NOT_FOUND;
+    }
+
+    public static <T> int binaryGallopSearch(Array<T> array, T value, int left,
+            int right, Comparator<T> comparator) {
+        if (array.isEmpty()) {
+            return INDEX_NOT_FOUND;
+        }
+
+        int offset = 1;
+        T currentValue;
+        int nextIndex;
+        while (left <= right) {
+            currentValue = array.get(left);
+
+            if (currentValue.equals(value)) {
+                return left;
+            }
+
+            nextIndex = left + offset;
+            if (comparator.compare(currentValue, value) == 1
+                    || nextIndex > right) {
+                if (comparator.compare(currentValue, value) == 1) {
+                    right = left;
+                }
+
+                left -= (offset >> 1);
+                left++;
+                return binarySearch(array, value, left, right, comparator);
+            }
+
+            left = nextIndex;
+            offset <<= 1;
+        }
+
+        return INDEX_NOT_FOUND;
+    }
+
     public static <T extends Comparable<T>> int binarySearch(Array<T> array,
             T value) {
         return binarySearch(array, value, 0, array.size());
