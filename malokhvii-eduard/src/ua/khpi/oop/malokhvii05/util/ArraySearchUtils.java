@@ -6,6 +6,62 @@ public final class ArraySearchUtils {
 
     public static final int INDEX_NOT_FOUND = -1;
 
+    public static <T extends Comparable<T>> int binarySearch(Array<T> array,
+            T value) {
+        return binarySearch(array, value, 0, array.size());
+    }
+
+    public static <T> int binarySearch(Array<T> array, T value,
+            Comparator<T> comparator) {
+        return binarySearch(array, value, 0, array.size(), comparator);
+    }
+
+    public static <T extends Comparable<T>> int binarySearch(Array<T> array,
+            T value, int left, int right) {
+        if (array.isEmpty()) {
+            return INDEX_NOT_FOUND;
+        }
+
+        int middle;
+        while (left < right) {
+            middle = (left + right) >>> 1;
+            if (array.get(middle).compareTo(value) == 0) {
+                return middle;
+            } else {
+                if (array.get(middle).compareTo(value) == 1) {
+                    right = middle;
+                } else {
+                    left = middle + 1;
+                }
+            }
+        }
+
+        return INDEX_NOT_FOUND;
+    }
+
+    public static <T> int binarySearch(Array<T> array, T value, int left,
+            Integer right, Comparator<T> comparator) {
+        if (array.isEmpty()) {
+            return INDEX_NOT_FOUND;
+        }
+
+        int middle;
+        while (left < right) {
+            middle = (left + right) >>> 1;
+            if (comparator.compare(array.get(middle), value) == 0) {
+                return middle;
+            } else {
+                if (comparator.compare(array.get(middle), value) == 1) {
+                    right = middle;
+                } else {
+                    left = middle + 1;
+                }
+            }
+        }
+
+        return INDEX_NOT_FOUND;
+    }
+
     public static <T extends Comparable<T>> int gallopSearch(Array<T> array,
             T value) {
         return gallopSearch(array, value, 0, array.size());
