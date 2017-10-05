@@ -122,6 +122,101 @@ public final class ArraySortUtil {
         }
     }
 
+    private static <T> int partition(Array<T> array, int left, int right,
+            Comparator<T> comparator, int sortOrder) {
+        boolean isReversed = sortOrder == ASCENDING_SORT_ORDER ? true : false;
+        T highValue = array.get(right);
+
+        int i = (left - 1);
+        int j;
+        for (j = left; j <= right - 1; j++) {
+            if (isReversed == comparator.compare(array.get(j),
+                    highValue) <= -1) {
+                i++;
+                swap(array, i, j);
+            }
+        }
+
+        swap(array, ++i, right);
+        return i;
+    }
+
+    private static <T extends Comparable<T>> int partition(Array<T> array,
+            int left, int right, int sortOrder) {
+        boolean isReversed = sortOrder == ASCENDING_SORT_ORDER ? true : false;
+        T highValue = array.get(right);
+
+        int i = (left - 1);
+        int j;
+        for (j = left; j <= right - 1; j++) {
+            if (isReversed == array.get(j).compareTo(highValue) <= -1) {
+                i++;
+                swap(array, i, j);
+            }
+        }
+
+        swap(array, ++i, right);
+        return i;
+    }
+
+    public static <T> void quickSort(Array<T> array, Comparator<T> comparator,
+            int sortOrder) {
+        int low = 0;
+        int high = array.size() - 1;
+
+        int[] stack = new int[high - low + 1];
+        int top = -1;
+
+        stack[++top] = low;
+        stack[++top] = high;
+
+        while (top >= 0) {
+            high = stack[top--];
+            low = stack[top--];
+
+            int partition = partition(array, low, high, comparator, sortOrder);
+
+            if (partition - 1 > low) {
+                stack[++top] = low;
+                stack[++top] = partition - 1;
+            }
+
+            if (partition + 1 < high) {
+                stack[++top] = partition + 1;
+                stack[++top] = high;
+            }
+        }
+    }
+
+    public static <T extends Comparable<T>> void quickSort(Array<T> array,
+            int sortOrder) {
+        int low = 0;
+        int high = array.size() - 1;
+
+        int[] stack = new int[high - low + 1];
+        int top = -1;
+
+        stack[++top] = low;
+        stack[++top] = high;
+
+        while (top >= 0) {
+            high = stack[top--];
+            low = stack[top--];
+
+            int partition = partition(array, low, high, sortOrder);
+
+            if (partition - 1 > low) {
+                stack[++top] = low;
+                stack[++top] = partition - 1;
+            }
+
+            if (partition + 1 < high) {
+                stack[++top] = partition + 1;
+                stack[++top] = high;
+            }
+        }
+    }
+
     public static <T extends Comparable<T>> void shellSort(Array<T> array,
             int sortOrder) {
         int arraySize = array.size();
