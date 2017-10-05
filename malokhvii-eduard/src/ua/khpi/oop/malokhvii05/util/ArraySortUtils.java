@@ -2,7 +2,7 @@ package ua.khpi.oop.malokhvii05.util;
 
 import java.util.Comparator;
 
-public final class ArraySortUtil {
+public final class ArraySortUtils {
 
     public static final int ASCENDING_SORT_ORDER = 1;
     public static final int DESCENDING_SORT_ORDER = -1;
@@ -543,7 +543,7 @@ public final class ArraySortUtil {
         return topDownMergeSlices(left, right, isReversed, comparator);
     }
 
-    private ArraySortUtil() {
+    private ArraySortUtils() {
 
     }
 }
