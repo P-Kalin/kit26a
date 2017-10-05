@@ -29,4 +29,49 @@ public final class ArraySearchUtils {
         }
         return INDEX_NOT_FOUND;
     }
+
+    public static <T extends Comparable<T>> int linearSearchWitBarrier(
+            Array<T> array, T value) {
+        if (array.isEmpty()) {
+            return INDEX_NOT_FOUND;
+        }
+
+        int index;
+        if (array.getLast().compareTo(value) != 0) {
+            array.setLast(value);
+            for (index = 0; array.get(index).compareTo(value) != 0; index++)
+                ;
+        } else {
+            return array.size() - 1;
+        }
+
+        if (index < array.size()) {
+            return index;
+        }
+
+        return INDEX_NOT_FOUND;
+    }
+
+    public static <T> int linearSearchWithBarrier(Array<T> array, T value,
+            Comparator<T> comparator) {
+        if (array.isEmpty()) {
+            return INDEX_NOT_FOUND;
+        }
+
+        int index;
+        if (comparator.compare(array.getLast(), value) != 0) {
+            array.setLast(value);
+            for (index = 0; comparator.compare(array.get(index), value) != 0;
+                    index++)
+                ;
+        } else {
+            return array.size() - 1;
+        }
+
+        if (index < array.size()) {
+            return index;
+        }
+
+        return INDEX_NOT_FOUND;
+    }
 }
