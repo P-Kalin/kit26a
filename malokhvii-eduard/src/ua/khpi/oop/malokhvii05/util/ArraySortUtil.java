@@ -50,6 +50,78 @@ public final class ArraySortUtil {
         }
     }
 
+    private static <T> void heapify(Array<T> array, int heapSize, int index,
+            Comparator<T> comparator, int sortOrder) {
+        int largest = index;
+        int left = 2 * index + 1;
+        int right = 2 * index + 2;
+
+        if (left < heapSize && (comparator.compare(array.get(left),
+                array.get(largest))) == sortOrder) {
+            largest = left;
+        }
+
+        if (right < heapSize && (comparator.compare(array.get(right),
+                array.get(largest))) == sortOrder) {
+            largest = right;
+        }
+
+        if (largest != index) {
+            swap(array, index, largest);
+            heapify(array, heapSize, largest, comparator, sortOrder);
+        }
+    }
+
+    private static <T extends Comparable<T>> void heapify(Array<T> array,
+            int heapSize, int index, int sortOrder) {
+        int largest = index;
+        int left = 2 * index + 1;
+        int right = 2 * index + 2;
+
+        if (left < heapSize && (array.get(left)
+                .compareTo(array.get(largest))) == sortOrder) {
+            largest = left;
+        }
+
+        if (right < heapSize && (array.get(right)
+                .compareTo(array.get(largest))) == sortOrder) {
+            largest = right;
+        }
+
+        if (largest != index) {
+            swap(array, index, largest);
+            heapify(array, heapSize, largest, sortOrder);
+        }
+    }
+
+    public static <T> void heapSort(Array<T> array, Comparator<T> comparator,
+            int sortOrder) {
+        int arraySize = array.size();
+        int index;
+        for (index = arraySize / 2 - 1; index >= 0; index--) {
+            heapify(array, arraySize, index, comparator, sortOrder);
+        }
+
+        for (index = arraySize - 1; index >= 0; index--) {
+            swap(array, 0, index);
+            heapify(array, index, 0, comparator, sortOrder);
+        }
+    }
+
+    public static <T extends Comparable<T>> void heapSort(Array<T> array,
+            int sortOrder) {
+        int arraySize = array.size();
+        int index;
+        for (index = arraySize / 2 - 1; index >= 0; index--) {
+            heapify(array, arraySize, index, sortOrder);
+        }
+
+        for (index = arraySize - 1; index >= 0; index--) {
+            swap(array, 0, index);
+            heapify(array, index, 0, sortOrder);
+        }
+    }
+
     public static <T extends Comparable<T>> void shellSort(Array<T> array,
             int sortOrder) {
         int arraySize = array.size();
