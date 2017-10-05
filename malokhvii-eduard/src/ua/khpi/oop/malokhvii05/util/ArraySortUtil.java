@@ -303,6 +303,46 @@ public final class ArraySortUtil {
         }
     }
 
+    public static <T extends Comparable<T>> void selectionSort(Array<T> array,
+            int sortOrder) {
+        boolean isReversed = sortOrder == ASCENDING_SORT_ORDER ? true : false;
+        int arraySize = array.size();
+
+        int minimumIndex;
+        int i;
+        int j;
+        for (i = 0; i < arraySize - 1; i++) {
+            minimumIndex = i;
+            for (j = i + 1; j < arraySize; j++) {
+                if (isReversed == (array.get(j)
+                        .compareTo(array.get(minimumIndex)) < sortOrder)) {
+                    minimumIndex = j;
+                }
+            }
+            swap(array, minimumIndex, i);
+        }
+    }
+
+    public static <T> void selectionSort(Array<T> array, int sortOrder,
+            Comparator<T> comporator) {
+        boolean isReversed = sortOrder == ASCENDING_SORT_ORDER ? true : false;
+        int arraySize = array.size();
+
+        int minimumIndex;
+        int i;
+        int j;
+        for (i = 0; i < arraySize - 1; i++) {
+            minimumIndex = i;
+            for (j = i + 1; j < arraySize; j++) {
+                if (isReversed == (comporator.compare(array.get(j),
+                        array.get(minimumIndex)) < 0)) {
+                    minimumIndex = j;
+                }
+            }
+            swap(array, minimumIndex, i);
+        }
+    }
+
     public static <T extends Comparable<T>> void shellSort(Array<T> array,
             int sortOrder) {
         int arraySize = array.size();
