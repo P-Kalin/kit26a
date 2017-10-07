@@ -23,15 +23,26 @@ class TextHelper {
 		/* Список, що зберігає результат */
 		StringСontainer result = new StringСontainer();
 		String temp = ""; // Буфер
+		int cnt = 0;
 		for (int i = 0; i < text.length(); ++i) {
 			char sign = text.charAt(i);
+			cnt = i + 1;
 			if (sign == DOT) {
+				if (cnt < text.length() && text.charAt(i + 1) == ' ') {
+					i++;
+				}
 				result.add(temp + DOT);
 				temp = "";
 			} else if (sign == EXCLAMATION) {
+				if (cnt < text.length() && text.charAt(i + 1) == ' ') {
+					i++;
+				}
 				result.add(temp + EXCLAMATION);
 				temp = "";
 			} else if (sign == QUESTION) {
+				if (cnt < text.length() && text.charAt(i + 1) == ' ') {
+					i++;
+				}
 				result.add(temp + QUESTION);
 				temp = "";
 			} else {

@@ -45,6 +45,10 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	 * Розмір контейнера (кількість елементів, що містяться в ньому).
 	 */
 	private int size;
+	/**
+	 * Компаратор для порівніння елементів контейнеру
+	 */
+	public static final Comparator<String> COMPARATOR = new StringComparator();
 
 	/**
 	 * Створює порожній контейнер із вказаною початковою ємністю.
@@ -90,15 +94,12 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	}
 
 	/**
-	 * Конвертує контейнер до String.
+	 * Конвертує екземпляр StringСontainer до String.
 	 */
 	@Override
 	public String toString() {
-		StringBuffer buffer = new StringBuffer();
-		for (int i = 0; i < size; i++) {
-			buffer.append(stringData[i]);
-		}
-		return buffer.toString();
+		return getClass().getName() + "@" + Integer.toHexString(hashCode())
+		        + "{size=" + size + "}";
 	}
 
 	/**
@@ -218,11 +219,11 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	 */
 	public int indexOf(String string) {
 		if (string == null) {
-			for (int i = 0; i < size; i++)
+			for (int i = 0; i < stringData.length; i++)
 				if (stringData[i] == null)
 					return i;
 		} else {
-			for (int i = 0; i < size; i++)
+			for (int i = 0; i < stringData.length; i++)
 				if (string.equals(stringData[i]))
 					return i;
 		}
@@ -323,7 +324,7 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	}
 
 	public void sort(Comparator<? super String> comparator) {
-		// MergeSort.sort(stringData, comparator);
+		MergeSort.sort(stringData, comparator);
 	}
 
 	/**
@@ -408,6 +409,7 @@ public class StringСontainer implements Iterable<String>, Serializable {
 				current = lastRet;
 				lastRet = -1;
 			} catch (IndexOutOfBoundsException ex) {
+				System.out.println(this);
 				throw new RuntimeException(ex.toString());
 			}
 		}

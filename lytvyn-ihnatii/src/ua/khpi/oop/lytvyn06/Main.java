@@ -23,8 +23,14 @@ public class Main {
 				        + " вигляді тексту\n\n");
 				System.out.format("	read - команда для зчитування вхідних даних"
 				        + " у вигляді контейнеру з файлу\n\n");
-				System.out.format("	view - команда перегляд введених даних"
+				System.out.format("	show - команда для перегляду"
+				        + " вмісту контейнеру\n\n");
+				System.out.format("	view - команда для перегляду введених даних"
 				        + "(відображає текст)\n\n");
+				System.out.format("	search - команда для пошуку елементів"
+				        + " у контейнері.\n\n");
+				System.out.format("	sort - команда для сортування елементів"
+				        + "у контейнері за алгоритмом MergeSort\n\n");
 				System.out.format("	calc - команда, що виконує пошук та"
 				        + " підрахунок голосних\n	та приголосних у кожному"
 				        + " речені тексту.\n\n");
@@ -43,7 +49,10 @@ public class Main {
 		System.out.format("	Список доступних команд:\n\n");
 		System.out.format("	input - введення даних\n");
 		System.out.format("	read - зчитування даних\n");
+		System.out.format("	show - перегляд контейнеру\n");
 		System.out.format("	view - перегляд даних\n");
+		System.out.format("	search - пошук даних\n");
+		System.out.format("	sort - сортування даних\n");
 		System.out.format("	calc - виконання обчислень\n");
 		System.out.format("	result - відображення результату\n");
 		System.out.format("	save - збереження даних\n");

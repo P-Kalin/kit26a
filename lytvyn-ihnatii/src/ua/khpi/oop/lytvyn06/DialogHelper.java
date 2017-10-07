@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * class DialogHelper - Утилітарний клас, забезпечує обробку команд користувача
- * у вигляді інтерактивного текстового меню.
+ * class DialogHelper - Утилітарний клас, що забезпечує обробку команд
+ * користувача у вигляді інтерактивного діалогового меню.
  * 
  * @author student Lytvyn I.I. KIT-26A
  *
@@ -34,7 +34,7 @@ public class DialogHelper {
 	 *
 	 */
 	public enum ACTION {
-		input, read, view, sort, calc, result, save, exit
+		input, calc, exit, read, result, save, search, sort, show, view
 	}
 
 	/**
@@ -67,24 +67,48 @@ public class DialogHelper {
 				/* Результат ризбиття тексту на окремі речення */
 				sentences = new StringСontainer(TextHelper.getSentences());
 				break;
-			case sort:
-				/*
-				 * if (sentences.isEmpty()) { System.out.println(
-				 * "	Сортування неможливе контейнер порожній!"); } else {
-				 * sentences.sort(null); }
-				 */
-				break;
 			case read:
 				/* Зчитування екземпляру контейнеру */
 				sentences = new StringСontainer(deserialize());
-				TextHelper.setText(sentences.toString());
-				break;
-			case view:
-				System.out.format("\n%s\n", TextHelper.getText());
+				StringBuffer buffer = new StringBuffer();
+				for (String string : sentences) {
+					buffer.append(string);
+				}
+				TextHelper.setText(buffer.toString());
 				break;
 			case calc:
-				/* Результат опрацювання речень */
-				data = CountHelper.Count(sentences);
+				if (sentences.isEmpty()) {
+					System.out.println("	Контейнер порожній!");
+				} else {
+					/* Результат опрацювання речень */
+					data = CountHelper.Count(sentences);
+				}
+				break;
+			case sort:
+				if (sentences.isEmpty()) {
+					System.out.println(
+					        "	Сортування неможливе контейнер порожній!");
+				} else {
+					/* Сортування контейнеру */
+					sentences.sort(StringСontainer.COMPARATOR);
+				}
+				break;
+			case search:
+				if (sentences.isEmpty()) {
+					System.out
+					        .println("	Пошук неможливий контейнер порожній!");
+				} else {
+					/* Пошук елементу в контейнері */
+					String find = InputHelper.getInput();
+					int result = sentences.indexOf(find);
+					if (result >= 0) {
+						System.out.println("\n	Елемент:\n\n\"" + find
+						        + "\"\n\n	Знайдено під індексом [" + result
+						        + "].");
+					} else {
+						System.out.println("\n	Елемент не знайдено!");
+					}
+				}
 				break;
 			case result:
 				/* Виведення результату */
@@ -93,6 +117,28 @@ public class DialogHelper {
 			case save:
 				/* Запис контейнеру */
 				serialize(sentences);
+				break;
+			case show:
+				if (sentences.isEmpty()) {
+					System.out.println("	Контейнер порожній!");
+				} else {
+					/* Виведення речень */
+					StringСontainer.ContainerIterator<String> iterator = sentences
+					        .iterator();
+					System.out.println("\n	Поточний вміст контейнеру:\n");
+					while (iterator.hasNext()) {
+						System.out.println("### " + iterator.next());
+					}
+				}
+				break;
+			case view:
+				String text = TextHelper.getText();
+				if (text != null) {
+					System.out.format("\n%s\n", text);
+				} else {
+					System.out.println("	Текст порожній!");
+				}
+
 				break;
 			case exit:
 				exit = true;
@@ -118,6 +164,7 @@ public class DialogHelper {
 			        new BufferedOutputStream(new FileOutputStream("Data.ser")));
 			/* Записуємо контейнер */
 			out.writeObject(sentences);
+			System.out.println("	Записано: " + sentences);
 		} catch (IOException ex) {
 			ex.printStackTrace();
 			/* Обов'язково зачиняємо потік */
@@ -146,6 +193,7 @@ public class DialogHelper {
 			        new BufferedInputStream(new FileInputStream("Data.ser")));
 			/* Відновлюємо контейнер */
 			sentences = new StringСontainer((StringСontainer) in.readObject());
+			System.out.println("	Зчитано: " + sentences);
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} catch (Exception ex) {
