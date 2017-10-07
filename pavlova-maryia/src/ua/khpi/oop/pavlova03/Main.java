@@ -1,5 +1,7 @@
 package ua.khpi.oop.pavlova03;
 
+import java.util.ArrayList;
+
 import ua.khpi.oop.pavlova04.TextUtil;
 
 public class Main {
@@ -19,9 +21,12 @@ public class Main {
 				+ "Since sweets and beauties do themselves forsake. " + "And die as fast as they see others grow."
 				+ "And nothing 'gainst Time's scythe can make defence. "
 				+ "Save breed, to brave him when he takes thee hence.";
-		for (String element : TextUtil.extractAllSentences(text)) {
-			System.out.format("%s : %s, %s\n", element, TextUtil.findShortestWordInText(element),
-					TextUtil.findLongesWordtInText(element));
-		}
+		System.out.println("Sent# \tThe shortest word \tThe longest word");
+		ArrayList<String> sentences = (ArrayList<String>) TextUtil.extractAllSentences(text);
+		ArrayList<String> longest = (ArrayList<String>) TextUtil.findLongestWordsInLines(sentences);
+		ArrayList<String> shortest = (ArrayList<String>) TextUtil.findShortestWordsInLines(sentences);
+		for (int i = 0; i < sentences.size(); i++)
+			System.out.println(i + "\t" + shortest.get(i) + "\t\t\t" + longest.get(i));
+
 	}
 }
