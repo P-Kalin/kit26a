@@ -35,19 +35,26 @@ public final class CommandParser {
 		case 3:
 			System.out.println("3. calculate");
 			for (String element : TextUtil.extractAllSentences(text)) {
+				if (ExtraOptions.debugParam == true)
+					System.out.println("~dbg.Ведеться пошук найдовших слів у реченнях.");
 				longest.add(TextUtil.findLongestWordtInText(element));
+				if (ExtraOptions.debugParam == true)
+					System.out.println("~dbg.Ведеться пошук найкоротших слів у реченнях.");
 				shortest.add(TextUtil.findShortestWordInText(element));
 			}
 			break;
 		case 4:
 			System.out.println("4. result");
-			System.out.format("№\tНайкоротше слово\tНайдовше слово\n");
+			if (ExtraOptions.debugParam == true)
+				System.out.println("~dbg.Буде виведено усі результати обчислень.");
 			for (int i = 0; i < longest.size(); i++) {
 				System.out.format("%d\t%s\t%s\n", i, shortest.get(i), longest.get(i));
 			}
 			break;
 		case 5:
 			System.out.println("5. exit");
+			if (ExtraOptions.debugParam == true)
+				System.out.println("~dbg.Вихід з програми.");
 			exit = true;
 			break;
 		default:
