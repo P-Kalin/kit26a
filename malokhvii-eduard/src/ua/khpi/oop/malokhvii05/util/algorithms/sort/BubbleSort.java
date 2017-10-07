@@ -4,7 +4,13 @@ import java.util.Comparator;
 
 import ua.khpi.oop.malokhvii05.util.Array;
 
-public class BubbleSort<T extends Comparable<T>> extends AbstractSortAlgorithm<T> {
+public class BubbleSort<T extends Comparable<T>>
+        extends AbstractSortAlgorithm<T> {
+
+    static {
+        SortAlgorithmFactory.registerSortAlgorithm("bubble-sort",
+                BubbleSort.class);
+    }
 
     public BubbleSort(Comparator<T> comparator) {
         super(comparator);

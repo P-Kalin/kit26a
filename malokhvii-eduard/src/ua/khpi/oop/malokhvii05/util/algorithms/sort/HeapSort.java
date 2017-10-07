@@ -6,6 +6,10 @@ import ua.khpi.oop.malokhvii05.util.Array;
 
 public final class HeapSort<T> extends AbstractSortAlgorithm<T> {
 
+    static {
+        SortAlgorithmFactory.registerSortAlgorithm("heap-sort", HeapSort.class);
+    }
+
     public HeapSort(Comparator<T> comparator) {
         super(comparator);
     }

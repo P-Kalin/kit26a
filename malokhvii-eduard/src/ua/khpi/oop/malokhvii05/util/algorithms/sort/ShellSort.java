@@ -6,6 +6,11 @@ import ua.khpi.oop.malokhvii05.util.Array;
 
 public class ShellSort<T> extends AbstractSortAlgorithm<T> {
 
+    static {
+        SortAlgorithmFactory.registerSortAlgorithm("shell-sort",
+                ShellSort.class);
+    }
+
     public ShellSort(Comparator<T> comparator) {
         super(comparator);
     }

@@ -8,6 +8,11 @@ public final class InsertionSort<T> extends AbstractSortAlgorithm<T> {
 
     private boolean isReversed;
 
+    static {
+        SortAlgorithmFactory.registerSortAlgorithm("insertion-sort",
+                InsertionSort.class);
+    }
+
     public InsertionSort(Comparator<T> comparator) {
         super(comparator);
     }

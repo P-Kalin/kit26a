@@ -8,6 +8,11 @@ public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
 
     private boolean isReversed;
 
+    static {
+        SortAlgorithmFactory.registerSortAlgorithm("top-down-merge-sort",
+                TopDownMergeSort.class);
+    }
+
     public TopDownMergeSort(Comparator<T> comparator) {
         super(comparator);
     }

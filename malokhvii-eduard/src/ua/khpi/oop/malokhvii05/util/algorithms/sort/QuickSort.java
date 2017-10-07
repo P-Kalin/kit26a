@@ -8,6 +8,11 @@ public final class QuickSort<T> extends AbstractSortAlgorithm<T> {
 
     private boolean isReversed;
 
+    static {
+        SortAlgorithmFactory.registerSortAlgorithm("quick-sort",
+                QuickSort.class);
+    }
+
     public QuickSort(Comparator<T> comparator) {
         super(comparator);
     }

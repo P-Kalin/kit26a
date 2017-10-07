@@ -8,6 +8,11 @@ public final class BottomUpMergeSort<T> extends AbstractSortAlgorithm<T> {
 
     private boolean isReversed;
 
+    static {
+        SortAlgorithmFactory.registerSortAlgorithm("bottom-up-merge-sort",
+                BottomUpMergeSort.class);
+    }
+
     public BottomUpMergeSort(Comparator<T> comparator) {
         super(comparator);
     }

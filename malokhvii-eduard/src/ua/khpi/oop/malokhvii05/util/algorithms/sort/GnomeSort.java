@@ -26,18 +26,17 @@ public class GnomeSort<T> extends AbstractSortAlgorithm<T> {
 
     @Override
     public void sort(Array<T> array) {
-        int index = 1;
-        int nextIndex = 2;
+        int index = 0;
         int arraySize = array.size();
-
         while (index < arraySize) {
-            if (isReversed == (comparator.compare(array.get(index - 1),
-                    array.get(index)) <= 0)) {
-                index = nextIndex;
-                nextIndex++;
+            if (index == 0) {
+                index++;
+            } else if (isReversed == (comparator.compare(array.get(index),
+                    array.get(index - 1)) == sortOrderKey)) {
+                index++;
             } else {
-                swap(array, index - 1, index--);
-                index = (index == 0) ? nextIndex++ : index;
+                swap(array, index, index - 1);
+                index--;
             }
         }
     }

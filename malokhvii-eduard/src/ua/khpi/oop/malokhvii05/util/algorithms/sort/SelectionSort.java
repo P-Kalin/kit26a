@@ -8,6 +8,11 @@ public final class SelectionSort<T> extends AbstractSortAlgorithm<T> {
 
     private boolean isReversed;
 
+    static {
+        SortAlgorithmFactory.registerSortAlgorithm("selection-sort",
+                SelectionSort.class);
+    }
+
     public SelectionSort(Comparator<T> comparator) {
         super(comparator);
     }
