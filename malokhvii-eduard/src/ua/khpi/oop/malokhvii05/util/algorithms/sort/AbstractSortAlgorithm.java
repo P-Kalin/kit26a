@@ -14,7 +14,7 @@ public abstract class AbstractSortAlgorithm<T> implements SortAlgorithm<T> {
 
     public AbstractSortAlgorithm(Comparator<T> comparator) {
         this.comparator = comparator;
-        this.sortOrderKey = INTERNAL_ASCENDING_KEY;
+        setSortOrder(SortOrder.ASCENDING);
     }
 
     protected void swap(Array<T> array, int left, int right) {
