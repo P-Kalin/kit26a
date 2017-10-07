@@ -21,8 +21,8 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * <li>Назва: Gnome Sort</li>
  * <li>Автор: Dr. Hamid Sarbazi-Azad</li>
  * <li>Метод: Exchanging</li>
- * <li>Найкраща швидкодія: O(n)</li>
- * <li>Середня швидкодія: O(n^2)</li>
+ * <li>Найкраща швидкодія: Ω(n)</li>
+ * <li>Середня швидкодія: Θ(n^2)</li>
  * <li>Найгірша швидкодія: O(n^2)</li>
  * <li>Просторова складність: O(1)</li>
  * <li>Стабільний: Так</li>
