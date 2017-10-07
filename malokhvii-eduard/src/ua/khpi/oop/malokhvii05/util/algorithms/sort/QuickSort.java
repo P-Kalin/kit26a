@@ -9,8 +9,7 @@ public final class QuickSort<T> extends AbstractSortAlgorithm<T> {
     private boolean isReversed;
 
     static {
-        SortAlgorithmFactory.registerSortAlgorithm("quick-sort",
-                QuickSort.class);
+        SortAlgorithmFactory.registerAlgorithm("quick-sort", QuickSort.class);
     }
 
     public QuickSort(Comparator<T> comparator) {
@@ -47,7 +46,7 @@ public final class QuickSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void setSortOrder(SortOrder sortOrder) {
+    public void setSortOrder(Order sortOrder) {
         isReversed = isReversed(sortOrderToKey(sortOrder),
                 INTERNAL_ASCENDING_KEY);
         super.setSortOrder(sortOrder);

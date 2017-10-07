@@ -9,8 +9,9 @@ public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
     private boolean isReversed;
 
     static {
-        SortAlgorithmFactory.registerSortAlgorithm("top-down-merge-sort",
+        SortAlgorithmFactory.registerAlgorithm("top-down-merge-sort",
                 TopDownMergeSort.class);
+        SortAlgorithmFactory.setDefaultAlgorithm(TopDownMergeSort.class);
     }
 
     public TopDownMergeSort(Comparator<T> comparator) {
@@ -45,7 +46,7 @@ public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void setSortOrder(SortOrder sortOrder) {
+    public void setSortOrder(Order sortOrder) {
         isReversed = isReversed(sortOrderToKey(sortOrder),
                 INTERNAL_ASCENDING_KEY);
         super.setSortOrder(sortOrder);

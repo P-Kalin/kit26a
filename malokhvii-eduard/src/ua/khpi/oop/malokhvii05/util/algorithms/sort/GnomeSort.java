@@ -9,8 +9,7 @@ public class GnomeSort<T> extends AbstractSortAlgorithm<T> {
     private boolean isReversed;
 
     static {
-        SortAlgorithmFactory.registerSortAlgorithm("gnome-sort",
-                GnomeSort.class);
+        SortAlgorithmFactory.registerAlgorithm("gnome-sort", GnomeSort.class);
     }
 
     public GnomeSort(Comparator<T> comparator) {
@@ -18,7 +17,7 @@ public class GnomeSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void setSortOrder(SortOrder sortOrder) {
+    public void setSortOrder(Order sortOrder) {
         isReversed = isReversed(sortOrderToKey(sortOrder),
                 INTERNAL_ASCENDING_KEY);
         super.setSortOrder(sortOrder);

@@ -9,7 +9,7 @@ public final class BottomUpMergeSort<T> extends AbstractSortAlgorithm<T> {
     private boolean isReversed;
 
     static {
-        SortAlgorithmFactory.registerSortAlgorithm("bottom-up-merge-sort",
+        SortAlgorithmFactory.registerAlgorithm("bottom-up-merge-sort",
                 BottomUpMergeSort.class);
     }
 
@@ -34,7 +34,7 @@ public final class BottomUpMergeSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void setSortOrder(SortOrder sortOrder) {
+    public void setSortOrder(Order sortOrder) {
         isReversed = isReversed(sortOrderToKey(sortOrder),
                 INTERNAL_DESCENDING_KEY);
         super.setSortOrder(sortOrder);

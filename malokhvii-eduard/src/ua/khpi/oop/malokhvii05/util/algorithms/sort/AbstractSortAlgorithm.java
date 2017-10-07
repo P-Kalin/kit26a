@@ -3,18 +3,19 @@ package ua.khpi.oop.malokhvii05.util.algorithms.sort;
 import java.util.Comparator;
 
 import ua.khpi.oop.malokhvii05.util.Array;
+import ua.khpi.oop.malokhvii05.util.algorithms.AbstractAlgorithmWithComparator;
 
-public abstract class AbstractSortAlgorithm<T> implements SortAlgorithm<T> {
+public abstract class AbstractSortAlgorithm<T>
+        extends AbstractAlgorithmWithComparator<T> implements SortAlgorithm<T> {
 
     protected static final int INTERNAL_ASCENDING_KEY = 1;
     protected static final int INTERNAL_DESCENDING_KEY = -1;
 
-    protected Comparator<T> comparator;
     protected int sortOrderKey;
 
     public AbstractSortAlgorithm(Comparator<T> comparator) {
-        this.comparator = comparator;
-        setSortOrder(SortOrder.ASCENDING);
+        super(comparator);
+        setSortOrder(Order.ASCENDING);
     }
 
     protected void swap(Array<T> array, int left, int right) {
@@ -27,30 +28,20 @@ public abstract class AbstractSortAlgorithm<T> implements SortAlgorithm<T> {
         return sortOrderKey == reversedSortOrderKey ? true : false;
     }
 
-    protected int sortOrderToKey(SortOrder sortOrder) {
-        return sortOrder == SortOrder.ASCENDING ? INTERNAL_ASCENDING_KEY
+    protected int sortOrderToKey(Order sortOrder) {
+        return sortOrder == Order.ASCENDING ? INTERNAL_ASCENDING_KEY
                 : INTERNAL_DESCENDING_KEY;
     }
 
     @Override
-    public Comparator<T> getComparator() {
-        return comparator;
+    public Order getSortOrder() {
+        return sortOrderKey == INTERNAL_ASCENDING_KEY ? Order.ASCENDING
+                : Order.DESCENDING;
     }
 
     @Override
-    public void setComparator(Comparator<T> comparator) {
-        this.comparator = comparator;
-    }
-
-    @Override
-    public SortOrder getSortOrder() {
-        return sortOrderKey == INTERNAL_ASCENDING_KEY ? SortOrder.ASCENDING
-                : SortOrder.DESCENDING;
-    }
-
-    @Override
-    public void setSortOrder(SortOrder sortOrder) {
-        this.sortOrderKey = sortOrder == SortOrder.ASCENDING
+    public void setSortOrder(Order sortOrder) {
+        this.sortOrderKey = sortOrder == Order.ASCENDING
                 ? INTERNAL_ASCENDING_KEY
                 : INTERNAL_DESCENDING_KEY;
     }

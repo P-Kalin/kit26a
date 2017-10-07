@@ -1,24 +1,17 @@
 package ua.khpi.oop.malokhvii05.util.algorithms.sort;
 
-import java.util.Comparator;
-
 import ua.khpi.oop.malokhvii05.util.Array;
+import ua.khpi.oop.malokhvii05.util.algorithms.AlgorithmWithComparator;
 
-public interface SortAlgorithm<T> {
+public interface SortAlgorithm<T> extends AlgorithmWithComparator<T> {
 
-    public enum SortOrder {
+    public enum Order {
         ASCENDING, DESCENDING;
     }
 
-    void setComparator(Comparator<T> comparator);
+    void setSortOrder(Order sortOrder);
 
-    Comparator<T> getComparator();
-
-    void setSortOrder(SortOrder sortOrder);
-
-    SortOrder getSortOrder();
+    Order getSortOrder();
 
     void sort(Array<T> array);
-
-    boolean isNull();
 }

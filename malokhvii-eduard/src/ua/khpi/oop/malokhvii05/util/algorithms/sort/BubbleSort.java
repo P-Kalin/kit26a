@@ -8,8 +8,7 @@ public class BubbleSort<T extends Comparable<T>>
         extends AbstractSortAlgorithm<T> {
 
     static {
-        SortAlgorithmFactory.registerSortAlgorithm("bubble-sort",
-                BubbleSort.class);
+        SortAlgorithmFactory.registerAlgorithm("bubble-sort", BubbleSort.class);
     }
 
     public BubbleSort(Comparator<T> comparator) {
