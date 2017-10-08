@@ -125,5 +125,8 @@
  * <td>Так</td>
  * </tr>
  * </table>
+ *
+ * @author malokhvii-eduard
+ * @version 1.0.0
  */
 package ua.khpi.oop.malokhvii05.util.algorithms.sort;
