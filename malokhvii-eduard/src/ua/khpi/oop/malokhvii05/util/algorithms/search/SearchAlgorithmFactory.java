@@ -8,10 +8,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Фабрика, алгоритмів пошуку, призначена для отримання об'єкту алгоритму. Якщо,
+ * вказано не вірну назву алгоритму повертається заглушка, тобто не дійсний
+ * алгоритм для пошуку.
+ *
+ * @author malokhvii-eduard
+ * @version 1.0.0
+ * @see SearchAlgorithm
+ */
 @SuppressWarnings("rawtypes")
 public final class SearchAlgorithmFactory {
 
+    /**
+     * Хеш-карта об'єктів обгорток над класами алгоритмів пошуку.
+     */
     private static Map<String, Class<? extends SearchAlgorithm>> classMapping;
+
+    /**
+     * Клас алгоритму за змовчування.
+     */
     private static Class<? extends SearchAlgorithm> defaultAlgorithm;
 
     static {
@@ -19,19 +35,43 @@ public final class SearchAlgorithmFactory {
         loadBasicAlgorithms();
     }
 
+    /**
+     * Приватний конструктор, для заборони створення фабрик алгоритмів.
+     */
     private SearchAlgorithmFactory() {
 
     }
 
+    /**
+     * Пирзначений, для отримання множини зарегестрованих назв алгоритмів.
+     *
+     * @return множина зарегестрованих назв алгоритмів
+     */
     public static Set<String> getRegisteredAlgorithms() {
         return classMapping.keySet();
     }
 
+    /**
+     * Призначений, для встановлення алгоритму за змовчуванням.
+     *
+     * @param algorithmClass
+     *            клас алгоритму за змовчуванням
+     */
     public static void setDefaultAlgorithm(
             Class<? extends SearchAlgorithm> algorithmClass) {
         defaultAlgorithm = algorithmClass;
     }
 
+    /**
+     * Призначений, для отримання алгоритму за змовчуванням.
+     *
+     * @param <T>
+     *            Тип, об'єктів для яких використовується компаратор
+     * @param comparator
+     *            компаратор, для алгоритму
+     * @return алгоритм за змовчуванням, якщо алгоритм за змовчуванням не
+     *         визначено, повертає заглушку на недійсний алгоритм.
+     */
     @SuppressWarnings("unchecked")
     public static <T> SearchAlgorithm<T> getDefaultAlgorithm(
             Comparator<T> comparator) {
@@ -46,6 +86,15 @@ public final class SearchAlgorithmFactory {
         return NullSearchAlgorithm.INSTANCE;
     }
 
+    /**
+     * Призначений, для отримання алгоритму за змовчуванням. Для типів які
+     * реалізують інтерфейс {@link Comparable}. В якості компаратора
+     * використовується {@link Comparator#naturalOrder}. * @param <T> Тип,
+     * об'єктів для яких використовується компаратор
+     *
+     * @return алгоритм за змовчуванням, якщо алгоритм за змовчуванням не
+     *         визначено, повертає заглушку на недійсний алгоритм.
+     */
     @SuppressWarnings("unchecked")
     public static <T extends Comparable<T>> SearchAlgorithm<T> getDefaultAlgorithm() {
         if (defaultAlgorithm != null) {
@@ -59,6 +108,18 @@ public final class SearchAlgorithmFactory {
         return NullSearchAlgorithm.INSTANCE;
     }
 
+    /**
+     * Призначений, для отримання алгоритму за його назвою.
+     *
+     * @param <T>
+     *            Тип, об'єктів для яких використовується компаратор
+     * @param name
+     *            назва алгоритму
+     * @param comparator
+     *            компаратор, для алгоритму
+     * @return алгоритм за назвою, якщо алгоритм за змовчуванням не визначено,
+     *         повертає заглушку на недійсний алгоритм.
+     */
     @SuppressWarnings("unchecked")
     public static <T> SearchAlgorithm<T> getAlgorithm(String name,
             Comparator<T> comparator) {
@@ -78,6 +139,18 @@ public final class SearchAlgorithmFactory {
         return searchtAlgorithm;
     }
 
+    /**
+     * Призначений, для отримання алгоритму за його назвою. Для типів які
+     * реалізують інтерфейс {@link Comparable}. В якості компаратора
+     * використовується {@link Comparator#naturalOrder}.
+     *
+     * @param <T>
+     *            Тип, об'єктів для яких використовується компаратор
+     * @param name
+     *            назва алгоритму
+     * @return алгоритм за назвою, якщо алгоритм за змовчуванням не визначено,
+     *         повертає заглушку на недійсний алгоритм.
+     */
     @SuppressWarnings("unchecked")
     public static <T extends Comparable<T>> SearchAlgorithm<T> getAlgorithm(
             String name) {
@@ -97,15 +170,32 @@ public final class SearchAlgorithmFactory {
         return searchAlgorithm;
     }
 
-    public static void unregisterAlgorithm(String name) {
+    /**
+     * Призначений, для видалення запису про зарегестрований алгоритм пошуку.
+     *
+     * @param name
+     *            зарегестрована назва алгоритму
+     */
+    static void unregisterAlgorithm(String name) {
         classMapping.remove(name);
     }
 
+    /**
+     * Призначений, для регістрації нового алгоритму пошуку.
+     *
+     * @param name
+     *            назва алгоритму
+     * @param algorithmClass
+     *            клас нового алгоритму пошуку
+     */
     public static void registerAlgorithm(String name,
             Class<? extends SearchAlgorithm> algorithmClass) {
         classMapping.put(name, algorithmClass);
     }
 
+    /**
+     * Призначений, для завантаження типових алгоритмів.
+     */
     private static void loadBasicAlgorithms() {
         final String basicPackage = "ua.khpi.oop.malokhvii05.util.algorithms"
                 + ".search";
