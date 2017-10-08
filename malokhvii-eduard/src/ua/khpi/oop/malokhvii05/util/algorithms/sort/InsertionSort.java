@@ -50,7 +50,7 @@ public final class InsertionSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     /**
-     * Пирзначений, для інійіалізації об'єкту компоратором для порівняння
+     * Призначений, для інійіалізації об'єкту компоратором для порівняння
      * вхідних даних.
      *
      * @param comparator

@@ -21,7 +21,7 @@ import java.util.Set;
 public final class SortAlgorithmFactory {
 
     /**
-     * Хеш-карта об'єктів обгорток над калсами алгоритмів сортування.
+     * Хеш-карта об'єктів обгорток над класами алгоритмів сортування.
      */
     private static Map<String, Class<? extends SortAlgorithm>> classMapping;
 
