@@ -30,17 +30,18 @@ final class NullSortAlgorithm<T> extends NullAlgorithmWithComparator<T>
     }
 
     @Override
-    public void setSortOrder(final Order sortOrder) {
-
-    }
-
-    @Override
-    public Order getSortOrder() {
-        return Order.ASCENDING;
-    }
-
-    @Override
     public void sort(final Array<T> array) {
+
+    }
+
+    @Override
+    public boolean isReversedOrder() {
+        return false;
+    }
+
+    @Override
+    public void setReversedOrder(boolean isReversedOrder) {
+        // TODO Auto-generated method stub
 
     }
 }

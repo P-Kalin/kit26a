@@ -47,6 +47,15 @@
  * <td>Так</td>
  * </tr>
  * <tr align="center">
+ * <td>{@link ua.khpi.oop.malokhvii05.util.algorithms.sort.TimSort TimSort}</td>
+ * <td>Insertion + Merging</td>
+ * <td>Ω(n)</td>
+ * <td>Θ(n log(n))</td>
+ * <td>O(n log(n))</td>
+ * <td>O(n)</td>
+ * <td>Так</td>
+ * </tr>
+ * <tr align="center">
  * <td>{@link ua.khpi.oop.malokhvii05.util.algorithms.sort.HeapSort
  * HeapSort}</td>
  * <td>Selection</td>

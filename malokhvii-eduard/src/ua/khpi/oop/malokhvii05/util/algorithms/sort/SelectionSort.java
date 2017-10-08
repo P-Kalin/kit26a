@@ -36,11 +36,6 @@ import ua.khpi.oop.malokhvii05.util.Array;
  */
 public final class SelectionSort<T> extends AbstractSortAlgorithm<T> {
 
-    /**
-     * Поточний напрямок сортування, тобто обернений чи ні.
-     */
-    private boolean isReversed;
-
     static {
         SortAlgorithmFactory.registerAlgorithm("selection-sort",
                 SelectionSort.class);
@@ -58,13 +53,6 @@ public final class SelectionSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void setSortOrder(final Order sortOrder) {
-        isReversed = isReversed(sortOrderToKey(sortOrder),
-                INTERNAL_ASCENDING_KEY);
-        super.setSortOrder(sortOrder);
-    }
-
-    @Override
     public void sort(final Array<T> array) {
         int arraySize = array.size();
 
@@ -74,8 +62,8 @@ public final class SelectionSort<T> extends AbstractSortAlgorithm<T> {
         for (i = 0; i < arraySize - 1; i++) {
             minimumIndex = i;
             for (j = i + 1; j < arraySize; j++) {
-                if (isReversed == (comparator.compare(array.get(j),
-                        array.get(minimumIndex)) < sortOrderKey)) {
+                if (comparator.compare(array.get(j),
+                        array.get(minimumIndex)) < 0) {
                     minimumIndex = j;
                 }
             }

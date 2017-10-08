@@ -65,8 +65,7 @@ public final class BubbleSort<T extends Comparable<T>>
         for (i = 0; i < externalLoopBarrier; i++) {
             isSwapped = false;
             for (j = 0; j < externalLoopBarrier - i - 1; j++) {
-                if ((comparator.compare(array.get(j),
-                        array.get(j + 1)) == sortOrderKey)) {
+                if (comparator.compare(array.get(j), array.get(j + 1)) == 1) {
                     swap(array, j, j + 1);
                     isSwapped = true;
                 }

@@ -47,11 +47,6 @@ import ua.khpi.oop.malokhvii05.util.Array;
  */
 public final class SimpleQuickSort<T> extends AbstractSortAlgorithm<T> {
 
-    /**
-     * Поточний напрямок сортування, тобто обернений чи ні.
-     */
-    private boolean isReversed;
-
     static {
         SortAlgorithmFactory.registerAlgorithm("simple-quick-sort",
                 SimpleQuickSort.class);
@@ -97,13 +92,6 @@ public final class SimpleQuickSort<T> extends AbstractSortAlgorithm<T> {
         }
     }
 
-    @Override
-    public void setSortOrder(final Order sortOrder) {
-        isReversed = isReversed(sortOrderToKey(sortOrder),
-                INTERNAL_ASCENDING_KEY);
-        super.setSortOrder(sortOrder);
-    }
-
     /**
      * Призначений, для вибірки останнього елементу як шарніру, розміщення
      * стрижневого елементу у своєму правильному положенні у відсортованому
@@ -125,8 +113,7 @@ public final class SimpleQuickSort<T> extends AbstractSortAlgorithm<T> {
         int i = (left - 1);
         int j;
         for (j = left; j <= right - 1; j++) {
-            if (isReversed == comparator.compare(array.get(j),
-                    highValue) <= -1) {
+            if (comparator.compare(array.get(j), highValue) <= -1) {
                 swap(array, ++i, j);
             }
         }

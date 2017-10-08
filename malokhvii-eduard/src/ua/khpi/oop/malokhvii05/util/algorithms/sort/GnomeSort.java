@@ -37,11 +37,6 @@ import ua.khpi.oop.malokhvii05.util.Array;
  */
 public final class GnomeSort<T> extends AbstractSortAlgorithm<T> {
 
-    /**
-     * Поточний напрямок сортування, тобто обернений чи ні.
-     */
-    private boolean isReversed;
-
     static {
         SortAlgorithmFactory.registerAlgorithm("gnome-sort", GnomeSort.class);
     }
@@ -58,21 +53,14 @@ public final class GnomeSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void setSortOrder(final Order sortOrder) {
-        isReversed = isReversed(sortOrderToKey(sortOrder),
-                INTERNAL_ASCENDING_KEY);
-        super.setSortOrder(sortOrder);
-    }
-
-    @Override
     public void sort(final Array<T> array) {
         int index = 0;
         int arraySize = array.size();
         while (index < arraySize) {
             if (index == 0) {
                 index++;
-            } else if (isReversed == (comparator.compare(array.get(index),
-                    array.get(index - 1)) == sortOrderKey)) {
+            } else if (isReversedOrder == (comparator.compare(array.get(index),
+                    array.get(index - 1)) == -1)) {
                 index++;
             } else {
                 swap(array, index, index - 1);

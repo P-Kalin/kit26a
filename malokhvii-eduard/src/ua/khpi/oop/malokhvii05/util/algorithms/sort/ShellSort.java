@@ -68,7 +68,7 @@ public final class ShellSort<T> extends AbstractSortAlgorithm<T> {
             for (i = gap; i < arraySize; i++) {
                 comparableValue = array.get(i);
                 for (j = i; j >= gap && comparator.compare(array.get(j - gap),
-                        comparableValue) == sortOrderKey; j -= gap) {
+                        comparableValue) == 1; j -= gap) {
                     array.set(j, array.get(j - gap));
                 }
                 array.set(j, comparableValue);

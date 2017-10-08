@@ -74,7 +74,7 @@ public final class SortAlgorithmFactory {
      */
     @SuppressWarnings("unchecked")
     public static <T> SortAlgorithm<T> getDefaultAlgorithm(
-            final Comparator<T> comparator) {
+            final Comparator<? super T> comparator) {
         if (defaultAlgorithm != null) {
             try {
                 return defaultAlgorithm.getConstructor(Comparator.class)
@@ -122,7 +122,7 @@ public final class SortAlgorithmFactory {
      */
     @SuppressWarnings("unchecked")
     public static <T> SortAlgorithm<T> getAlgorithm(final String name,
-            final Comparator<T> comparator) {
+            final Comparator<? super T> comparator) {
         SortAlgorithm<T> sortAlgorithm = NullSortAlgorithm.INSTANCE;
         Class<? extends SortAlgorithm> sortAlgorithmClass = classMapping
                 .get(name);
@@ -182,7 +182,7 @@ public final class SortAlgorithmFactory {
     }
 
     /**
-     * Призначений, для регістрації нвого алгоритму сортування.
+     * Призначений, для регістрації нового алгоритму сортування.
      *
      * @param name
      *            назва алгоритму
@@ -202,8 +202,8 @@ public final class SortAlgorithmFactory {
                 + ".sort";
         final List<String> basicSortAlgorithms = Arrays.asList("GnomeSort",
                 "BubbleSort", "ShellSort", "HeapSort", "TopDownMergeSort",
-                "BottomUpMergeSort", "QuickSort", "InsertionSort",
-                "SelectionSort");
+                "BottomUpMergeSort", "SimpleQuickSort", "InsertionSort",
+                "SelectionSort", "JSort", "TimSort");
 
         for (String basicSortAlgorithm : basicSortAlgorithms) {
             try {

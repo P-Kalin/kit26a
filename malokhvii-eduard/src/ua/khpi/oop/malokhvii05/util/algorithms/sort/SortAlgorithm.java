@@ -1,5 +1,7 @@
 package ua.khpi.oop.malokhvii05.util.algorithms.sort;
 
+import java.util.Comparator;
+
 import ua.khpi.oop.malokhvii05.util.Array;
 import ua.khpi.oop.malokhvii05.util.algorithms.AlgorithmWithComparator;
 
@@ -14,36 +16,21 @@ import ua.khpi.oop.malokhvii05.util.algorithms.AlgorithmWithComparator;
 public interface SortAlgorithm<T> extends AlgorithmWithComparator<T> {
 
     /**
-     * Перелік напрямків сортування вхідного масиву.
+     * Призначений, для отримання поточного стану компаратора, тобто чи
+     * обернений порядок сортування.
      *
-     * @author malokhvii-eduard
-     * @version 1.0.0
+     * @return порядок сортування обернений
      */
-    enum Order {
-        /**
-         * Сортування масиву від меншого до більшого.
-         */
-        ASCENDING,
-        /**
-         * Сортування масиву більшого до меншогою.
-         */
-        DESCENDING;
-    }
+    boolean isReversedOrder();
 
     /**
-     * Призначений, для оновлення напрямку сортування.
+     * Призначений, для оновлення поточного порядку сортування за допомогою
+     * методу {@link Comparator#reversed}.
      *
-     * @param sortOrder
-     *            новий напрямок сортування
+     * @param isReversedOrder
+     *            новий порядок сортування
      */
-    void setSortOrder(Order sortOrder);
-
-    /**
-     * Призначений, для отримання напрямку сортування.
-     *
-     * @return новий напрямок сортування
-     */
-    Order getSortOrder();
+    void setReversedOrder(boolean isReversedOrder);
 
     /**
      * Призначений, для сотування вхідного масиву.

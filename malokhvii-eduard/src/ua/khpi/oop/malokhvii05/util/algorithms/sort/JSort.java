@@ -35,11 +35,6 @@ import ua.khpi.oop.malokhvii05.util.Array;
  */
 public final class JSort<T> extends AbstractSortAlgorithm<T> {
 
-    /**
-     * Поточний напрямок сортування, тобто обернений чи ні.
-     */
-    private boolean isReversed;
-
     static {
         SortAlgorithmFactory.registerAlgorithm("j-sort", JSort.class);
     }
@@ -54,13 +49,6 @@ public final class JSort<T> extends AbstractSortAlgorithm<T> {
     public JSort(final Comparator<T> comparator) {
         super(comparator);
 
-    }
-
-    @Override
-    public void setSortOrder(final Order sortOrder) {
-        isReversed = isReversed(sortOrderToKey(sortOrder),
-                INTERNAL_ASCENDING_KEY);
-        super.setSortOrder(sortOrder);
     }
 
     @Override
@@ -81,8 +69,7 @@ public final class JSort<T> extends AbstractSortAlgorithm<T> {
         for (i = 1; i < arraySize; i++) {
             key = array.get(i);
             j = i - 1;
-            while (j >= 0 && isReversed == (comparator.compare(array.get(j),
-                    key) > 0)) {
+            while (j >= 0 && comparator.compare(array.get(j), key) > 0) {
                 array.set(j + 1, array.get(j));
                 j = j - 1;
             }

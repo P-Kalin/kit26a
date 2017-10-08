@@ -82,12 +82,12 @@ public final class HeapSort<T> extends AbstractSortAlgorithm<T> {
         int right = 2 * index + 2;
 
         if (left < heapSize && (comparator.compare(array.get(left),
-                array.get(largest))) == sortOrderKey) {
+                array.get(largest))) == 1) {
             largest = left;
         }
 
         if (right < heapSize && (comparator.compare(array.get(right),
-                array.get(largest))) == sortOrderKey) {
+                array.get(largest))) == 1) {
             largest = right;
         }
 

@@ -19,21 +19,9 @@ public abstract class AbstractSortAlgorithm<T>
         extends AbstractAlgorithmWithComparator<T> implements SortAlgorithm<T> {
 
     /**
-     * Внутрішній ключ, порядку сортування від меншого до більшого.
-     * Використовується лише у внутрішній реалізації методів.
-     */
-    protected static final int INTERNAL_ASCENDING_KEY = 1;
-
-    /**
-     * Внутрішній ключ, порядку сорутвання від більшого до меншого.
-     * Використовується лише у внутрішній реалізації методів.
-     */
-    protected static final int INTERNAL_DESCENDING_KEY = -1;
-
-    /**
      * Внутрішній ключ порядку сортування.
      */
-    protected int sortOrderKey;
+    protected boolean isReversedOrder;
 
     /**
      * Призначений, для ініціалізації об'єкту компаратором для подільшого
@@ -44,7 +32,7 @@ public abstract class AbstractSortAlgorithm<T>
      */
     public AbstractSortAlgorithm(final Comparator<T> comparator) {
         super(comparator);
-        setSortOrder(Order.ASCENDING);
+        setReversedOrder(false);
     }
 
     /**
@@ -63,44 +51,16 @@ public abstract class AbstractSortAlgorithm<T>
         array.set(right, temp);
     }
 
-    /**
-     * Призначений, для перевірки чи не обратний порядок сортування.
-     *
-     * @param sortOrderKey
-     *            поточний порядок сортування
-     * @param reversedSortOrderKey
-     *            обратний порядок сорутвання
-     * @return результат перевірки
-     */
-    protected boolean isReversed(final int sortOrderKey,
-            final int reversedSortOrderKey) {
-        return sortOrderKey == reversedSortOrderKey ? true : false;
-    }
-
-    /**
-     * Призначений, для конвертування елементів переліку {@link Order}, у
-     * числовий ключ.
-     *
-     * @param sortOrder
-     *            порядок сортування
-     * @return порядок сортування у вигляді числового ключу
-     */
-    protected int sortOrderToKey(final Order sortOrder) {
-        return sortOrder == Order.ASCENDING ? INTERNAL_ASCENDING_KEY
-                : INTERNAL_DESCENDING_KEY;
+    @Override
+    public boolean isReversedOrder() {
+        return isReversedOrder;
     }
 
     @Override
-    public final Order getSortOrder() {
-        return sortOrderKey == INTERNAL_ASCENDING_KEY ? Order.ASCENDING
-                : Order.DESCENDING;
-    }
-
-    @Override
-    public void setSortOrder(final Order sortOrder) {
-        this.sortOrderKey = sortOrder == Order.ASCENDING
-                ? INTERNAL_ASCENDING_KEY
-                : INTERNAL_DESCENDING_KEY;
+    public void setReversedOrder(boolean isReversedOrder) {
+        if (isReversedOrder != this.isReversedOrder) {
+            comparator = comparator.reversed();
+        }
     }
 
     @Override

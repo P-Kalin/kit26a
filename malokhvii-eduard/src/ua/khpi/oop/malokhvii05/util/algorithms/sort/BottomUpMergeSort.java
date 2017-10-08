@@ -43,11 +43,6 @@ import ua.khpi.oop.malokhvii05.util.Array;
  */
 public final class BottomUpMergeSort<T> extends AbstractSortAlgorithm<T> {
 
-    /**
-     * Поточний напрямок сортування, тобто обернений чи ні.
-     */
-    private boolean isReversed;
-
     static {
         SortAlgorithmFactory.registerAlgorithm("bottom-up-merge-sort",
                 BottomUpMergeSort.class);
@@ -80,13 +75,6 @@ public final class BottomUpMergeSort<T> extends AbstractSortAlgorithm<T> {
         }
     }
 
-    @Override
-    public void setSortOrder(final Order sortOrder) {
-        isReversed = isReversed(sortOrderToKey(sortOrder),
-                INTERNAL_DESCENDING_KEY);
-        super.setSortOrder(sortOrder);
-    }
-
     /**
      * Призначений, для злиття відсортованого фрагменту масиву у тимчасовий
      * буфер.
@@ -111,8 +99,8 @@ public final class BottomUpMergeSort<T> extends AbstractSortAlgorithm<T> {
 
         for (int i = 0; i <= end - left; i++) {
             if (leftIndex < right && (rightIndex > end
-                    || isReversed == (comparator.compare((T) array[leftIndex],
-                            (T) array[rightIndex])) >= 0)) {
+                    || comparator.compare((T) array[leftIndex],
+                            (T) array[rightIndex]) <= 0)) {
                 mergeBuffer[i] = array[leftIndex++];
             } else {
                 mergeBuffer[i] = array[rightIndex++];

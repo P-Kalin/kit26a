@@ -43,15 +43,9 @@ import ua.khpi.oop.malokhvii05.util.Array;
  */
 public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
 
-    /**
-     * Поточний напрямок сортування, тобто обернений чи ні.
-     */
-    private boolean isReversed;
-
     static {
         SortAlgorithmFactory.registerAlgorithm("top-down-merge-sort",
                 TopDownMergeSort.class);
-        SortAlgorithmFactory.setDefaultAlgorithm(TopDownMergeSort.class);
     }
 
     /**
@@ -100,13 +94,6 @@ public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
         return mergeSlices(left, right);
     }
 
-    @Override
-    public void setSortOrder(final Order sortOrder) {
-        isReversed = isReversed(sortOrderToKey(sortOrder),
-                INTERNAL_ASCENDING_KEY);
-        super.setSortOrder(sortOrder);
-    }
-
     /**
      * Призначений, для злиття двох фрагментів масиву.
      *
@@ -125,8 +112,8 @@ public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
         int resultIndex = 0;
         while (leftIndex < left.length || rightIndex < right.length) {
             if (leftIndex < left.length && rightIndex < right.length) {
-                if (isReversed == (comparator.compare((T) left[leftIndex],
-                        (T) right[rightIndex])) < 1) {
+                if (comparator.compare((T) left[leftIndex],
+                        (T) right[rightIndex]) < 1) {
                     mergeBuffer[resultIndex++] = left[leftIndex++];
                 } else {
                     mergeBuffer[resultIndex++] = right[rightIndex++];
