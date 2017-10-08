@@ -41,7 +41,6 @@ final class NullSortAlgorithm<T> extends NullAlgorithmWithComparator<T>
 
     @Override
     public void setReversedOrder(boolean isReversedOrder) {
-        // TODO Auto-generated method stub
 
     }
 }

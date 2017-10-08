@@ -129,4 +129,5 @@
  * @author malokhvii-eduard
  * @version 1.0.0
  */
+// TODO реалізувати OddEvenSort, CombSort, SmoothSort, вдосконалити QuickSort
 package ua.khpi.oop.malokhvii05.util.algorithms.sort;

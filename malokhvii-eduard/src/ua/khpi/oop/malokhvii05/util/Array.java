@@ -20,6 +20,7 @@ import ua.khpi.oop.malokhvii05.util.algorithms.search.SearchAlgorithm;
  * @param <E>
  *            Тип елементів розташованих у масиві
  */
+// TODO реалізувати інтерфейс Serializable
 public final class Array<E> implements Collection<E> {
 
     /**
