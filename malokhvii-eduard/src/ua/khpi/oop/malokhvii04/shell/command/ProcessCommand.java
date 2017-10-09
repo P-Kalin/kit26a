@@ -1,12 +1,15 @@
 package ua.khpi.oop.malokhvii04.shell.command;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import ua.khpi.oop.malokhvii03.text.Anagrams;
-import ua.khpi.oop.malokhvii03.text.WordsCollection;
+import ua.khpi.oop.malokhvii03.text.Ananym;
+import ua.khpi.oop.malokhvii03.text.HashableWord;
 import ua.khpi.oop.malokhvii04.shell.Shell;
 import ua.khpi.oop.malokhvii04.shell.ShellData;
+import ua.khpi.oop.malokhvii05.util.Array;
 
 /**
  * Призначений, для інкапсуляції обчислень вхідних даних під виглядом команди.
@@ -46,12 +49,21 @@ public final class ProcessCommand extends AbstractCommand {
 
     @Override
     public void execute() {
-        WordsCollection wordsCollection = this.getShellData()
-                .getWordsCollection();
-        if (wordsCollection != null && !wordsCollection.isEmpty()) {
-            this.getShellData().getAnanymsCollection().clear();
-            this.getShellData().setAnanymsCollection(
-                    Anagrams.findAllAnanyms(wordsCollection));
+        Collection<String> textLines = this.getShellData().getTextLines();
+        if (textLines != null && !textLines.isEmpty()) {
+            this.getShellData().getAnanyms().clear();
+
+            Collection<HashableWord> hashedWords = Anagrams
+                    .findAllAnanymsInText(textLines);
+            Array<Ananym> newAnanyms = new Array<Ananym>();
+            for (HashableWord hashableWord : hashedWords) {
+                if (hashableWord.isExistReversedCharSequence()) {
+                    newAnanyms.add(new Ananym(hashableWord.getCharSequence(),
+                            hashableWord.getReversedCharSequence()));
+                }
+            }
+
+            this.getShellData().setAnanyms(newAnanyms);
         } else {
             System.out.println("Oops not found words for searching ananyms."
                     + " Maybe you didn't load text file\n");

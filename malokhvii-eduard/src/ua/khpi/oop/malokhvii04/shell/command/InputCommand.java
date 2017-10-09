@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
-import ua.khpi.oop.malokhvii03.text.WordsCollection;
 import ua.khpi.oop.malokhvii04.shell.Shell;
 import ua.khpi.oop.malokhvii04.shell.ShellData;
 
@@ -146,20 +146,11 @@ public final class InputCommand extends AbstractCommand {
             return;
         }
 
-        WordsCollection wordsCollection = this.getShellData()
-                .getWordsCollection();
-        wordsCollection.clear();
-        this.getShellData().getAnanymsCollection().clear();
+        Collection<String> textLines = this.getShellData().getTextLines();
+        textLines.clear();
+        this.getShellData().getAnanyms().clear();
 
-        for (String line : lines) {
-            String[] words = line.split(InputCommand.WORD_PATTERN);
-            for (String word : words) {
-                if (word.length() > 1) {
-                    wordsCollection.putWord(word);
-                }
-            }
-        }
-
+        textLines.addAll(lines);
         System.out.println();
     }
 }

@@ -1,12 +1,10 @@
 package ua.khpi.oop.malokhvii04.shell.command;
 
 import java.util.Arrays;
-import java.util.Iterator;
+import java.util.Collection;
 import java.util.List;
 
 import ua.khpi.oop.malokhvii03.text.Ananym;
-import ua.khpi.oop.malokhvii03.text.AnanymsCollection;
-import ua.khpi.oop.malokhvii03.text.WordsCollection;
 import ua.khpi.oop.malokhvii04.shell.Shell;
 import ua.khpi.oop.malokhvii04.shell.ShellData;
 
@@ -21,11 +19,6 @@ import ua.khpi.oop.malokhvii04.shell.ShellData;
  * @see AbstractCommand
  */
 public final class OutputCommand extends AbstractCommand {
-
-    /**
-     * Максимальна кількість слів в один рядок.
-     */
-    private static final int MAX_WORDS_IN_ONE_LINE = 10;
 
     /**
      * Верхня частина таблиці результатів.
@@ -71,24 +64,20 @@ public final class OutputCommand extends AbstractCommand {
      * Призначений, для виведення колекції ананимів (анаграм). У вигляді
      * упорядкованної таблиці.
      *
-     * @param ananymsCollection
+     * @param ananyms
      *            колекція ананимів (анаграм)
      */
-    public void printAnanymsCollection(
-            final AnanymsCollection ananymsCollection) {
+    public void printAnanymsCollection(final Collection<Ananym> ananyms) {
         System.out.print("Result of searching ananyms in text:\n");
         System.out.format("%s Amount of ananyms: %d\n\n",
-                this.getShellData().getTabCharacter(),
-                ananymsCollection.size());
+                this.getShellData().getTabCharacter(), ananyms.size());
 
         System.out.println("Table of ananyms from text:");
 
         System.out.format(OutputCommand.ananymsTableHeader,
                 this.getShellData().getTabCharacter(), "Word", "Reversed word");
 
-        Iterator<Ananym> ananymIterator = ananymsCollection.getIterator();
-        while (ananymIterator.hasNext()) {
-            Ananym ananym = ananymIterator.next();
+        for (Ananym ananym : ananyms) {
             System.out.format("%s | %-35s | %-35s |\n",
                     this.getShellData().getTabCharacter(), ananym.getWord(),
                     ananym.getReversedWord());
@@ -99,43 +88,17 @@ public final class OutputCommand extends AbstractCommand {
     }
 
     /**
-     * Призначений, для виведенння колекції слів. У вигляді упорядкованого
-     * стовбця.
+     * Призначений, для виведенння колекції рядків.
      *
-     * @param wordsCollection
-     *            колекція слів
+     * @param textLines
+     *            колекція рядків
      */
-    public void printWordsCollection(final WordsCollection wordsCollection) {
-        System.out.println("List of words loaded from text file:");
+    public void printWordsCollection(final Collection<String> textLines) {
+        System.out.println("Text lines loaded from file:");
 
-        Iterator<String> wordIterator = wordsCollection.getWordIterator();
-
-        char capitalLetter = '-';
-        boolean isFirstIteration = true;
-        int wordsCount = 0;
-        while (wordIterator.hasNext()) {
-            String word = wordIterator.next();
-            char currentCapitalLetter = word.charAt(0);
-
-            if (wordsCount == OutputCommand.MAX_WORDS_IN_ONE_LINE) {
-                System.out.format("\n%s\t ",
-                        this.getShellData().getTabCharacter());
-                wordsCount = 0;
-            }
-            ++wordsCount;
-
-            if (capitalLetter != currentCapitalLetter) {
-                capitalLetter = currentCapitalLetter;
-                wordsCount = 0;
-                if (!isFirstIteration) {
-                    System.out.println();
-                }
-                System.out.format("%1$s [%2$c]: ",
-                        this.getShellData().getTabCharacter(), capitalLetter);
-                isFirstIteration = false;
-            }
-
-            System.out.format("%s  ", word);
+        for (String textLine : textLines) {
+            System.out.format("%1$s %2$s\n",
+                    this.getShellData().getTabCharacter(), textLine);
         }
 
         System.out.println("\n");
@@ -143,21 +106,18 @@ public final class OutputCommand extends AbstractCommand {
 
     @Override
     public void execute() {
-        WordsCollection wordsCollection = this.getShellData()
-                .getWordsCollection();
-        AnanymsCollection ananymsColelction = this.getShellData()
-                .getAnanymsCollection();
+        Collection<String> textLines = this.getShellData().getTextLines();
+        Collection<Ananym> ananyms = this.getShellData().getAnanyms();
 
-        if (!wordsCollection.isEmpty()) {
-            this.printWordsCollection(wordsCollection);
+        if (!textLines.isEmpty()) {
+            this.printWordsCollection(textLines);
         } else {
-            System.out.print("Oops not found input words. "
+            System.out.print("Oops not found input lines. "
                     + "Maybe you didn't load text file\n\n");
         }
 
-        if (!ananymsColelction.isEmpty()) {
-            this.printAnanymsCollection(
-                    this.getShellData().getAnanymsCollection());
+        if (!ananyms.isEmpty()) {
+            this.printAnanymsCollection(ananyms);
         } else {
             System.out.print(
                     "Oops, ananyms is not found or you didn't call processing"
