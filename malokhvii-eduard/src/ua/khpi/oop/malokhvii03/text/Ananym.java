@@ -35,11 +35,6 @@ public final class Ananym {
         this.reversedWord = reversedWord;
     }
 
-    public Ananym(final CharSequence word, final CharSequence reversedWord) {
-        this.word = word.toString();
-        this.reversedWord = reversedWord.toString();
-    }
-
     /**
      * Призначений, для отримання слова.
      *
