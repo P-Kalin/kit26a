@@ -29,7 +29,7 @@ public final class Array<E> implements Collection<E> {
      * елементу.
      *
      * @author malokhvii-ee
-     * @version 1.0.0
+     * @version 1.0.1
      */
     public final class ArrayIterator implements Iterator<E> {
 
@@ -587,6 +587,15 @@ public final class Array<E> implements Collection<E> {
 
     @Override
     public <T> T[] toArray(final T[] array) throws NotImplementedException {
-        throw new NotImplementedException();
+        if (array.length < size) {
+            return null;
+        }
+
+        System.arraycopy(data, 0, array, 0, size);
+        if (array.length > size) {
+            array[size] = null;
+        }
+
+        return array;
     }
 }
