@@ -56,16 +56,16 @@ public class LinearWithBarrierSearch<T> extends AbstractSearchAlgorithm<T> {
         }
 
         if (comparator.compare(array.getLast(), value) != 0) {
-            array.setLast(value);
+            array.addLast(value);
             for (lastFoundIndex = 0;
                     comparator.compare(array.get(lastFoundIndex), value) != 0;
                     lastFoundIndex++) {
                 ;
             }
+            array.removeLast();
         } else {
             return array.size() - 1;
         }
-        array.removeLast();
 
         if (lastFoundIndex < array.size()) {
             return lastFoundIndex;
