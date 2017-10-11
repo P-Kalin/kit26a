@@ -102,11 +102,6 @@ public final class Array<E> implements Collection<E> {
     }
 
     /**
-     * Кількість елементів розташованих у внутрішньому буфері.
-     */
-    private int size;
-
-    /**
      * Початковий розмір внутрінього буфера елементів.
      */
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
@@ -117,15 +112,9 @@ public final class Array<E> implements Collection<E> {
     private Object[] data;
 
     /**
-     * Призначений, для ініціалізації масиву з задовільним розміром ємкості
-     * внутрішьного буфера.
-     *
-     * @param capacity
-     *            задовільна ємкість внутрішнього буфера
+     * Кількість елементів розташованих у внутрішньому буфері.
      */
-    public Array(final int capacity) {
-        data = new Object[capacity];
-    }
+    private int size;
 
     /**
      * Призначений, для ініціалізації масиву з ємкостю внутрішнього буфера за
@@ -143,6 +132,17 @@ public final class Array<E> implements Collection<E> {
      */
     public Array(final Collection<? extends E> collection) {
         addAll(collection);
+    }
+
+    /**
+     * Призначений, для ініціалізації масиву з задовільним розміром ємкості
+     * внутрішьного буфера.
+     *
+     * @param capacity
+     *            задовільна ємкість внутрішнього буфера
+     */
+    public Array(final int capacity) {
+        data = new Object[capacity];
     }
 
     @Override
@@ -236,6 +236,23 @@ public final class Array<E> implements Collection<E> {
         size = 0;
     }
 
+    @Override
+    public boolean contains(final Object object) {
+        return indexOf(object) != -1;
+    }
+
+    @Override
+    public boolean containsAll(final Collection<?> collection) {
+        Iterator<?> iterator = collection.iterator();
+        while (iterator.hasNext()) {
+            if (!contains(iterator.next())) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     /**
      * Призначений, для збільшення ємкості буфера для розташування нових
      * елементів. Коефіцієнт збільшення 1,3.
@@ -278,6 +295,16 @@ public final class Array<E> implements Collection<E> {
     @SuppressWarnings("unchecked")
     public E get(final int index) {
         return (E) data[index];
+    }
+
+    /**
+     * Метод призначений, для отримання внутрішнього буферу. Використовується
+     * для оптимізації алгоритмів пошуку та сортування.
+     *
+     * @return внутрішній буфер
+     */
+    public Object[] getData() {
+        return data;
     }
 
     /**
@@ -336,6 +363,11 @@ public final class Array<E> implements Collection<E> {
         return SearchAlgorithm.INDEX_NOT_FOUND;
     }
 
+    @Override
+    public boolean isEmpty() {
+        return this.size == 0;
+    }
+
     /**
      * Призначений, для перевірки індексу на входження в розмір масиву під час
      * задовільного доступу до елементів масиву.
@@ -372,16 +404,6 @@ public final class Array<E> implements Collection<E> {
     }
 
     /**
-     * Призначений, для отримання {@link ArrayIterator ітератора} на кінець
-     * масиву.
-     *
-     * @return ітератор на кінець масиву
-     */
-    public ArrayIterator lastIterator() {
-        return iterator(size - 1);
-    }
-
-    /**
      * Призначений, для отримання об'єкту {@link ArrayIterator ітератора}.
      *
      * @param index
@@ -391,6 +413,16 @@ public final class Array<E> implements Collection<E> {
     public ArrayIterator iterator(final int index) {
         isIndexInRange(index);
         return new ArrayIterator(index);
+    }
+
+    /**
+     * Призначений, для отримання {@link ArrayIterator ітератора} на кінець
+     * масиву.
+     *
+     * @return ітератор на кінець масиву
+     */
+    public ArrayIterator lastIterator() {
+        return iterator(size - 1);
     }
 
     /**
@@ -425,6 +457,21 @@ public final class Array<E> implements Collection<E> {
         return false;
     }
 
+    @Override
+    public boolean removeAll(final Collection<?> collection) {
+        boolean isModified = false;
+
+        Iterator<?> iterator = iterator();
+        while (iterator.hasNext()) {
+            if (!collection.contains(iterator.next())) {
+                iterator.remove();
+                isModified = true;
+            }
+        }
+
+        return isModified;
+    }
+
     /**
      * Внутрішня реалізація видалення елементу масиву, усі піблічні методи
      * видалення делегують викоритсання цього метода.
@@ -454,6 +501,21 @@ public final class Array<E> implements Collection<E> {
      */
     public void removeLast() {
         removeElement(size - 1);
+    }
+
+    @Override
+    public boolean retainAll(final Collection<?> collection) {
+        boolean isModified = false;
+
+        Iterator<E> iterator = iterator();
+        while (iterator.hasNext()) {
+            if (!collection.contains(iterator.next())) {
+                iterator.remove();
+                isModified = true;
+            }
+        }
+
+        return isModified;
     }
 
     /**
@@ -511,14 +573,9 @@ public final class Array<E> implements Collection<E> {
         return (E) oldElement;
     }
 
-    /**
-     * Метод призначений, для отримання внутрішнього буферу. Викоритсовується
-     * для оптимізації алгоритмів пошуку та сортування.
-     *
-     * @return внутрішній буфер
-     */
-    public Object[] getData() {
-        return data;
+    @Override
+    public int size() {
+        return this.size;
     }
 
     @Override
@@ -526,63 +583,6 @@ public final class Array<E> implements Collection<E> {
         Object[] array = new Object[size];
         System.arraycopy(data, 0, array, 0, size);
         return array;
-    }
-
-    @Override
-    public boolean contains(final Object object) {
-        return indexOf(object) != -1;
-    }
-
-    @Override
-    public boolean containsAll(final Collection<?> collection) {
-        Iterator<?> iterator = collection.iterator();
-        while (iterator.hasNext()) {
-            if (!contains(iterator.next())) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return this.size == 0;
-    }
-
-    @Override
-    public boolean removeAll(final Collection<?> collection) {
-        boolean isModified = false;
-
-        Iterator<?> iterator = iterator();
-        while (iterator.hasNext()) {
-            if (!collection.contains(iterator.next())) {
-                iterator.remove();
-                isModified = true;
-            }
-        }
-
-        return isModified;
-    }
-
-    @Override
-    public boolean retainAll(final Collection<?> collection) {
-        boolean isModified = false;
-
-        Iterator<E> iterator = iterator();
-        while (iterator.hasNext()) {
-            if (!collection.contains(iterator.next())) {
-                iterator.remove();
-                isModified = true;
-            }
-        }
-
-        return isModified;
-    }
-
-    @Override
-    public int size() {
-        return this.size;
     }
 
     @Override
@@ -597,5 +597,30 @@ public final class Array<E> implements Collection<E> {
         }
 
         return array;
+    }
+
+    @Override
+    public String toString() {
+        return toString("\n");
+    }
+
+    /**
+     * Призначений, для формування рядку із об'єктів масиву, з задовільним
+     * роздільником для рядків.
+     *
+     * @param separator
+     *            роздільник для рядків
+     * @return елементу масиву у вигляді суцільного рядку
+     */
+    public String toString(final String separator) {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        int index = 0;
+        while (index < size) {
+            stringBuilder.append(data[index].toString());
+            stringBuilder.append(separator);
+        }
+
+        return stringBuilder.toString();
     }
 }
