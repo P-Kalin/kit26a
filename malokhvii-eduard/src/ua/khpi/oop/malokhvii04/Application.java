@@ -47,7 +47,7 @@ public final class Application {
      *             Помилка під час введення, виведення
      */
     public static void main(final String[] args) throws IOException {
-        Array<String> textLines = new Array<String>();
+        Array<CharSequence> textLines = new Array<CharSequence>();
         Array<Ananym> ananyms = new Array<Ananym>();
 
         ShellData shellData = ShellData.getBuilder().setTextLines(textLines)

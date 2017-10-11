@@ -115,7 +115,7 @@ public final class ShellData {
          *            буфер вхідних рядків
          * @return об'єкт будівника
          */
-        public Builder setTextLines(final Array<String> textLines) {
+        public Builder setTextLines(final Array<CharSequence> textLines) {
             ShellData.this.textLines = textLines;
             return this;
         }
@@ -178,7 +178,7 @@ public final class ShellData {
     /**
      * Посилання, на буффер для вхідного тексту.
      */
-    private Array<String> textLines;
+    private Array<CharSequence> textLines;
 
     /**
      * Приватний конструктор, задля створення об'єкт за допомогою Builder-а.
@@ -266,7 +266,7 @@ public final class ShellData {
      *
      * @return буфер рядків вхідного тексту
      */
-    public Array<String> getTextLines() {
+    public Array<CharSequence> getTextLines() {
         return textLines;
     }
 
@@ -311,7 +311,7 @@ public final class ShellData {
         this.isRunning = isRunning;
     }
 
-    public void setTextLines(Array<String> textLines) {
+    public void setTextLines(Array<CharSequence> textLines) {
         this.textLines = textLines;
     }
 

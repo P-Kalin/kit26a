@@ -93,12 +93,12 @@ public final class OutputCommand extends AbstractCommand {
      * @param textLines
      *            колекція рядків
      */
-    public void printWordsCollection(final Collection<String> textLines) {
+    public void printTextLines(final Collection<CharSequence> textLines) {
         System.out.println("Text lines loaded from file:");
 
-        for (String textLine : textLines) {
+        for (CharSequence textLine : textLines) {
             System.out.format("%1$s %2$s\n",
-                    this.getShellData().getTabCharacter(), textLine);
+                    this.getShellData().getTabCharacter(), textLine.toString());
         }
 
         System.out.println("\n");
@@ -106,11 +106,11 @@ public final class OutputCommand extends AbstractCommand {
 
     @Override
     public void execute() {
-        Collection<String> textLines = this.getShellData().getTextLines();
+        Collection<CharSequence> textLines = this.getShellData().getTextLines();
         Collection<Ananym> ananyms = this.getShellData().getAnanyms();
 
         if (!textLines.isEmpty()) {
-            this.printWordsCollection(textLines);
+            this.printTextLines(textLines);
         } else {
             System.out.print("Oops not found input lines. "
                     + "Maybe you didn't load text file\n\n");
