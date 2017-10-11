@@ -2,6 +2,10 @@ package ua.khpi.oop.malokhvii03.text;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import ua.khpi.oop.malokhvii05.util.Array;
 
 /**
  * Утилітарний клас, призначения для обробки вхідних текстових наборів на
@@ -9,6 +13,7 @@ import java.util.HashMap;
  *
  * @author malokhvii-eduard
  * @version 1.1.0
+ * @see Ananym
  */
 public final class Anagrams {
 
@@ -18,10 +23,12 @@ public final class Anagrams {
      *
      * @since 1.1.0
      */
-    public static final String DEFAUL_LINE_SPLITTER = "[\\s\\d\\p{Punct}]";
+    public static final String DEFAUL_WORD_PATTERN = "[a-zA-Z]{2,}";
 
     /**
      * Приватний конструктор, для заборони створення утилітарного класу.
+     *
+     * @since 1.0.0
      */
     private Anagrams() {
 
@@ -33,26 +40,55 @@ public final class Anagrams {
      * чином можливо зменьшити обсяг використаного часу на порівняння слів, їх
      * пошук, а також зменьшити просторову складність алгоритму пошуку,
      * порівняно з попереднім алгоритмом пошуку. Детальніше див. попередню
-     * реалізацію. Регулярний вираз для розділення рядків
-     * {@link Anagrams#DEFAUL_LINE_SPLITTER}.
+     * реалізацію.
      *
      * @param lines
-     *            набір вхідних рядків
+     *            символьна послідовність
+     * @param regex
+     *            регулярний вираз, для виділення з послідовності певнх
+     *            символьних послідовностей
      * @see <a href=
      *      "https://sourceforge.net/p/kit26a-cpp/code/HEAD/tree/malokhvii_eduard/src/ua/khpi/oop/malokhvii03/text/">
      *      Версія - 1.0.0</a>
      * @see HashableWord
      * @see PolynomialHash
+     * @see Ananym
      * @since 1.1.0
-     * @return множина хешованих слів, які були на передодні оброблені. Усі
-     *         слова для яких було знайдено обернену послідовність символів
-     *         повертають дісний результат за допомогою методів
-     *         {@link HashableWord#isExistReversedCharSequence},
-     *         {@link HashableWord#getReversedCharSequence}.
+     * @return {@link Array перелік} ананимів.
      */
-    public static Collection<HashableWord> findAllAnanymsInText(
-            final Iterable<String> lines) {
-        return findAllAnanymsInText(lines, DEFAUL_LINE_SPLITTER);
+    public static Collection<Ananym> findAllAnanyms(
+            final CharSequence charSequence, final String regex) {
+        assert charSequence == null;
+        Array<Ananym> ananyms = new Array<Ananym>();
+        HashMap<Long, HashableWord> mappedWords = new HashMap<Long, HashableWord>();
+        Pattern wordPattern = Pattern.compile(regex);
+
+        long polynomialHash;
+        CharSequence word;
+        Matcher wordMatcher = wordPattern.matcher(charSequence);
+        while (wordMatcher.find()) {
+            word = wordMatcher.group();
+            polynomialHash = PolynomialHash.charSequenceHash(word);
+            if (!mappedWords.containsKey(polynomialHash)) {
+                mappedWords.put(polynomialHash,
+                        new HashableWord(word, polynomialHash));
+            }
+        }
+
+        HashableWord currentMappedWord;
+        for (HashableWord hashableWord : mappedWords.values()) {
+            polynomialHash = hashableWord.getReversedPolіnomialHashCode();
+            currentMappedWord = mappedWords.get(polynomialHash);
+
+            if (currentMappedWord != null) {
+                ananyms.add(new Ananym(hashableWord.getCharSequence(),
+                        currentMappedWord.getCharSequence()));
+                currentMappedWord.setReversedPolynomialHashCode(
+                        PolynomialHash.ZERO_HASH);
+            }
+        }
+
+        return ananyms;
     }
 
     /**
@@ -64,35 +100,36 @@ public final class Anagrams {
      * реалізацію.
      *
      * @param lines
-     *            набір вхідних рядків
+     *            набір вхідних символьних послідовностей
      * @param regex
-     *            регулярний вираз, для розділення рядків
+     *            регулярний вираз, для виділення з послідовності певнх
+     *            символьних послідовностей
      * @see <a href=
      *      "https://sourceforge.net/p/kit26a-cpp/code/HEAD/tree/malokhvii_eduard/src/ua/khpi/oop/malokhvii03/text/">
      *      Версія - 1.0.0</a>
      * @see HashableWord
      * @see PolynomialHash
+     * @see Ananym
      * @since 1.1.0
-     * @return множина хешованих слів, які були на передодні оброблені. Усі
-     *         слова для яких було знайдено обернену послідовність символів
-     *         повертають дісний результат за допомогою методів
-     *         {@link HashableWord#isExistReversedCharSequence},
-     *         {@link HashableWord#getReversedCharSequence}.
+     * @return {@link Array перелік} ананимів.
      */
-    public static Collection<HashableWord> findAllAnanymsInText(
-            final Iterable<String> lines, final String regex) {
+    public static Collection<Ananym> findAllAnanyms(
+            final Iterable<CharSequence> lines, final String regex) {
         assert lines == null;
+        Array<Ananym> ananyms = new Array<Ananym>();
         HashMap<Long, HashableWord> mappedWords = new HashMap<Long, HashableWord>();
+        Pattern wordPattern = Pattern.compile(regex);
 
         long polynomialHash;
-        for (String line : lines) {
-            for (String word : line.split(regex)) {
-                if (word.length() > 1) {
-                    polynomialHash = PolynomialHash.charSequenceHash(word);
-                    if (!mappedWords.containsKey(polynomialHash)) {
-                        mappedWords.put(polynomialHash,
-                                new HashableWord(word, polynomialHash));
-                    }
+        CharSequence word;
+        for (CharSequence line : lines) {
+            Matcher wordMatcher = wordPattern.matcher(line);
+            while (wordMatcher.find()) {
+                word = wordMatcher.group();
+                polynomialHash = PolynomialHash.charSequenceHash(word);
+                if (!mappedWords.containsKey(polynomialHash)) {
+                    mappedWords.put(polynomialHash,
+                            new HashableWord(word, polynomialHash));
                 }
             }
         }
@@ -103,14 +140,14 @@ public final class Anagrams {
             currentMappedWord = mappedWords.get(polynomialHash);
 
             if (currentMappedWord != null) {
-                hashableWord.setReversedCharSequence(
-                        currentMappedWord.getCharSequence());
+                ananyms.add(new Ananym(hashableWord.getCharSequence(),
+                        currentMappedWord.getCharSequence()));
                 currentMappedWord.setReversedPolynomialHashCode(
                         PolynomialHash.ZERO_HASH);
             }
         }
 
-        return mappedWords.values();
+        return ananyms;
     }
 
     /**
@@ -128,26 +165,22 @@ public final class Anagrams {
      *      Версія - 1.0.0</a>
      * @see HashableWord
      * @see PolynomialHash
-     * @since 1.0.0
-     * @return множина хешованих слів, які були на передодні оброблені. Усі
-     *         слова для яких було знайдено обернену послідовність символів
-     *         повертають дісний результат за допомогою методів
-     *         {@link HashableWord#isExistReversedCharSequence},
-     *         {@link HashableWord#getReversedCharSequence}.
+     * @see Ananym
+     * @since 1.1.0
+     * @return {@link Array перелік} ананимів.
      */
-    public static Collection<HashableWord> findAllAnanymsInWords(
-            Iterable<String> words) {
+    public static Collection<Ananym> findAllAnanyms(
+            Iterable<CharSequence> words) {
         assert words == null;
+        Array<Ananym> ananyms = new Array<Ananym>();
         HashMap<Long, HashableWord> mappedWords = new HashMap<Long, HashableWord>();
 
         long polynomialHash;
-        for (String word : words) {
-            if (word.length() > 1) {
-                polynomialHash = PolynomialHash.charSequenceHash(word);
-                if (!mappedWords.containsKey(polynomialHash)) {
-                    mappedWords.put(polynomialHash,
-                            new HashableWord(word, polynomialHash));
-                }
+        for (CharSequence word : words) {
+            polynomialHash = PolynomialHash.charSequenceHash(word);
+            if (!mappedWords.containsKey(polynomialHash)) {
+                mappedWords.put(polynomialHash,
+                        new HashableWord(word, polynomialHash));
             }
         }
 
@@ -155,15 +188,14 @@ public final class Anagrams {
         for (HashableWord hashableWord : mappedWords.values()) {
             polynomialHash = hashableWord.getReversedPolіnomialHashCode();
             currentMappedWord = mappedWords.get(polynomialHash);
-
             if (currentMappedWord != null) {
-                hashableWord.setReversedCharSequence(
-                        currentMappedWord.getCharSequence());
+                ananyms.add(new Ananym(hashableWord.getCharSequence(),
+                        currentMappedWord.getCharSequence()));
                 currentMappedWord.setReversedPolynomialHashCode(
                         PolynomialHash.ZERO_HASH);
             }
         }
 
-        return mappedWords.values();
+        return ananyms;
     }
 }
