@@ -20,11 +20,6 @@ public final class HashableWord {
     private long polynomialHashCode;
 
     /**
-     * Послідовність обернених символів слова.
-     */
-    private CharSequence reversedCharSequence = null;
-
-    /**
      * Поліноміальне значення хешу для можливого оберненого слова.
      */
     private long reversedPolynomialHashCode;
@@ -67,16 +62,6 @@ public final class HashableWord {
     }
 
     /**
-     * Призначений, для отримання оберненої послідовності символів у слові, якщо
-     * вона була знайдена у тексті та додана під час обробки.
-     *
-     * @return можлива обернена послідовність символів у слові
-     */
-    public CharSequence getReversedCharSequence() {
-        return reversedCharSequence;
-    }
-
-    /**
      * Призначений, для отримання значення поліноміального хешу для можливої
      * оберненої послідовності символів.
      *
@@ -85,16 +70,6 @@ public final class HashableWord {
      */
     public long getReversedPolіnomialHashCode() {
         return reversedPolynomialHashCode;
-    }
-
-    /**
-     * Призначений, для перевірки чи знайдено обернену послідовність символів
-     * для слова, або ні.
-     *
-     * @return результат перевірки
-     */
-    public boolean isExistReversedCharSequence() {
-        return reversedCharSequence != null ? true : false;
     }
 
     /**
@@ -117,17 +92,6 @@ public final class HashableWord {
      */
     public void setPolynomialHashCode(long polynomialHashCode) {
         this.polynomialHashCode = polynomialHashCode;
-    }
-
-    /**
-     * Призначений, для оновлення можливої оберненої послідовності символів у
-     * слові.
-     *
-     * @param reversedCharSequence
-     *            можлива обернена послідовність символів у слові
-     */
-    public void setReversedCharSequence(CharSequence reversedCharSequence) {
-        this.reversedCharSequence = reversedCharSequence;
     }
 
     /**
