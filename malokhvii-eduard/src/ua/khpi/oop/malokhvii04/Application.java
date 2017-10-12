@@ -4,13 +4,13 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import ua.khpi.oop.malokhvii03.text.AnanymsCollection;
-import ua.khpi.oop.malokhvii03.text.WordsCollection;
+import ua.khpi.oop.malokhvii03.text.Ananym;
 import ua.khpi.oop.malokhvii04.shell.CommandLineParser;
 import ua.khpi.oop.malokhvii04.shell.Shell;
 import ua.khpi.oop.malokhvii04.shell.ShellData;
 import ua.khpi.oop.malokhvii04.shell.command.Command;
 import ua.khpi.oop.malokhvii04.shell.command.CommandFactory;
+import ua.khpi.oop.malokhvii05.util.Array;
 
 /**
  * Призначений, для демонстрації виконання отриманного завдання.
@@ -47,12 +47,11 @@ public final class Application {
      *             Помилка під час введення, виведення
      */
     public static void main(final String[] args) throws IOException {
-        WordsCollection wordsCollection = new WordsCollection();
-        AnanymsCollection ananymsCollection = new AnanymsCollection();
+        Array<CharSequence> textLines = new Array<CharSequence>();
+        Array<Ananym> ananyms = new Array<Ananym>();
 
-        ShellData shellData = ShellData.getBuilder()
-                .setWordsCollection(wordsCollection)
-                .setAnanymsCollection(ananymsCollection)
+        ShellData shellData = ShellData.getBuilder().setTextLines(textLines)
+                .setAnanyms(ananyms)
                 .setCommandHistorySize(
                         CommandLineParser.parseCommandHistorySize(args))
                 .setCommandCharacter(

@@ -4,14 +4,14 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
-import ua.khpi.oop.malokhvii03.text.WordsCollection;
 import ua.khpi.oop.malokhvii04.shell.Shell;
 import ua.khpi.oop.malokhvii04.shell.ShellData;
+import ua.khpi.oop.malokhvii05.util.Array;
 
 /**
  * Призначений, для інкапсуляції введення шляху до файлу для подальшої обробки
@@ -24,11 +24,6 @@ import ua.khpi.oop.malokhvii04.shell.ShellData;
  * @see AbstractCommand
  */
 public final class InputCommand extends AbstractCommand {
-
-    /**
-     * Регулярний вираз для виділення слова із тексту.
-     */
-    private static final String WORD_PATTERN = "[\\s\\d\\p{Punct}]";
 
     /**
      * Регулярний вираз для перевірки шляху до файлу.
@@ -58,6 +53,29 @@ public final class InputCommand extends AbstractCommand {
      */
     public InputCommand(final String id, final ShellData shellData) {
         super(id, shellData);
+    }
+
+    @Override
+    public void execute() {
+        Collection<CharSequence> lines = null;
+        String filePath = this.getFilePath();
+
+        if (filePath == null) {
+            return;
+        }
+
+        try {
+            lines = this.getInputText(filePath);
+        } catch (IOException exception) {
+            System.out.format(
+                    "\nThe system cannot find the file with specified path"
+                            + ":\n%s %s\n\n",
+                    this.getShellData().getTabCharacter(), filePath);
+            return;
+        }
+
+        this.getShellData().setTextLines((Array<CharSequence>) lines);
+        System.out.println();
     }
 
     /**
@@ -99,8 +117,9 @@ public final class InputCommand extends AbstractCommand {
      * @throws IOException
      *             Помилка, під час обробки вхідного файлу
      */
-    public List<String> getInputText(final String filePath) throws IOException {
-        List<String> lines = new ArrayList<String>();
+    public Collection<CharSequence> getInputText(final String filePath)
+            throws IOException {
+        Array<CharSequence> lines = new Array<CharSequence>();
 
         FileInputStream fileStream = null;
         BufferedReader bufferReader = null;
@@ -125,41 +144,5 @@ public final class InputCommand extends AbstractCommand {
         }
 
         return lines;
-    }
-
-    @Override
-    public void execute() {
-        List<String> lines = null;
-        String filePath = this.getFilePath();
-
-        if (filePath == null) {
-            return;
-        }
-
-        try {
-            lines = this.getInputText(filePath);
-        } catch (IOException exception) {
-            System.out.format(
-                    "\nThe system cannot find the file with specified path"
-                            + ":\n%s %s\n\n",
-                    this.getShellData().getTabCharacter(), filePath);
-            return;
-        }
-
-        WordsCollection wordsCollection = this.getShellData()
-                .getWordsCollection();
-        wordsCollection.clear();
-        this.getShellData().getAnanymsCollection().clear();
-
-        for (String line : lines) {
-            String[] words = line.split(InputCommand.WORD_PATTERN);
-            for (String word : words) {
-                if (word.length() > 1) {
-                    wordsCollection.putWord(word);
-                }
-            }
-        }
-
-        System.out.println();
     }
 }

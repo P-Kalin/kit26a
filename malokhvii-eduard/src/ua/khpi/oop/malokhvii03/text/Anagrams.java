@@ -1,125 +1,90 @@
 package ua.khpi.oop.malokhvii03.text;
 
-import java.util.Iterator;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import ua.khpi.oop.malokhvii05.util.Array;
 
 /**
- * Утилітарний клас, призначений для обробки вхідних даних на наявність анаграм.
+ * Утилітарний клас, призначения для обробки вхідних текстових наборів на
+ * наявність анаграм.
  *
- * @author malokhvii-ee
- * @version 1.0.0
+ * @author malokhvii-eduard
+ * @version 1.1.0
+ * @see Ananym
  */
 public final class Anagrams {
 
     /**
+     * Регулярний вираз за змовчуванням, для розділення вхідного тексту на слова
+     * ({@value}).
+     *
+     * @since 1.1.0
+     */
+    public static final String DEFAUL_WORD_PATTERN = "[a-zA-Z]{2,}";
+
+    /**
      * Приватний конструктор, для заборони створення утилітарного класу.
+     *
+     * @since 1.0.0
      */
     private Anagrams() {
 
     }
 
     /**
-     * Призначений, для перевірки чи є вхідне слово ананимом до очікуваного
-     * слова. Наприклад: isAnanym("def", "fed") == true.
+     * Призначений, для пошуку слів ананимів. Наприклад: "def", "fed".
+     * Порівняння рядків виконується за допомогою поліноміального хешу, таким
+     * чином можливо зменьшити обсяг використаного часу на порівняння слів, їх
+     * пошук, а також зменьшити просторову складність алгоритму пошуку,
+     * порівняно з попереднім алгоритмом пошуку. Детальніше див. попередню
+     * реалізацію.
      *
-     * @param word
-     *            вхідне слово
-     * @param reversedWord
-     *            можливий ананим вхідного слова
-     * @return результат перевірки
+     * @param lines
+     *            символьна послідовність
+     * @param regex
+     *            регулярний вираз, для виділення з послідовності певнх
+     *            символьних послідовностей
+     * @see <a href=
+     *      "https://sourceforge.net/p/kit26a-cpp/code/HEAD/tree/malokhvii_eduard/src/ua/khpi/oop/malokhvii03/text/">
+     *      Версія - 1.0.0</a>
+     * @see HashableWord
+     * @see PolynomialHash
+     * @see Ananym
+     * @since 1.1.0
+     * @return {@link Array перелік} ананимів.
      */
-    public static boolean isAnanym(final String word,
-            final String reversedWord) {
-        if (word.length() != reversedWord.length()) {
-            return false;
-        }
+    public static Collection<Ananym> findAllAnanyms(
+            final CharSequence charSequence, final String regex) {
+        assert charSequence == null;
+        Array<Ananym> ananyms = new Array<Ananym>();
+        HashMap<Long, HashableWord> mappedWords = new HashMap<Long, HashableWord>();
+        Pattern wordPattern = Pattern.compile(regex);
 
-        char[] wordCharacterSequence = word.toCharArray();
-        char[] reversedWordCharacterSequence = reversedWord.toCharArray();
-
-        int charactersDifference = 0;
-        for (int i = 0; i < wordCharacterSequence.length; i++) {
-            charactersDifference += wordCharacterSequence[i]
-                    - reversedWordCharacterSequence[wordCharacterSequence.length
-                            - 1 - i];
-            if (charactersDifference != 0) {
-                return false;
+        long polynomialHash;
+        CharSequence word;
+        Matcher wordMatcher = wordPattern.matcher(charSequence);
+        while (wordMatcher.find()) {
+            word = wordMatcher.group();
+            polynomialHash = PolynomialHash.charSequenceHash(word);
+            if (!mappedWords.containsKey(polynomialHash)) {
+                mappedWords.put(polynomialHash,
+                        new HashableWord(word, polynomialHash));
             }
         }
 
-        return true;
-    }
+        HashableWord currentMappedWord;
+        for (HashableWord hashableWord : mappedWords.values()) {
+            polynomialHash = hashableWord.getReversedPolіnomialHashCode();
+            currentMappedWord = mappedWords.get(polynomialHash);
 
-    /**
-     * Призначений, для пошуку усіх ананимів у колекції слів.
-     *
-     * @param words
-     *            вхідна колекція слів
-     * @see WordsCollection
-     * @see WordIterator
-     * @return колекція знайдених ананимів
-     */
-    public static AnanymsCollection findAllAnanyms(
-            final WordsCollection words) {
-        return findAllAnanyms(words, words.getWordIterator());
-    }
-
-    /**
-     * Призначений, для пошуку ананимів починаючихся на певну літеру у колекції
-     * слів.
-     *
-     * @param words
-     *            вхідна колекція слів
-     * @param letter
-     *            фіксована літера, для пошуку ананимів
-     * @see WordsCollection
-     * @see WordFixedLetterIterator
-     * @return колекція знайдених ананимів
-     */
-    public static AnanymsCollection findAllAnanyms(final WordsCollection words,
-            final char letter) {
-        return findAllAnanyms(words, words.getWordFixedLetterIterator(letter));
-    }
-
-    /**
-     * Призначений, для пошуку ананимів починаючихся на певну літеру та
-     * фіксованого розміру у колекції слів.
-     *
-     * @param words
-     *            вхідна колекція слів
-     * @param letter
-     *            фіксована літера, для пошуку ананимів
-     * @param size
-     *            фіксований розмір слова, для пошуку ананимів
-     * @see WordsCollection
-     * @see WordFixedSizeAndLetterIterator
-     * @return колекція знайдених ананимів
-     */
-    public static AnanymsCollection findAllAnanyms(final WordsCollection words,
-            final char letter, final int size) {
-        return findAllAnanyms(words,
-                words.getWordFixedSizeAndLetterIterator(letter, size));
-    }
-
-    /**
-     * Призначений, для проходу через колекцію слів, та обробки кожного
-     * отриманого слова.
-     *
-     * @param words
-     *            колекція слів
-     * @param wordIterator
-     *            ітератор для проходу через колекцію слів
-     * @see WordsCollection
-     * @see Iterator
-     * @return колекція знайдених ананимів
-     */
-    private static AnanymsCollection findAllAnanyms(final WordsCollection words,
-            final Iterator<String> wordIterator) {
-        AnanymsCollection ananyms = new AnanymsCollection();
-
-        while (wordIterator.hasNext()) {
-            Ananym ananym = findAnanym(words, wordIterator.next());
-            if (ananym != null) {
-                ananyms.putAnanym(ananym);
+            if (currentMappedWord != null) {
+                ananyms.add(new Ananym(hashableWord.getCharSequence(),
+                        currentMappedWord.getCharSequence()));
+                currentMappedWord.setReversedPolynomialHashCode(
+                        PolynomialHash.ZERO_HASH);
             }
         }
 
@@ -127,31 +92,110 @@ public final class Anagrams {
     }
 
     /**
-     * Призначений, для пошуку оберненого слова для отриманного вхідного слова.
-     * Наприклад: findAnanym(..., "def") буде виконано пошук слова "fed" в
-     * колекції слів.
+     * Призначений, для пошуку слів ананимів. Наприклад: "def", "fed".
+     * Порівняння рядків виконується за допомогою поліноміального хешу, таким
+     * чином можливо зменьшити обсяг використаного часу на порівняння слів, їх
+     * пошук, а також зменьшити просторову складність алгоритму пошуку,
+     * порівняно з попереднім алгоритмом пошуку. Детальніше див. попередню
+     * реалізацію.
      *
-     * @param words
-     *            колекція слів
-     * @param word
-     *            вхідне слово
+     * @param lines
+     *            набір вхідних символьних послідовностей
+     * @param regex
+     *            регулярний вираз, для виділення з послідовності певнх
+     *            символьних послідовностей
+     * @see <a href=
+     *      "https://sourceforge.net/p/kit26a-cpp/code/HEAD/tree/malokhvii_eduard/src/ua/khpi/oop/malokhvii03/text/">
+     *      Версія - 1.0.0</a>
+     * @see HashableWord
+     * @see PolynomialHash
      * @see Ananym
-     * @return знайдений Ананим або null
+     * @since 1.1.0
+     * @return {@link Array перелік} ананимів.
      */
-    private static Ananym findAnanym(final WordsCollection words,
-            final String word) {
-        int wordLength = word.length();
-        char lastLetter = word.charAt(wordLength - 1);
+    public static Collection<Ananym> findAllAnanyms(
+            final Iterable<CharSequence> lines, final String regex) {
+        assert lines == null;
+        Array<Ananym> ananyms = new Array<Ananym>();
+        HashMap<Long, HashableWord> mappedWords = new HashMap<Long, HashableWord>();
+        Pattern wordPattern = Pattern.compile(regex);
 
-        Iterator<String> reversedWordIterator = words
-                .getWordFixedSizeAndLetterIterator(lastLetter, wordLength);
-        while (reversedWordIterator.hasNext()) {
-            String reversedWord = reversedWordIterator.next();
-            if (isAnanym(word, reversedWord)) {
-                return new Ananym(word, reversedWord);
+        long polynomialHash;
+        CharSequence word;
+        for (CharSequence line : lines) {
+            Matcher wordMatcher = wordPattern.matcher(line);
+            while (wordMatcher.find()) {
+                word = wordMatcher.group();
+                polynomialHash = PolynomialHash.charSequenceHash(word);
+                if (!mappedWords.containsKey(polynomialHash)) {
+                    mappedWords.put(polynomialHash,
+                            new HashableWord(word, polynomialHash));
+                }
             }
         }
 
-        return null;
+        HashableWord currentMappedWord;
+        for (HashableWord hashableWord : mappedWords.values()) {
+            polynomialHash = hashableWord.getReversedPolіnomialHashCode();
+            currentMappedWord = mappedWords.get(polynomialHash);
+
+            if (currentMappedWord != null) {
+                ananyms.add(new Ananym(hashableWord.getCharSequence(),
+                        currentMappedWord.getCharSequence()));
+                currentMappedWord.setReversedPolynomialHashCode(
+                        PolynomialHash.ZERO_HASH);
+            }
+        }
+
+        return ananyms;
+    }
+
+    /**
+     * Призначений, для пошуку слів ананимів. Наприклад: "def", "fed".
+     * Порівняння рядків виконується за допомогою поліноміального хешу, таким
+     * чином можливо зменьшити обсяг використаного часу на порівняння слів, їх
+     * пошук, а також зменьшити просторову складність алгоритму пошуку,
+     * порівняно з попереднім алгоритмом пошуку. Детальніше див. попередню
+     * реалізацію.
+     *
+     * @param words
+     *            набір вхідних слів, для обробки на наявність ананимів
+     * @see <a href=
+     *      "https://sourceforge.net/p/kit26a-cpp/code/HEAD/tree/malokhvii_eduard/src/ua/khpi/oop/malokhvii03/text/">
+     *      Версія - 1.0.0</a>
+     * @see HashableWord
+     * @see PolynomialHash
+     * @see Ananym
+     * @since 1.1.0
+     * @return {@link Array перелік} ананимів.
+     */
+    public static Collection<Ananym> findAllAnanyms(
+            Iterable<CharSequence> words) {
+        assert words == null;
+        Array<Ananym> ananyms = new Array<Ananym>();
+        HashMap<Long, HashableWord> mappedWords = new HashMap<Long, HashableWord>();
+
+        long polynomialHash;
+        for (CharSequence word : words) {
+            polynomialHash = PolynomialHash.charSequenceHash(word);
+            if (!mappedWords.containsKey(polynomialHash)) {
+                mappedWords.put(polynomialHash,
+                        new HashableWord(word, polynomialHash));
+            }
+        }
+
+        HashableWord currentMappedWord;
+        for (HashableWord hashableWord : mappedWords.values()) {
+            polynomialHash = hashableWord.getReversedPolіnomialHashCode();
+            currentMappedWord = mappedWords.get(polynomialHash);
+            if (currentMappedWord != null) {
+                ananyms.add(new Ananym(hashableWord.getCharSequence(),
+                        currentMappedWord.getCharSequence()));
+                currentMappedWord.setReversedPolynomialHashCode(
+                        PolynomialHash.ZERO_HASH);
+            }
+        }
+
+        return ananyms;
     }
 }
