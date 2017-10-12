@@ -1,4 +1,4 @@
-/**
+﻿/**
  * <p>
  * Пакет, містить у собі реалізацію типових алгоритмів сортування на основі
  * порівняння. Реалізації алгоритмів на інших методах не розглядались.<br>
@@ -129,5 +129,4 @@
  * @author malokhvii-eduard
  * @version 1.0.0
  */
-// TODO реалізувати OddEvenSort, CombSort, SmoothSort, вдосконалити QuickSort
 package ua.khpi.oop.malokhvii05.util.algorithms.sort;
