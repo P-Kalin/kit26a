@@ -3,13 +3,13 @@ package ua.khpi.oop.pavlova04;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
+import java.util.ArrayList;
 
 public final class CommandParser {
 	public static boolean exit = false;
 	public static String text;
-	private static List<String> longest;
-	private static List<String> shortest;
+	private static ArrayList<String> longest;
+	private static ArrayList<String> shortest;
 
 	private CommandParser() {
 
@@ -20,9 +20,16 @@ public final class CommandParser {
 		case 1:
 			System.out.println("1. input");
 			System.out.println("Введіть текст латинкою:");
+			StringBuilder stringBuilder = new StringBuilder();
 
 			BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
-			text = buf.readLine();
+			while ((text = buf.readLine()) != null) {
+				if (text.compareTo("end") == 0) {
+					break;
+				}
+				stringBuilder.append(text);
+			}
+			text = stringBuilder.toString();
 			if (ExtraOptions.debugParam == true)
 				System.out.println("~dbg.Створено буфер.\n    Зчитано текст.");
 			break;
@@ -34,14 +41,20 @@ public final class CommandParser {
 			break;
 		case 3:
 			System.out.println("3. calculate");
-			for (String element : TextUtil.extractAllSentences(text)) {
-				if (ExtraOptions.debugParam == true)
-					System.out.println("~dbg.Ведеться пошук найдовших слів у реченнях.");
-				longest.add(TextUtil.findLongestWordtInText(element));
-				if (ExtraOptions.debugParam == true)
-					System.out.println("~dbg.Ведеться пошук найкоротших слів у реченнях.");
-				shortest.add(TextUtil.findShortestWordInText(element));
-			}
+			assert text == null;
+			ArrayList<String> sentences = (ArrayList<String>) TextUtil.extractAllSentences(text);
+			longest = (ArrayList<String>) TextUtil.findLongestWordsInLines(sentences);
+			shortest = (ArrayList<String>) TextUtil.findShortestWordsInLines(sentences);
+
+			/**
+			 * for (String element : TextUtil.extractAllSentences(text)) { if
+			 * (ExtraOptions.debugParam == true) System.out.println("~dbg.Ведеться пошук
+			 * найдовших слів у реченнях."); String temp =
+			 * TextUtil.findLongestWordtInText(element); longest.add(temp); if
+			 * (ExtraOptions.debugParam == true) System.out.println("~dbg.Ведеться пошук
+			 * найкоротших слів у реченнях.");
+			 * shortest.add(TextUtil.findShortestWordInText(element));
+			 */
 			break;
 		case 4:
 			System.out.println("4. result");
