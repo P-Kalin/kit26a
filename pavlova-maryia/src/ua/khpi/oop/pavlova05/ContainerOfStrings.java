@@ -81,7 +81,14 @@ public class ContainerOfStrings implements Iterable<String> {
 					throw new OutOfMemoryError();
 				newCapacity = MAX_ARRAY_SIZE;
 			}
+			String[] newData = new String[minCapacity];
+			for (int i = 0; i < size - 1; i++) {
+				newData[i] = elementData[i];
+			}
+			// System.arraycopy(elementData, 0, newData, 0, size);
+			elementData = newData;
 		}
+
 	}
 
 	/**
