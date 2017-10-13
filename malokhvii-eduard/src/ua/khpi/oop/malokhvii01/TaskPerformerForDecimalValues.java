@@ -7,19 +7,24 @@ import java.util.ArrayList;
  * типу {@link TaskValues}. Згідно завдання, підраховує кількість парних та
  * непарних цифр у кожному числі з вхідного об'єкту.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see TaskValues
+ * @since 1.0.0
  */
 public class TaskPerformerForDecimalValues {
 
     /**
      * Вхідні числа у десятковому вигляді, для зручнішої подальшої обробки.
+     *
+     * @since 1.0.0
      */
     private ArrayList<Long> decimalNumbers;
 
     /**
      * Посилання на об'єкт вхідних даних.
+     *
+     * @since 1.0.0
      */
     private TaskValues taskValues;
 
@@ -30,6 +35,7 @@ public class TaskPerformerForDecimalValues {
      *
      * @param taskValues
      *            Вхідні дані, для подальших обчислень
+     * @since 1.0.0
      */
     public TaskPerformerForDecimalValues(final TaskValues taskValues) {
         this.decimalNumbers = new ArrayList<Long>();
@@ -42,6 +48,7 @@ public class TaskPerformerForDecimalValues {
      * @param number
      *            Число, для підрахунку парних цифр
      * @return Кількість парних цифр, підрахованих у вхідному числі
+     * @since 1.0.0
      */
     public long countAmountOfPairedDigitsInNumber(final Long number) {
         long numberCopy = number;
@@ -60,6 +67,7 @@ public class TaskPerformerForDecimalValues {
      * Призначений для обчислення суми парних цифр для усіх цифр.
      *
      * @return Суму парних цифр, у отриманих числах з вхідного об'єкту
+     * @since 1.0.0
      */
     public long countAmountOfPairedDigitsInNumbers() {
         long amountOfPairedDigits = 0;
@@ -77,6 +85,7 @@ public class TaskPerformerForDecimalValues {
      * @param number
      *            Число, для підрахунку непарних цифр
      * @return Кількість непарних цифр, підрахованих у вхідному числі
+     * @since 1.0.0
      */
     public long countAmountOfUnpairedDigitsInNumber(final Long number) {
         long numberCopy = number;
@@ -95,6 +104,7 @@ public class TaskPerformerForDecimalValues {
      * Призначений для обчислення суми непарних цифр для усіх цифр.
      *
      * @return Суму непарних цифр, у отриманих числах з вхідного об'єкту
+     * @since 1.0.0
      */
     public long countAmountOfUnpairedDigitsInNumbers() {
         long amountOfUnpairedDigits = 0;
@@ -111,6 +121,7 @@ public class TaskPerformerForDecimalValues {
      * {@link TaskPerformerForDecimalValues#taskValues}.
      *
      * @return Значення поля {@link TaskPerformerForDecimalValues#taskValues}
+     * @since 1.0.0
      */
     public TaskValues getTaskInitialValues() {
         return this.taskValues;
@@ -122,6 +133,7 @@ public class TaskPerformerForDecimalValues {
      *
      * @param taskValues
      *            Вхідні дані, для подальших обчислень
+     * @since 1.0.0
      */
     public void setTaskValues(final TaskValues taskValues) {
         this.taskValues = taskValues;

@@ -9,19 +9,24 @@ import java.util.ArrayList;
  * типу {@link TaskValues}. Згідно завдання, підраховує кількість одиниць та
  * нулів у кожному числі з вхідного об'єкту у двійковому представленні.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see TaskValues
+ * @since 1.0.0
  */
 public class TaskPerformerForBinaryValues {
 
     /**
      * Вхідні числа у двійковому вигляді, для зручнішої подальшої обробки.
+     *
+     * @since 1.0.0
      */
     private ArrayList<String> binaryNumbers;
 
     /**
      * Посилання на об'єкт вхідних даних.
+     *
+     * @since 1.0.0
      */
     private TaskValues taskValues;
 
@@ -32,6 +37,7 @@ public class TaskPerformerForBinaryValues {
      *
      * @param taskValues
      *            Вхідні дані, для подальших обчислень
+     * @since 1.0.0
      */
     public TaskPerformerForBinaryValues(final TaskValues taskValues) {
         this.binaryNumbers = new ArrayList<String>();
@@ -47,6 +53,7 @@ public class TaskPerformerForBinaryValues {
      * @param bitCharacter
      *            Символ біту, кількість якого буде підраховано
      * @return Кількість підрахованих повторень очікуваного символу
+     * @since 1.0.0
      */
     public long countAmountOfBitsInNumber(final String binaryNumber,
             final char bitCharacter) {
@@ -54,9 +61,8 @@ public class TaskPerformerForBinaryValues {
                 binaryNumber);
         long amountOfCoincidences = 0;
         char i;
-        for (i = characterSelector
-                .first(); i != CharacterIterator.DONE; i = characterSelector
-                        .next()) {
+        for (i = characterSelector.first(); i != CharacterIterator.DONE;
+                i = characterSelector.next()) {
             if (i == bitCharacter) {
                 ++amountOfCoincidences;
             }
@@ -69,6 +75,7 @@ public class TaskPerformerForBinaryValues {
      * вхідних чисел.
      *
      * @return Кількість одиниць у двійковому поданні усіх вхідних чисел
+     * @since 1.0.0
      */
     public long countAmountOfOnesInNumbers() {
         long amountOfOnes = 0;
@@ -84,6 +91,7 @@ public class TaskPerformerForBinaryValues {
      * вхідних чисел.
      *
      * @return Кількість нулів у двійковому поданні усіх вхідних чисел
+     * @since 1.0.0
      */
     public long countAmountOfZeroesInNumbers() {
         long amountOfZeroes = 0;
@@ -100,6 +108,7 @@ public class TaskPerformerForBinaryValues {
      *
      * @param taskValues
      *            Вхідні дані, для подальших обчислень
+     * @since 1.0.0
      */
     public void setTaskValues(final TaskValues taskValues) {
         this.taskValues = taskValues;

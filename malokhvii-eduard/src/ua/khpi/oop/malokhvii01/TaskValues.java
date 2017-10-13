@@ -4,10 +4,11 @@ package ua.khpi.oop.malokhvii01;
  * Зберігає початкові дані, для подальшого обчислення згідно поставленого
  * завдання, та зручнішої передачі у обрабники завдань.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see TaskPerformerForDecimalValues
  * @see TaskPerformerForBinaryValues
+ * @since 1.0.0
  */
 public final class TaskValues {
 
@@ -22,16 +23,19 @@ public final class TaskValues {
      * окремо значення кожного. На відміну від об'єктів типу
      * {@link LiteralBuilder}.
      *
-     * @author malokhvii-ee
+     * @author malokhvii-eduard
      * @version 1.0.0
      * @see TaskValues
      * @see LiteralBuilder
+     * @since 1.0.0
      */
     public final class Builder {
 
         /**
          * Порожній конструктор, але є приватним для захисту від створення
          * об'єкту не через спецільний метод {@link TaskValues#builder()}.
+         *
+         * @since 1.0.0
          */
         private Builder() {
 
@@ -42,6 +46,7 @@ public final class TaskValues {
          * {@link TaskValues}.
          *
          * @return Посилання на сконструйований об'єкт типу {@link TaskValues}
+         * @since 1.0.0
          */
         public TaskValues build() {
             return TaskValues.this;
@@ -57,6 +62,7 @@ public final class TaskValues {
          *            Номер студента згідно списку групи, юнікод літери
          *            англійського алфавіту
          * @return Посилання на об'єкт будівельника початкових даних
+         * @since 1.0.0
          */
         public Builder setEnglishUpperCaseLetter(
                 final int englishUpperCaseLetter) {
@@ -75,6 +81,7 @@ public final class TaskValues {
          * @param mobilePhoneNumber
          *            Номер мобільного телефону
          * @return Посилання на об'єкт будівельника початкових даних
+         * @since 1.0.0
          */
         public Builder setMobilePhoneNumber(final long mobilePhoneNumber) {
             TaskValues.this.mobilePhoneNumber = mobilePhoneNumber;
@@ -91,6 +98,7 @@ public final class TaskValues {
          * @param recordBookNumber
          *            Номер залікової книжки студента
          * @return Посилання на об'єкт будівельника початкових даних
+         * @since 1.0.0
          */
         public Builder setRecordBookNumber(final int recordBookNumber) {
             TaskValues.this.recordBookNumber = recordBookNumber;
@@ -108,10 +116,11 @@ public final class TaskValues {
      * встановлення усіх літералів власноруч, для демонстрації поставленого
      * завдання. На відміну від об'єктів типу{@link Builder}
      *
-     * @author malokhvii-ee
+     * @author malokhvii-eduard
      * @version 1.0.0
      * @see TaskValues
      * @see Builder
+     * @since 1.0.0
      */
     public final class LiteralBuilder {
 
@@ -119,6 +128,8 @@ public final class TaskValues {
          * Порожній конструктор, але є приватним для захисту від створення
          * об'єкту не через спецільний метод
          * {@link TaskValues#literalBuilder()}.
+         *
+         * @since 1.0.0
          */
         private LiteralBuilder() {
 
@@ -129,6 +140,7 @@ public final class TaskValues {
          * {@link TaskValues}.
          *
          * @return Посилання на сконструйований об'єкт типу {@link TaskValues}
+         * @since 1.0.0
          */
         public TaskValues build() {
             return TaskValues.this;
@@ -143,6 +155,7 @@ public final class TaskValues {
          * @param englishUpperCaseLetter
          *            Символ англійського алфавіту в верхньому регістрі
          * @return Посилання на об'єкт будівельника початкових даних
+         * @since 1.0.0
          */
         public LiteralBuilder setEnglishUpperCaseLetter(
                 final char englishUpperCaseLetter) {
@@ -157,6 +170,7 @@ public final class TaskValues {
          * @param lastFourDigitsOfMobilePhoneNumber
          *            Останні дві цифри від номеру мобільного телефону
          * @return Посилання на об'єкт будівельника початкових даних
+         * @since 1.0.0
          */
         public LiteralBuilder setLastFourDigitsOfMobilePhoneNumber(
                 final int lastFourDigitsOfMobilePhoneNumber) {
@@ -171,6 +185,7 @@ public final class TaskValues {
          * @param lastTwoDigitsOfMobilePhoneNumber
          *            Останні чотири цифри від номеру мобільного телефону
          * @return Посилання на об'єкт будівельника початкових даних
+         * @since 1.0.0
          */
         public LiteralBuilder setLastTwoDigitsOfMobilePhoneNumber(
                 final int lastTwoDigitsOfMobilePhoneNumber) {
@@ -184,6 +199,7 @@ public final class TaskValues {
          * @param mobilePhoneNumber
          *            Номер мобільного телефону
          * @return Посилання на об'єкт будівельника початкових даних
+         * @since 1.0.0
          */
         public LiteralBuilder setMobilePhoneNumber(
                 final long mobilePhoneNumber) {
@@ -197,6 +213,7 @@ public final class TaskValues {
          * @param recordBookNumber
          *            Номер залікової книжки студента
          * @return Посилання на об'єкт будівельника початкових даних
+         * @since 1.0.0
          */
         public LiteralBuilder setRecordBookNumber(final int recordBookNumber) {
             TaskValues.this.recordBookNumber = recordBookNumber;
@@ -208,6 +225,8 @@ public final class TaskValues {
      * Константа, необхідна для розрахунку числа, для подальшого його
      * переведення у літеру англійського алфавіту. Розрахунок за наступним
      * чином: (номер студента у писку - 1) % {@value} - 1
+     *
+     * @since 1.0.0
      */
     private static final int STUDENT_NUMBER_DIVIDER = 26;
 
@@ -217,6 +236,7 @@ public final class TaskValues {
      *
      * @see Builder
      * @return Сконструйований екземпляр об'єкту будівельника почтакових даних
+     * @since 1.0.0
      */
     public static Builder builder() {
         return new TaskValues().new Builder();
@@ -228,6 +248,7 @@ public final class TaskValues {
      *
      * @see LiteralBuilder
      * @return Сконструйований екземпляр об'єкту будівельника почтакових даних
+     * @since 1.0.0
      */
     public static LiteralBuilder literalBuilder() {
         return new TaskValues().new LiteralBuilder();
@@ -235,26 +256,36 @@ public final class TaskValues {
 
     /**
      * Літера у верхньому регістрі, англійського алфавіту.
+     *
+     * @since 1.0.0
      */
     private char englishUpperCaseLetter;
 
     /**
      * Останні чотири цифри від номеру мобільного телефону.
+     *
+     * @since 1.0.0
      */
     private int lastFourDigitsOfMobilePhoneNumber;
 
     /**
      * Останні дві цифри від номеру мобільного телефону.
+     *
+     * @since 1.0.0
      */
     private int lastTwoDigitsOfMobilePhoneNumber;
 
     /**
      * Номер мобільного телефону.
+     *
+     * @since 1.0.0
      */
     private long mobilePhoneNumber;
 
     /**
      * Номер залікової книжки студента.
+     *
+     * @since 1.0.0
      */
     private int recordBookNumber;
 
@@ -262,6 +293,8 @@ public final class TaskValues {
      * Порожній конструктор, але є приватним для захисту від створення об'єкту
      * не через спецільний "об'єкт будівник" типу {@link LiteralBuilder} або
      * {@link Builder}.
+     *
+     * @since 1.0.0
      */
     private TaskValues() {
 
@@ -272,6 +305,7 @@ public final class TaskValues {
      * {@link TaskValues#englishUpperCaseLetter}.
      *
      * @return Значення поля {@link TaskValues#englishUpperCaseLetter}
+     * @since 1.0.0
      */
     public char getEnglishUpperCaseLetter() {
         return this.englishUpperCaseLetter;
@@ -283,6 +317,7 @@ public final class TaskValues {
      *
      * @return Значення поля
      *         {@link TaskValues#lastFourDigitsOfMobilePhoneNumber}
+     * @since 1.0.0
      */
     public int getLastFourDigitsOfMobilePhoneNumber() {
         return this.lastFourDigitsOfMobilePhoneNumber;
@@ -293,6 +328,7 @@ public final class TaskValues {
      * {@link TaskValues#lastTwoDigitsOfMobilePhoneNumber}.
      *
      * @return Значення поля {@link TaskValues#lastTwoDigitsOfMobilePhoneNumber}
+     * @since 1.0.0
      */
     public int getLastTwoDigitsOfMobilePhoneNumber() {
         return this.lastTwoDigitsOfMobilePhoneNumber;
@@ -303,6 +339,7 @@ public final class TaskValues {
      * {@link TaskValues#mobilePhoneNumber}.
      *
      * @return Значення поля {@link TaskValues#mobilePhoneNumber}
+     * @since 1.0.0
      */
     public long getMobilePhoneNumber() {
         return this.mobilePhoneNumber;
@@ -313,6 +350,7 @@ public final class TaskValues {
      * {@link TaskValues#recordBookNumber}.
      *
      * @return Значення поля {@link TaskValues#recordBookNumber}
+     * @since 1.0.0
      */
     public int getRecordBookNumber() {
         return this.recordBookNumber;
