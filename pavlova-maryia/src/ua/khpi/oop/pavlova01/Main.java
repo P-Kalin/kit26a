@@ -42,6 +42,7 @@ public final class Main {
 		 * знайденому раніше значенню.
 		 */
 		char letter = (char) (code + 64);
+		System.out.println(letter);
 		/**
 		 * Переведення усіх значень у строки
 		 */
