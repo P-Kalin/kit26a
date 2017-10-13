@@ -16,17 +16,22 @@ import java.util.Set;
  * @author malokhvii-eduard
  * @version 1.0.0
  * @see SearchAlgorithm
+ * @since 1.0.0
  */
 @SuppressWarnings("rawtypes")
 public final class SearchAlgorithmFactory {
 
     /**
      * Хеш-карта об'єктів обгорток над класами алгоритмів пошуку.
+     *
+     * @since 1.0.0
      */
     private static Map<String, Class<? extends SearchAlgorithm>> classMapping;
 
     /**
      * Клас алгоритму за змовчування.
+     *
+     * @since 1.0.0
      */
     private static Class<? extends SearchAlgorithm> defaultAlgorithm;
 
@@ -37,6 +42,8 @@ public final class SearchAlgorithmFactory {
 
     /**
      * Приватний конструктор, для заборони створення фабрик алгоритмів.
+     *
+     * @since 1.0.0
      */
     private SearchAlgorithmFactory() {
 
@@ -46,6 +53,7 @@ public final class SearchAlgorithmFactory {
      * Пирзначений, для отримання множини зарегестрованих назв алгоритмів.
      *
      * @return множина зарегестрованих назв алгоритмів
+     * @since 1.0.0
      */
     public static Set<String> getRegisteredAlgorithms() {
         return classMapping.keySet();
@@ -56,6 +64,7 @@ public final class SearchAlgorithmFactory {
      *
      * @param algorithmClass
      *            клас алгоритму за змовчуванням
+     * @since 1.0.0
      */
     public static void setDefaultAlgorithm(
             Class<? extends SearchAlgorithm> algorithmClass) {
@@ -71,6 +80,7 @@ public final class SearchAlgorithmFactory {
      *            компаратор, для алгоритму
      * @return алгоритм за змовчуванням, якщо алгоритм за змовчуванням не
      *         визначено, повертає заглушку на недійсний алгоритм.
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public static <T> SearchAlgorithm<T> getDefaultAlgorithm(
@@ -89,11 +99,13 @@ public final class SearchAlgorithmFactory {
     /**
      * Призначений, для отримання алгоритму за змовчуванням. Для типів які
      * реалізують інтерфейс {@link Comparable}. В якості компаратора
-     * використовується {@link Comparator#naturalOrder}. * @param <T> Тип,
-     * об'єктів для яких використовується компаратор
+     * використовується {@link Comparator#naturalOrder}.
      *
+     * @param <T>
+     *            Тип, об'єктів для яких використовується компаратор
      * @return алгоритм за змовчуванням, якщо алгоритм за змовчуванням не
      *         визначено, повертає заглушку на недійсний алгоритм.
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public static <T extends Comparable<T>> SearchAlgorithm<T> getDefaultAlgorithm() {
@@ -119,6 +131,7 @@ public final class SearchAlgorithmFactory {
      *            компаратор, для алгоритму
      * @return алгоритм за назвою, якщо алгоритм за змовчуванням не визначено,
      *         повертає заглушку на недійсний алгоритм.
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public static <T> SearchAlgorithm<T> getAlgorithm(String name,
@@ -150,6 +163,7 @@ public final class SearchAlgorithmFactory {
      *            назва алгоритму
      * @return алгоритм за назвою, якщо алгоритм за змовчуванням не визначено,
      *         повертає заглушку на недійсний алгоритм.
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public static <T extends Comparable<T>> SearchAlgorithm<T> getAlgorithm(
@@ -175,6 +189,7 @@ public final class SearchAlgorithmFactory {
      *
      * @param name
      *            зарегестрована назва алгоритму
+     * @since 1.0.0
      */
     static void unregisterAlgorithm(String name) {
         classMapping.remove(name);
@@ -187,6 +202,7 @@ public final class SearchAlgorithmFactory {
      *            назва алгоритму
      * @param algorithmClass
      *            клас нового алгоритму пошуку
+     * @since 1.0.0
      */
     public static void registerAlgorithm(String name,
             Class<? extends SearchAlgorithm> algorithmClass) {
@@ -195,6 +211,8 @@ public final class SearchAlgorithmFactory {
 
     /**
      * Призначений, для завантаження типових алгоритмів.
+     * 
+     * @since 1.0.0
      */
     private static void loadBasicAlgorithms() {
         final String basicPackage = "ua.khpi.oop.malokhvii05.util.algorithms"

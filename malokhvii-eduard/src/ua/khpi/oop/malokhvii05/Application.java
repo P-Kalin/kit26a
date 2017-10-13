@@ -6,12 +6,15 @@ import java.io.IOException;
  * Призначений, для демонстрації виконання отриманного завдання.
  *
  * @author malokhvii-ee
- * @version 1.0.2
+ * @version 1.0.1
+ * @since 1.0.0
  */
 public final class Application {
 
     /**
      * Приватний конструктор, для заборони створення утилітарного класу.
+     *
+     * @since 1.0.0
      */
     private Application() {
 
@@ -35,6 +38,7 @@ public final class Application {
      *            параметри, отримувані через командний рядок
      * @throws IOException
      *             Помилка під час введення, виведення
+     * @since 1.0.0
      */
     public static void main(final String[] args) throws IOException {
         ua.khpi.oop.malokhvii04.Application.main(args);

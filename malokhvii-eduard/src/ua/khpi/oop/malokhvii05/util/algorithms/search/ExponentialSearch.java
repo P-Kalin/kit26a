@@ -33,11 +33,14 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * @see SearchAlgorithmFactory
  * @param <T>
  *            Тип даних, елементів масиву, та елемента для пошуку
+ * @since 1.0.0
  */
 public class ExponentialSearch<T> extends AbstractSearchAlgorithm<T> {
 
     /**
      * Внутрішній алгоритм пошуку в діапазоні.
+     *
+     * @since 1.0.0
      */
     private SearchInRangeAlgorithm<T> searchInRangeAlgorithm;
 
@@ -52,6 +55,7 @@ public class ExponentialSearch<T> extends AbstractSearchAlgorithm<T> {
      *
      * @param searchInRangeAlgorithm
      *            внутрішній алгоритм для пошуку в діапазоні
+     * @since 1.0.0
      */
     public ExponentialSearch(
             final AbstractSearchInRangeAlgorithm<T> searchInRangeAlgorithm) {
@@ -65,6 +69,7 @@ public class ExponentialSearch<T> extends AbstractSearchAlgorithm<T> {
      *
      * @param comparator
      *            компаратор для порівння під час сорутвання
+     * @since 1.0.0
      */
     public ExponentialSearch(final Comparator<T> comparator) {
         super(comparator);
@@ -93,6 +98,7 @@ public class ExponentialSearch<T> extends AbstractSearchAlgorithm<T> {
      * Призначений, для отримання внутрішшнього алгоритму пошуку в діапазоні.
      *
      * @return внутрішній алгоритм пошуку в діапазоні
+     * @since 1.0.0
      */
     public final SearchInRangeAlgorithm<T> getSearchInRangeAlgorithm() {
         return searchInRangeAlgorithm;
@@ -103,6 +109,7 @@ public class ExponentialSearch<T> extends AbstractSearchAlgorithm<T> {
      *
      * @param searchInRangeAlgorithm
      *            новий внітршній алгоритм для пошуку в діапазоні
+     * @since 1.0.0
      */
     public final void setSearchInRangeAlgorithm(
             final SearchInRangeAlgorithm<T> searchInRangeAlgorithm) {

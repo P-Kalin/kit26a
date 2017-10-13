@@ -11,6 +11,7 @@ import ua.khpi.oop.malokhvii05.util.algorithms.AlgorithmWithComparator;
  * @version 1.0.0
  * @param <T>
  *            Тип даних, елементів масиву та елемента для пошуку
+ * @since 1.0.0
  */
 public interface SearchAlgorithm<T> extends AlgorithmWithComparator<T> {
 
@@ -28,6 +29,7 @@ public interface SearchAlgorithm<T> extends AlgorithmWithComparator<T> {
      *            значення для пошуку
      * @return індекс знайдего значення, або якщо значення не знайдено тоді
      *         {@link SearchAlgorithm#INDEX_NOT_FOUND}.
+     * @since 1.0.0
      */
     int search(Array<T> array, T value);
 
@@ -36,6 +38,7 @@ public interface SearchAlgorithm<T> extends AlgorithmWithComparator<T> {
      * допомогою алгоритму.
      *
      * @return останній індекс, який було знайдено за допомгою алгоритму
+     * @since 1.0.0
      */
     int getLastFoundIndex();
 }

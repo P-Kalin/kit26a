@@ -13,12 +13,15 @@ import ua.khpi.oop.malokhvii05.util.algorithms.AbstractAlgorithmWithComparator;
  * @version 1.0.0
  * @param <T>
  *            Тип даних, елементів масиву та елемента для пошуку
+ * @since 1.0.0
  */
 public abstract class AbstractSearchAlgorithm<T> extends
         AbstractAlgorithmWithComparator<T> implements SearchAlgorithm<T> {
 
     /**
      * Індекс останнього знайденого елементу.
+     *
+     * @since 1.0.0
      */
     protected int lastFoundIndex;
 
@@ -28,6 +31,7 @@ public abstract class AbstractSearchAlgorithm<T> extends
      *
      * @param comparator
      *            компоратор для вхідних даних
+     * @since 1.0.0
      */
     public AbstractSearchAlgorithm(final Comparator<T> comparator) {
         super(comparator);
@@ -37,6 +41,7 @@ public abstract class AbstractSearchAlgorithm<T> extends
      * Призначений, для завершення пошуку, якщо не знайдено елемент.
      *
      * @return індекс не знайденого елементу
+     * @since 1.0.0
      */
     protected final int indexNotFound() {
         lastFoundIndex = INDEX_NOT_FOUND;
@@ -49,6 +54,7 @@ public abstract class AbstractSearchAlgorithm<T> extends
      * @param array
      *            вхідний масив
      * @return результат перевірки
+     * @since 1.0.0
      */
     protected final boolean isValidArray(final Array<T> array) {
         if (array.isEmpty()) {

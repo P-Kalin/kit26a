@@ -29,6 +29,7 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * @see SearchAlgorithmFactory
  * @param <T>
  *            Тип даних, елементів масиву, діапазону, та елемента для пошуку
+ * @since 1.0.0
  */
 public class BinarySearch<T> extends AbstractSearchInRangeAlgorithm<T> {
 
@@ -44,6 +45,7 @@ public class BinarySearch<T> extends AbstractSearchInRangeAlgorithm<T> {
      *
      * @param comparator
      *            компаратор для порівння під час сорутвання
+     * @since 1.0.0
      */
     public BinarySearch(final Comparator<T> comparator) {
         super(comparator);

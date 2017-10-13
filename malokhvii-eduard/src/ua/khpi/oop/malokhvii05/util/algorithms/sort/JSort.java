@@ -32,6 +32,7 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * @param <T>
  *            Тип даних, елементів масиву для сортування, та компаратору для
  *            порівняння елементів
+ * @since 1.0.0
  */
 public final class JSort<T> extends AbstractSortAlgorithm<T> {
 
@@ -45,6 +46,7 @@ public final class JSort<T> extends AbstractSortAlgorithm<T> {
      *
      * @param comparator
      *            компоратор для вхідних даних
+     * @since 1.0.0
      */
     public JSort(final Comparator<T> comparator) {
         super(comparator);
@@ -85,6 +87,7 @@ public final class JSort<T> extends AbstractSortAlgorithm<T> {
      *            масив
      * @param index
      *            індекс елементу купи
+     * @since 1.0.0
      */
     private void reheap(final Array<T> array, final int index) {
         int heapLength = array.size();
@@ -123,6 +126,7 @@ public final class JSort<T> extends AbstractSortAlgorithm<T> {
      *            масив
      * @param index
      *            індекс елементу купи
+     * @since 1.0.0
      */
     private void inverseReheap(final Array<T> array, final int index) {
         int heapSize = array.size();

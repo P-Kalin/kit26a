@@ -35,21 +35,28 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * @see SearchAlgorithmFactory
  * @param <T>
  *            Тип даних, елементів масиву, та елемента для пошуку
+ * @since 1.0.0
  */
 public final class FibonacciSearch<T> extends AbstractSearchAlgorithm<T> {
 
     /**
      * Число фібоначі (m-2)'th.
+     *
+     * @since 1.0.0
      */
     private int fibonacciNumberM2;
 
     /**
      * Число фібоначі (m-1)'th.
+     *
+     * @since 1.0.0
      */
     private int fibonacciNumberM1;
 
     /**
      * Число фібоначі m'th.
+     *
+     * @since 1.0.0
      */
     private int currentFibonacciNumber;
 
@@ -64,6 +71,7 @@ public final class FibonacciSearch<T> extends AbstractSearchAlgorithm<T> {
      *
      * @param comparator
      *            компаратор для порівння під час сорутвання
+     * @since 1.0.0
      */
     public FibonacciSearch(final Comparator<T> comparator) {
         super(comparator);
@@ -74,6 +82,7 @@ public final class FibonacciSearch<T> extends AbstractSearchAlgorithm<T> {
      *
      * @param arraySize
      *            розмір вхідного масиву
+     * @since 1.0.0
      */
     private void prepareFibonacciNumbers(final int arraySize) {
         fibonacciNumberM1 = 1;
@@ -90,6 +99,8 @@ public final class FibonacciSearch<T> extends AbstractSearchAlgorithm<T> {
     /**
      * Призначений, для обрізання діапазону пошуку, якщо значення для пошуку
      * більше ніж поточне значення.
+     *
+     * @since 1.0.0
      */
     private void cutSubarrayFromOffsetToIndex() {
         currentFibonacciNumber = fibonacciNumberM1;
@@ -100,6 +111,8 @@ public final class FibonacciSearch<T> extends AbstractSearchAlgorithm<T> {
     /**
      * Призначений, для обрізання діапазону пошуку, якщо значення для пошуку
      * меньше ніж поточне значення.
+     * 
+     * @since 1.0.0
      */
     private void cutSubarrayAfterIndexPlusOne() {
         currentFibonacciNumber = fibonacciNumberM2;

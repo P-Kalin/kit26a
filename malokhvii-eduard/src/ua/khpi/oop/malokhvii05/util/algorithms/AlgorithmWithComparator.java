@@ -12,6 +12,7 @@ import java.util.Comparator;
  * @param <T>
  *            Тип даних, які оброблює алгоритм, а також тип компоратору для
  *            даних
+ * @since 1.0.0
  */
 public interface AlgorithmWithComparator<T> extends Algorithm<T> {
 
@@ -20,6 +21,7 @@ public interface AlgorithmWithComparator<T> extends Algorithm<T> {
      *
      * @param comparator
      *            новий об'єкт компоратора
+     * @since 1.0.0
      */
     void setComparator(Comparator<T> comparator);
 
@@ -27,6 +29,7 @@ public interface AlgorithmWithComparator<T> extends Algorithm<T> {
      * Призначений, для отримання поточного компаратора.
      *
      * @return поточний компаратор
+     * @since 1.0.0
      */
     Comparator<T> getComparator();
 }

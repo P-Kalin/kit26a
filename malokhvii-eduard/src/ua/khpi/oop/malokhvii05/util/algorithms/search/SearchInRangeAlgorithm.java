@@ -11,6 +11,7 @@ import ua.khpi.oop.malokhvii05.util.algorithms.AlgorithmWithComparator;
  * @version 1.0.0
  * @param <T>
  *            Тип даних, елементів діапазону та елемента для пошуку
+ * @since 1.0.0
  */
 public interface SearchInRangeAlgorithm<T> extends AlgorithmWithComparator<T> {
 
@@ -27,6 +28,7 @@ public interface SearchInRangeAlgorithm<T> extends AlgorithmWithComparator<T> {
      *            значення для пошуку
      * @return індекс знайдего значення, або якщо значення не знайдено тоді
      *         {@link SearchAlgorithm#INDEX_NOT_FOUND}.
+     * @since 1.0.0
      */
     int search(Array<T> array, T value, int left, int right);
 }

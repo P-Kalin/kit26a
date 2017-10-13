@@ -44,6 +44,7 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * @param <T>
  *            Тип даних, елементів масиву для сортування, та компаратору для
  *            порівняння елементів
+ * @since 1.0.0
  */
 public final class SimpleQuickSort<T> extends AbstractSortAlgorithm<T> {
 
@@ -58,6 +59,7 @@ public final class SimpleQuickSort<T> extends AbstractSortAlgorithm<T> {
      *
      * @param comparator
      *            компоратор для вхідних даних
+     * @since 1.0.0
      */
     public SimpleQuickSort(final Comparator<T> comparator) {
         super(comparator);
@@ -105,6 +107,7 @@ public final class SimpleQuickSort<T> extends AbstractSortAlgorithm<T> {
      * @param right
      *            кінець діпазону
      * @return індекс для розбиття масиву на частини
+     * @since 1.0.0
      */
     private int partition(final Array<T> array, final int left,
             final int right) {

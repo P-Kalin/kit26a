@@ -12,18 +12,23 @@ import ua.khpi.oop.malokhvii05.util.algorithms.NullAlgorithmWithComparator;
  * @param <T>
  *            Тип даних, елементів масиву для сортування, та компаратору для
  *            порівняння елементів
+ * @since 1.0.0
  */
 final class NullSortAlgorithm<T> extends NullAlgorithmWithComparator<T>
         implements SortAlgorithm<T> {
 
     /**
      * Єдиний об'єкт заглушки алгоритму сортування.
+     *
+     * @since 1.0.0
      */
     @SuppressWarnings("rawtypes")
     public static final SortAlgorithm INSTANCE = new NullSortAlgorithm();
 
     /**
      * Приватний конструткор, для заборони створення заглушки.
+     * 
+     * @since 1.0.0
      */
     private NullSortAlgorithm() {
 

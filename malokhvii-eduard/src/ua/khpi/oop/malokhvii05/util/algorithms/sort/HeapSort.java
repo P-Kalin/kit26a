@@ -32,6 +32,7 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * @param <T>
  *            Тип даних, елементів масиву для сортування, та компаратору для
  *            порівняння елементів
+ * @since 1.0.0
  */
 public final class HeapSort<T> extends AbstractSortAlgorithm<T> {
 
@@ -45,6 +46,7 @@ public final class HeapSort<T> extends AbstractSortAlgorithm<T> {
      *
      * @param comparator
      *            компоратор для вхідних даних
+     * @since 1.0.0
      */
     public HeapSort(final Comparator<T> comparator) {
         super(comparator);
@@ -74,6 +76,7 @@ public final class HeapSort<T> extends AbstractSortAlgorithm<T> {
      *            розмір під-дерева
      * @param index
      *            позиція під-дерева
+     * @since 1.0.0
      */
     private void heapify(final Array<T> array, final int heapSize,
             final int index) {

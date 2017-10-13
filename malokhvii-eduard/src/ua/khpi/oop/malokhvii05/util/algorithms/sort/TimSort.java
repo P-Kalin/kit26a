@@ -18,7 +18,7 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * таких даних Timsort істотно швидше багатьох алгоритмів сортування.
  * </p>
  * <p>
- * Натхнення для дослідження алгоримту взято із
+ * Натхнення для дослідження алгоритму взято із
  * <a href="https://bugs.python.org/file4451/timsort.txt">опису Тіма
  * Петерсона</a>. За основу реалізації було взято реалізації з OpenJDK 7 та
  * реалізацію на Node.js. <a href=
@@ -42,6 +42,7 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * @param <T>
  *            Тип даних, елементів масиву для сортування, та компаратору для
  *            порівняння елементів
+ * @since 1.0.0
  */
 public final class TimSort<T> extends AbstractSortAlgorithm<T> {
 
@@ -50,6 +51,8 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      * Масив може збільшуватися за допомогою методу
      * {@link TimSort#ensureMergeBufferCapacity}. На відміну від реалізації Тима
      * Петерсона не виділяється значна купа пам'яті.
+     *
+     * @since 1.0.0
      */
     private static final int DEFAULT_MERGE_BUFFER_SIZE = 256;
 
@@ -60,6 +63,8 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      * Детальніше див.
      * <a href="https://bugs.python.org/file4451/timsort.txt">рекомендації Тіма
      * Петерсона</a>.
+     *
+     * @since 1.0.0
      */
     private static final int DEFAULT_MIN_GALLOP = 7;
 
@@ -68,6 +73,8 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      * продовжені за допомогою {@link TimSort#binaryInsertionSort}. Якщо весь
      * вхідний масив меньше ніж цей розмір, тоді буде викоритсано так званий
      * "min-tim-sort". Тобто відсортовано масив вставкою.
+     *
+     * @since 1.0.0
      */
     private static final int DEFAULT_MIN_MERGE = 32;
 
@@ -95,6 +102,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            потрібно сортувати
      * @param comparator
      *            компаратор, для порівняння елементів
+     * @since 1.0.0
      */
     private static <T> void binaryInsertionSort(final T[] array, final int low,
             final int high, int start, final Comparator<? super T> comparator) {
@@ -155,6 +163,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      * @param comparator
      *            компаратор, для порівняння елементів
      * @return довжина прогону, з найменшого індексу в масиві
+     * @since 1.0.0
      */
     private static <T> int countRunAndMakeAscending(final T[] array,
             final int low, final int high, final Comparator<T> comparator) {
@@ -204,6 +213,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      * @param arraySize
      *            довжина вхідного масиву
      * @return довжина мінімального пробігу, який необхідно відсортувати
+     * @since 1.0.0
      */
     private static int getMinRunSize(int arraySize) {
         int shiftedBits = 0;
@@ -237,6 +247,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      * @param comparator
      *            компаратор, для порівняння елементів
      * @return індекс найлівішого рівного елементу
+     * @since 1.0.0
      */
     private static <T> int leftGallopSearch(final T[] array, final T value,
             final int base, final int length, final int hint,
@@ -308,6 +319,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            індекс першого елемента в діапазоні, для обернення
      * @param high
      *            індекс елементу після елементу який необхідно обернути
+     * @since 1.0.0
      */
     private static void reverseSlice(final Object[] array, int low, int high) {
         high--;
@@ -340,6 +352,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      * @param comparator
      *            компаратор, для порівняння елементів
      * @return індекс після найправішого елемент
+     * @since 1.0.0
      */
     private static <T> int rightGallopSearch(final T[] array, final T value,
             final int base, final int length, final int hint,
@@ -404,11 +417,15 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
 
     /**
      * Очікуваний масив для сортування.
+     *
+     * @since 1.0.0
      */
     private T[] array;
 
     /**
      * Буфер для злиття прогонів.
+     *
+     * @since 1.0.0
      */
     private T[] mergeBuffer;
 
@@ -417,21 +434,29 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      * {@link TimSort#mergeHighRuns} та {@link TimSort#mergeLowRuns} збільшують
      * значення змінної для випадкових (хаотично впорядкованих) даних, і навпаки
      * для достатньо упорядкованих даних.
+     *
+     * @since 1.0.0
      */
     private int minGallop = DEFAULT_MIN_GALLOP;
 
     /**
      * Стек, для розміщення індексів перших елементів очікуваних прогонів.
+     *
+     * @since 1.0.0
      */
     private int[] runBaseStack;
 
     /**
      * Стек, для розміщення розмірів очікуваних прогонів.
+     *
+     * @since 1.0.0
      */
     private int[] runSizeStack;
 
     /**
      * Кількість очікуваниз прогонів, які будуть розміщені на стеці.
+     *
+     * @since 1.0.0
      */
     private int stackSize;
 
@@ -441,6 +466,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *
      * @param comparator
      *            компоратор для вхідних даних
+     * @since 1.0.0
      */
     public TimSort(final Comparator<T> comparator) {
         super(comparator);
@@ -454,6 +480,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *
      * @param minCapacity
      *            мінімальна необхідна ємність буфера для злиття прогонів
+     * @since 1.0.0
      */
     private void ensureMergeBufferCapacity(final int minCapacity) {
         if (mergeBuffer.length < minCapacity) {
@@ -482,6 +509,8 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      * об'єднання очікуваних прогонів, до того моменту поки не буде відновлено
      * стан стеку. Метод, використовується кожен раз коли новий прогін
      * переміщується до стеку прогонів.
+     *
+     * @since 1.0.0
      */
     private void mergeAdjacentRuns() {
         int runIndex;
@@ -506,6 +535,8 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      * Призначений, для об'єднання усіх прогонів у стеці очікуваниз прогонів,
      * доки не залишиться один. Використовується для завершення алгоритму
      * сортування.
+     *
+     * @since 1.0.0
      */
     private void mergeAllRuns() {
         int amountOfRuns;
@@ -525,6 +556,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *
      * @param index
      *            індекс першого прогону із двох прогонів у стеці
+     * @since 1.0.0
      */
     private void mergeAtIndex(final int index) {
         int runBase1 = runBaseStack[index];
@@ -574,6 +606,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            індекс першого елементу у другому прогоні
      * @param runSize2
      *            довжина другого прогону
+     * @since 1.0.0
      */
     private void mergeHighRuns(final int baseRun1, int runSize1,
             final int baseRun2, int runSize2) {
@@ -700,6 +733,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            індекс першого елементу у другому прогоні
      * @param runSize2
      *            довжина другого прогону
+     * @since 1.0.0
      */
     private void mergeLowRuns(final int baseRun1, int runSize1,
             final int baseRun2, int runSize2) {
@@ -818,6 +852,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            інндекс першго елементу очікуваного прогону
      * @param newRunSize
      *            довжина очікуваного прогону
+     * @since 1.0.0
      */
     private void pushRun(final int newRunBase, final int newRunSize) {
         runBaseStack[stackSize] = newRunBase;
@@ -837,6 +872,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            буфер об'єкту Array
      * @param arraySize
      *            кількість заповнених комірок буфера
+     * @since 1.0.0
      */
     private void setUnorderedArray(final T[] array, final int arraySize) {
         this.array = array;

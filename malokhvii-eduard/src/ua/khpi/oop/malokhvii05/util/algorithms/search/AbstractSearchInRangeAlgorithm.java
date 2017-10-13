@@ -12,6 +12,7 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * @version 1.0.0
  * @param <T>
  *            Тип даних, елементів діапазону та елемента для пошуку
+ * @since 1.0.0
  */
 public abstract class AbstractSearchInRangeAlgorithm<T> extends
         AbstractSearchAlgorithm<T> implements SearchInRangeAlgorithm<T> {
@@ -22,6 +23,7 @@ public abstract class AbstractSearchInRangeAlgorithm<T> extends
      *
      * @param comparator
      *            компаратор для порівння під час сорутвання
+     * @since 1.0.0
      */
     public AbstractSearchInRangeAlgorithm(final Comparator<T> comparator) {
         super(comparator);
@@ -43,6 +45,7 @@ public abstract class AbstractSearchInRangeAlgorithm<T> extends
      * @param right
      *            права границя діапазону
      * @return результат перевірки вхідного діапазону
+     * @since 1.0.0
      */
     protected final boolean isValidRange(final Array<T> array, final int left,
             final int right) {

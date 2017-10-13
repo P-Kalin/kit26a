@@ -16,17 +16,22 @@ import java.util.Set;
  * @author malokhvii-eduard
  * @version 1.0.0
  * @see SortAlgorithm
+ * @since 1.0.0
  */
 @SuppressWarnings("rawtypes")
 public final class SortAlgorithmFactory {
 
     /**
      * Хеш-карта об'єктів обгорток над класами алгоритмів сортування.
+     *
+     * @since 1.0.0
      */
     private static Map<String, Class<? extends SortAlgorithm>> classMapping;
 
     /**
      * Клас алгоритму за змовчування.
+     *
+     * @since 1.0.0
      */
     private static Class<? extends SortAlgorithm> defaultAlgorithm;
 
@@ -37,6 +42,8 @@ public final class SortAlgorithmFactory {
 
     /**
      * Приватний конструктор, для заборони створення фабрик алгоритмів.
+     *
+     * @since 1.0.0
      */
     private SortAlgorithmFactory() {
 
@@ -46,6 +53,7 @@ public final class SortAlgorithmFactory {
      * Пирзначений, для отримання множини зарегестрованих назв алгоритмів.
      *
      * @return множина зарегестрованих назв алгоритмів
+     * @since 1.0.0
      */
     public static Set<String> getRegisteredAlgorithms() {
         return classMapping.keySet();
@@ -56,6 +64,7 @@ public final class SortAlgorithmFactory {
      *
      * @param algorithmClass
      *            клас алгоритму за змовчуванням
+     * @since 1.0.0
      */
     public static void setDefaultAlgorithm(
             final Class<? extends SortAlgorithm> algorithmClass) {
@@ -71,6 +80,7 @@ public final class SortAlgorithmFactory {
      *            компаратор, для алгоритму
      * @return алгоритм за змовчуванням, якщо алгоритм за змовчуванням не
      *         визначено, повертає заглушку на недійсний алгоритм.
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public static <T> SortAlgorithm<T> getDefaultAlgorithm(
@@ -94,6 +104,7 @@ public final class SortAlgorithmFactory {
      *
      * @return алгоритм за змовчуванням, якщо алгоритм за змовчуванням не
      *         визначено, повертає заглушку на недійсний алгоритм.
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public static <T extends Comparable<T>> SortAlgorithm<T> getDefaultAlgorithm() {
@@ -119,6 +130,7 @@ public final class SortAlgorithmFactory {
      *            компаратор, для алгоритму
      * @return алгоритм за назвою, якщо алгоритм за змовчуванням не визначено,
      *         повертає заглушку на недійсний алгоритм.
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public static <T> SortAlgorithm<T> getAlgorithm(final String name,
@@ -150,6 +162,7 @@ public final class SortAlgorithmFactory {
      *            назва алгоритму
      * @return алгоритм за назвою, якщо алгоритм за змовчуванням не визначено,
      *         повертає заглушку на недійсний алгоритм.
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public static <T extends Comparable<T>> SortAlgorithm<T> getAlgorithm(
@@ -176,6 +189,7 @@ public final class SortAlgorithmFactory {
      *
      * @param name
      *            зарегестрована назва алгоритму
+     * @since 1.0.0
      */
     public static void unregisterAlgorithm(final String name) {
         classMapping.remove(name);
@@ -188,6 +202,7 @@ public final class SortAlgorithmFactory {
      *            назва алгоритму
      * @param algorithmClass
      *            клас нового алгоритму сортування
+     * @since 1.0.0
      */
     public static void registerAlgorithm(final String name,
             final Class<? extends SortAlgorithm> algorithmClass) {
@@ -196,6 +211,8 @@ public final class SortAlgorithmFactory {
 
     /**
      * Призначений, для завантаження типових алгоритмів.
+     * 
+     * @since 1.0.0
      */
     private static void loadBasicAlgorithms() {
         final String basicPackage = "ua.khpi.oop.malokhvii05.util.algorithms"

@@ -10,6 +10,7 @@ package ua.khpi.oop.malokhvii05.util.algorithms;
  * @see NullAlgorithmWithComparator
  * @param <T>
  *            Тип даних, які оброблює алгоритм
+ * @since 1.0.0
  */
 public abstract class NullAlgorithm<T> implements Algorithm<T> {
 

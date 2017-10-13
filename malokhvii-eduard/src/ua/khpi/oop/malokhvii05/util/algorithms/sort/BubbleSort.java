@@ -36,6 +36,7 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * @param <T>
  *            Тип даних, елементів масиву для сортування, та компаратору для
  *            порівняння елементів
+ * @since 1.0.0
  */
 public final class BubbleSort<T extends Comparable<T>>
         extends AbstractSortAlgorithm<T> {
@@ -50,6 +51,7 @@ public final class BubbleSort<T extends Comparable<T>>
      *
      * @param comparator
      *            компоратор для вхідних даних
+     * @since 1.0.0
      */
     public BubbleSort(final Comparator<T> comparator) {
         super(comparator);

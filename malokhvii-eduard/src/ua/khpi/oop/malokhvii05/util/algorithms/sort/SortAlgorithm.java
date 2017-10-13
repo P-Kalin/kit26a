@@ -13,6 +13,7 @@ import ua.khpi.oop.malokhvii05.util.algorithms.AlgorithmWithComparator;
  * @version 1.0.0
  * @param <T>
  *            Тип даних, елементів масиву для сортування
+ * @since 1.0.0
  */
 public interface SortAlgorithm<T> extends AlgorithmWithComparator<T> {
 
@@ -21,6 +22,7 @@ public interface SortAlgorithm<T> extends AlgorithmWithComparator<T> {
      * обернений порядок сортування.
      *
      * @return порядок сортування обернений
+     * @since 1.0.0
      */
     boolean isReversedOrder();
 
@@ -30,6 +32,7 @@ public interface SortAlgorithm<T> extends AlgorithmWithComparator<T> {
      *
      * @param isReversedOrder
      *            новий порядок сортування
+     * @since 1.0.0
      */
     void setReversedOrder(boolean isReversedOrder);
 
@@ -39,6 +42,7 @@ public interface SortAlgorithm<T> extends AlgorithmWithComparator<T> {
      * @see Array
      * @param array
      *            вхідний масив для сорутвання
+     * @since 1.0.0
      */
     void sort(Array<T> array);
 }

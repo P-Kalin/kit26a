@@ -8,6 +8,7 @@ package ua.khpi.oop.malokhvii05.util.algorithms;
  * @see AbstractAlgorithmWithComparator
  * @param <T>
  *            Тип даних, які оброблює алгоритм
+ * @since 1.0.0
  */
 public interface Algorithm<T> {
 
@@ -17,6 +18,7 @@ public interface Algorithm<T> {
      * @see NullAlgorithm
      * @see NullAlgorithmWithComparator
      * @return результат перевірки
+     * @since 1.0.0
      */
     boolean isNull();
 }

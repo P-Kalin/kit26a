@@ -10,12 +10,15 @@ import java.util.Comparator;
  * @param <T>
  *            Тип даних, які оброблює алгоритм, а також тип компоратору для
  *            даних
+ * @since 1.0.0
  */
 public abstract class NullAlgorithmWithComparator<T> extends NullAlgorithm<T>
         implements AlgorithmWithComparator<T> {
 
     /**
      * Компаратор за змовчуванням, для заглушки.
+     *
+     * @since 1.0.0
      */
     private final Comparator<T> defaultComparator = new DefaultComparator();
 
@@ -24,6 +27,7 @@ public abstract class NullAlgorithmWithComparator<T> extends NullAlgorithm<T>
      *
      * @author malokhvii-eduard
      * @version 1.0.0
+     * @since 1.0.0
      */
     private class DefaultComparator implements Comparator<T> {
         @Override

@@ -14,12 +14,15 @@ import ua.khpi.oop.malokhvii05.util.algorithms.AbstractAlgorithmWithComparator;
  * @param <T>
  *            Тип даних, елементів масиву для сортування, та компаратору для
  *            порівняння елементів
+ * @since 1.0.0
  */
 public abstract class AbstractSortAlgorithm<T>
         extends AbstractAlgorithmWithComparator<T> implements SortAlgorithm<T> {
 
     /**
      * Внутрішній ключ порядку сортування.
+     *
+     * @since 1.0.0
      */
     protected boolean isReversedOrder;
 
@@ -29,6 +32,7 @@ public abstract class AbstractSortAlgorithm<T>
      *
      * @param comparator
      *            компаратор для порівння під час сорутвання
+     * @since 1.0.0
      */
     public AbstractSortAlgorithm(final Comparator<T> comparator) {
         super(comparator);
@@ -44,6 +48,7 @@ public abstract class AbstractSortAlgorithm<T>
      *            індекс лівого елементу
      * @param right
      *            індекс правого елементу
+     * @since 1.0.0
      */
     protected void swap(final Array<T> array, final int left, final int right) {
         T temp = array.get(left);

@@ -39,6 +39,7 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * @param <T>
  *            Тип даних, елементів масиву для сортування, та компаратору для
  *            порівняння елементів
+ * @since 1.0.0
  */
 public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
 
@@ -53,6 +54,7 @@ public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
      *
      * @param comparator
      *            компоратор для вхідних даних
+     * @since 1.0.0
      */
     public TopDownMergeSort(final Comparator<T> comparator) {
         super(comparator);
@@ -73,6 +75,7 @@ public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
      * @param array
      *            вхідний масив
      * @return відсортований масив
+     * @since 1.0.0
      */
     private Object[] mergeSort(final Object[] array) {
         if (array.length <= 1) {
@@ -101,6 +104,7 @@ public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
      * @param right
      *            правий фрагмент
      * @return об'єднаний масив, та відсортований
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     private Object[] mergeSlices(final Object[] left, final Object[] right) {

@@ -19,6 +19,7 @@ import ua.khpi.oop.malokhvii05.util.algorithms.search.SearchAlgorithm;
  * @see ua.khpi.oop.malokhvii05.util.algorithms.search
  * @param <E>
  *            Тип елементів розташованих у масиві
+ * @since 1.0.0
  */
 // TODO реалізувати інтерфейс Serializable
 public final class Array<E> implements Collection<E> {
@@ -29,12 +30,15 @@ public final class Array<E> implements Collection<E> {
      * елементу.
      *
      * @author malokhvii-ee
-     * @version 1.0.1
+     * @version 1.0.0
+     * @since 1.0.0
      */
     public final class ArrayIterator implements Iterator<E> {
 
         /**
          * Наступний індекс, за яким необзідно отримати значення.
+         *
+         * @since 1.0.0
          */
         private int nextIndex;
 
@@ -44,6 +48,7 @@ public final class Array<E> implements Collection<E> {
          *
          * @param nextIndex
          *            індекст початкового елементу для проходження
+         * @since 1.0.0
          */
         private ArrayIterator(final int nextIndex) {
             this.nextIndex = nextIndex;
@@ -58,6 +63,7 @@ public final class Array<E> implements Collection<E> {
          * Призначений, для перевірки чи є наступний попередній елемент.
          *
          * @return результат перевірки
+         * @since 1.0.0
          */
         public boolean hasPrevious() {
             return nextIndex != 0;
@@ -79,6 +85,7 @@ public final class Array<E> implements Collection<E> {
          * Призначений для отримання значення попереднього елементу.
          *
          * @return попередній елемент з масиву
+         * @since 1.0.0
          */
         @SuppressWarnings("unchecked")
         public E previous() {
@@ -103,22 +110,30 @@ public final class Array<E> implements Collection<E> {
 
     /**
      * Початковий розмір внутрінього буфера елементів.
+     *
+     * @since 1.0.0
      */
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
 
     /**
      * Внутрішній буфер елементів масиву.
+     *
+     * @since 1.0.0
      */
     private Object[] data;
 
     /**
      * Кількість елементів розташованих у внутрішньому буфері.
+     *
+     * @since 1.0.0
      */
     private int size;
 
     /**
      * Призначений, для ініціалізації масиву з ємкостю внутрішнього буфера за
      * змовчуванням.
+     *
+     * @since 1.0.0
      */
     public Array() {
         this(DEFAULT_INITIAL_CAPACITY);
@@ -129,6 +144,7 @@ public final class Array<E> implements Collection<E> {
      *
      * @param collection
      *            колекція з якої будуть скопійовані елементи
+     * @since 1.0.0
      */
     public Array(final Collection<? extends E> collection) {
         addAll(collection);
@@ -140,6 +156,7 @@ public final class Array<E> implements Collection<E> {
      *
      * @param capacity
      *            задовільна ємкість внутрішнього буфера
+     * @since 1.0.0
      */
     public Array(final int capacity) {
         data = new Object[capacity];
@@ -159,6 +176,7 @@ public final class Array<E> implements Collection<E> {
      *            індекс елементу для додавання
      * @param element
      *            елемент для додавання
+     * @since 1.0.0
      */
     public void add(final int index, final E element) {
         isNewElementIndexInRange(index);
@@ -177,6 +195,7 @@ public final class Array<E> implements Collection<E> {
      *            індекс для додавання
      * @param element
      *            елемент для додавання у масив
+     * @since 1.0.0
      */
     public void addAfter(final int index, final E element) {
         add(index + 1, element);
@@ -201,6 +220,7 @@ public final class Array<E> implements Collection<E> {
      *            індекс для додавання
      * @param element
      *            елемент для додавання у масив
+     * @since 1.0.0
      */
     public void addBefore(final int index, final E element) {
         add(index - 1, element);
@@ -211,6 +231,7 @@ public final class Array<E> implements Collection<E> {
      *
      * @param element
      *            елемент для додавання у масив
+     * @since 1.0.0
      */
     public void addFirst(final E element) {
         add(0, element);
@@ -221,6 +242,7 @@ public final class Array<E> implements Collection<E> {
      *
      * @param element
      *            елемент для додавання у масив
+     * @since 1.0.0
      */
     public void addLast(final E element) {
         ensureCapacity(size + 1);
@@ -259,6 +281,7 @@ public final class Array<E> implements Collection<E> {
      *
      * @param minimumCapacity
      *            мінімальна ємкість масиву
+     * @since 1.0.0
      */
     private void ensureCapacity(final int minimumCapacity) {
         int oldCapacity = data.length;
@@ -279,6 +302,7 @@ public final class Array<E> implements Collection<E> {
      * Призначений, для отримання ітератора на початковий елемент масиву.
      *
      * @return ітератор на початковий елемент масиву
+     * @since 1.0.0
      */
     public ArrayIterator firstIterator() {
         return iterator(0);
@@ -291,6 +315,7 @@ public final class Array<E> implements Collection<E> {
      * @param index
      *            індекс елементу
      * @return значення елементу в масиві
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public E get(final int index) {
@@ -302,6 +327,7 @@ public final class Array<E> implements Collection<E> {
      * для оптимізації алгоритмів пошуку та сортування.
      *
      * @return внутрішній буфер
+     * @since 1.0.0
      */
     public Object[] getData() {
         return data;
@@ -311,6 +337,7 @@ public final class Array<E> implements Collection<E> {
      * Призначений, для отримання першого елементу масиву.
      *
      * @return перший елемент масиву
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public E getFirst() {
@@ -325,6 +352,7 @@ public final class Array<E> implements Collection<E> {
      * Призначений, для отримання значення останнього елементу масиву.
      *
      * @return останній елемент масиву
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public E getLast() {
@@ -344,6 +372,7 @@ public final class Array<E> implements Collection<E> {
      *            об'єкт для пошуку
      * @return індекс елементу масиву, якщо не знайдено тоді повертає
      *         {@link SearchAlgorithm#INDEX_NOT_FOUND}
+     * @since 1.0.0
      */
     public int indexOf(final Object object) {
         int index;
@@ -375,6 +404,7 @@ public final class Array<E> implements Collection<E> {
      * @param index
      *            індекс для перевірки
      * @return результат перевірки
+     * @since 1.0.0
      */
     private boolean isIndexInRange(final int index) {
         if (index >= size) {
@@ -390,6 +420,7 @@ public final class Array<E> implements Collection<E> {
      * @param index
      *            індекс для перевірки
      * @return результат перевірки
+     * @since 1.0.0
      */
     private boolean isNewElementIndexInRange(final int index) {
         if (index > size || index < 0) {
@@ -409,6 +440,7 @@ public final class Array<E> implements Collection<E> {
      * @param index
      *            початковий індекс для ітератора
      * @return об'єкт ітератора проініціалізований початковим індексом
+     * @since 1.0.0
      */
     public ArrayIterator iterator(final int index) {
         isIndexInRange(index);
@@ -420,6 +452,7 @@ public final class Array<E> implements Collection<E> {
      * масиву.
      *
      * @return ітератор на кінець масиву
+     * @since 1.0.0
      */
     public ArrayIterator lastIterator() {
         return iterator(size - 1);
@@ -430,6 +463,7 @@ public final class Array<E> implements Collection<E> {
      *
      * @param index
      *            індекс елементу масиву для видалення
+     * @since 1.0.0
      */
     public void remove(final int index) {
         isIndexInRange(index);
@@ -478,6 +512,7 @@ public final class Array<E> implements Collection<E> {
      *
      * @param index
      *            індекс елементу для видалення
+     * @since 1.0.0
      */
     private void removeElement(final int index) {
         int amountOfMovedElements = size - index - 1;
@@ -491,6 +526,8 @@ public final class Array<E> implements Collection<E> {
 
     /**
      * Призначений, для видалення першого елементу масиву.
+     *
+     * @since 1.0.0
      */
     public void removeFirst() {
         removeElement(0);
@@ -498,6 +535,8 @@ public final class Array<E> implements Collection<E> {
 
     /**
      * Призначений, для видалення останнього елементу масиву.
+     *
+     * @since 1.0.0
      */
     public void removeLast() {
         removeElement(size - 1);
@@ -526,6 +565,7 @@ public final class Array<E> implements Collection<E> {
      * @param element
      *            оновлене значення елементу
      * @return попереднє значення елементу
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public E set(final int index, final E element) {
@@ -543,6 +583,7 @@ public final class Array<E> implements Collection<E> {
      * @param element
      *            оновлене значення першого елементу масиву
      * @return попереднє знчення першого масиву
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public E setFirst(final E element) {
@@ -561,6 +602,7 @@ public final class Array<E> implements Collection<E> {
      * @param element
      *            оновлене значення останнього елементу масиву
      * @return попереднє значення останнього елементу масиву
+     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public E setLast(final E element) {
@@ -611,6 +653,7 @@ public final class Array<E> implements Collection<E> {
      * @param separator
      *            роздільник для рядків
      * @return елементу масиву у вигляді суцільного рядку
+     * @since 1.0.0
      */
     public String toString(final String separator) {
         StringBuilder stringBuilder = new StringBuilder();
