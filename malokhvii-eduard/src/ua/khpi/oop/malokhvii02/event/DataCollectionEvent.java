@@ -11,10 +11,11 @@ import ua.khpi.oop.malokhvii02.data.DataContainer;
  * даних. Власноруч по закінченню програми оновлює наступну подію у циклі подій
  * на подію обробки даних.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see EventLoop
  * @see DataContainer
+ * @since 1.0.0
  */
 public class DataCollectionEvent implements Event {
 

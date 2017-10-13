@@ -5,7 +5,7 @@
  * пакет {@link ua#khpi#malokhvii02#event}, який містить реалізацію скінченного
  * автомату подій.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see DataContainer
  * @see NumberEqualityContainer

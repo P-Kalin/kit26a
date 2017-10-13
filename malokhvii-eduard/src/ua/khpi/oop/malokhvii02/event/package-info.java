@@ -4,7 +4,7 @@
  * подія змінює себе на іншу власноруч. Цикл подій лише делегує обробку
  * викликів. Та надає інкапсульований інтерфейс коритсувачу.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see EventLoop
  * @see Event

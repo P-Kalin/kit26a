@@ -10,42 +10,55 @@ import ua.khpi.oop.malokhvii02.data.DataContainer;
  * автомату подій. Події власноруч оновлюють стан циклу, цикл лише делегує їх
  * звернення до контейнеру подій та обгортки потоків введення/виведення.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see Event
  * @see DataContainer
  * @see MillisTimer
  * @see StreamHolder
+ * @since 1.0.0
  */
 public final class EventLoop {
 
     /**
      * Стан циклу подій, тобто чи активний цикл.
+     *
+     * @since 1.0.0
      */
     private boolean isRunning;
 
     /**
      * Контейнер вхідних даних.
+     *
+     * @since 1.0.0
      */
     private DataContainer dataContainer;
 
     /**
      * Контейнер подій.
+     *
+     * @since 1.0.0
      */
     private EventsContainer eventsContainer;
 
     /**
      * Поточна подія.
+     *
+     * @since 1.0.0
      */
     private Event currentEvent;
 
     /**
      * Обгортка над потоками введення/виведення.
+     *
+     * @since 1.0.0
      */
     private StreamHolder stream;
 
     /**
      * Таймер, для визначення затраченого часу на цикл подій.
+     *
+     * @since 1.0.0
      */
     private MillisTimer timer;
 
@@ -61,6 +74,7 @@ public final class EventLoop {
      *            Поток виведення
      * @param inputScanner
      *            Поток введення
+     * @since 1.0.0
      */
     public EventLoop(final DataContainer dataContainer,
             final EventsContainer eventsContainer,
@@ -75,6 +89,8 @@ public final class EventLoop {
 
     /**
      * Призначений для зачинення потоку введення в обгортці.
+     *
+     * @since 1.0.0
      */
     public void closeStream() {
         this.stream.closeIn();
@@ -85,6 +101,7 @@ public final class EventLoop {
      * виведення.
      *
      * @return Обгортка потоків введення та виведення
+     * @since 1.0.0
      */
     public StreamHolder getStreamHolder() {
         return this.stream;
@@ -94,6 +111,7 @@ public final class EventLoop {
      * Призначений для отимання часу затраченого на виконання циклу.
      *
      * @return Час затрачений на виконання циклу
+     * @since 1.0.0
      */
     public long getRuntime() {
         return this.timer.getRuntime();
@@ -103,6 +121,7 @@ public final class EventLoop {
      * Призначений для отримання поточного стану циклу подій.
      *
      * @return Поточний стан циклу подій.
+     * @since 1.0.0
      */
     public boolean isRunning() {
         return this.isRunning;
@@ -110,6 +129,8 @@ public final class EventLoop {
 
     /**
      * Призначений для припинення циклу подій.
+     *
+     * @since 1.0.0
      */
     public void breakLoop() {
         this.isRunning = false;
@@ -118,6 +139,8 @@ public final class EventLoop {
     /**
      * Призначений для встановлення у ролі поточної події - службової подіїї
      * завершення циклю подій.
+     *
+     * @since 1.0.0
      */
     public void terminateLoop() {
         this.currentEvent = this.eventsContainer
@@ -128,6 +151,8 @@ public final class EventLoop {
     /**
      * Призначений для встановлення у ролі поточної подіїї - службову подію
      * продовження циклу.
+     *
+     * @since 1.0.0
      */
     public void restoreLoop() {
         this.currentEvent = this.eventsContainer
@@ -137,6 +162,8 @@ public final class EventLoop {
     /**
      * Призначений для встановлення у ролі поточної події - службову подію
      * початку циклу. Встановлює істину у флаг стану циклу.
+     *
+     * @since 1.0.0
      */
     public void launchLoop() {
         this.timer.launchTimer();
@@ -147,6 +174,8 @@ public final class EventLoop {
     /**
      * Призначений для встановлення у ролі поточної події - подію обчислення
      * вхідних даних.
+     *
+     * @since 1.0.0
      */
     public void computeDataContainer() {
         this.currentEvent = this.eventsContainer
@@ -156,6 +185,8 @@ public final class EventLoop {
     /**
      * Призначений для встановлення у ролі поточної подіїї - подію відображення
      * обчислених даних.
+     *
+     * @since 1.0.0
      */
     public void visualizeDataContainer() {
         this.currentEvent = this.eventsContainer
@@ -165,6 +196,8 @@ public final class EventLoop {
     /**
      * Призначений для встановлення у ролі поточної подіії - подію отримання
      * вхідних даних.
+     *
+     * @since 1.0.0
      */
     public void collectDataContainer() {
         this.currentEvent = this.eventsContainer.getEvent(DataEvent.COLLECTION);
@@ -176,6 +209,7 @@ public final class EventLoop {
      *
      * @param event
      *            Нова поточна подія
+     * @since 1.0.0
      */
     public void updateCurrentEvent(final Event event) {
         this.currentEvent = event;
@@ -185,6 +219,7 @@ public final class EventLoop {
      * Призначений для обробки поточної події в черзі подій.
      *
      * @return Стан виконання.
+     * @since 1.0.0
      */
     public boolean handleCurrentEvent() {
         if (this.currentEvent != null) {

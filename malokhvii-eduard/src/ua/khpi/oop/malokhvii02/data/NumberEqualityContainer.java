@@ -9,49 +9,66 @@ import java.util.Scanner;
  * сума перших трьох цифр сумі останніх трьох цифр в десятковому запису
  * 6-значного цілого числа).
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see DataContainer
+ * @since 1.0.0
  */
 public class NumberEqualityContainer implements DataContainer {
 
     /**
      * Система счислення отриманого числа ({@value}).
+     *
+     * @since 1.0.0
      */
     private static final short NUMBER_BASE = 10;
 
     /**
      * Мінімальне допустиме вхідне число для обробки ({@value}).
+     *
+     * @since 1.0.0
      */
     private static final long MIN_NUMBER = -0x2386F26FC0FFFFL;
 
     /**
      * Максимальне допустиме вхідне число для обробки ({@value}).
+     *
+     * @since 1.0.0
      */
     private static final long MAX_NUMBER = 0x2386F26FC0FFFFL;
 
     /**
      * Початкове число, для обчислення.
+     *
+     * @since 1.0.0
      */
     private long number;
 
     /**
      * Довжина отриманого числа.
+     *
+     * @since 1.0.0
      */
     private double numberLength;
 
     /**
      * Відділена ліва частина числа.
+     *
+     * @since 1.0.0
      */
     private long leftSide;
 
     /**
      * Віддалена права частина числа.
+     *
+     * @since 1.0.0
      */
     private long rightSide;
 
     /**
      * Результат порівняння лівой та правої частини числа на рівність.
+     *
+     * @since 1.0.0
      */
     private boolean isLeftSideEqualToRightSide;
 
@@ -59,6 +76,7 @@ public class NumberEqualityContainer implements DataContainer {
      * Призначений для отримання поточного значення числа для обчислення.
      *
      * @return Поточне значення числа
+     * @since 1.0.0
      */
     public long getNumber() {
         return this.number;
@@ -69,6 +87,7 @@ public class NumberEqualityContainer implements DataContainer {
      *
      * @param number
      *            Нове поточне значення числа для обчислення
+     * @since 1.0.0
      */
     public void setNumber(final long number) {
         this.number = number;
@@ -78,6 +97,7 @@ public class NumberEqualityContainer implements DataContainer {
      * Призначений для отримання лівої частини числа.
      *
      * @return Ліва частина числа
+     * @since 1.0.0
      */
     public long getLeftNumberSide() {
         return this.leftSide;
@@ -87,6 +107,7 @@ public class NumberEqualityContainer implements DataContainer {
      * Призначений для отримання правої частини числа.
      *
      * @return Права частина числа
+     * @since 1.0.0
      */
     public long getRightNumberSide() {
         return this.rightSide;
@@ -97,6 +118,7 @@ public class NumberEqualityContainer implements DataContainer {
      * на рівність.
      *
      * @return Результат порівняння
+     * @since 1.0.0
      */
     public boolean isEquals() {
         return this.isLeftSideEqualToRightSide;

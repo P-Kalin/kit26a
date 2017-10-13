@@ -11,13 +11,16 @@ import ua.khpi.oop.malokhvii02.event.GlobalEventsContainer;
 /**
  * Призначений для демонстрації обчисленнь згідно з завдання.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
+ * @since 1.0.0
  */
 public final class Application {
 
     /**
      * Оголошен приватним для заборони створення класу.
+     *
+     * @since 1.0.0
      */
     private Application() {
 
@@ -28,6 +31,7 @@ public final class Application {
      *
      * @param args
      *            Аргументи командного рядку
+     * @since 1.0.0
      */
     public static void main(final String[] args) {
         DataContainer dataContainer = new NumberEqualityContainer();

@@ -12,15 +12,18 @@ import ua.khpi.oop.malokhvii02.data.DataContainer;
  * припинення циклу подій, або на подію отримання вхідних даних залежно від
  * обраного варіанту.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see EventLoop
  * @see DataContainer
+ * @since 1.0.0
  */
 public class LoopContinuationEvent implements Event {
 
     /**
      * Символ підтвердження продовження циклу подій ({@value}).
+     * 
+     * @since 1.0.0
      */
     private static final String CONTINUE_LOOP_CHARACTER = "Y";
 

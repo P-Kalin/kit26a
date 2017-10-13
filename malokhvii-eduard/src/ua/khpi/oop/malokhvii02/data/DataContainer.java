@@ -14,9 +14,10 @@ import ua.khpi.oop.malokhvii02.event.LoopInteraptionEvent;
  * необхідних даних для обчислення певної операції. Використовується під час
  * обробки подій програми.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see EventLoop
+ * @since 1.0.0
  */
 public interface DataContainer {
 
@@ -25,6 +26,7 @@ public interface DataContainer {
      * подій {@link LoopInceptionEvent}, {@link LoopInteraptionEvent}.
      *
      * @return Назва контейнеру даних
+     * @since 1.0.0
      */
     String getContainerName();
 
@@ -34,6 +36,7 @@ public interface DataContainer {
      * Повинен лише повертати детальний опий контейнеру.
      *
      * @return Детальний опис контейнеру даних
+     * @since 1.0.0
      */
     String prepareDataDescription();
 
@@ -43,6 +46,7 @@ public interface DataContainer {
      * обчислення та його результат.
      *
      * @return Результат обробки даних.
+     * @since 1.0.0
      */
     String prepareDataVisualization();
 
@@ -56,6 +60,7 @@ public interface DataContainer {
      * @param in
      *            Поток введення інформації
      * @return Статус завершення операції
+     * @since 1.0.0
      */
     DataCollectionStatus collectData(PrintStream out, Scanner in);
 
@@ -65,6 +70,7 @@ public interface DataContainer {
      * дані.
      *
      * @return Статус завершення операції
+     * @since 1.0.0
      */
     DataComputationStatus computeData();
 }

@@ -9,10 +9,11 @@ import ua.khpi.oop.malokhvii02.data.DataContainer;
  * подію під час завершення (якщо це необхідно). А також взаємодіяти з
  * контейнером даних.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see EventLoop
  * @see DataContainer
+ * @since 1.0.0
  */
 public interface Event {
 
@@ -23,6 +24,7 @@ public interface Event {
      *            Об'єкт циклу подій
      * @param dataContainer
      *            Контейнер даних, для обробки
+     * @since 1.0.0
      */
     void perform(EventLoop eventLoop, DataContainer dataContainer);
 }

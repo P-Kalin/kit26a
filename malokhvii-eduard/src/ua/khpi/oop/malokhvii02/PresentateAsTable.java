@@ -8,7 +8,7 @@ import ua.khpi.oop.malokhvii02.data.NumberEqualityContainer;
 /**
  * Призначений для демонстрації таблиці вихідних результатів.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  */
 public final class PresentateAsTable {

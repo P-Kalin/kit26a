@@ -9,10 +9,11 @@ import ua.khpi.oop.malokhvii02.data.DataContainer;
  * об'єктів циклу подій, та контейнеру даних. Власноруч по закінченню програми
  * встановлює флаг припинення у об'єкті циклу подій.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see EventLoop
  * @see DataContainer
+ * @since 1.0.0
  */
 public class LoopInteraptionEvent implements Event {
 

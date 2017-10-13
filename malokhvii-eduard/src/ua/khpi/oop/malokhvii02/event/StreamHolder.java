@@ -7,25 +7,32 @@ import java.util.Scanner;
  * Обгортка на потоки введення та виведення, використовується для зручнішого
  * обміну між подіями.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see EventLoop
  * @see Event
+ * @since 1.0.0
  */
 public final class StreamHolder {
 
     /**
      * Обгортка над потоком введення.
+     *
+     * @since 1.0.0
      */
     private Scanner in;
 
     /**
      * Обгортка над потоком вивдення.
+     *
+     * @since 1.0.0
      */
     private PrintStream out;
 
     /**
      * Індекс останнього звернення до потоку виведення.
+     *
+     * @since 1.0.0
      */
     private long outIndex;
 
@@ -36,6 +43,7 @@ public final class StreamHolder {
      *            Поток виведення
      * @param in
      *            Поток введення
+     * @since 1.0.0
      */
     public StreamHolder(final PrintStream out, final Scanner in) {
         this.out = out;
@@ -47,6 +55,7 @@ public final class StreamHolder {
      * Призначений для отримання посилання на поток введення.
      *
      * @return Поток введення
+     * @since 1.0.0
      */
     public Scanner getIn() {
         return this.in;
@@ -56,6 +65,7 @@ public final class StreamHolder {
      * Призначений для отримання посилання на поток виведення.
      *
      * @return Поток виведення
+     * @since 1.0.0
      */
     public PrintStream getOut() {
         return this.out;
@@ -66,6 +76,7 @@ public final class StreamHolder {
      * рядку.
      *
      * @return Поточний індекс
+     * @since 1.0.0
      */
     public String getCurrentOutLabel() {
         return String.format("[%d]:", ++this.outIndex);
@@ -73,6 +84,8 @@ public final class StreamHolder {
 
     /**
      * Призначений для звільнення ресурсів потоків введення.виведення.
+     * 
+     * @since 1.0.0
      */
     public void closeIn() {
         this.out.close();
