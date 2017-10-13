@@ -6,21 +6,28 @@ package ua.khpi.oop.malokhvii03.text;
  *
  * @author malokhvii-eduard
  * @version 1.0.0
+ * @since 1.1.0
  */
 public final class HashableWord {
 
     /**
      * Послідовність символів слова.
+     *
+     * @since 1.0.0
      */
     private CharSequence charSequence;
 
     /**
      * Поліноміальне значення хешу для слова.
+     *
+     * @since 1.0.0
      */
     private long polynomialHashCode;
 
     /**
      * Поліноміальне значення хешу для можливого оберненого слова.
+     *
+     * @since 1.0.0
      */
     private long reversedPolynomialHashCode;
 
@@ -32,6 +39,7 @@ public final class HashableWord {
      *            початкова послідовність символів у слові
      * @param polynomialHashCode
      *            значення поліноміального хешу для поточної послідовності
+     * @since 1.0.0
      */
     public HashableWord(CharSequence charSequence, long polynomialHashCode) {
         this.charSequence = charSequence;
@@ -45,6 +53,7 @@ public final class HashableWord {
      * Призначений, для отримання поточної послідовності символів у слові.
      *
      * @return поточна послідовність символів у слові
+     * @since 1.0.0
      */
     public CharSequence getCharSequence() {
         return charSequence;
@@ -56,6 +65,7 @@ public final class HashableWord {
      *
      * @return поліноміальне значення хешу поточної послідовності символів у
      *         слові
+     * @since 1.0.0
      */
     public long getPolynomialHashCode() {
         return polynomialHashCode;
@@ -67,8 +77,9 @@ public final class HashableWord {
      *
      * @return поліноміальне значення хешу для можливої оберненої послідовності
      *         символів у слові
+     * @since 1.0.0
      */
-    public long getReversedPolіnomialHashCode() {
+    public long getReversedPolynomialHashCode() {
         return reversedPolynomialHashCode;
     }
 
@@ -77,6 +88,7 @@ public final class HashableWord {
      *
      * @param charSequence
      *            поточна послідовність символів у слові
+     * @since 1.0.0
      */
     public void setCharSequence(CharSequence charSequence) {
         this.charSequence = charSequence;
@@ -89,6 +101,7 @@ public final class HashableWord {
      * @param polynomialHashCode
      *            значення оновленого поліноміального хешу для поточної
      *            послідовності символів
+     * @since 1.0.0
      */
     public void setPolynomialHashCode(long polynomialHashCode) {
         this.polynomialHashCode = polynomialHashCode;
@@ -101,6 +114,7 @@ public final class HashableWord {
      * @param reversedPolynomialHashCode
      *            поліноміальне значення хешу для можливої оберненої
      *            послідовності символів у слові
+     * @since 1.0.0
      */
     public void setReversedPolynomialHashCode(long reversedPolynomialHashCode) {
         this.reversedPolynomialHashCode = reversedPolynomialHashCode;

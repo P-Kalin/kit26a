@@ -6,9 +6,9 @@
  * базується на обчисленні поліноміального хешу для кожного слова, за для
  * індексування слів за їх хеш значенням, а також швидкішого порівняння.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.1.0
- * @see Anagrams
+ * @see {@link ua.khpi.oop.malokhvii03.text.Anagrams Anagrams}
  */
 
 package ua.khpi.oop.malokhvii03.text;

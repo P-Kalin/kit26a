@@ -5,20 +5,25 @@ package ua.khpi.oop.malokhvii03.text;
  * «ім'я») — псевдонім чи анаграма з літер власного імені, прочитаного у
  * зворотному порядку.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see Anagrams
  * @see AnanymsCollection
+ * @since 1.0.0
  */
 public final class Ananym {
 
     /**
      * Початкове слово.
+     *
+     * @since 1.0.0
      */
     private String word;
 
     /**
      * Обернене початкове слово, тобто анаграма.
+     *
+     * @since 1.0.0
      */
     private String reversedWord;
 
@@ -29,6 +34,7 @@ public final class Ananym {
      *            слово
      * @param reversedWord
      *            обернене слово, тобто анаграма
+     * @since 1.0.0
      */
     public Ananym(final String word, final String reversedWord) {
         this.word = word;
@@ -44,6 +50,7 @@ public final class Ananym {
      * Призначений, для отримання слова.
      *
      * @return слово
+     * @since 1.0.0
      */
     public String getWord() {
         return this.word;
@@ -53,6 +60,7 @@ public final class Ananym {
      * Призначений, для отримання оберненого слова, тобто анаграми.
      *
      * @return обернене слово, тобто анаграма
+     * @since 1.0.0
      */
     public String getReversedWord() {
         return this.reversedWord;
@@ -63,6 +71,7 @@ public final class Ananym {
      *
      * @param word
      *            поточне значення слова
+     * @since 1.0.0
      */
     public void setWord(final String word) {
         this.word = word;
@@ -74,6 +83,7 @@ public final class Ananym {
      *
      * @param reversedWord
      *            обернене слово, тобто анаграма
+     * @since 1.0.0
      */
     public void setReverseWord(final String reversedWord) {
         this.reversedWord = reversedWord;

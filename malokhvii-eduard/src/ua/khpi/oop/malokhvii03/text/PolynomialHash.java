@@ -25,12 +25,15 @@ package ua.khpi.oop.malokhvii03.text;
  *
  * @author malokhvii-eduard
  * @version 1.0.0
+ * @since 1.1.0
  */
 public final class PolynomialHash {
 
     /**
      * Максимальна, довжина хешованих рядків, використовується для ініціалізації
      * ступенів деякого числа P.
+     *
+     * @since 1.0.0
      */
     private static final int MAXIMUM_HASHABLE_CHAR_SEQUENCE_SIZE = 512;
 
@@ -41,18 +44,24 @@ public final class PolynomialHash {
      * латинських літер, то хорошим вибором буде POLYNOMIAL_BASE = 31. Якщо
      * букви можуть бути і великими, і маленькими, то, наприклад, можна
      * POLYNOMIAL_BASE = 53.
+     *
+     * @since 1.0.0
      */
     private static final int POLYNOMIAL_BASE = 53;
 
     /**
      * Усі ступіні числа POLYNOMIAL_BASE збережені, оскільки немає смислу
      * обчислювати їх кожен раз.
+     *
+     * @since 1.0.0
      */
     private static long[] polynomials;
 
     /**
      * Значення нульового хешу, або не дійсного хешу. Використовується для
      * відмітки, що поточне значення хешу не дійсне.
+     *
+     * @since 1.0.0
      */
     public static final long ZERO_HASH = 0;
 
@@ -66,6 +75,7 @@ public final class PolynomialHash {
      *
      * @param maximumHashableCharSequenceSize
      *            максимальний розмір символьних послідовностей для хешування
+     * @since 1.0.0
      */
     private static void calculatePolynomials(
             final int maximumHashableCharSequenceSize) {
@@ -85,6 +95,7 @@ public final class PolynomialHash {
      * @param charSequence
      *            послідовність символів
      * @return поліноміальний хеш для послідовності символів
+     * @since 1.0.0
      */
     public static long charSequenceHash(final CharSequence charSequence) {
         int charSequenceLength = charSequence.length();
@@ -105,6 +116,7 @@ public final class PolynomialHash {
      * @param charSequence
      *            послідовність символів
      * @return поліноміальний хеш для оберненої послідовності символів
+     * @since 1.0.0
      */
     public static long reversedCharSequenceHash(
             final CharSequence charSequence) {
@@ -123,6 +135,8 @@ public final class PolynomialHash {
 
     /**
      * Приватний конструктор, для заборони створення утилітарного класу.
+     * 
+     * @since 1.0.0
      */
     private PolynomialHash() {
 

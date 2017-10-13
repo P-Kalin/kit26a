@@ -14,6 +14,7 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * @author malokhvii-eduard
  * @version 1.1.0
  * @see Ananym
+ * @since 1.0.0
  */
 public final class Anagrams {
 
@@ -53,8 +54,8 @@ public final class Anagrams {
      * @see HashableWord
      * @see PolynomialHash
      * @see Ananym
-     * @since 1.1.0
      * @return {@link Array перелік} ананимів.
+     * @since 1.1.0
      */
     public static Collection<Ananym> findAllAnanyms(
             final CharSequence charSequence, final String regex) {
@@ -77,7 +78,7 @@ public final class Anagrams {
 
         HashableWord currentMappedWord;
         for (HashableWord hashableWord : mappedWords.values()) {
-            polynomialHash = hashableWord.getReversedPolіnomialHashCode();
+            polynomialHash = hashableWord.getReversedPolynomialHashCode();
             currentMappedWord = mappedWords.get(polynomialHash);
 
             if (currentMappedWord != null) {
@@ -110,8 +111,8 @@ public final class Anagrams {
      * @see HashableWord
      * @see PolynomialHash
      * @see Ananym
-     * @since 1.1.0
      * @return {@link Array перелік} ананимів.
+     * @since 1.1.0
      */
     public static Collection<Ananym> findAllAnanyms(
             final Iterable<CharSequence> lines, final String regex) {
@@ -136,7 +137,7 @@ public final class Anagrams {
 
         HashableWord currentMappedWord;
         for (HashableWord hashableWord : mappedWords.values()) {
-            polynomialHash = hashableWord.getReversedPolіnomialHashCode();
+            polynomialHash = hashableWord.getReversedPolynomialHashCode();
             currentMappedWord = mappedWords.get(polynomialHash);
 
             if (currentMappedWord != null) {
@@ -166,8 +167,8 @@ public final class Anagrams {
      * @see HashableWord
      * @see PolynomialHash
      * @see Ananym
-     * @since 1.1.0
      * @return {@link Array перелік} ананимів.
+     * @since 1.1.0
      */
     public static Collection<Ananym> findAllAnanyms(
             Iterable<CharSequence> words) {
@@ -186,7 +187,7 @@ public final class Anagrams {
 
         HashableWord currentMappedWord;
         for (HashableWord hashableWord : mappedWords.values()) {
-            polynomialHash = hashableWord.getReversedPolіnomialHashCode();
+            polynomialHash = hashableWord.getReversedPolynomialHashCode();
             currentMappedWord = mappedWords.get(polynomialHash);
             if (currentMappedWord != null) {
                 ananyms.add(new Ananym(hashableWord.getCharSequence(),
