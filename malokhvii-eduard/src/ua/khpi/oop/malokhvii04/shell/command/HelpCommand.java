@@ -12,16 +12,19 @@ import ua.khpi.oop.malokhvii04.shell.ShellData;
 /**
  * Призначений, для інкапсуляції отримання довідки під виглядом команди.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see Shell
  * @see CommandFactory
  * @see AbstractCommand
+ * @since 1.0.0
  */
 public final class HelpCommand extends AbstractCommand {
 
     /**
      * Ключи, для виклику команди із інтерактивної оболонки.
+     *
+     * @since 1.0.0
      */
     private static List<String> keys = Arrays.asList("-help", "-h");
 
@@ -39,6 +42,7 @@ public final class HelpCommand extends AbstractCommand {
      *            унікальний індентифікатор команди
      * @param shellData
      *            посилання на дані інтерактивної оболнки
+     * @since 1.0.0
      */
     public HelpCommand(final String id, final ShellData shellData) {
         super(id, shellData);
@@ -50,6 +54,7 @@ public final class HelpCommand extends AbstractCommand {
      *
      * @param commandDescriptionEntry
      *            опис команди
+     * @since 1.0.0
      */
     public void printCommandDescription(
             final Map.Entry<String, String> commandDescriptionEntry) {

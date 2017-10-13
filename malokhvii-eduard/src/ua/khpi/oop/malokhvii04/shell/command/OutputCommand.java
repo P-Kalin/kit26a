@@ -12,16 +12,19 @@ import ua.khpi.oop.malokhvii04.shell.ShellData;
  * Призначений, для інкапсуляції виведення оброблених та вхідних даних під
  * виглядом команди.
  *
- * @author malokhvii-ee
- * @version 1.0.0
+ * @author malokhvii-eduard
+ * @version 1.0.1
  * @see Shell
  * @see CommandFactory
  * @see AbstractCommand
+ * @since 1.0.0
  */
 public final class OutputCommand extends AbstractCommand {
 
     /**
      * Верхня частина таблиці результатів.
+     *
+     * @since 1.0.0
      */
     private static String ananymsTableHeader = "%1$s |"
             + "--------------------------------"
@@ -32,12 +35,16 @@ public final class OutputCommand extends AbstractCommand {
 
     /**
      * Нижня частина таблиці результатів.
+     *
+     * @since 1.0.0
      */
     private static String ananymsTableFooter = "%1$s |-------------------"
             + "------------------|-------------------------------------|\n\n";
 
     /**
      * Ключи, для виклику команди із інтерактивної оболонки.
+     *
+     * @since 1.0.0
      */
     private static List<String> keys = Arrays.asList("-output", "-o");
 
@@ -55,6 +62,7 @@ public final class OutputCommand extends AbstractCommand {
      *            унікальний індентифікатор команди
      * @param shellData
      *            посилання на дані інтерактивної оболнки
+     * @since 1.0.0
      */
     public OutputCommand(final String id, final ShellData shellData) {
         super(id, shellData);
@@ -66,6 +74,7 @@ public final class OutputCommand extends AbstractCommand {
      *
      * @param ananyms
      *            колекція ананимів (анаграм)
+     * @since 1.0.0
      */
     public void printAnanymsCollection(final Collection<Ananym> ananyms) {
         System.out.print("Result of searching ananyms in text:\n");
@@ -92,6 +101,7 @@ public final class OutputCommand extends AbstractCommand {
      *
      * @param textLines
      *            колекція рядків
+     * @since 1.0.0
      */
     public void printTextLines(final Collection<CharSequence> textLines) {
         System.out.println("Text lines loaded from file:");

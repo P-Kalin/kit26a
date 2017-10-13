@@ -15,13 +15,16 @@ import ua.khpi.oop.malokhvii05.util.Array;
 /**
  * Призначений, для демонстрації виконання отриманного завдання.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.1
+ * @since 1.0.0
  */
 public final class Application {
 
     /**
      * Приватний конструктор, для заборони створення утилітарного класу.
+     *
+     * @since 1.0.0
      */
     private Application() {
 
@@ -45,6 +48,7 @@ public final class Application {
      *            параметри, отримувані через командний рядок
      * @throws IOException
      *             Помилка під час введення, виведення
+     * @since 1.0.0
      */
     public static void main(final String[] args) throws IOException {
         Array<CharSequence> textLines = new Array<CharSequence>();
@@ -85,6 +89,7 @@ public final class Application {
      * Призначений, для отримання ім'я файлу програми.
      *
      * @return ім'я файлу програми
+     * @since 1.0.0
      */
     public static String getApplicationName() {
         File file = null;

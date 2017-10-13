@@ -5,8 +5,8 @@
  * декоратор. Для створення використовувати фабрику, регестрація команд за
  * допомогою статичного блоку ініціалізації.
  *
- * @author malokhvii-ee
- * @version 1.0.0
+ * @author malokhvii-eduard
+ * @version 1.0.1
  * @see Command
  * @see AbstractCommand
  * @see AbstractCommandDecorator

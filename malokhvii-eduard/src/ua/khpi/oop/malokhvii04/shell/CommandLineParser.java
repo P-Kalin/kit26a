@@ -9,28 +9,37 @@ import ua.khpi.oop.malokhvii04.shell.command.CommandFactory;
 /**
  * Призначений, для обробки аргументів командного рядку.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
+ * @since 1.0.0
  */
 public final class CommandLineParser {
 
     /**
      * Розмір історії команд за змовчуванням.
+     *
+     * @since 1.0.0
      */
     private static int defaultHistorySize = 10;
 
     /**
      * Символ табуляції за змовчуванням.
+     *
+     * @since 1.0.0
      */
     private static String defaultTabCharacter = "...";
 
     /**
      * Символ команди за змовчуванням.
+     *
+     * @since 1.0.0
      */
     private static String defaultCommandCharacter = ">>>";
 
     /**
      * Приватний конструктор, для заборони створення утилітарного класу.
+     *
+     * @since 1.0.0
      */
     private CommandLineParser() {
 
@@ -44,6 +53,7 @@ public final class CommandLineParser {
      * @param shellData
      *            посилання на об'єкт даних інтерактивної оболонки
      * @return масив команд
+     * @since 1.0.0
      */
     public static List<Command> parseCommands(final String[] args,
             final ShellData shellData) {
@@ -64,6 +74,7 @@ public final class CommandLineParser {
      * @param args
      *            аргументи командної строки
      * @return розмір історії команд
+     * @since 1.0.0
      */
     public static int parseCommandHistorySize(final String[] args) {
         for (String arg : args) {
@@ -86,6 +97,7 @@ public final class CommandLineParser {
      * @param args
      *            аргументи командної строки
      * @return символ табуляції
+     * @since 1.0.0
      */
     public static String parseTabCharacter(final String[] args) {
         for (String arg : args) {
@@ -106,6 +118,7 @@ public final class CommandLineParser {
      * @param args
      *            аргументи командної строки
      * @return символ команди
+     * @since 1.0.0
      */
     public static String parseCommandCharacter(final String[] args) {
         for (String arg : args) {
@@ -124,6 +137,7 @@ public final class CommandLineParser {
      * Призначений, для отримання символу команд за змовчуванням.
      *
      * @return символ команди за змовчуванням
+     * @since 1.0.0
      */
     public static String getDefaultCommandCharacter() {
         return defaultCommandCharacter;
@@ -134,6 +148,7 @@ public final class CommandLineParser {
      *
      * @param defaultCommandCharacter
      *            символ команди за змовчуванням
+     * @since 1.0.0
      */
     public static void setDefaultCommandCharacter(
             final String defaultCommandCharacter) {
@@ -144,6 +159,7 @@ public final class CommandLineParser {
      * Призначений, для отримання символу табуляції за змовчуванням.
      *
      * @return the defaultTabCharacter символ табуляції за змовчуванням
+     * @since 1.0.0
      */
     public static String getDefaultTabCharacter() {
         return defaultTabCharacter;
@@ -154,6 +170,7 @@ public final class CommandLineParser {
      *
      * @param defaultTabCharacter
      *            символ табуляції за змовчуванням
+     * @since 1.0.0
      */
     public static void setDefaultTabCharacter(
             final String defaultTabCharacter) {
@@ -164,6 +181,7 @@ public final class CommandLineParser {
      * Призначений, для отримання значення історії команд за змовчуванням.
      *
      * @return розмір історії команд за змовчуванням
+     * @since 1.0.0
      */
     public static int getDefaultHistorySize() {
         return defaultHistorySize;
@@ -174,6 +192,7 @@ public final class CommandLineParser {
      *
      * @param defaultHistorySize
      *            розмір історії команд за змовчуванням
+     * @since 1.0.0
      */
     public static void setDefaultHistorySize(final int defaultHistorySize) {
         CommandLineParser.defaultHistorySize = defaultHistorySize;

@@ -17,22 +17,27 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * Призначений, для інкапсуляції введення шляху до файлу для подальшої обробки
  * даних під виглядом команди.
  *
- * @author malokhvii-ee
- * @version 1.0.0
+ * @author malokhvii-eduard
+ * @version 1.0.1
  * @see Shell
  * @see CommandFactory
  * @see AbstractCommand
+ * @since 1.0.0
  */
 public final class InputCommand extends AbstractCommand {
 
     /**
      * Регулярний вираз для перевірки шляху до файлу.
+     *
+     * @since 1.0.0
      */
     private static final String FILE_PATH_PATTERN = "([A-Z|a-z]:\\\\[^"
             + "*|\"<>?\\n]*)|(\\\\\\\\.*?\\\\.*)";
 
     /**
      * Ключи, для виклику команди із інтерактивної оболонки.
+     *
+     * @since 1.0.0
      */
     private static List<String> keys = Arrays.asList("-input", "-i");
 
@@ -50,6 +55,7 @@ public final class InputCommand extends AbstractCommand {
      *            унікальний індентифікатор команди
      * @param shellData
      *            посилання на дані інтерактивної оболнки
+     * @since 1.0.0
      */
     public InputCommand(final String id, final ShellData shellData) {
         super(id, shellData);
@@ -84,6 +90,7 @@ public final class InputCommand extends AbstractCommand {
      * {@value #FILE_PATH_PATTERN}.
      *
      * @return шлях до файлу
+     * @since 1.0.0
      */
     public String getFilePath() {
         Scanner shellScanner = this.getShellData().getShellScanner();
@@ -116,6 +123,7 @@ public final class InputCommand extends AbstractCommand {
      * @return текст з вхідного файлу у вигляді масиву рядків
      * @throws IOException
      *             Помилка, під час обробки вхідного файлу
+     * @since 1.0.0
      */
     public Collection<CharSequence> getInputText(final String filePath)
             throws IOException {

@@ -5,41 +5,53 @@ import ua.khpi.oop.malokhvii04.shell.CommandLineParser;
 /**
  * Призначений, для декорування об'єктів команд відладочною інформацією.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see Shell
  * @see CommandFactory
  * @see AbstractCommand
+ * @since 1.0.0
  */
 public final class CommandWithDebug extends AbstractCommandDecorator {
 
     /**
      * Поточний час до виконання команди.
+     *
+     * @since 1.0.0
      */
     private long commandExecutionTimeBegin;
 
     /**
      * Поточний час після виконання команди.
+     *
+     * @since 1.0.0
      */
     private long commandExecutionTimeEnd;
 
     /**
      * Поточний стан пам'яті до виконання команди.
+     *
+     * @since 1.0.0
      */
     private long commandExecutionMemoryBefore;
 
     /**
      * Поточний стан пам'яті після виконання команди.
+     *
+     * @since 1.0.0
      */
     private long commandExecutionMemoryAfter;
 
     /**
      * Символ відладочною табуляції.
+     *
+     * @since 1.0.0
      */
     private static String debugTabCharacter;
 
     static {
-        CommandWithDebug.debugTabCharacter = CommandLineParser.getDefaultTabCharacter();
+        CommandWithDebug.debugTabCharacter = CommandLineParser
+                .getDefaultTabCharacter();
     }
 
     /**
@@ -47,6 +59,7 @@ public final class CommandWithDebug extends AbstractCommandDecorator {
      *
      * @param command
      *            посилання на об'єкт команди, для декорування
+     * @since 1.0.0
      */
     public CommandWithDebug(final Command command) {
         super(command);
@@ -64,6 +77,7 @@ public final class CommandWithDebug extends AbstractCommandDecorator {
      *
      * @param command
      *            об'єкт команди
+     * @since 1.0.0
      */
     public void printPackageInfo(final Command command) {
         Package commandPackage = command.getClass().getPackage();
@@ -83,6 +97,7 @@ public final class CommandWithDebug extends AbstractCommandDecorator {
      *
      * @param command
      *            об'єкт команди
+     * @since 1.0.0
      */
     public void printClassInfo(final Command command) {
         Class<? extends Command> commandClass = command.getClass();
@@ -102,6 +117,8 @@ public final class CommandWithDebug extends AbstractCommandDecorator {
 
     /**
      * Призначений, для виведення результатів вимірювання використання пам'яті.
+     *
+     * @since 1.0.0
      */
     public void printMemoryUsage() {
         System.out.format("%1$s Total memory before execution: %2$d bytes\n",
@@ -115,6 +132,8 @@ public final class CommandWithDebug extends AbstractCommandDecorator {
     /**
      * Призначений, для виведення результатів вимірювання часу виконання
      * команди.
+     * 
+     * @since 1.0.0
      */
     public void printExecutionTime() {
         System.out.format("%1$s Command execution took: %2$d ns\n",

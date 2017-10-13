@@ -11,18 +11,23 @@ import ua.khpi.oop.malokhvii04.shell.command.Command;
  * Призначений, для обробки вхідних команд та контролювання даних інтерактивної
  * оболонки.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
+ * @since 1.0.0
  */
 public final class Shell {
 
     /**
      * Описи зарегестрованих команд.
+     *
+     * @since 1.0.0
      */
     private static Map<String, String> commandsDescription;
 
     /**
      * Дані інтерактивної оболонки.
+     *
+     * @since 1.0.0
      */
     private ShellData shellData;
 
@@ -35,6 +40,7 @@ public final class Shell {
      *
      * @param shellData
      *            посилання на дані інтерактивної оболонки
+     * @since 1.0.0
      */
     public Shell(final ShellData shellData) {
         this.shellData = shellData;
@@ -42,6 +48,8 @@ public final class Shell {
 
     /**
      * Призначений, для виведення початкового повідомлення.
+     *
+     * @since 1.0.0
      */
     public void printLaunchMessage() {
         System.out.format("Shell was launched\n"
@@ -56,6 +64,8 @@ public final class Shell {
 
     /**
      * Призначений, для виведення кінцевого повідомлення.
+     *
+     * @since 1.0.0
      */
     public void printTerminateMessage() {
         System.out.print("Shell was terminated");
@@ -65,6 +75,7 @@ public final class Shell {
      * Призначений, для отримання стану інтерактивної оболонки.
      *
      * @return стан роботи інтерактивної оболонки
+     * @since 1.0.0
      */
     public boolean isRunning() {
 
@@ -73,6 +84,8 @@ public final class Shell {
 
     /**
      * Призначений, для вмикання інтерактивної оболонки.
+     *
+     * @since 1.0.0
      */
     public void launch() {
         this.printLaunchMessage();
@@ -81,6 +94,8 @@ public final class Shell {
 
     /**
      * Призначений, для вимикання інтерактивної оболонки.
+     *
+     * @since 1.0.0
      */
     public void terminate() {
         this.printTerminateMessage();
@@ -90,6 +105,8 @@ public final class Shell {
     /**
      * Призначений, для обробки останньої команди доданої до інтерактивної
      * оболонки.
+     *
+     * @since 1.0.0
      */
     public void handleCommand() {
         Deque<Command> commandHistory = this.shellData.getCommandHistory();
@@ -105,6 +122,7 @@ public final class Shell {
      *
      * @param command
      *            нова команда
+     * @since 1.0.0
      */
     public void putCommand(final Command command) {
         Deque<Command> commandHistory = this.shellData.getCommandHistory();
@@ -120,6 +138,7 @@ public final class Shell {
      * оболонки.
      *
      * @return посилання на об'єкт даних інтерактивної оболонки
+     * @since 1.0.0
      */
     public ShellData getShellData() {
         return this.shellData;
@@ -131,6 +150,7 @@ public final class Shell {
      *
      * @param shellData
      *            посилання на об'єкт даних інтерактивної оболонки
+     * @since 1.0.0
      */
     public void setShellData(final ShellData shellData) {
         this.shellData = shellData;
@@ -140,6 +160,7 @@ public final class Shell {
      * Призначений, для отримання наступного ключа команди від користувача.
      *
      * @return наступний кдюч команди від користувача
+     * @since 1.0.0
      */
     public String getNextCommand() {
         Scanner shellScanner = this.shellData.getShellScanner();
@@ -154,6 +175,8 @@ public final class Shell {
 
     /**
      * Призначений, для обробки невідомої команди.
+     *
+     * @since 1.0.0
      */
     public void handleUnknownCommand() {
         System.out.println(
@@ -164,6 +187,7 @@ public final class Shell {
      * Призначений, для отримання посилання на колекцію довідок для команд.
      *
      * @return посилання на колекцію довідок для команд
+     * @since 1.0.0
      */
     public static Map<String, String> getCommandsDescription() {
         return Shell.commandsDescription;
@@ -176,6 +200,7 @@ public final class Shell {
      *            ключи для команди
      * @param description
      *            опис команди
+     * @since 1.0.0
      */
     public static void registerCommandDescription(final String keys,
             final String description) {

@@ -11,18 +11,23 @@ import ua.khpi.oop.malokhvii04.shell.ShellData;
 /**
  * Призначений, для створення об'єктів команд, за отриманним ключем команди.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
+ * @since 1.0.0
  */
 public final class CommandFactory {
 
     /**
      * Колекція, класів команд.
+     *
+     * @since 1.0.0
      */
     private static HashMap<String, Class<? extends AbstractCommand>> classMapping;
 
     /**
      * Пакет із базовими командовми, для інтерактивної оболонки.
+     *
+     * @since 1.0.0
      */
     private static final String BASIC_COMMAND_PACKAGE = "ua.khpi.oop."
             + "malokhvii04.shell.command";
@@ -47,6 +52,8 @@ public final class CommandFactory {
 
     /**
      * Приватний конструктор, для заборони створення утилітарного класу.
+     *
+     * @since 1.0.0
      */
     private CommandFactory() {
 
@@ -60,6 +67,7 @@ public final class CommandFactory {
      * @param shellData
      *            посилання на об'єкт даних інтерактивної оболонки
      * @return створенний об'єкт команди
+     * @since 1.0.0
      */
     public static Command getCommand(final String key,
             final ShellData shellData) {
@@ -85,6 +93,7 @@ public final class CommandFactory {
      *            список ключів для команди
      * @param commandClass
      *            клас команди
+     * @since 1.0.0
      */
     public static void registerCommand(final List<String> keys,
             final Class<? extends AbstractCommand> commandClass) {
@@ -100,6 +109,7 @@ public final class CommandFactory {
      *            ключ для команди
      * @param commandClass
      *            клас команди
+     * @since 1.0.0
      */
     public static void registerCommand(final String key,
             final Class<? extends AbstractCommand> commandClass) {

@@ -10,16 +10,19 @@ import ua.khpi.oop.malokhvii04.shell.ShellData;
  * Призначений, для інкапсуляції завершення сеансу інтерактивної оболонки під
  * виглядом команди.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see Shell
  * @see CommandFactory
  * @see AbstractCommand
+ * @since 1.0.0
  */
 public final class ExitCommand extends AbstractCommand {
 
     /**
      * Ключи, для виклику команди із інтерактивної оболонки.
+     *
+     * @since 1.0.0
      */
     private static List<String> keys = Arrays.asList("-exit", "-e");
 
@@ -37,6 +40,7 @@ public final class ExitCommand extends AbstractCommand {
      *            унікальний індентифікатор команди
      * @param shellData
      *            посилання на дані інтерактивної оболнки
+     * @since 1.0.0
      */
     public ExitCommand(final String id, final ShellData shellData) {
         super(id, shellData);

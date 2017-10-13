@@ -38,6 +38,9 @@
  * </li>
  * </ol>
  * </p>
+ *
+ * @author malokhvii-eduard
+ * @version 1.0.0
  */
 
 package ua.khpi.oop.malokhvii04;

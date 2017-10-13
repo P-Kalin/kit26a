@@ -13,16 +13,19 @@ import ua.khpi.oop.malokhvii05.util.Array;
 /**
  * Призначений, для інкапсуляції обчислень вхідних даних під виглядом команди.
  *
- * @author malokhvii-ee
- * @version 1.0.0
+ * @author malokhvii-eduard
+ * @version 1.0.1
  * @see Shell
  * @see CommandFactory
  * @see AbstractCommand
+ * @since 1.0.0
  */
 public final class ProcessCommand extends AbstractCommand {
 
     /**
      * Ключи, для виклику команди із інтерактивної оболонки.
+     *
+     * @since 1.0.0
      */
     private static List<String> keys = Arrays.asList("-process", "-p");
 
@@ -41,6 +44,7 @@ public final class ProcessCommand extends AbstractCommand {
      *            унікальний індентифікатор команди
      * @param shellData
      *            посилання на дані інтерактивної оболнки
+     * @since 1.0.0
      */
     public ProcessCommand(final String id, final ShellData shellData) {
         super(id, shellData);

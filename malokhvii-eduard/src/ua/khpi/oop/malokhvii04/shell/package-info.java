@@ -4,7 +4,7 @@
  * {@link ua.khpi.oop.malokhvii04.shell.command}. В загалом обидва пакети
  * імплементують повну поведінку інтерактивної оболонки.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
  * @see Shell
  */

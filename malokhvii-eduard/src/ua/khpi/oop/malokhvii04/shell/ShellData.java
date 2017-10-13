@@ -16,22 +16,26 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * Призначений, для збереження даних інтерактивної оболонки, для подальшої
  * передачі між командами.
  *
- * @author malokhvii-ee
+ * @author malokhvii-eduard
  * @version 1.0.0
+ * @since 1.0.0
  */
 public final class ShellData {
 
     /**
      * Призначений, для створення об'єкту даних інтерактивної оболонки.
      *
-     * @author malokhvii-ee
+     * @author malokhvii-eduard
      * @version 1.0.0
+     * @since 1.0.0
      */
     public final class Builder {
 
         /**
          * Приватний конструктор, за для створення об'єкту будівника лише через
          * сатичний метод {@link ShellData#getBuilder() }.
+         *
+         * @since 1.0.0
          */
         private Builder() {
 
@@ -41,6 +45,7 @@ public final class ShellData {
          * Призначений, для побудування об'єкту даних інтерактивної оболонки.
          *
          * @return дані інтерактивної оболонки
+         * @since 1.0.0
          */
         public ShellData build() {
             return ShellData.this;
@@ -52,6 +57,7 @@ public final class ShellData {
          * @param ananymsCollection
          *            колекція ананимів (анаграм)
          * @return об'єкт будівника
+         * @since 1.0.0
          */
         public Builder setAnanyms(final Array<Ananym> ananyms) {
             ShellData.this.ananyms = ananyms;
@@ -64,6 +70,7 @@ public final class ShellData {
          * @param commandCharacter
          *            символ виділення команди
          * @return об'єкт будівника
+         * @since 1.0.0
          */
         public Builder setCommandCharacter(final String commandCharacter) {
             ShellData.this.commandCharacter = commandCharacter;
@@ -77,6 +84,7 @@ public final class ShellData {
          * @param commandHistorySize
          *            рормір історії викликів команд
          * @return об'єкт будівника
+         * @since 1.0.0
          */
         public Builder setCommandHistorySize(final int commandHistorySize) {
             ShellData.this.commandHistorySize = commandHistorySize;
@@ -89,6 +97,7 @@ public final class ShellData {
          * @param inputStream
          *            вхідний потік
          * @return об'єкт будівника
+         * @since 1.0.0
          */
         public Builder setInputStream(final InputStream inputStream) {
             ShellData.this.shellScanner = new Scanner(inputStream);
@@ -101,6 +110,7 @@ public final class ShellData {
          * @param tabCharacter
          *            символ табуляції
          * @return об'єкт будівника
+         * @since 1.0.0
          */
         public Builder setTabCharacter(final String tabCharacter) {
             ShellData.this.tabCharacter = tabCharacter;
@@ -114,6 +124,7 @@ public final class ShellData {
          * @param textLines
          *            буфер вхідних рядків
          * @return об'єкт будівника
+         * @since 1.0.0
          */
         public Builder setTextLines(final Array<CharSequence> textLines) {
             ShellData.this.textLines = textLines;
@@ -125,6 +136,7 @@ public final class ShellData {
      * Призначений, для отримання нового об'єкту будівника даних.
      *
      * @return об'єкт будівника даних
+     * @since 1.0.0
      */
     public static Builder getBuilder() {
         return new ShellData().new Builder();
@@ -132,56 +144,78 @@ public final class ShellData {
 
     /**
      * Посилання, на колекцію ананимів (анаграм).
+     *
+     * @since 1.0.0
      */
     private Array<Ananym> ananyms;
 
     /**
      * Символ виділення команди.
+     *
+     * @since 1.0.0
      */
     private String commandCharacter;
 
     /**
      * Історія викликів команд.
+     *
+     * @since 1.0.0
      */
     private Deque<Command> commandHistory;
 
     /**
      * Розмір історії команд.
+     *
+     * @since 1.0.0
      */
     private int commandHistorySize;
 
     /**
      * Індекс поточної команди.
+     *
+     * @since 1.0.0
      */
     private int currentCommandIndex;
 
     /**
      * Клас-декоратор для відображення трасування команд.
+     *
+     * @since 1.0.0
      */
     private Class<? extends AbstractCommandDecorator> debugCommandDecorator;
 
     /**
      * Стан роботи ынтерактивноъ оболонки.
+     *
+     * @since 1.0.0
      */
     private boolean isRunning;
 
     /**
      * Сканер вхідних даних.
+     *
+     * @since 1.0.0
      */
     private Scanner shellScanner;
 
     /**
      * Символ табуляції.
+     * 
+     * @since 1.0.0
      */
     private String tabCharacter;
 
     /**
      * Посилання, на буффер для вхідного тексту.
+     *
+     * @since 1.0.0
      */
     private Array<CharSequence> textLines;
 
     /**
      * Приватний конструктор, задля створення об'єкт за допомогою Builder-а.
+     *
+     * @since 1.0.0
      */
     private ShellData() {
         this.commandHistory = new ArrayDeque<Command>();
@@ -193,6 +227,7 @@ public final class ShellData {
      * Призначений, для отримання колекції ананимів.
      *
      * @return колекція ананимів
+     * @since 1.0.0
      */
     public Array<Ananym> getAnanyms() {
         return ananyms;
@@ -202,6 +237,7 @@ public final class ShellData {
      * Призначений, для отримання символи виділення команди.
      *
      * @return символ виділення команди
+     * @since 1.0.0
      */
     public String getCommandCharacter() {
         return this.commandCharacter;
@@ -211,6 +247,7 @@ public final class ShellData {
      * Призначений, для отримання історії викликів команд.
      *
      * @return історія викликів команд
+     * @since 1.0.0
      */
     public Deque<Command> getCommandHistory() {
         return this.commandHistory;
@@ -220,6 +257,7 @@ public final class ShellData {
      * Призначений, для отримання розміру історії викликів команд.
      *
      * @return розмір історії викликів команд
+     * @since 1.0.0
      */
     public int getCommandHistorySize() {
         return commandHistorySize;
@@ -229,6 +267,7 @@ public final class ShellData {
      * Призначений, для отримання поточного індексу команди.
      *
      * @return поточний індекс команди
+     * @since 1.0.0
      */
     public int getCurrentCommandIndex() {
         return this.currentCommandIndex;
@@ -238,6 +277,7 @@ public final class ShellData {
      * Призначений, для отримання декоратору для відлагодження.
      *
      * @return декортаор для відлагодження
+     * @since 1.0.0
      */
     public Class<? extends AbstractCommandDecorator> getDebugCommandDecorator() {
         return debugCommandDecorator;
@@ -247,6 +287,7 @@ public final class ShellData {
      * Призначений, для отримання сканеру.
      *
      * @return сканер обробки вхідних даних
+     * @since 1.0.0
      */
     public Scanner getShellScanner() {
         return this.shellScanner;
@@ -256,6 +297,7 @@ public final class ShellData {
      * Призначений, для отримання символу табуляції.
      *
      * @return символ табуляції
+     * @since 1.0.0
      */
     public String getTabCharacter() {
         return this.tabCharacter;
@@ -265,6 +307,7 @@ public final class ShellData {
      * Призначений, для отримання буферу рядків вхідного тексту.
      *
      * @return буфер рядків вхідного тексту
+     * @since 1.0.0
      */
     public Array<CharSequence> getTextLines() {
         return textLines;
@@ -272,6 +315,8 @@ public final class ShellData {
 
     /**
      * Призначений, для інкрементування індексу поточної команди.
+     *
+     * @since 1.0.0
      */
     public void incrementCurrentCommandIndex() {
         ++this.currentCommandIndex;
@@ -281,6 +326,7 @@ public final class ShellData {
      * Призначений, для отримання стану роботи інтерактивної оболонки.
      *
      * @return стан роботи інтерактивної оболонки
+     * @since 1.0.0
      */
     public boolean isRunning() {
         return isRunning;
@@ -295,6 +341,7 @@ public final class ShellData {
      *
      * @param debugCommandDecorator
      *            декоратор для відлагодження
+     * @since 1.0.0
      */
     public void setDebugCommandDecorator(
             final Class<? extends AbstractCommandDecorator> debugCommandDecorator) {
@@ -306,6 +353,7 @@ public final class ShellData {
      *
      * @param isRunning
      *            новий стан роботи
+     * @since 1.0.0
      */
     public void setRunning(final boolean isRunning) {
         this.isRunning = isRunning;
@@ -321,6 +369,7 @@ public final class ShellData {
      * @param command
      *            звичайна команда
      * @return декорована команда
+     * @since 1.0.0
      */
     public Command wrapCommandWithDebug(final Command command) {
         if (this.debugCommandDecorator == null) {
