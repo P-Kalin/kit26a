@@ -2,7 +2,7 @@
 <class-diagram version="1.2.1" icons="true" automaticImage="PNG" always-add-relationships="true" generalizations="true" 
   realizations="true" associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="ua.khpi.oop.malokhvii01.Application" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii01/Application.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii01/Application.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="929" y="180"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -11,7 +11,7 @@
     </display>  
   </class>  
   <class id="2" language="java" name="ua.khpi.oop.malokhvii01.TaskPerformerForBinaryValues" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii01/TaskPerformerForBinaryValues.java" binary="false" 
+    file="/malokhvii-eduard/src/main/java/ua/khpi/oop/malokhvii01/TaskPerformerForBinaryValues.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="927" y="541"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -21,7 +21,7 @@
     </display>  
   </class>  
   <class id="3" language="java" name="ua.khpi.oop.malokhvii01.TaskPerformerForDecimalValues" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii01/TaskPerformerForDecimalValues.java" binary="false" 
+    file="/malokhvii/src/ua/khpi/oop/malokhvii01/TaskPerformerForDecimalValues.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="165" y="536"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -31,7 +31,7 @@
     </display>  
   </class>  
   <class id="4" language="java" name="ua.khpi.oop.malokhvii01.TaskValues" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii01/TaskValues.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii01/TaskValues.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="299" width="241" x="381" y="391"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -40,7 +40,7 @@
     </display>  
   </class>  
   <class id="5" language="java" name="ua.khpi.oop.malokhvii01.TaskValues.Builder" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii01/TaskValues.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii01/TaskValues.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="500" y="798"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -49,7 +49,7 @@
     </display>  
   </class>  
   <class id="6" language="java" name="ua.khpi.oop.malokhvii01.TaskValues.LiteralBuilder" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii01/TaskValues.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii-eduard/src/main/java/ua/khpi/oop/malokhvii01/TaskValues.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="173" width="303" x="633" y="730"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -76,32 +76,32 @@
   </association>  
   <nesting id="11">    
     <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="5"/>  
-  </nesting>  
-  <nesting id="12">    
-    <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="6"/>  
   </nesting>  
-  <dependency id="13">    
+  <dependency id="12">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
-  <dependency id="14">    
+  <dependency id="13">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
-  <association id="15">    
+  <association id="14">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="16" name="taskValues">        
+      <attribute id="15" name="taskValues">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="17" minimum="0" maximum="1">        
+      <multiplicity id="16" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <nesting id="17">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
+  </nesting>  
   <dependency id="18">    
     <bendpoint x="168" y="170"/>    
     <end type="SOURCE" refId="1"/>    
