@@ -1,12 +1,18 @@
 package ua.khpi.oop.malokhvii05;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+
+import ua.khpi.oop.malokhvii04.shell.Shell;
+import ua.khpi.oop.malokhvii04.shell.ShellCommandsPool;
+import ua.khpi.oop.malokhvii04.shell.commands.Command;
 
 /**
  * Призначений, для демонстрації виконання отриманного завдання.
  *
- * @author malokhvii-ee
- * @version 1.1.0
+ * @author malokhvii-eduard
+ * @version 1.0.0
  * @since 1.0.0
  */
 public final class Application {
@@ -34,8 +40,6 @@ public final class Application {
      * <li>-ananyms -task08 -t08 Пошук ананимів в тексті (див.
      * {@link ua.khpi.oop.malokhvii03.text.Anagrams алгоритм пошуку})</li>
      * </ul>
-     * Використовує точку входу з пакету {@link ua.khpi.oop.malokhvii06}, класу
-     * {@link ua.khpi.oop.malokhvii06.Application}.
      *
      * @param args
      *            параметри, отримувані через командний рядок
@@ -44,6 +48,45 @@ public final class Application {
      * @since 1.0.0
      */
     public static void main(final String[] args) throws IOException {
-        ua.khpi.oop.malokhvii06.Application.main(args);
+        Shell shell = Shell.getInstance();
+        shell.launch();
+
+        Command command = null;
+        if (args.length != 0 && shell.isRunning()) {
+            for (String key : args) {
+                command = ShellCommandsPool.getCommand(key);
+                if (command != null) {
+                    shell.putCommand(command);
+                    shell.handleCommand();
+                }
+            }
+        }
+
+        while (shell.isRunning()) {
+            command = ShellCommandsPool.getCommand(shell.getNextCommand());
+            if (command != null) {
+                shell.putCommand(command);
+                shell.handleCommand();
+            } else {
+                shell.handleUnknownCommand();
+            }
+        }
+    }
+
+    /**
+     * Призначений, для отримання ім'я файлу програми.
+     *
+     * @return ім'я файлу програми
+     * @since 1.0.0
+     */
+    public static String getApplicationName() {
+        File file = null;
+        try {
+            file = new File(Application.class.getProtectionDomain()
+                    .getCodeSource().getLocation().toURI());
+        } catch (URISyntaxException exception) {
+
+        }
+        return file.getName();
     }
 }
