@@ -2,8 +2,7 @@
 <class-diagram version="1.2.1" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <interface id="1" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.Algorithm" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/Algorithm.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/Algorithm.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="140" y="55"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -12,7 +11,7 @@
     </display>  
   </interface>  
   <class id="2" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.NullAlgorithm" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/NullAlgorithm.java" binary="false" 
+    file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/NullAlgorithm.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="144" y="221"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -24,7 +23,7 @@
   <class id="3" language="java" 
     name="ua.khpi.oop.malokhvii05.util.algorithms.NullAlgorithmWithComparator.DefaultComparator" 
     project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/NullAlgorithmWithComparator.java" binary="false" 
+    file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/NullAlgorithmWithComparator.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="144" y="510"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -35,7 +34,7 @@
   </class>  
   <class id="4" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.NullAlgorithmWithComparator" 
     project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/NullAlgorithmWithComparator.java" binary="false" 
+    file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/NullAlgorithmWithComparator.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="142" y="384"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -46,8 +45,8 @@
   </class>  
   <interface id="5" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.AlgorithmWithComparator" 
     project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/AlgorithmWithComparator.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    file="/malokhvii-eduard/src/main/java/ua/khpi/oop/malokhvii05/util/algorithms/AlgorithmWithComparator.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="430" y="383"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -57,7 +56,7 @@
   </interface>  
   <class id="6" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.AbstractAlgorithmWithComparator" 
     project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/AbstractAlgorithmWithComparator.java" 
+    file="/malokhvii-eduard/src/main/java/ua/khpi/oop/malokhvii05/util/algorithms/AbstractAlgorithmWithComparator.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="431" y="523"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -67,9 +66,8 @@
     </display>  
   </class>  
   <interface id="7" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.SortAlgorithm" 
-    project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/SortAlgorithm.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    project="malokhvii-eduard" file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/SortAlgorithm.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="742" y="384"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -78,9 +76,8 @@
     </display>  
   </interface>  
   <class id="8" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.NullSortAlgorithm" 
-    project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/NullSortAlgorithm.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    project="malokhvii-eduard" file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/NullSortAlgorithm.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="743" y="144"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -90,7 +87,7 @@
   </class>  
   <class id="9" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.AbstractSortAlgorithm" 
     project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/AbstractSortAlgorithm.java" binary="false" 
+    file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/AbstractSortAlgorithm.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="743" y="639"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -100,9 +97,8 @@
     </display>  
   </class>  
   <class id="10" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.BottomUpMergeSort" 
-    project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/BottomUpMergeSort.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    project="malokhvii-eduard" file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/BottomUpMergeSort.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1033" y="1144"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -111,7 +107,7 @@
     </display>  
   </class>  
   <class id="11" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.BubbleSort" 
-    project="malokhvii-eduard" file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/BubbleSort.java" 
+    project="malokhvii-eduard" file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/BubbleSort.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="366" y="744"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -121,7 +117,7 @@
     </display>  
   </class>  
   <class id="12" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.GnomeSort" 
-    project="malokhvii-eduard" file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/GnomeSort.java" 
+    project="malokhvii-eduard" file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/GnomeSort.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="363" y="874"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -131,7 +127,7 @@
     </display>  
   </class>  
   <class id="13" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.HeapSort" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/HeapSort.java" binary="false" 
+    file="/malokhvii-eduard/src/main/java/ua/khpi/oop/malokhvii05/util/algorithms/sort/HeapSort.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="379" y="1039"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -141,9 +137,8 @@
     </display>  
   </class>  
   <class id="14" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.InsertionSort" 
-    project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/InsertionSort.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    project="malokhvii-eduard" file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/InsertionSort.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="797" y="1130"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -152,9 +147,8 @@
     </display>  
   </class>  
   <class id="15" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.SimpleQuickSort" 
-    project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/SimpleQuickSort.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    project="malokhvii-eduard" file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/SimpleQuickSort.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1045" y="535"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -164,8 +158,8 @@
   </class>  
   <class id="16" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.SelectionSort" 
     project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/SelectionSort.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    file="/malokhvii-eduard/src/main/java/ua/khpi/oop/malokhvii05/util/algorithms/sort/SelectionSort.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1077" y="728"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -174,7 +168,7 @@
     </display>  
   </class>  
   <class id="17" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.ShellSort" 
-    project="malokhvii-eduard" file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/ShellSort.java" 
+    project="malokhvii-eduard" file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/ShellSort.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="385" y="639"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -184,9 +178,8 @@
     </display>  
   </class>  
   <class id="18" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.TopDownMergeSort" 
-    project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/TopDownMergeSort.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    project="malokhvii-eduard" file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/TopDownMergeSort.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1250" y="995"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -195,8 +188,7 @@
     </display>  
   </class>  
   <class id="19" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.TimSort" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/TimSort.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/TimSort.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1363" y="639"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -205,8 +197,7 @@
     </display>  
   </class>  
   <class id="20" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.JSort" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/JSort.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/JSort.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="582" y="1135"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -216,7 +207,7 @@
   </class>  
   <class id="21" language="java" name="ua.khpi.oop.malokhvii05.util.algorithms.sort.SortAlgorithmFactory" 
     project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/SortAlgorithmFactory.java" binary="false" 
+    file="/malokhvii/src/ua/khpi/oop/malokhvii05/util/algorithms/sort/SortAlgorithmFactory.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1116" y="193"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -225,105 +216,105 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="22">    
+  <generalization id="22">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <generalization id="23">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <generalization id="25">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="26">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="28">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="23" name="INSTANCE">        
+      <attribute id="29" name="INSTANCE">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="24" minimum="0" maximum="1">        
+      <multiplicity id="30" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="25">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <generalization id="26">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <realization id="27">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="5"/>  
-  </realization>  
-  <generalization id="28">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <realization id="29">    
+  <realization id="31">    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="7"/>  
   </realization>  
-  <generalization id="30">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <generalization id="31">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
   <realization id="32">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="5"/>  
   </realization>  
-  <realization id="33">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <generalization id="34">    
-    <end type="SOURCE" refId="20"/>    
+  <generalization id="33">    
+    <end type="SOURCE" refId="17"/>    
     <end type="TARGET" refId="9"/>  
   </generalization>  
+  <realization id="34">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
   <generalization id="35">    
-    <end type="SOURCE" refId="15"/>    
+    <end type="SOURCE" refId="13"/>    
     <end type="TARGET" refId="9"/>  
   </generalization>  
   <generalization id="36">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <nesting id="37">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
-  </nesting>  
-  <generalization id="38">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="5"/>  
-  </generalization>  
-  <generalization id="39">    
     <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="9"/>  
   </generalization>  
-  <generalization id="40">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="1"/>  
+  <generalization id="37">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="9"/>  
   </generalization>  
-  <generalization id="41">    
+  <generalization id="38">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <realization id="39">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <generalization id="40">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="2"/>  
   </generalization>  
-  <realization id="42">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
+  <nesting id="41">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </nesting>  
+  <generalization id="42">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
   <generalization id="43">    
-    <end type="SOURCE" refId="10"/>    
+    <end type="SOURCE" refId="20"/>    
     <end type="TARGET" refId="9"/>  
   </generalization>  
   <generalization id="44">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <generalization id="45">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <generalization id="46">    
     <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <realization id="45">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <generalization id="46">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="6"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
