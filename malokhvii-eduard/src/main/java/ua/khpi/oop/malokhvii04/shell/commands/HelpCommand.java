@@ -63,7 +63,7 @@ public final class HelpCommand extends AbstractCommand {
     public void execute() {
         Locale locale = LocaleDictionary.getInstance().getDefaultLocale();
         System.out.format(locale.getString("002x001"),
-                ua.khpi.oop.malokhvii06.Application.getApplicationName());
+                ua.khpi.oop.malokhvii05.Application.getApplicationName());
 
         Iterator<String> commandsKeys = ShellCommandsPool.getCommandsKeys()
                 .iterator();

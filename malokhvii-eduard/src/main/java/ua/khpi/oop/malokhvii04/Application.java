@@ -34,8 +34,8 @@ public final class Application {
      * <li>-ananyms -task08 -t08 Пошук ананимів в тексті (див.
      * {@link ua.khpi.oop.malokhvii03.text.Anagrams алгоритм пошуку})</li>
      * </ul>
-     * Використовує точку входу з пакету {@link ua.khpi.oop.malokhvii06}, класу
-     * {@link ua.khpi.oop.malokhvii06.Application}.
+     * Використовує точку входу з пакету {@link ua.khpi.oop.malokhvii05}, класу
+     * {@link ua.khpi.oop.malokhvii05.Application}.
      *
      * @param args
      *            параметри, отримувані через командний рядок
@@ -44,6 +44,6 @@ public final class Application {
      * @since 1.0.0
      */
     public static void main(final String[] args) throws IOException {
-        ua.khpi.oop.malokhvii06.Application.main(args);
+        ua.khpi.oop.malokhvii05.Application.main(args);
     }
 }
