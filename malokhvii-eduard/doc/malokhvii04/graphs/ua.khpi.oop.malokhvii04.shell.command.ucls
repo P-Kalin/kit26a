@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.1" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <interface id="1" language="java" name="ua.khpi.oop.malokhvii04.shell.command.Command" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/command/Command.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="1" language="java" name="ua.khpi.oop.malokhvii04.shell.commands.Command" project="malokhvii-eduard" 
+    file="/malokhvii/src/ua/khpi/oop/malokhvii04/shell/commands/Command.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="521" y="72"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -10,9 +10,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="2" language="java" name="ua.khpi.oop.malokhvii04.shell.command.AbstractCommandDecorator" 
+  <class id="2" language="java" name="ua.khpi.oop.malokhvii04.shell.commands.AbstractCommandDecorator" 
     project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/command/AbstractCommandDecorator.java" binary="false" 
+    file="/malokhvii/src/ua/khpi/oop/malokhvii04/shell/commands/AbstractCommandDecorator.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="807" y="73"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -21,8 +21,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="ua.khpi.oop.malokhvii04.shell.command.AbstractCommand" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/command/AbstractCommand.java" binary="false" 
+  <class id="3" language="java" name="ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand" project="malokhvii-eduard" 
+    file="/malokhvii/src/ua/khpi/oop/malokhvii04/shell/commands/AbstractCommand.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="101" y="75"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -31,9 +31,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="ua.khpi.oop.malokhvii04.shell.command.CommandWithDebug" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/command/CommandWithDebug.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="ua.khpi.oop.malokhvii04.shell.commands.CommandWithDebug" 
+    project="malokhvii-eduard" file="/malokhvii/src/ua/khpi/oop/malokhvii04/shell/commands/CommandWithDebug.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="808" y="309"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -41,9 +41,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="ua.khpi.oop.malokhvii04.shell.command.DebugCommand" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/command/DebugCommand.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="ua.khpi.oop.malokhvii04.shell.commands.DebugCommand" project="malokhvii-eduard" 
+    file="/malokhvii/src/ua/khpi/oop/malokhvii04/shell/commands/DebugCommand.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-80" y="408"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -51,8 +50,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="ua.khpi.oop.malokhvii04.shell.command.ExitCommand" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/command/ExitCommand.java" binary="false" 
+  <class id="6" language="java" name="ua.khpi.oop.malokhvii04.shell.commands.ExitCommand" project="malokhvii-eduard" 
+    file="/malokhvii-eduard/src/main/java/ua/khpi/oop/malokhvii04/shell/commands/ExitCommand.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-240" y="36"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -62,7 +61,7 @@
     </display>  
   </class>  
   <class id="7" language="java" name="ua.khpi.oop.malokhvii04.shell.ShellData" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/ShellData.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii04/shell/ShellData.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="460" y="494"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -70,17 +69,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="ua.khpi.oop.malokhvii04.shell.ShellData.Builder" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/ShellData.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="829" y="600"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="9" language="java" name="ua.khpi.oop.malokhvii04.shell.command.NoDebugCommand" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/command/NoDebugCommand.java" binary="false" 
+  <class id="8" language="java" name="ua.khpi.oop.malokhvii04.shell.commands.NoDebugCommand" project="malokhvii-eduard" 
+    file="/malokhvii/src/ua/khpi/oop/malokhvii04/shell/commands/NoDebugCommand.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-252" y="150"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -89,28 +79,18 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="ua.khpi.oop.malokhvii04.shell.command.InputCommand" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/command/InputCommand.java" binary="false" 
+  <class id="9" language="java" name="ua.khpi.oop.malokhvii04.shell.commands.InputCommand" project="malokhvii-eduard" 
+    file="/malokhvii-eduard/src/main/java/ua/khpi/oop/malokhvii04/shell/commands/InputCommand.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-132" y="-126"/>    
+    <position height="-1" width="-1" x="-193" y="-145"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="ua.khpi.oop.malokhvii04.shell.command.OutputCommand" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/command/OutputCommand.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="102" y="-163"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="12" language="java" name="ua.khpi.oop.malokhvii04.shell.command.HistoryCommand" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/command/HistoryCommand.java" binary="false" 
+  <class id="10" language="java" name="ua.khpi.oop.malokhvii04.shell.commands.HistoryCommand" project="malokhvii-eduard" 
+    file="/malokhvii/src/ua/khpi/oop/malokhvii04/shell/commands/HistoryCommand.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="387" y="-107"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -119,8 +99,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="ua.khpi.oop.malokhvii04.shell.command.HelpCommand" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/command/HelpCommand.java" binary="false" 
+  <class id="11" language="java" name="ua.khpi.oop.malokhvii04.shell.commands.HelpCommand" project="malokhvii-eduard" 
+    file="/malokhvii-eduard/src/main/java/ua/khpi/oop/malokhvii04/shell/commands/HelpCommand.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-214" y="273"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -129,108 +109,52 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="ua.khpi.oop.malokhvii04.shell.command.ProcessCommand" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/command/ProcessCommand.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="140" y="408"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="15" language="java" name="ua.khpi.oop.malokhvii04.shell.command.CommandFactory" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/shell/command/CommandFactory.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-65" y="603"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <realization id="16">    
+  <generalization id="12">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <realization id="13">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="1"/>  
   </realization>  
-  <association id="17">    
+  <realization id="14">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <association id="15">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="18" name="command">        
+      <attribute id="16" name="command">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="19" minimum="0" maximum="1">        
+      <multiplicity id="17" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="20">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <generalization id="21">    
+  <generalization id="18">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="3"/>  
   </generalization>  
-  <generalization id="22">    
+  <generalization id="19">    
     <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="20">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="21">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="22">    
+    <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="3"/>  
   </generalization>  
   <generalization id="23">    
     <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <nesting id="24">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="8"/>  
-  </nesting>  
-  <association id="25">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="26" name="commandHistory">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="27" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="28">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <generalization id="29">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="30">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="31" name="shellData">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="32" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="33">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <generalization id="34">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <realization id="35">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <generalization id="36">    
-    <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="3"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
