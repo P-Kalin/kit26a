@@ -2,7 +2,7 @@
 <class-diagram version="1.2.1" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <interface id="1" language="java" name="ua.khpi.oop.malokhvii02.event.Event" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/Event.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii-eduard/src/main/java/ua/khpi/oop/malokhvii02/event/Event.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="735" y="296"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -11,8 +11,7 @@
     </display>  
   </interface>  
   <class id="2" language="java" name="ua.khpi.oop.malokhvii02.event.DataCollectionEvent" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/DataCollectionEvent.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii02/event/DataCollectionEvent.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="83" width="217" x="812" y="37"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -21,7 +20,7 @@
     </display>  
   </class>  
   <class id="3" language="java" name="ua.khpi.oop.malokhvii02.event.DataComputationEvent" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/DataComputationEvent.java" binary="false" 
+    file="/malokhvii-eduard/src/main/java/ua/khpi/oop/malokhvii02/event/DataComputationEvent.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="83" width="217" x="555" y="37"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -31,8 +30,7 @@
     </display>  
   </class>  
   <class id="4" language="java" name="ua.khpi.oop.malokhvii02.event.DataVisualizationEvent" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/DataVisualizationEvent.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii02/event/DataVisualizationEvent.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="147" y="89"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -41,8 +39,7 @@
     </display>  
   </class>  
   <class id="5" language="java" name="ua.khpi.oop.malokhvii02.event.LoopContinuationEvent" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/LoopContinuationEvent.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii02/event/LoopContinuationEvent.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="101" width="217" x="298" y="37"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -51,8 +48,7 @@
     </display>  
   </class>  
   <class id="6" language="java" name="ua.khpi.oop.malokhvii02.event.LoopInteraptionEvent" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/LoopInteraptionEvent.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii02/event/LoopInteraptionEvent.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="151" y="334"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -61,8 +57,7 @@
     </display>  
   </class>  
   <class id="7" language="java" name="ua.khpi.oop.malokhvii02.event.LoopInceptionEvent" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/LoopInceptionEvent.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii02/event/LoopInceptionEvent.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="152" y="227"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -71,7 +66,7 @@
     </display>  
   </class>  
   <interface id="8" language="java" name="ua.khpi.oop.malokhvii02.event.EventsContainer" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/EventsContainer.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii02/event/EventsContainer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1155" y="447"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -80,8 +75,7 @@
     </display>  
   </interface>  
   <class id="9" language="java" name="ua.khpi.oop.malokhvii02.event.GlobalEventsContainer" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/GlobalEventsContainer.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii02/event/GlobalEventsContainer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1153" y="294"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -90,7 +84,7 @@
     </display>  
   </class>  
   <class id="10" language="java" name="ua.khpi.oop.malokhvii02.event.GlobalEventsContainer.SingletonHolder" 
-    project="malokhvii-eduard" file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/GlobalEventsContainer.java" 
+    project="malokhvii-eduard" file="/malokhvii/src/ua/khpi/oop/malokhvii02/event/GlobalEventsContainer.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1121" y="162"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
@@ -100,7 +94,7 @@
     </display>  
   </class>  
   <class id="11" language="java" name="ua.khpi.oop.malokhvii02.event.EventLoop" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/EventLoop.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii02/event/EventLoop.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="737" y="581"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -109,7 +103,7 @@
     </display>  
   </class>  
   <class id="12" language="java" name="ua.khpi.oop.malokhvii02.event.StreamHolder" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/StreamHolder.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii02/event/StreamHolder.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="191" width="198" x="85" y="620"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -118,7 +112,7 @@
     </display>  
   </class>  
   <class id="13" language="java" name="ua.khpi.oop.malokhvii02.event.MillisTimer" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/MillisTimer.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii02/event/MillisTimer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="370" y="494"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -127,7 +121,8 @@
     </display>  
   </class>  
   <enumeration id="14" language="java" name="ua.khpi.oop.malokhvii02.event.LoopEvent" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/LoopEvent.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii-eduard/src/main/java/ua/khpi/oop/malokhvii02/event/LoopEvent.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1209" y="699"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -136,7 +131,7 @@
     </display>  
   </enumeration>  
   <interface id="15" language="java" name="ua.khpi.oop.malokhvii02.event.EventType" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/EventType.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii02/event/EventType.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1122" y="574"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -145,7 +140,7 @@
     </display>  
   </interface>  
   <enumeration id="16" language="java" name="ua.khpi.oop.malokhvii02.event.DataEvent" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii02/event/DataEvent.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii02/event/DataEvent.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1028" y="697"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -153,117 +148,117 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <realization id="17">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <realization id="18">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <realization id="19">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="8"/>  
-  </realization>  
-  <realization id="20">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <association id="21">    
+  <association id="17">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="22" name="currentEvent">        
+      <attribute id="18" name="eventsContainer">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="23" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="24">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="25" name="events">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="26" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="27">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <association id="28">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="29" name="stream">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="30" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="31">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="32" name="eventsContainer">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="33" minimum="0" maximum="1">        
+      <multiplicity id="19" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="34">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <association id="35">    
+  <association id="20">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="36" name="timer">        
+      <attribute id="21" name="currentEvent">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="37" minimum="0" maximum="1">        
+      <multiplicity id="22" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="38">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="15"/>  
+  <association id="23">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="24" name="events">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="25" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="26">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="1"/>  
   </realization>  
-  <nesting id="39">    
+  <realization id="27">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <realization id="28">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <realization id="29">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <nesting id="30">    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="10"/>  
   </nesting>  
-  <realization id="40">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="15"/>  
+  <realization id="31">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="8"/>  
   </realization>  
-  <association id="41">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="42" name="instance">        
+  <association id="32">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="33" name="stream">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="43" minimum="0" maximum="1">        
+      <multiplicity id="34" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="35">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <realization id="36">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <association id="37">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="38" name="instance">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <realization id="40">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="15"/>  
+  </realization>  
+  <association id="41">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="42" name="timer">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="43" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <realization id="44">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="1"/>  
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="15"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    

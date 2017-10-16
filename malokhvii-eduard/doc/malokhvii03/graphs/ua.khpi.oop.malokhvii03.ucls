@@ -2,7 +2,7 @@
 <class-diagram version="1.2.1" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="ua.khpi.oop.malokhvii03.text.Anagrams" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii03/text/Anagrams.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii03/text/Anagrams.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="191" width="337" x="19" y="20"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -11,7 +11,7 @@
     </display>  
   </class>  
   <class id="2" language="java" name="ua.khpi.oop.malokhvii03.text.Ananym" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii03/text/Ananym.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii-eduard/src/main/java/ua/khpi/oop/malokhvii03/text/Ananym.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="582" y="75"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -20,7 +20,7 @@
     </display>  
   </class>  
   <class id="3" language="java" name="ua.khpi.oop.malokhvii03.Application" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii03/Application.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii03/Application.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="134" y="448"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -29,7 +29,7 @@
     </display>  
   </class>  
   <class id="4" language="java" name="ua.khpi.oop.malokhvii04.Application" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii04/Application.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii04/Application.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="136" y="311"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -38,7 +38,7 @@
     </display>  
   </class>  
   <class id="5" language="java" name="ua.khpi.oop.malokhvii03.text.HashableWord" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii03/text/HashableWord.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii03/text/HashableWord.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="388" y="418"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -47,7 +47,7 @@
     </display>  
   </class>  
   <class id="6" language="java" name="ua.khpi.oop.malokhvii03.text.PolynomialHash" project="malokhvii-eduard" 
-    file="/malokhvii-eduard/src/ua/khpi/oop/malokhvii03/text/PolynomialHash.java" binary="false" corner="BOTTOM_RIGHT">    
+    file="/malokhvii/src/ua/khpi/oop/malokhvii03/text/PolynomialHash.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="717" y="333"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -56,18 +56,14 @@
     </display>  
   </class>  
   <dependency id="7">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="6"/>  
   </dependency>  
   <dependency id="8">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
   <dependency id="9">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="6"/>  
-  </dependency>  
-  <dependency id="10">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="5"/>  
   </dependency>  
