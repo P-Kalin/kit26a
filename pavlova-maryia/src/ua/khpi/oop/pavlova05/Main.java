@@ -9,7 +9,7 @@ public class Main {
 	public static Scanner scanner = new Scanner(System.in);
 
 	public static void main(final String[] args) throws IOException {
-		int i;
+
 		System.out.println("Лабораторна робота №5");
 		System.out.print("Номер прикладної задачі: ");
 		int number = (12 % 10) + 1;
@@ -18,6 +18,7 @@ public class Main {
 		ContainerOfStrings container = new ContainerOfStrings();
 		String text;
 		StringBuilder stringBuilder = new StringBuilder();
+
 		BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
 		while ((text = buf.readLine()) != null) {
 			if (text.compareTo("end") == 0) {
@@ -30,15 +31,18 @@ public class Main {
 		Iterable<String> sentences = TextUtil.extractAllSentences(text);
 		for (String sentence : sentences)
 			container.add(sentence);
-		ContainerOfStrings longest = new ContainerOfStrings();
-		ContainerOfStrings shortest = new ContainerOfStrings();
 
-		for (String sentence : sentences) {
-			longest.add(TextUtil.findLongestWordtInText(sentence));
-			shortest.add(TextUtil.findShortestWordInText(sentence));
+		ContainerOfStrings longest = (ContainerOfStrings) TextUtil.findLongestWordsInLines(sentences);
+		ContainerOfStrings shortest = (ContainerOfStrings) TextUtil.findShortestWordsInLines(sentences);
+
+		System.out.println("Список найдовших слів");
+		ContainerOfStrings.IteratorForContainer<String> iteratorForContainerLongest = longest.iterator();
+		while (iteratorForContainerLongest.hasNext()) {
+			System.out.println(iteratorForContainerLongest.next());
 		}
-		for (i = 0; i < longest.size(); i++) {
-			System.out.println(shortest.get(i) + "\t\t" + longest.get(i));
+		System.out.println("Список найкоротших слів");
+		for (String shortWord : shortest) {
+			System.out.println(shortWord);
 		}
 
 	}
