@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.1" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="ua.khpi.oop.lytvyn06.MergeSort" project="lytvyn-ihnatii" 
+    file="/lytvyn-ihnatii/src/ua/khpi/oop/lytvyn06/MergeSort.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="400" y="865"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="ua.khpi.oop.lytvyn06.SerializationUtil" project="lytvyn-ihnatii" 
+    file="/lytvyn-ihnatii/src/ua/khpi/oop/lytvyn06/SerializationUtil.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="522" y="674"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="ua.khpi.oop.lytvyn06.StringHelper" project="lytvyn-ihnatii" 
+    file="/lytvyn-ihnatii/src/ua/khpi/oop/lytvyn06/StringHelper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="334" y="78"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="ua.khpi.oop.lytvyn06.DialogHelper" project="lytvyn-ihnatii" 
+    file="/lytvyn-ihnatii/src/ua/khpi/oop/lytvyn06/DialogHelper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="320" y="347"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="ua.khpi.oop.lytvyn06.StringContainer.ContainerIterator" project="lytvyn-ihnatii" 
+    file="/lytvyn-ihnatii/src/ua/khpi/oop/lytvyn06/StringContainer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1028" y="108"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="ua.khpi.oop.lytvyn06.CountHelper" project="lytvyn-ihnatii" 
+    file="/lytvyn-ihnatii/src/ua/khpi/oop/lytvyn06/CountHelper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="612" y="66"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="ua.khpi.oop.lytvyn06.TextHelper" project="lytvyn-ihnatii" 
+    file="/lytvyn-ihnatii/src/ua/khpi/oop/lytvyn06/TextHelper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="736" y="356"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="ua.khpi.oop.lytvyn06.ChartHelper" project="lytvyn-ihnatii" 
+    file="/lytvyn-ihnatii/src/ua/khpi/oop/lytvyn06/ChartHelper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="317" y="628"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="ua.khpi.oop.lytvyn06.InputHelper" project="lytvyn-ihnatii" 
+    file="/lytvyn-ihnatii/src/ua/khpi/oop/lytvyn06/InputHelper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="117" y="394"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="10" language="java" name="ua.khpi.oop.lytvyn06.DialogHelper.ACTION" project="lytvyn-ihnatii" 
+    file="/lytvyn-ihnatii/src/ua/khpi/oop/lytvyn06/DialogHelper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="115" y="661"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="11" language="java" name="ua.khpi.oop.lytvyn06.Main" project="lytvyn-ihnatii" 
+    file="/lytvyn-ihnatii/src/ua/khpi/oop/lytvyn06/Main.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="109" y="225"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="ua.khpi.oop.lytvyn06.StringContainer" project="lytvyn-ihnatii" 
+    file="/lytvyn-ihnatii/src/ua/khpi/oop/lytvyn06/StringContainer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1047" y="658"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="ua.khpi.oop.lytvyn06.StringComparator" project="lytvyn-ihnatii" 
+    file="/lytvyn-ihnatii/src/ua/khpi/oop/lytvyn06/StringComparator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="777" y="897"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <nesting id="14">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="5"/>  
+  </nesting>  
+  <dependency id="15">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="16">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <dependency id="17">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="18">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="19">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="20">    
+    <bendpoint x="884" y="262"/>    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="21">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="22">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <association id="23">    
+    <bendpoint x="641" y="540"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="24" name="sentences"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="26">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="27">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="28">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="29">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="30">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <nesting id="31">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </nesting>  
+  <dependency id="32">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="33">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

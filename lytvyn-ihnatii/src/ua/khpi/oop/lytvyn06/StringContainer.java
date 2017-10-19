@@ -13,7 +13,7 @@ import java.util.function.Consumer;
  * 
  * @author student Lytvyn I.I. KIT-26A
  */
-public class StringСontainer implements Iterable<String>, Serializable {
+public class StringContainer implements Iterable<String>, Serializable {
 	/**
 	 * Унікальний ідентифікатор версії класу
 	 */
@@ -58,7 +58,7 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	 * @throws IllegalArgumentException
 	 *             якщо вказана початкова ємність є негативною
 	 */
-	public StringСontainer(int initialCapacity) {
+	public StringContainer(int initialCapacity) {
 		if (initialCapacity > 0) {
 			this.stringData = new String[initialCapacity];
 		} else if (initialCapacity == 0) {
@@ -75,7 +75,7 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	 * @param container
 	 *            колекція, елементи якої повинні бути включені в цей список
 	 */
-	public StringСontainer(StringСontainer container) { // TO-DO
+	public StringContainer(StringContainer container) { // TO-DO
 		stringData = container.stringData;
 		if ((size = container.size()) != 0) {
 			String[] newData = new String[size];
@@ -89,7 +89,7 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	/**
 	 * Створює порожній контейнер з початковою ємністю.
 	 */
-	public StringСontainer() {
+	public StringContainer() {
 		this.stringData = DEFAULTCAPACITY_EMPTY_DATA;
 	}
 
@@ -149,9 +149,12 @@ public class StringСontainer implements Iterable<String>, Serializable {
 		return false;
 	}
 
-	/*
+	/**
 	 * Приватний метод видалення, який пропускає перевірку межі та не повертає
 	 * видаленого значення
+	 *
+	 * @param index
+	 *            індекс елементу, що видаляється
 	 */
 	private void fastRemove(int index) {
 		int numMoved = size - index - 1;
@@ -197,11 +200,11 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	 * Повертає <tt>true</tt> якщо цей контейнер містить вказані елементи
 	 * отриманий контейнер
 	 *
-	 * @param conteiner
+	 * @param container
 	 *            контейнер, наявність яких елементів буде перевірено
 	 * @return <tt>true</tt> якщо цей контейнер містить вказані елементи
 	 */
-	public boolean containsAll(StringСontainer container) {
+	public boolean containsAll(StringContainer container) {
 		for (int i = 0; i < container.size(); i++)
 			if (!contains(container.get(i)))
 				return false;
@@ -216,6 +219,12 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	/**
 	 * Повертає індекс першого входження вказаного елемента в цей контейнер, або
 	 * -1, якщо цей контейнер не містить елемента.
+	 * 
+	 * @param string
+	 *            об'єкт для пошуку
+	 * 
+	 * @return індекс прешого входження вказаного елементу, або -1 якщо такого
+	 *         немає
 	 */
 	public int indexOf(String string) {
 		if (string == null) {
@@ -230,8 +239,17 @@ public class StringСontainer implements Iterable<String>, Serializable {
 		return -1;
 	}
 
+	/**
+	 * Конвертує копію масиву данних до масиву елементів типу <tt>Object</tt>
+	 * 
+	 * @param original
+	 *            масив данних
+	 * @param newLength
+	 *            розмір масиву
+	 * @return копія масиву данних
+	 */
 	public static Object[] copyOf(String[] original, int newLength) {
-		Object[] copy = (String[]) new Object[newLength];
+		Object[] copy = new Object[newLength];
 		System.arraycopy(original, 0, copy, 0,
 		        Math.min(original.length, newLength));
 		return copy;
@@ -244,6 +262,7 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	 *            індекс повернутого елементу
 	 * @return елемент у зазначеній позиції в цьому контейнері
 	 * @throws IndexOutOfBoundsException
+	 *             вихід за межі масиву
 	 */
 	public String get(int index) {
 		rangeCheck(index);
@@ -261,6 +280,7 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	 *            елемент, який зберігатиметься у вказаній позиції
 	 * @return елемент, що був раніше в зазначеній позиції
 	 * @throws IndexOutOfBoundsException
+	 *             вихід за межі масиву
 	 */
 	public String set(int index, String string) {
 		rangeCheck(index);
@@ -274,6 +294,9 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	 * Перевіряє, чи вказаний індекс знаходиться в діапазоні. Якщо ні, кидає
 	 * відповідний runtime exception. Цей метод "не" перевіряє, чи є індекс
 	 * негативним.
+	 * 
+	 * @param index
+	 *            індекс розташування в контейнері
 	 */
 	private void rangeCheck(int index) {
 		if (index >= size)
@@ -282,7 +305,7 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	}
 
 	/**
-	 * Повертає <tt> true </ tt> якщо цей контейнер не містить елементів.
+	 * Повертає <tt> true </tt> якщо цей контейнер не містить елементів.
 	 *
 	 * @return <tt>true</tt> якщо цей контейнер не містить елементів
 	 */
@@ -323,6 +346,12 @@ public class StringСontainer implements Iterable<String>, Serializable {
 		}
 	}
 
+	/**
+	 * Сортування контейнеру за допомогою компаратора
+	 * 
+	 * @param comparator
+	 *            компаратор для сортування
+	 */
 	public void sort(Comparator<? super String> comparator) {
 		MergeSort.sort(stringData, comparator);
 	}
@@ -334,6 +363,7 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	 * @param outStream
 	 *            потік, в який записується екземпляр <tt>StringContainer</tt>
 	 * @throws java.io.IOException
+	 *             виключна ситуація при введені/виведені
 	 */
 	private void writeObject(java.io.ObjectOutputStream outStream)
 	        throws java.io.IOException {
@@ -355,7 +385,9 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	 *            потік, з якого відновлюється екземпляр
 	 *            <tt>StringContainer</tt>
 	 * @throws java.io.IOException
+	 *             виключна ситуація при введені/виведені
 	 * @throws ClassNotFoundException
+	 *             виключна ситуація при відсутності необхідного класу
 	 */
 	private void readObject(java.io.ObjectInputStream inStream)
 	        throws java.io.IOException, ClassNotFoundException {
@@ -380,9 +412,14 @@ public class StringСontainer implements Iterable<String>, Serializable {
 	 * @author student Lytvyn I.I. KIT-26A
 	 */
 	class ContainerIterator<E> implements Iterator<E> {
-		int current; // Індекс елементу, що повернеться
-		int lastRet = -1; // Індекс останього елементу, що повертався; -1 якщо
-		                  // такий відсутній
+		/**
+		 * Індекс елементу, що повернеться
+		 */
+		int current;
+		/**
+		 * Індекс останього елементу, що повертався; -1 якщо такий відсутній
+		 */
+		int lastRet = -1;
 
 		@Override
 		public boolean hasNext() {
@@ -395,7 +432,7 @@ public class StringСontainer implements Iterable<String>, Serializable {
 			int i = current;
 			if (i >= size)
 				throw new NoSuchElementException();
-			Object[] elementData = StringСontainer.this.stringData;
+			Object[] elementData = StringContainer.this.stringData;
 			current = i + 1;
 			return (E) elementData[lastRet = i];
 		}
@@ -405,7 +442,7 @@ public class StringСontainer implements Iterable<String>, Serializable {
 			if (lastRet < 0)
 				throw new IllegalStateException();
 			try {
-				StringСontainer.this.fastRemove(lastRet);
+				StringContainer.this.fastRemove(lastRet);
 				current = lastRet;
 				lastRet = -1;
 			} catch (IndexOutOfBoundsException ex) {
@@ -418,12 +455,12 @@ public class StringСontainer implements Iterable<String>, Serializable {
 		@Override
 		public void forEachRemaining(Consumer<? super E> consumer) {
 			Objects.requireNonNull(consumer);
-			final int size = StringСontainer.this.size;
+			final int size = StringContainer.this.size;
 			int i = current;
 			if (i >= size) {
 				return;
 			}
-			final Object[] elementData = StringСontainer.this.stringData;
+			final Object[] elementData = StringContainer.this.stringData;
 			if (i >= elementData.length) {
 				throw new ConcurrentModificationException();
 			}

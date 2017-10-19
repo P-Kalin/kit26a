@@ -1,14 +1,25 @@
 package ua.khpi.oop.lytvyn06;
 
 /**
- * class Main Головний клас, відповідає за отримання тексту.
+ * Відповідає за виконання програми.
  * 
  * @author student Lytvyn I.I. KIT-26A
  */
 public class Main {
+	/**
+	 * Розмежувач
+	 */
 	public static String LINE = "----------------------------------------------"
 	        + "--------------------------\n";
 
+	/**
+	 * Головний метод запуску програми
+	 * 
+	 * @param args
+	 *            параметри запуску
+	 * @throws Exception
+	 *             виняткова ситуація
+	 */
 	public static void main(String[] args) throws Exception {
 		for (String comand : args) {
 			if (comand.equals("-h") || comand.equals("-help")) {
@@ -32,6 +43,9 @@ public class Main {
 				System.out.format("	sort - команда для сортування елементів"
 				        + "у контейнері за алгоритмом MergeSort\n\n");
 				System.out.format("	calc - команда, що виконує пошук та"
+				        + " підрахунок голосних\n\t"
+				        + "та приголосних у речені.\n\n");
+				System.out.format("	calc_all - команда, що виконує пошук та"
 				        + " підрахунок голосних\n	та приголосних у кожному"
 				        + " речені тексту.\n\n");
 				System.out.format("	result - відображення результату обчислень"
@@ -53,7 +67,8 @@ public class Main {
 		System.out.format("	view - перегляд даних\n");
 		System.out.format("	search - пошук даних\n");
 		System.out.format("	sort - сортування даних\n");
-		System.out.format("	calc - виконання обчислень\n");
+		System.out.format("	calc - виконання обчислень для речення\n");
+		System.out.format("	calc_all - виконання обчислень для тексту\n");
 		System.out.format("	result - відображення результату\n");
 		System.out.format("	save - збереження даних\n");
 		System.out.format("	exit - завершення програми\n");

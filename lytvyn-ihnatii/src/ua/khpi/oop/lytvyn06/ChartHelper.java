@@ -3,7 +3,7 @@ package ua.khpi.oop.lytvyn06;
 import java.util.ArrayList;
 
 /**
- * class ChartHelper Утилітарний клас, що виконує виведення результатів.
+ * Виконує виведення результатів.
  * 
  * @author student Lytvyn I.I. KIT-26A
  */
@@ -11,7 +11,7 @@ class ChartHelper {
 	/**
 	 * Виводить результат опрацювання тексту у вигляді таблиці
 	 * 
-	 * @param text
+	 * @param data
 	 *            результати підрахунку голосних і приголосних
 	 */
 	public static void printChart(ArrayList<Integer> data) {

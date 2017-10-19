@@ -3,7 +3,7 @@ package ua.khpi.oop.lytvyn06;
 import java.util.Comparator;
 
 /**
- * class MergeSort - Утилітарний клас, що забезпечує сортування масивів.
+ * Забезпечує сортування масивів.
  * 
  * @author student Lytvyn I.I. KIT-26A
  *
@@ -76,6 +76,8 @@ public class MergeSort {
 	 *            середній індекс елементів масиву
 	 * @param high
 	 *            кінцевий індекс елементів масиву
+	 * @param comparator
+	 *            компаратор для порівняння елементів
 	 */
 	private static void mergeParts(int low, int middle, int high,
 	        Comparator<? super String> comparator) {
