@@ -1,5 +1,7 @@
 package ua.khpi.oop.pavlova05;
 
+import java.io.Serializable;
+import java.util.Arrays;
 import java.util.ConcurrentModificationException;
 import java.util.NoSuchElementException;
 
@@ -22,10 +24,13 @@ import java.util.NoSuchElementException;
  * @author pavlova-mv
  *
  */
-public class ContainerOfStrings implements Iterable<String> {
-
+public class ContainerOfStrings implements Iterable<String>, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int size;
-	private static final int DEFAULT_CAPACITY = 10;
+	// private static final int DEFAULT_CAPACITY = 10;
 	private static final String[] EMPTY_ELEMENT_DATA = {};
 	private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
 	transient String[] elementData;
@@ -36,6 +41,8 @@ public class ContainerOfStrings implements Iterable<String> {
 	 */
 	public ContainerOfStrings() {
 		this.elementData = EMPTY_ELEMENT_DATA;
+		// this.elementData = new String[DEFAULT_CAPACITY];
+
 	}
 
 	/**
@@ -71,24 +78,29 @@ public class ContainerOfStrings implements Iterable<String> {
 	 *            value
 	 */
 	private void ensureCapacity(int minCapacity) {
-		if (elementData == EMPTY_ELEMENT_DATA) {
-			minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);
-		}
-		if (minCapacity - elementData.length > 0) {
-			int newCapacity = minCapacity;
-			if (newCapacity - MAX_ARRAY_SIZE > 0) {
-				if (minCapacity < 0)
-					throw new OutOfMemoryError();
-				newCapacity = MAX_ARRAY_SIZE;
-			}
-			String[] newData = new String[minCapacity];
-			for (int i = 0; i < size - 1; i++) {
-				newData[i] = elementData[i];
-			}
-			// System.arraycopy(elementData, 0, newData, 0, size);
-			elementData = newData;
-		}
+		/**
+		 * if (elementData == EMPTY_ELEMENT_DATA) { minCapacity =
+		 * Math.max(DEFAULT_CAPACITY, minCapacity); } if (minCapacity -
+		 * elementData.length > 0) { //int newCapacity = minCapacity; if (newCapacity -
+		 * MAX_ARRAY_SIZE > 0) { if (minCapacity < 0) throw new OutOfMemoryError();
+		 * newCapacity = MAX_ARRAY_SIZE; }
+		 */
+		int oldCapacity = elementData.length;
+		int newCapacity = oldCapacity + (oldCapacity >> 1);
 
+		if (newCapacity - minCapacity < 0)
+			newCapacity = minCapacity;
+		if (newCapacity - MAX_ARRAY_SIZE > 0) {
+			if (minCapacity < 0)
+				throw new OutOfMemoryError();
+			newCapacity = (minCapacity > MAX_ARRAY_SIZE) ? Integer.MAX_VALUE : MAX_ARRAY_SIZE;
+		}
+		// String[] newData = new String[minCapacity];
+		// for (int i = 0; i < size - 1; i++) {
+		// newData[i] = elementData[i];
+		// }
+		// System.arraycopy(elementData, 0, newData, 0, size);
+		elementData = Arrays.copyOf(elementData, minCapacity);
 	}
 
 	/**
@@ -110,8 +122,11 @@ public class ContainerOfStrings implements Iterable<String> {
 	 *            is a new one line in a container
 	 */
 	public void add(String string) {
-		ensureCapacity(size++);
-		elementData[size++] = string;
+		if (size == elementData.length) {
+			ensureCapacity(size + 1);
+		}
+		elementData[size] = string;
+		size++;
 	}
 
 	/**
@@ -245,7 +260,7 @@ public class ContainerOfStrings implements Iterable<String> {
 		private int end;
 
 		public IteratorForContainer(String[] array) {
-			this.cursor = 0;
+			this.cursor = -1;
 			this.end = array.length - 1;
 		}
 
