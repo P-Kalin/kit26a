@@ -158,6 +158,10 @@ public class NewContainerOfStrings implements Iterable<String>, Serializable {
 		checkDefaultCapacityEnsuring(newCapacity);
 	}
 
+	public String get(int index) {
+		return elementData[index];
+	}
+
 	public newIterator<String> iterator() {
 		return new newIterator<String>(elementData);
 	}
