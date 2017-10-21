@@ -46,7 +46,7 @@ public final class TextUtil {
 	 * @return list of the longest words
 	 */
 	public static Iterable<String> findLongestWordsInLines(Iterable<String> lines) {
-		ContainerOfStrings longestWords = new ContainerOfStrings();
+		List<String> longestWords = new ArrayList<String>();
 		for (String sentence : lines) {
 			longestWords.add(findLongestWordtInText(sentence));
 		}
@@ -61,7 +61,7 @@ public final class TextUtil {
 	 * @return list of the shortest words
 	 */
 	public static Iterable<String> findShortestWordsInLines(Iterable<String> lines) {
-		ContainerOfStrings shortestWords = new ContainerOfStrings();
+		List<String> shortestWords = new ArrayList<String>();
 		for (String sentence : lines) {
 			shortestWords.add(findShortestWordInText(sentence));
 		}
@@ -156,5 +156,4 @@ public final class TextUtil {
 	public static Iterable<String> extractWordsFromText(String text) {
 		return extractElementsFromText(text, WORDS_SEPARATORS);
 	}
-
 }
