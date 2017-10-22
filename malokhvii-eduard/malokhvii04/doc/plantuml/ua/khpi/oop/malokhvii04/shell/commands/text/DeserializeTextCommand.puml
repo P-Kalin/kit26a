@@ -1,0 +1,16 @@
+@startuml
+
+    class DeserializeTextCommand {
+        {static} -RESOURCE_BUNDLE_NAME: String
+        {static} -description: String
+        {static} -keys: List<String>
+        {static} -resourceBundle: ResourceBundle
+        +DeserializeTextCommand()
+        {static} #updateResourceBundle(): void
+        +execute(): void
+        +getDescription(): String
+        +getKeys(): List<String>
+        +update(Observable, Object): void
+    }
+
+@enduml

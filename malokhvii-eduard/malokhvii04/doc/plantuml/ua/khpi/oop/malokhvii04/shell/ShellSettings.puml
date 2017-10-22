@@ -1,0 +1,24 @@
+@startuml
+
+    class ShellSettings {
+        {static} -serialVersionUID: long
+        {static} -RESOURCE_BUNDLE_NAME: String
+        -commandCharacter: String
+        -commandHistorySize: int
+        -defaultLocale: String
+        -tabCharacter: String
+        +ShellSettings()
+        {static} +getDefaultInstance(): ShellSettings
+        {static} +load(String): ShellSettings
+        {static} +save(ShellSettings, String): void
+        +getCommandCharacter(): String
+        +getCommandHistorySize(): int
+        +getDefaultLocale(): String
+        +getTabCharacter(): String
+        +setCommandCharacter(String): void
+        +setCommandHistorySize(int): void
+        +setDefaultLocale(String): void
+        +setTabCharacter(String): void
+    }
+
+@enduml

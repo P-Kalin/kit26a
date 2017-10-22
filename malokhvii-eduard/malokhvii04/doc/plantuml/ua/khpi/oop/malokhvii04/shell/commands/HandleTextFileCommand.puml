@@ -1,0 +1,12 @@
+@startuml
+
+    abstract class HandleTextFileCommand {
+        {static} #FILE_PATH_PATTERN: String
+        {static} -RESOURCE_BUNDLE_NAME: String
+        {static} -resourceBundle: ResourceBundle
+        +HandleTextFileCommand()
+        {static} #getFilePath(): String
+        {static} #updateResourceBundle(): void
+    }
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+
+    class SortTextCommand {
+        {static} -description: String
+        {static} -keys: List<String>
+        {static} -RESOURCE_BUNDLE_NAME: String
+        {static} -resourceBundle: ResourceBundle
+        +SortTextCommand()
+        {static} -getSortOrder(): boolean
+        {static} -updateResourceBundle(): void
+        +execute(): void
+        +getDescription(): String
+        +getKeys(): List<String>
+        +update(Observable, Object): void
+    }
+
+@enduml

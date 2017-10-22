@@ -1,0 +1,12 @@
+@startuml
+
+    class ShellCommandsPool {
+        {static} -commands: HashMap<String, AbstractCommand>
+        -ShellCommandsPool()
+        {static} +getCommand(String): Command
+        {static} +getCommandsDescriptions(): Collection<String>
+        {static} +getCommandsKeys(): Collection<String>
+        {static} +registerCommand(List<String>, Class<?>): boolean
+    }
+
+@enduml

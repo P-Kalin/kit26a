@@ -1,0 +1,17 @@
+@startuml
+
+    class OutputTextCommand {
+        {static} -description: String
+        {static} -keys: List<String>
+        {static} -RESOURCE_BUNDLE_NAME: String
+        {static} -resourceBundle: ResourceBundle
+        +OutputTextCommand()
+        {static} #printTextLines(Collection<String>): void
+        {static} #updateResourceBundle(): void
+        +execute(): void
+        +getDescription(): String
+        +getKeys(): List<String>
+        +update(Observable, Object): void
+    }
+
+@enduml

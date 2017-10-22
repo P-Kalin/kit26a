@@ -1,0 +1,8 @@
+@startuml
+
+    class ShellResources.SingletonHolder {
+        {static} -INSTANCE: ShellResources
+        -SingletonHolder()
+    }
+
+@enduml
