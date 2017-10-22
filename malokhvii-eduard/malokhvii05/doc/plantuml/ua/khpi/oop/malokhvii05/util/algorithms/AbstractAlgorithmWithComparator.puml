@@ -1,0 +1,10 @@
+@startuml
+
+    abstract class AbstractAlgorithmWithComparator<T> {
+        #comparator: Comparator<T>
+        +AbstractAlgorithmWithComparator(Comparator<T>)
+        +getComparator(): Comparator<T>
+        +setComparator(Comparator<T>): void
+    }
+
+@enduml

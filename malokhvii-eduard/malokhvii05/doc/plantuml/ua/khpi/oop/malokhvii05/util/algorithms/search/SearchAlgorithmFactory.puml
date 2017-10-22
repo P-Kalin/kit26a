@@ -1,0 +1,18 @@
+@startuml
+
+    class SearchAlgorithmFactory {
+        {static} -classMapping: Map<String, Class<?>>
+        {static} -defaultAlgorithm: Class<?>
+        -SearchAlgorithmFactory()
+        {static} +getAlgorithm(String): SearchAlgorithm<T>
+        {static} +getAlgorithm(String, Comparator<T>): SearchAlgorithm<T>
+        {static} +getDefaultAlgorithm(): SearchAlgorithm<T>
+        {static} +getDefaultAlgorithm(Comparator<T>): SearchAlgorithm<T>
+        {static} +getRegisteredAlgorithms(): Set<String>
+        {static} -loadBasicAlgorithms(): void
+        {static} +registerAlgorithm(String, Class<?>): void
+        {static} +setDefaultAlgorithm(Class<?>): void
+        {static} ~unregisterAlgorithm(String): void
+    }
+
+@enduml

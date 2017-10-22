@@ -1,0 +1,12 @@
+@startuml
+
+    abstract class AbstractSortAlgorithm<T> {
+        #isReversedOrder: boolean
+        +AbstractSortAlgorithm(Comparator<T>)
+        +isNull(): boolean
+        +isReversedOrder(): boolean
+        +setReversedOrder(boolean): void
+        #swap(Array<T>, int, int): void
+    }
+
+@enduml

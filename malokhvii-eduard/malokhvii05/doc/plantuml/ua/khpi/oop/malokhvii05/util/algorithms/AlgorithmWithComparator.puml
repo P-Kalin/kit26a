@@ -1,0 +1,8 @@
+@startuml
+
+    interface AlgorithmWithComparator<T> {
+        {abstract} +getComparator(): Comparator<T>
+        {abstract} +setComparator(Comparator<T>): void
+    }
+
+@enduml

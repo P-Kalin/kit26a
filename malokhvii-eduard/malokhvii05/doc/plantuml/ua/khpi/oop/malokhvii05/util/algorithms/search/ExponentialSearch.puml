@@ -1,0 +1,12 @@
+@startuml
+
+    class ExponentialSearch<T> {
+        -searchInRangeAlgorithm: SearchInRangeAlgorithm<T>
+        +ExponentialSearch(AbstractSearchInRangeAlgorithm<T>)
+        +ExponentialSearch(Comparator<T>)
+        +getSearchInRangeAlgorithm(): SearchInRangeAlgorithm<T>
+        +search(Array<T>, T): int
+        +setSearchInRangeAlgorithm(SearchInRangeAlgorithm<T>): void
+    }
+
+@enduml

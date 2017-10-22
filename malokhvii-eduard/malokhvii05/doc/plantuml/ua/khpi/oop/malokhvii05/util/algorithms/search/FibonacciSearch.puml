@@ -1,0 +1,14 @@
+@startuml
+
+    class FibonacciSearch<T> {
+        -currentFibonacciNumber: int
+        -fibonacciNumberM1: int
+        -fibonacciNumberM2: int
+        +FibonacciSearch(Comparator<T>)
+        -cutSubarrayAfterIndexPlusOne(): void
+        -cutSubarrayFromOffsetToIndex(): void
+        -prepareFibonacciNumbers(int): void
+        +search(Array<T>, T): int
+    }
+
+@enduml

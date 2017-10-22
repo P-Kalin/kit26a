@@ -1,0 +1,10 @@
+@startuml
+
+    abstract class NullAlgorithmWithComparator<T> {
+        -defaultComparator: Comparator<T>
+        +NullAlgorithmWithComparator()
+        +getComparator(): Comparator<T>
+        +setComparator(Comparator<T>): void
+    }
+
+@enduml

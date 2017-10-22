@@ -1,0 +1,8 @@
+@startuml
+
+    class GnomeSort<T> {
+        +GnomeSort(Comparator<T>)
+        +sort(Array<T>): void
+    }
+
+@enduml

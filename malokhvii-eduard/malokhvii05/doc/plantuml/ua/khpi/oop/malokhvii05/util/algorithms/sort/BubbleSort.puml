@@ -1,0 +1,8 @@
+@startuml
+
+    class BubbleSort<T> {
+        +BubbleSort(Comparator<T>)
+        +sort(Array<T>): void
+    }
+
+@enduml

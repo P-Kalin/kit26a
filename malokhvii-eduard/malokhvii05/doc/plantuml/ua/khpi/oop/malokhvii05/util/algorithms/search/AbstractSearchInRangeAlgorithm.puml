@@ -1,0 +1,9 @@
+@startuml
+
+    abstract class AbstractSearchInRangeAlgorithm<T> {
+        +AbstractSearchInRangeAlgorithm(Comparator<T>)
+        #isValidRange(Array<T>, int, int): boolean
+        +search(Array<T>, T): int
+    }
+
+@enduml
