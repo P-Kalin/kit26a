@@ -1,0 +1,8 @@
+@startuml
+
+    class LoopInceptionEvent {
+        +LoopInceptionEvent()
+        +perform(EventLoop, DataContainer): void
+    }
+
+@enduml

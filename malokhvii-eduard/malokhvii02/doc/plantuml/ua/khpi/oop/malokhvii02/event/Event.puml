@@ -1,0 +1,7 @@
+@startuml
+
+    interface Event {
+        {abstract} +perform(EventLoop, DataContainer): void
+    }
+
+@enduml

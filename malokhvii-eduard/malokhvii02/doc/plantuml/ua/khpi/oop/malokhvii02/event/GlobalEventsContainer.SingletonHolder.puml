@@ -1,0 +1,8 @@
+@startuml
+
+    class GlobalEventsContainer.SingletonHolder {
+        {static} -instance: GlobalEventsContainer
+        -SingletonHolder()
+    }
+
+@enduml

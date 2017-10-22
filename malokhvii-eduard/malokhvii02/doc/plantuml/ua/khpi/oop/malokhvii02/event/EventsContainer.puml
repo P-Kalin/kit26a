@@ -1,0 +1,8 @@
+@startuml
+
+    interface EventsContainer {
+        {abstract} +getEvent(EventType): Event
+        {abstract} +putEvent(EventType, Event): void
+    }
+
+@enduml

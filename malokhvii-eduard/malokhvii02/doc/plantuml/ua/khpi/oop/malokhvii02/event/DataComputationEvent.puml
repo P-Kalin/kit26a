@@ -1,0 +1,8 @@
+@startuml
+
+    class DataComputationEvent {
+        +DataComputationEvent()
+        +perform(EventLoop, DataContainer): void
+    }
+
+@enduml

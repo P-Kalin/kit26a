@@ -1,0 +1,8 @@
+@startuml
+
+    class DataVisualizationEvent {
+        +DataVisualizationEvent()
+        +perform(EventLoop, DataContainer): void
+    }
+
+@enduml

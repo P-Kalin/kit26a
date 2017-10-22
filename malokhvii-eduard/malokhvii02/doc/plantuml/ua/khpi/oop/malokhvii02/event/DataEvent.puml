@@ -1,0 +1,10 @@
+@startuml
+
+    enum DataEvent {
+        {static} +COLLECTION
+        {static} +VISUALIZATION
+        {static} +COMPUTATION
+        -DataEvent()
+    }
+
+@enduml
