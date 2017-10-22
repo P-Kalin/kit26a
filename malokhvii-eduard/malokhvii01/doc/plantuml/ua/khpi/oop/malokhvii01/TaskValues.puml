@@ -1,0 +1,20 @@
+@startuml
+
+    class TaskValues {
+        {static} -STUDENT_NUMBER_DIVIDER: int
+        -englishUpperCaseLetter: char
+        -lastFourDigitsOfMobilePhoneNumber: int
+        -lastTwoDigitsOfMobilePhoneNumber: int
+        -mobilePhoneNumber: long
+        -recordBookNumber: int
+        -TaskValues()
+        {static} +builder(): TaskValues.Builder
+        {static} +literalBuilder(): TaskValues.LiteralBuilder
+        +getEnglishUpperCaseLetter(): char
+        +getLastFourDigitsOfMobilePhoneNumber(): int
+        +getLastTwoDigitsOfMobilePhoneNumber(): int
+        +getMobilePhoneNumber(): long
+        +getRecordBookNumber(): int
+    }
+
+@enduml

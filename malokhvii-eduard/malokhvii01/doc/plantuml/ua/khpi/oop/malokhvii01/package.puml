@@ -1,0 +1,72 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii01 {
+
+        class TaskValues {
+            {static} -STUDENT_NUMBER_DIVIDER: int
+            -englishUpperCaseLetter: char
+            -lastFourDigitsOfMobilePhoneNumber: int
+            -lastTwoDigitsOfMobilePhoneNumber: int
+            -mobilePhoneNumber: long
+            -recordBookNumber: int
+            -TaskValues()
+            {static} +builder(): TaskValues.Builder
+            {static} +literalBuilder(): TaskValues.LiteralBuilder
+            +getEnglishUpperCaseLetter(): char
+            +getLastFourDigitsOfMobilePhoneNumber(): int
+            +getLastTwoDigitsOfMobilePhoneNumber(): int
+            +getMobilePhoneNumber(): long
+            +getRecordBookNumber(): int
+        }
+
+        class ua.khpi.oop.malokhvii01.TaskValues.Builder {
+            -Builder()
+            +build(): TaskValues
+            +setEnglishUpperCaseLetter(int): TaskValues.Builder
+            +setMobilePhoneNumber(long): TaskValues.Builder
+            +setRecordBookNumber(int): TaskValues.Builder
+        }
+
+        class ua.khpi.oop.malokhvii01.TaskValues.LiteralBuilder {
+            -LiteralBuilder()
+            +build(): TaskValues
+            +setEnglishUpperCaseLetter(char): TaskValues.LiteralBuilder
+            +setLastFourDigitsOfMobilePhoneNumber(int): TaskValues.LiteralBuilder
+            +setLastTwoDigitsOfMobilePhoneNumber(int): TaskValues.LiteralBuilder
+            +setMobilePhoneNumber(long): TaskValues.LiteralBuilder
+            +setRecordBookNumber(int): TaskValues.LiteralBuilder
+        }
+
+        class TaskPerformerForDecimalValues {
+            -decimalNumbers: ArrayList<Long>
+            +TaskPerformerForDecimalValues(TaskValues)
+            +countAmountOfPairedDigitsInNumber(Long): long
+            +countAmountOfPairedDigitsInNumbers(): long
+            +countAmountOfUnpairedDigitsInNumber(Long): long
+            +countAmountOfUnpairedDigitsInNumbers(): long
+        }
+
+        class TaskPerformerForBinaryValues {
+            -binaryNumbers: ArrayList<String>
+            +TaskPerformerForBinaryValues(TaskValues)
+            +countAmountOfBitsInNumber(String, char): long
+            +countAmountOfOnesInNumbers(): long
+            +countAmountOfZeroesInNumbers(): long
+        }
+
+        class Application {
+            -Application()
+            {static} +main(String[]): void
+        }
+
+        TaskValues +-- ua.khpi.oop.malokhvii01.TaskValues.Builder
+
+        TaskValues +-- ua.khpi.oop.malokhvii01.TaskValues.LiteralBuilder
+
+        TaskPerformerForDecimalValues --> TaskValues: taskValues\ntaskInitialValues
+
+        TaskPerformerForBinaryValues --> TaskValues: taskValues
+
+    }
+
+@enduml

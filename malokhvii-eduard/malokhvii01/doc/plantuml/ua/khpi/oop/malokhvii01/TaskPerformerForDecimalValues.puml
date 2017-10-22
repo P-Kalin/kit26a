@@ -1,0 +1,15 @@
+@startuml
+
+    class TaskPerformerForDecimalValues {
+        -decimalNumbers: ArrayList<Long>
+        -taskValues: TaskValues
+        +TaskPerformerForDecimalValues(TaskValues)
+        +countAmountOfPairedDigitsInNumber(Long): long
+        +countAmountOfPairedDigitsInNumbers(): long
+        +countAmountOfUnpairedDigitsInNumber(Long): long
+        +countAmountOfUnpairedDigitsInNumbers(): long
+        +getTaskInitialValues(): TaskValues
+        +setTaskValues(TaskValues): void
+    }
+
+@enduml
