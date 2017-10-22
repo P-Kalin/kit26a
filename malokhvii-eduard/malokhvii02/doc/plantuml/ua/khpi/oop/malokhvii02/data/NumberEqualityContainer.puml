@@ -1,0 +1,25 @@
+@startuml
+
+    class NumberEqualityContainer {
+        {static} -NUMBER_BASE: short
+        {static} -MIN_NUMBER: long
+        {static} -MAX_NUMBER: long
+        -number: long
+        -numberLength: double
+        -leftSide: long
+        -rightSide: long
+        -isLeftSideEqualToRightSide: boolean
+        +NumberEqualityContainer()
+        +collectData(PrintStream, Scanner): DataCollectionStatus
+        +computeData(): DataComputationStatus
+        +getContainerName(): String
+        +getLeftNumberSide(): long
+        +getNumber(): long
+        +getRightNumberSide(): long
+        +isEquals(): boolean
+        +prepareDataDescription(): String
+        +prepareDataVisualization(): String
+        +setNumber(long): void
+    }
+
+@enduml

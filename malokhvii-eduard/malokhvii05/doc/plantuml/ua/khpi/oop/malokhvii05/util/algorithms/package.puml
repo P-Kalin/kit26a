@@ -1,0 +1,55 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii05.util.algorithms {
+
+        abstract class NullAlgorithmWithComparator<T> {
+            +NullAlgorithmWithComparator()
+        }
+
+        class ua.khpi.oop.malokhvii05.util.algorithms.NullAlgorithmWithComparator.DefaultComparator {
+            -DefaultComparator()
+            +compare(T, T): int
+        }
+
+        abstract class NullAlgorithm<T> {
+            +NullAlgorithm()
+            +isNull(): boolean
+        }
+
+        interface AlgorithmWithComparator<T> {
+        }
+
+        interface Algorithm<T> {
+            {abstract} +isNull(): boolean
+        }
+
+        abstract class AbstractAlgorithmWithComparator<T> {
+            +AbstractAlgorithmWithComparator(Comparator<T>)
+        }
+
+        NullAlgorithm <|-- NullAlgorithmWithComparator
+
+        AlgorithmWithComparator <|.. NullAlgorithmWithComparator
+
+        interface java.util.Comparator<T> {
+            {abstract} +compare(T, T): int
+        }
+        java.util.Comparator <|.. ua.khpi.oop.malokhvii05.util.algorithms.NullAlgorithmWithComparator.DefaultComparator
+
+        NullAlgorithmWithComparator +-- ua.khpi.oop.malokhvii05.util.algorithms.NullAlgorithmWithComparator.DefaultComparator
+
+        Algorithm <|.. NullAlgorithm
+
+        Algorithm <|.. AlgorithmWithComparator
+
+        AlgorithmWithComparator <|.. AbstractAlgorithmWithComparator
+
+        NullAlgorithmWithComparator --> java.util.Comparator: defaultComparator\ncomparator
+
+        AlgorithmWithComparator --> java.util.Comparator: comparator
+
+        AbstractAlgorithmWithComparator --> java.util.Comparator: comparator
+
+    }
+
+@enduml

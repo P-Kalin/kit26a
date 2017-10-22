@@ -1,0 +1,10 @@
+@startuml
+
+    enum DataCollectionStatus {
+        {static} +CONTINUE
+        {static} +REPEAT
+        {static} +FINISH
+        -DataCollectionStatus()
+    }
+
+@enduml

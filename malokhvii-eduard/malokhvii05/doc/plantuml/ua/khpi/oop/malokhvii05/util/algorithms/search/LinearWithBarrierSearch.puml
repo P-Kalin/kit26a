@@ -1,0 +1,8 @@
+@startuml
+
+    class LinearWithBarrierSearch<T> {
+        +LinearWithBarrierSearch(Comparator<T>)
+        +search(Array<T>, T): int
+    }
+
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+
+    class GlobalEventsContainer {
+        -events: Map<EventType, Event>
+        -GlobalEventsContainer()
+        {static} +getInstance(): GlobalEventsContainer
+        +getEvent(EventType): Event
+        +putEvent(EventType, Event): void
+    }
+
+@enduml

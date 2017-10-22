@@ -1,0 +1,94 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii04.shell.commands {
+
+        class HistoryCommand {
+            {static} -description: String
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +HistoryCommand()
+            {static} -printCommandInfo(int, Command): void
+            {static} -updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
+
+        class HelpCommand {
+            {static} -description: String
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +HelpCommand()
+            {static} -printCommandDescription(String, String): void
+            {static} -updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
+
+        abstract class HandleTextFileCommand {
+            {static} #FILE_PATH_PATTERN: String
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +HandleTextFileCommand()
+            {static} #getFilePath(): String
+            {static} #updateResourceBundle(): void
+        }
+
+        class ExitCommand {
+            {static} -description: String
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            +ExitCommand()
+            {static} -updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
+
+        interface Command {
+            {abstract} +execute(): void
+            {abstract} +getDescription(): String
+            {abstract} +getKeys(): List<String>
+            {abstract} +getName(): String
+        }
+
+        abstract class AbstractCommandDecorator {
+            +AbstractCommandDecorator(Command)
+            +getDescription(): String
+            +getKeys(): List<String>
+            +getName(): String
+        }
+
+        abstract class AbstractCommand {
+            +AbstractCommand()
+            +getName(): String
+        }
+
+        AbstractCommand <|-- HistoryCommand
+
+        AbstractCommand <|-- HelpCommand
+
+        AbstractCommand <|-- HandleTextFileCommand
+
+        AbstractCommand <|-- ExitCommand
+
+        Command <|.. AbstractCommandDecorator
+
+        Command <|.. AbstractCommand
+
+        interface java.util.Observer {
+            {abstract} +update(Observable, Object): void
+        }
+        java.util.Observer <|.. AbstractCommand
+
+        AbstractCommandDecorator --> Command: command
+
+    }
+
+@enduml

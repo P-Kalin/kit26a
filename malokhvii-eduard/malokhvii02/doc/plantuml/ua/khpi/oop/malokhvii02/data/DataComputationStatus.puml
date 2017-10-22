@@ -1,0 +1,9 @@
+@startuml
+
+    enum DataComputationStatus {
+        {static} +SUCCESS
+        {static} +FAILURE
+        -DataComputationStatus()
+    }
+
+@enduml

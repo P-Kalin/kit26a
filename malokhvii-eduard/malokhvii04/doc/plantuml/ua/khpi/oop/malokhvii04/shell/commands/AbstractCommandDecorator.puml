@@ -1,0 +1,13 @@
+@startuml
+
+    abstract class AbstractCommandDecorator {
+        #command: Command
+        +AbstractCommandDecorator(Command)
+        +getCommand(): Command
+        +getDescription(): String
+        +getKeys(): List<String>
+        +getName(): String
+        +setCommand(Command): void
+    }
+
+@enduml

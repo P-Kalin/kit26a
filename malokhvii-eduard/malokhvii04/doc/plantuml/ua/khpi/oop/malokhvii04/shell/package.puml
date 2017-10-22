@@ -1,0 +1,103 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii04.shell {
+
+        class ShellSettings {
+            {static} -serialVersionUID: long
+            {static} -RESOURCE_BUNDLE_NAME: String
+            -commandCharacter: String
+            -commandHistorySize: int
+            -defaultLocale: String
+            -tabCharacter: String
+            +ShellSettings()
+            {static} +getDefaultInstance(): ShellSettings
+            {static} +load(String): ShellSettings
+            {static} +save(ShellSettings, String): void
+            +getCommandCharacter(): String
+            +getCommandHistorySize(): int
+            +getDefaultLocale(): String
+            +getTabCharacter(): String
+            +setCommandCharacter(String): void
+            +setCommandHistorySize(int): void
+            +setDefaultLocale(String): void
+            +setTabCharacter(String): void
+        }
+
+        class ShellResources {
+            {static} -locales: Map<String, Locale>
+            -defaultLocale: Locale
+            -ShellResources()
+            {static} +getInstance(): ShellResources
+            +getResourceBundle(String): ResourceBundle
+            +setDefaultLocale(String, Locale): void
+            +setLocale(String, Locale): void
+        }
+
+        class ua.khpi.oop.malokhvii04.shell.ShellResources.SingletonHolder {
+            {static} -INSTANCE: ShellResources
+            -SingletonHolder()
+        }
+
+        class ShellData {
+            -textLines: Array<String>
+            ~ShellData()
+            +getTextLines(): Array<String>
+            +setTextLines(Array<String>): void
+        }
+
+        class ShellCommandsPool {
+            {static} -commands: HashMap<String, AbstractCommand>
+            -ShellCommandsPool()
+            {static} +getCommand(String): Command
+            {static} +getCommandsDescriptions(): Collection<String>
+            {static} +getCommandsKeys(): Collection<String>
+            {static} +registerCommand(List<String>, Class<?>): boolean
+        }
+
+        class Shell {
+            {static} -RESOURCE_BUNDLE_NAME: String
+            -commandDecorator: Class<?>
+            -commandHistory: Deque<Command>
+            -currentCommandIndex: int
+            -isRunning: boolean
+            -scanner: Scanner
+            -settingsPath: String
+            -Shell()
+            {static} +getInstance(): Shell
+            +getCommandHistory(): Deque<Command>
+            +getCurrentCommandIndex(): int
+            +getNextCommand(): String
+            +getScanner(): Scanner
+            +handleCommand(): void
+            +handleUnknownCommand(): void
+            +isRunning(): boolean
+            +launch(): void
+            +launch(String): void
+            +putCommand(Command): void
+            +setCommandDecorator(Class<?>): void
+            +terminate(): void
+            -wrapCommand(Command): Command
+        }
+
+        class ua.khpi.oop.malokhvii04.shell.Shell.SingletonHolder {
+            {static} -INSTANCE: Shell
+            -SingletonHolder()
+        }
+
+        interface java.io.Serializable
+        java.io.Serializable <|.. ShellSettings
+
+        class java.util.Observable
+        java.util.Observable <|-- ShellResources
+
+        ShellResources +-- ua.khpi.oop.malokhvii04.shell.ShellResources.SingletonHolder
+
+        Shell +-- ua.khpi.oop.malokhvii04.shell.Shell.SingletonHolder
+
+        Shell --> ShellData: data
+
+        Shell --> ShellSettings: settings
+
+    }
+
+@enduml

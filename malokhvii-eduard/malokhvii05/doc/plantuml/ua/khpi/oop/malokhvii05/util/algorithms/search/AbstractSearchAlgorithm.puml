@@ -1,0 +1,12 @@
+@startuml
+
+    abstract class AbstractSearchAlgorithm<T> {
+        #lastFoundIndex: int
+        +AbstractSearchAlgorithm(Comparator<T>)
+        +getLastFoundIndex(): int
+        #indexNotFound(): int
+        +isNull(): boolean
+        #isValidArray(Array<T>): boolean
+    }
+
+@enduml

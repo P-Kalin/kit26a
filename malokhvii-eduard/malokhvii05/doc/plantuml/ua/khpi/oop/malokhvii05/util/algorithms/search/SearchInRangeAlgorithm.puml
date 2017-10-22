@@ -1,0 +1,7 @@
+@startuml
+
+    interface SearchInRangeAlgorithm<T> {
+        {abstract} +search(Array<T>, T, int, int): int
+    }
+
+@enduml

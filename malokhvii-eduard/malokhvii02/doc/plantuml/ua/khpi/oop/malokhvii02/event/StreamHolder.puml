@@ -1,0 +1,14 @@
+@startuml
+
+    class StreamHolder {
+        -in: Scanner
+        -out: PrintStream
+        -outIndex: long
+        +StreamHolder(PrintStream, Scanner)
+        +closeIn(): void
+        +getCurrentOutLabel(): String
+        +getIn(): Scanner
+        +getOut(): PrintStream
+    }
+
+@enduml

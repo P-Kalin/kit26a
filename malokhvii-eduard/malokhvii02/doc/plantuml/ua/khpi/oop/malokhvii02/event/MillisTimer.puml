@@ -1,0 +1,12 @@
+@startuml
+
+    class MillisTimer {
+        -beginTimeMillis: long
+        -endTimeMillis: long
+        +MillisTimer()
+        +getRuntime(): long
+        +launchTimer(): long
+        +terminateTimer(): long
+    }
+
+@enduml

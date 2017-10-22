@@ -1,0 +1,17 @@
+@startuml
+
+    class HistoryCommand {
+        {static} -description: String
+        {static} -keys: List<String>
+        {static} -RESOURCE_BUNDLE_NAME: String
+        {static} -resourceBundle: ResourceBundle
+        +HistoryCommand()
+        {static} -printCommandInfo(int, Command): void
+        {static} -updateResourceBundle(): void
+        +execute(): void
+        +getDescription(): String
+        +getKeys(): List<String>
+        +update(Observable, Object): void
+    }
+
+@enduml

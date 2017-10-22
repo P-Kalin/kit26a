@@ -1,0 +1,52 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii02.data {
+
+        class NumberEqualityContainer {
+            {static} -NUMBER_BASE: short
+            {static} -MIN_NUMBER: long
+            {static} -MAX_NUMBER: long
+            -number: long
+            -numberLength: double
+            -leftSide: long
+            -rightSide: long
+            -isLeftSideEqualToRightSide: boolean
+            +NumberEqualityContainer()
+            +collectData(PrintStream, Scanner): DataCollectionStatus
+            +computeData(): DataComputationStatus
+            +getContainerName(): String
+            +getLeftNumberSide(): long
+            +getNumber(): long
+            +getRightNumberSide(): long
+            +isEquals(): boolean
+            +prepareDataDescription(): String
+            +prepareDataVisualization(): String
+            +setNumber(long): void
+        }
+
+        interface DataContainer {
+            {abstract} +collectData(PrintStream, Scanner): DataCollectionStatus
+            {abstract} +computeData(): DataComputationStatus
+            {abstract} +getContainerName(): String
+            {abstract} +prepareDataDescription(): String
+            {abstract} +prepareDataVisualization(): String
+        }
+
+        enum DataComputationStatus {
+            {static} +SUCCESS
+            {static} +FAILURE
+            -DataComputationStatus()
+        }
+
+        enum DataCollectionStatus {
+            {static} +CONTINUE
+            {static} +REPEAT
+            {static} +FINISH
+            -DataCollectionStatus()
+        }
+
+        DataContainer <|.. NumberEqualityContainer
+
+    }
+
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+
+    class InsertionSort<T> {
+        +InsertionSort(Comparator<T>)
+        +sort(Array<T>): void
+    }
+
+@enduml

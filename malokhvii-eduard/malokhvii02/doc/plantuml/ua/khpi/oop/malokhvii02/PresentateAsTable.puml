@@ -1,0 +1,12 @@
+@startuml
+
+    class PresentateAsTable {
+        {static} +AMOUNT_OF_NUMBERS: short
+        {static} +MAX_RANDOM_NUMBER: long
+        {static} +MIN_RANDOM_NUMBER: long
+        -PresentateAsTable()
+        {static} +main(String[]): void
+        {static} +prepareInputNumbers(): ArrayList<Long>
+    }
+
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+
+    abstract class NullAlgorithm<T> {
+        +NullAlgorithm()
+        +isNull(): boolean
+    }
+
+@enduml

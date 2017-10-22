@@ -1,0 +1,10 @@
+@startuml
+
+    class TopDownMergeSort<T> {
+        +TopDownMergeSort(Comparator<T>)
+        -mergeSlices(Object[], Object[]): Object[]
+        -mergeSort(Object[]): Object[]
+        +sort(Array<T>): void
+    }
+
+@enduml

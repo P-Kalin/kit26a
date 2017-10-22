@@ -1,0 +1,14 @@
+@startuml
+
+    class PolynomialHash {
+        {static} -MAXIMUM_HASHABLE_CHAR_SEQUENCE_SIZE: int
+        {static} -POLYNOMIAL_BASE: int
+        {static} -polynomials: long[]
+        {static} +ZERO_HASH: long
+        -PolynomialHash()
+        {static} -calculatePolynomials(int): void
+        {static} +charSequenceHash(CharSequence): long
+        {static} +reversedCharSequenceHash(CharSequence): long
+    }
+
+@enduml

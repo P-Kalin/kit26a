@@ -1,0 +1,8 @@
+@startuml
+
+    class LoopInteraptionEvent {
+        +LoopInteraptionEvent()
+        +perform(EventLoop, DataContainer): void
+    }
+
+@enduml

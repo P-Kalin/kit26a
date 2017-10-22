@@ -1,0 +1,13 @@
+@startuml
+
+    class TaskValues.LiteralBuilder {
+        -LiteralBuilder()
+        +build(): TaskValues
+        +setEnglishUpperCaseLetter(char): TaskValues.LiteralBuilder
+        +setLastFourDigitsOfMobilePhoneNumber(int): TaskValues.LiteralBuilder
+        +setLastTwoDigitsOfMobilePhoneNumber(int): TaskValues.LiteralBuilder
+        +setMobilePhoneNumber(long): TaskValues.LiteralBuilder
+        +setRecordBookNumber(int): TaskValues.LiteralBuilder
+    }
+
+@enduml

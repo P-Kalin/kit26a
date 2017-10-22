@@ -1,0 +1,19 @@
+@startuml
+
+    class SearchAnanymsCommand {
+        {static} -ANANYMS_TABLE_FOOTER: String
+        {static} -ANANYMS_TABLE_HEADER: String
+        {static} -description: String
+        {static} -keys: List<String>
+        {static} -RESOURCE_BUNDLE_NAME: String
+        {static} -resourceBundle: ResourceBundle
+        +SearchAnanymsCommand()
+        {static} -printAnanymsCollection(Collection<Ananym>): void
+        {static} #updateResourceBundle(): void
+        +execute(): void
+        +getDescription(): String
+        +getKeys(): List<String>
+        +update(Observable, Object): void
+    }
+
+@enduml

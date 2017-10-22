@@ -1,0 +1,11 @@
+@startuml
+
+    class NullSortAlgorithm<T> {
+        {static} +INSTANCE: SortAlgorithm
+        -NullSortAlgorithm()
+        +isReversedOrder(): boolean
+        +setReversedOrder(boolean): void
+        +sort(Array<T>): void
+    }
+
+@enduml

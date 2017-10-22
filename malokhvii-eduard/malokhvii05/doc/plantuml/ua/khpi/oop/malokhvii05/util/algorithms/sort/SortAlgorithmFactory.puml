@@ -1,0 +1,18 @@
+@startuml
+
+    class SortAlgorithmFactory {
+        {static} -classMapping: Map<String, Class<?>>
+        {static} -defaultAlgorithm: Class<?>
+        -SortAlgorithmFactory()
+        {static} +getAlgorithm(String): SortAlgorithm<T>
+        {static} +getAlgorithm(String, Comparator<?>): SortAlgorithm<T>
+        {static} +getDefaultAlgorithm(): SortAlgorithm<T>
+        {static} +getDefaultAlgorithm(Comparator<?>): SortAlgorithm<T>
+        {static} +getRegisteredAlgorithms(): Set<String>
+        {static} -loadBasicAlgorithms(): void
+        {static} +registerAlgorithm(String, Class<?>): void
+        {static} +setDefaultAlgorithm(Class<?>): void
+        {static} +unregisterAlgorithm(String): void
+    }
+
+@enduml

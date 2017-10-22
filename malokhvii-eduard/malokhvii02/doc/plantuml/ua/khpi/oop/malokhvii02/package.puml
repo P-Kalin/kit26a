@@ -1,0 +1,21 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii02 {
+
+        class PresentateAsTable {
+            {static} +AMOUNT_OF_NUMBERS: short
+            {static} +MAX_RANDOM_NUMBER: long
+            {static} +MIN_RANDOM_NUMBER: long
+            -PresentateAsTable()
+            {static} +main(String[]): void
+            {static} +prepareInputNumbers(): ArrayList<Long>
+        }
+
+        class Application {
+            -Application()
+            {static} +main(String[]): void
+        }
+
+    }
+
+@enduml

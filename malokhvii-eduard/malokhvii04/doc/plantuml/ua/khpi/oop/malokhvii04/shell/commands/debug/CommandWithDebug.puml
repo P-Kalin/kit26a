@@ -1,0 +1,18 @@
+@startuml
+
+    class CommandWithDebug {
+        {static} -RESOURCE_BUNDLE_NAME: String
+        {static} -resourceBundle: ResourceBundle
+        -memoryAfterExecution: long
+        -memoryBeforeExecution: long
+        -timeAfterExecution: long
+        -timeBeforeExecution: long
+        +CommandWithDebug(Command)
+        {static} -printClassInfo(Command, String): void
+        {static} -printPackageInfo(Command, String): void
+        +execute(): void
+        -printExecutionTime(String): void
+        -printMemoryUsage(String): void
+    }
+
+@enduml
