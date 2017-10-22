@@ -1,0 +1,16 @@
+@startuml
+
+    class HashableWord {
+        -charSequence: CharSequence
+        -polynomialHashCode: long
+        -reversedPolynomialHashCode: long
+        +HashableWord(CharSequence, long)
+        +getCharSequence(): CharSequence
+        +getPolynomialHashCode(): long
+        +getReversedPolynomialHashCode(): long
+        +setCharSequence(CharSequence): void
+        +setPolynomialHashCode(long): void
+        +setReversedPolynomialHashCode(long): void
+    }
+
+@enduml
