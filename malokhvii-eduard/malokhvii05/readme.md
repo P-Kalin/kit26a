@@ -64,7 +64,7 @@
 </p>
 
 <p align="center">
-    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii05.util.package.png">
+    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii05.util.package.png"><br/>
     Рис. 4 - Діаграма класів із пакету util
 </p>
 
