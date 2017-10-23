@@ -11,7 +11,6 @@ import ua.khpi.oop.malokhvii05.util.algorithms.AlgorithmWithComparator;
  * @version 1.0.0
  * @param <T>
  *            Тип даних, елементів масиву та елемента для пошуку
- * @since 1.0.0
  */
 public interface SearchAlgorithm<T> extends AlgorithmWithComparator<T> {
 
