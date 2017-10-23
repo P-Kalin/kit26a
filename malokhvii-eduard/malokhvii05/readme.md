@@ -49,18 +49,23 @@
 - algorithms.search - містить алгоритми пошуку за ключем в особистій колекції
 
 <p align="center">
-  <img src="https://github.com/oop-khpi/kit26a/blob/malokhvii-eduard-issue-5/malokhvii-eduard/doc/malokhvii05/images/ua.khpi.oop.malokhvii05.util.algorithms.sort.png?raw=true">
-    Рис. 1 - Діаграма класів із пакету sort
+    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii05.util.algorithms.package.png"><br/>
+    Рис. 1 - Діаграма класів із пакету algorithms
 </p>
 
 <p align="center">
-  <img src="https://github.com/oop-khpi/kit26a/blob/malokhvii-eduard-issue-5/malokhvii-eduard/doc/malokhvii05/images/ua.khpi.oop.malokhvii05.util.algorithms.search.png?raw=true">
-    Рис. 2 - Діаграма класів із пакету search
+    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii05.util.algorithms.sort.package.png"><br/>
+    Рис. 2 - Діаграма класів із пакету sort
 </p>
 
 <p align="center">
-  <img src="https://github.com/oop-khpi/kit26a/blob/malokhvii-eduard-issue-5/malokhvii-eduard/doc/malokhvii05/images/ua.khpi.oop.malokhvii05.util.algorithms.png?raw=true">
-    Рис. 3 - Загальна діаграма пакету algorithms
+    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii05.util.algorithms.search.package.png"><br/>
+    Рис. 3 - Діаграма класів із пакету search
+</p>
+
+<p align="center">
+    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii05.util.package.png">
+    Рис. 4 - Діаграма класів із пакету util
 </p>
 
 ## 2.3 Опис програми
@@ -68,8 +73,8 @@
 Модифіковано реалізацію інтерактивної консолі із лабораторної роботи №4, для повторного використання у наступних завданнях. Модифіковано алгоритм пошуку ананимів на основі поліноміального хешу, таким чином зменьшено просторова та часову складність алгоритму пошуку.
 
 <p align="center">
-  <img src="https://github.com/oop-khpi/kit26a/blob/malokhvii-eduard-issue-5/malokhvii-eduard/doc/malokhvii05/images/ananym-search-algorithm.png?raw=true">
-    Рис. 4 - Схематичне пояснення модифікованого алгоритму пошуку
+    <img src="doc/images/ananym-search-algorithm.png">
+    Рис. 5 - Схематичне пояснення модифікованого алгоритму пошуку
 </p>
 
 ## 2.4 Важливі фрагменти програми
@@ -271,6 +276,7 @@ public final class Array<E> implements Collection<E> {
         while (index < size) {
             stringBuilder.append(data[index].toString());
             stringBuilder.append(separator);
+            index++;
         }
 
         return stringBuilder.toString();
@@ -283,13 +289,13 @@ public final class Array<E> implements Collection<E> {
 Нижче наведено виведення обчислень у вигляді інтерактивної консолі.
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/malokhvii-eduard-issue-5/malokhvii-eduard/doc/malokhvii05/images/application-1.png?raw=true">
-    Рис. 5 - Фрагмент демонстраційної програми
+    <img src="doc/images/application-1.png">
+    Рис. 6 - Фрагмент демонстраційної програми
 </p>
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/malokhvii-eduard-issue-5/malokhvii-eduard/doc/malokhvii05/images/application-2.png?raw=true">
-    Рис. 6 - Фрагмент демонстраційної програми
+    <img src="doc/images/application-2.png">
+    Рис. 7 - Фрагмент демонстраційної програми
 </p>
 
 # Висновки
