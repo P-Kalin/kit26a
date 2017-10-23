@@ -33,21 +33,28 @@
 
 Проект містить наступні пакети:
 - shell - містить інтерактивну оболонку та її допоміжні класи.
-- сommand - містить у собі перелік команд, та фабрику для їх створення.
+- сommands - містить у собі перелік базових команд.
+- debug - містить у собі перелік команд, для відлагодження.
+- text - містить у собі перелік команд для обробки текстових даних, введення, виведення тощо.
 
 <p align="center">
-  <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/ua.khpi.oop.malokhvii04.shell.png?raw=true">
+  <img src="doc/plantuml/png/ua.khpi.oop.malokhvii04.shell.package.png"><br/>
     Рис. 1 - Діаграма класів із пакету shell
 </p>
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/ua.khpi.oop.malokhvii04.shell.command.png?raw=true">
-    Рис. 2 - Діаграма класів із пакету command
+    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii04.shell.commands.package.png">
+    Рис. 2 - Діаграма класів із пакету commands
 </p>
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/ua.khpi.oop.malokhvii04.png?raw=true">
-    Рис. 3 - Загальна діаграма класів
+    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii04.shell.commands.debug.package.png"><br/>
+    Рис. 3 - Діаграма класів із пакету debug
+</p>
+
+<p align="center">
+    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii04.shell.commands.text.package.png"><br/>
+    Рис. 4 - Діаграма класів із пакету text
 </p>
 
 ## 2.3 Опис програми
@@ -56,7 +63,7 @@
 
 ## 2.4 Важливі фрагменти програми
 
-Нижче наведено фрагмент точки входу програми (<https://sourceforge.net/p/kit26a-cpp/code/HEAD/tree/malokhvii_eduard/src/ua/khpi/oop/malokhvii04/>).
+Нижче наведено фрагмент точки входу програми.
 
 ```
 package ua.khpi.oop.malokhvii04;
@@ -130,28 +137,28 @@ public final class Application {
 Нижче наведено виведення обчислень у вигляді інтерактивної консолі.
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/application-1.png?raw=true">
-    Рис. 3 - Фрагмент демонстраційної програми
-</p>
-
-<p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/application-2.png?raw=true">
-    Рис. 4 - Фрагмент демонстраційної програми
-</p>
-
-<p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/application-3.png?raw=true">
+    <img src="doc/images/application-1.png">
     Рис. 5 - Фрагмент демонстраційної програми
 </p>
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/application-4.png?raw=true">
+    <img src="doc/images/application-2.png">
     Рис. 6 - Фрагмент демонстраційної програми
+</p>
+
+<p align="center">
+    <img src="doc/images/application-3.png">
+    Рис. 7 - Фрагмент демонстраційної програми
+</p>
+
+<p align="center">
+    <img src="doc/images/application-4.png">
+    Рис. 8 - Фрагмент демонстраційної програми
 </p>
   
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii04/images/application-5.png?raw=true">
-    Рис. 7 - Фрагмент демонстраційної програми
+    <img src="doc/images/application-5.png">
+    Рис. 9 - Фрагмент демонстраційної програми
 </p>
 
 # Висновки
