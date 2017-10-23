@@ -10,7 +10,6 @@ import java.util.ResourceBundle;
 import ua.khpi.oop.malokhvii04.shell.Shell;
 import ua.khpi.oop.malokhvii04.shell.ShellCommandsPool;
 import ua.khpi.oop.malokhvii04.shell.ShellResources;
-import ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand;
 import ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand;
 import ua.khpi.oop.malokhvii05.util.Array;
 
@@ -22,7 +21,6 @@ import ua.khpi.oop.malokhvii05.util.Array;
  * @version 1.0.0
  * @see Shell
  * @see ShellCommandsPool
- * @see AbstractCommand
  */
 public final class DeserializeTextCommand extends HandleTextFileCommand {
 

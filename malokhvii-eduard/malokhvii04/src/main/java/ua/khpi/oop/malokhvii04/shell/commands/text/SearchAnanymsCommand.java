@@ -11,7 +11,6 @@ import ua.khpi.oop.malokhvii03.text.Ananym;
 import ua.khpi.oop.malokhvii04.shell.Shell;
 import ua.khpi.oop.malokhvii04.shell.ShellCommandsPool;
 import ua.khpi.oop.malokhvii04.shell.ShellResources;
-import ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand;
 
 /**
  * Призначений, для інкапсуляції операції пошуку ананимів, тобто наприклад пар
@@ -21,7 +20,6 @@ import ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand;
  * @version 1.2.0
  * @see Shell
  * @see ShellCommandsPool
- * @see AbstractCommand
  * @see Anagrams
  */
 public final class SearchAnanymsCommand extends OutputTextCommand {
