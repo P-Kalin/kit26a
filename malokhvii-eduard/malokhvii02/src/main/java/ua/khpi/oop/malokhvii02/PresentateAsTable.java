@@ -33,28 +33,32 @@ public final class PresentateAsTable {
      *            Аргументи командного рядку
      */
     public static void main(final String[] args) {
-        ArrayList<NumberEqualityContainer> numberEqualityContainers = new ArrayList<NumberEqualityContainer>();
-        ArrayList<Long> inputNumbers = PresentateAsTable.prepareInputNumbers();
+        final ArrayList<NumberEqualityContainer> numberEqualityContainers = new ArrayList<NumberEqualityContainer>();
+        final ArrayList<Long> inputNumbers = PresentateAsTable
+                .prepareInputNumbers();
 
-        for (Long number : inputNumbers) {
-            NumberEqualityContainer item = new NumberEqualityContainer();
+        for (final Long number : inputNumbers) {
+            final NumberEqualityContainer item = new NumberEqualityContainer();
             item.setNumber(number);
             numberEqualityContainers.add(item);
         }
 
-        for (DataContainer dataContainer : numberEqualityContainers) {
+        for (final DataContainer dataContainer : numberEqualityContainers) {
             dataContainer.computeData();
         }
 
-        String tableRowTemplate = "| %-15s | %-12d | %-12d | %-8s |%n";
+        final String tableRowTemplate = "| %-15s | %-12d | %-12d | %-8s |%n";
         System.out.format(
-                "+-----------------+--------------+--------------+----------+%n");
+                "+-----------------+--------------+--------------+--------"
+                        + "--+%n");
         System.out.format(
-                "| Number          | Left Part    | Right Part   | Equality |%n");
-        System.out.format(
-                "+-----------------+--------------+-------------------------+%n");
+                "| Number          | Left Part    | Right Part   | Equality"
+                        + " |%n");
+        System.out
+                .format("+-----------------+--------------+-------------------"
+                        + "------+%n");
 
-        for (NumberEqualityContainer dataContainer : numberEqualityContainers) {
+        for (final NumberEqualityContainer dataContainer : numberEqualityContainers) {
             System.out.printf(tableRowTemplate, dataContainer.getNumber(),
                     dataContainer.getLeftNumberSide(),
                     dataContainer.getRightNumberSide(),
@@ -62,7 +66,8 @@ public final class PresentateAsTable {
         }
 
         System.out.format(
-                "+-----------------+--------------+-------------------------+%n");
+                "+-----------------+--------------+-----------------------"
+                        + "--+%n");
     }
 
     /**
@@ -71,7 +76,7 @@ public final class PresentateAsTable {
      * @return Масив псевдовипадкових чисел
      */
     public static ArrayList<Long> prepareInputNumbers() {
-        ArrayList<Long> numbers = new ArrayList<Long>();
+        final ArrayList<Long> numbers = new ArrayList<Long>();
         int i;
         for (i = 0; i < PresentateAsTable.AMOUNT_OF_NUMBERS; i++) {
             numbers.add((long) (Math.random()
