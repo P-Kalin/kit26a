@@ -25,7 +25,7 @@
 Під час вирішення поставленної задачі було акцентовано увагу на інкапсуляції процесу обробки та отримання вхідних даних. Тобто об'єкт циклу подій оброблює контейнер даних який забезпечує загальний інтерфейс для певного набору методів (отримання, обробку, відображення). Об'єкт циклу лише контролює послідовність подій під час виконання програми, за обчислення відповідає лише контейнер даних.
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii02/images/events.png?raw=true">
+    <img src="doc/images/events.png">
     Рис. 1 - Діаграма взаємодії подій
 </p>
 
@@ -38,18 +38,13 @@
 Нижче наведено діаграму класів отриману за допомогою розширення для середи розробки Eclipse - ObjectAid UML Diagram.
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii02/images/ua.khpi.oop.malokhvii02.data.png?raw=true"><br/>
+    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii02.data.package.png"><br/>
     Рис. 2 - Діаграма класів із пакету data
 </p>
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii02/images/ua.khpi.oop.malokhvii02.event.png?raw=true">
+    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii02.event.package.png">
     Рис. 3 - Діаграма класів із пакету event
-</p>
-
-<p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii02/images/ua.khpi.oop.malokhvii02.png?raw=true">
-    Рис. 4 - Загальна діаграма класів
 </p>
 
 ## 2.3 Опис програми
@@ -97,13 +92,13 @@ public final class Application {
 Нижче наведено виведення обчислень у вигляді таблиці та інтерактивної консолі.
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii02/images/application-1.png?raw=true"><br/>
-    Рис. 5 - Результат виконання
+    <img src="doc/images/application-1.png"><br/>
+    Рис. 4 - Результат виконання
 </p>
 
 <p align="center">
-    <img src="https://github.com/oop-khpi/kit26a/blob/master/malokhvii-eduard/doc/malokhvii02/images/application-2.png?raw=true"><br/>
-    Рис. 6 - Результат виконання
+    <img src="doc/images/application-2.png"><br/>
+    Рис. 5 - Результат виконання
 </p>
 
 # Висновки
