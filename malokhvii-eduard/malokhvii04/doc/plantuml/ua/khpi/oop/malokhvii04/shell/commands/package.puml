@@ -2,6 +2,19 @@
 
     namespace ua.khpi.oop.malokhvii04.shell.commands {
 
+        class UpdateSettingsCommand {
+            {static} -description: String
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +UpdateSettingsCommand()
+            {static} -updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
+
         class HistoryCommand {
             {static} -description: String
             {static} -keys: List<String>
@@ -69,6 +82,8 @@
             +AbstractCommand()
             +getName(): String
         }
+
+        AbstractCommand <|-- UpdateSettingsCommand
 
         AbstractCommand <|-- HistoryCommand
 
