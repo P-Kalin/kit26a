@@ -1,0 +1,11 @@
+@startuml
+
+    class NullSearchAlgorithm<T> {
+        {static} +INSTANCE: SearchAlgorithm
+        -NullSearchAlgorithm()
+        +getLastFoundIndex(): int
+        +search(Array<T>, T): int
+        +search(Array<T>, T, int, int): int
+    }
+
+@enduml

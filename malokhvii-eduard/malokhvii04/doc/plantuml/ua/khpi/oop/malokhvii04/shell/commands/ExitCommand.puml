@@ -1,0 +1,15 @@
+@startuml
+
+    class ExitCommand {
+        {static} -description: String
+        {static} -keys: List<String>
+        {static} -RESOURCE_BUNDLE_NAME: String
+        +ExitCommand()
+        {static} -updateResourceBundle(): void
+        +execute(): void
+        +getDescription(): String
+        +getKeys(): List<String>
+        +update(Observable, Object): void
+    }
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+
+    class Anagrams {
+        {static} +DEFAUL_WORD_PATTERN: String
+        -Anagrams()
+        {static} +findAllAnanyms(CharSequence, String): Collection<Ananym>
+        {static} +findAllAnanyms(Iterable<CharSequence>): Collection<Ananym>
+        {static} +findAllAnanyms(Iterable<CharSequence>, String): Collection<Ananym>
+        {static} +findAllAnanymsInString(Iterable<String>): Collection<Ananym>
+        {static} +findAllAnanymsInString(Iterable<String>, String): Collection<Ananym>
+    }
+
+@enduml

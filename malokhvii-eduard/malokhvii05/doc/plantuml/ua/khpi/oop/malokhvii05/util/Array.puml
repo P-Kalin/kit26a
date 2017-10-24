@@ -1,0 +1,52 @@
+@startuml
+
+    class Array<E> {
+        {static} -serialVersionUID: long
+        {static} -DEFAULT_INITIAL_CAPACITY: int
+        -data: Object[]
+        -size: int
+        +Array()
+        +Array(Collection<?>)
+        +Array(int)
+        +add(E): boolean
+        +add(int, E): void
+        +addAfter(int, E): void
+        +addAll(Collection<?>): boolean
+        +addBefore(int, E): void
+        +addFirst(E): void
+        +addLast(E): void
+        +clear(): void
+        +contains(Object): boolean
+        +containsAll(Collection<?>): boolean
+        -ensureCapacity(int): void
+        +firstIterator(): Array.ArrayIterator
+        +get(int): E
+        +getData(): Object[]
+        +getFirst(): E
+        +getLast(): E
+        +indexOf(Object): int
+        +isEmpty(): boolean
+        -isIndexInRange(int): boolean
+        -isNewElementIndexInRange(int): boolean
+        +iterator(): Iterator<E>
+        +iterator(int): Array.ArrayIterator
+        +lastIterator(): Array.ArrayIterator
+        -readObject(ObjectInputStream): void
+        +remove(int): void
+        +remove(Object): boolean
+        +removeAll(Collection<?>): boolean
+        -removeElement(int): void
+        +removeFirst(): void
+        +removeLast(): void
+        +retainAll(Collection<?>): boolean
+        +set(int, E): E
+        +setFirst(E): E
+        +setLast(E): E
+        +size(): int
+        +toArray(): Object[]
+        +toArray(T[]): T[]
+        +toString(String): String
+        -writeObject(ObjectOutputStream): void
+    }
+
+@enduml

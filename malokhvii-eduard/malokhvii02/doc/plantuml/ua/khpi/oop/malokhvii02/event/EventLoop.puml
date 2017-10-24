@@ -1,0 +1,26 @@
+@startuml
+
+    class EventLoop {
+        -isRunning: boolean
+        -dataContainer: DataContainer
+        -eventsContainer: EventsContainer
+        -currentEvent: Event
+        -stream: StreamHolder
+        -timer: MillisTimer
+        +EventLoop(DataContainer, EventsContainer, PrintStream, Scanner)
+        +breakLoop(): void
+        +closeStream(): void
+        +collectDataContainer(): void
+        +computeDataContainer(): void
+        +getRuntime(): long
+        +getStreamHolder(): StreamHolder
+        +handleCurrentEvent(): boolean
+        +isRunning(): boolean
+        +launchLoop(): void
+        +restoreLoop(): void
+        +terminateLoop(): void
+        +updateCurrentEvent(Event): void
+        +visualizeDataContainer(): void
+    }
+
+@enduml

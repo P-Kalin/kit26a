@@ -1,0 +1,13 @@
+@startuml
+
+    class Application {
+        {static} -DEFAULT_LOCALE: String
+        {static} -LOCALES: String[]
+        {static} -BASE_PACKAGE: String
+        -Application()
+        {static} +getApplicationName(): String
+        {static} +main(String[]): void
+        {static} -setLocales(): void
+    }
+
+@enduml

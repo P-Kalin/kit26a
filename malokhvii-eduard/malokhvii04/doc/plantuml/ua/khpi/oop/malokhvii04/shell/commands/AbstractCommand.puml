@@ -1,0 +1,8 @@
+@startuml
+
+    abstract class AbstractCommand {
+        +AbstractCommand()
+        +getName(): String
+    }
+
+@enduml

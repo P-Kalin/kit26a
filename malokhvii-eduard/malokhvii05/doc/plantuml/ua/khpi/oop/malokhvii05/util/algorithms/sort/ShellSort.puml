@@ -1,0 +1,8 @@
+@startuml
+
+    class ShellSort<T> {
+        +ShellSort(Comparator<T>)
+        +sort(Array<T>): void
+    }
+
+@enduml

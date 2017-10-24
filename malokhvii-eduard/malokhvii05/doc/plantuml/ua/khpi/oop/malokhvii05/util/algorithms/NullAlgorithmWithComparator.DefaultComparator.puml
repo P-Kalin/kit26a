@@ -1,0 +1,8 @@
+@startuml
+
+    class NullAlgorithmWithComparator.DefaultComparator {
+        -DefaultComparator()
+        +compare(T, T): int
+    }
+
+@enduml

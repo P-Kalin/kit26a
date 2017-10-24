@@ -1,0 +1,13 @@
+@startuml
+
+    class ShellResources {
+        {static} -locales: Map<String, Locale>
+        -defaultLocale: Locale
+        -ShellResources()
+        {static} +getInstance(): ShellResources
+        +getResourceBundle(String): ResourceBundle
+        +setDefaultLocale(String, Locale): void
+        +setLocale(String, Locale): void
+    }
+
+@enduml

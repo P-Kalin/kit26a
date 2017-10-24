@@ -1,0 +1,11 @@
+@startuml
+
+    class TaskValues.Builder {
+        -Builder()
+        +build(): TaskValues
+        +setEnglishUpperCaseLetter(int): TaskValues.Builder
+        +setMobilePhoneNumber(long): TaskValues.Builder
+        +setRecordBookNumber(int): TaskValues.Builder
+    }
+
+@enduml

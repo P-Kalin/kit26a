@@ -1,0 +1,9 @@
+@startuml
+
+    class HeapSort<T> {
+        +HeapSort(Comparator<T>)
+        -heapify(Array<T>, int, int): void
+        +sort(Array<T>): void
+    }
+
+@enduml

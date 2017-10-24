@@ -1,0 +1,13 @@
+@startuml
+
+    class TaskPerformerForBinaryValues {
+        -binaryNumbers: ArrayList<String>
+        -taskValues: TaskValues
+        +TaskPerformerForBinaryValues(TaskValues)
+        +countAmountOfBitsInNumber(String, char): long
+        +countAmountOfOnesInNumbers(): long
+        +countAmountOfZeroesInNumbers(): long
+        +setTaskValues(TaskValues): void
+    }
+
+@enduml

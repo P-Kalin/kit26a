@@ -1,0 +1,32 @@
+@startuml
+
+    class Shell {
+        {static} -RESOURCE_BUNDLE_NAME: String
+        -commandDecorator: Class<?>
+        -commandHistory: Deque<Command>
+        -currentCommandIndex: int
+        -data: ShellData
+        -isRunning: boolean
+        -scanner: Scanner
+        -settings: ShellSettings
+        -settingsPath: String
+        -Shell()
+        {static} +getInstance(): Shell
+        +getCommandHistory(): Deque<Command>
+        +getCurrentCommandIndex(): int
+        +getData(): ShellData
+        +getNextCommand(): String
+        +getScanner(): Scanner
+        +getSettings(): ShellSettings
+        +handleCommand(): void
+        +handleUnknownCommand(): void
+        +isRunning(): boolean
+        +launch(): void
+        +launch(String): void
+        +putCommand(Command): void
+        +setCommandDecorator(Class<?>): void
+        +terminate(): void
+        -wrapCommand(Command): Command
+    }
+
+@enduml

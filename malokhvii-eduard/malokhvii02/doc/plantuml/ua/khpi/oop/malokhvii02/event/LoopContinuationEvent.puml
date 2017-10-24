@@ -1,0 +1,9 @@
+@startuml
+
+    class LoopContinuationEvent {
+        {static} -CONTINUE_LOOP_CHARACTER: String
+        +LoopContinuationEvent()
+        +perform(EventLoop, DataContainer): void
+    }
+
+@enduml

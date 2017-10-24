@@ -1,0 +1,11 @@
+@startuml
+
+    interface DataContainer {
+        {abstract} +collectData(PrintStream, Scanner): DataCollectionStatus
+        {abstract} +computeData(): DataComputationStatus
+        {abstract} +getContainerName(): String
+        {abstract} +prepareDataDescription(): String
+        {abstract} +prepareDataVisualization(): String
+    }
+
+@enduml

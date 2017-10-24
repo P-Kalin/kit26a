@@ -1,0 +1,10 @@
+@startuml
+
+    interface Command {
+        {abstract} +execute(): void
+        {abstract} +getDescription(): String
+        {abstract} +getKeys(): List<String>
+        {abstract} +getName(): String
+    }
+
+@enduml

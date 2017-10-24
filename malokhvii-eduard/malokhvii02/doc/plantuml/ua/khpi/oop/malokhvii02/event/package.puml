@@ -1,0 +1,143 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii02.event {
+
+        class StreamHolder {
+            -in: Scanner
+            -out: PrintStream
+            -outIndex: long
+            +StreamHolder(PrintStream, Scanner)
+            +closeIn(): void
+            +getCurrentOutLabel(): String
+            +getIn(): Scanner
+            +getOut(): PrintStream
+        }
+
+        class MillisTimer {
+            -beginTimeMillis: long
+            -endTimeMillis: long
+            +MillisTimer()
+            +getRuntime(): long
+            +launchTimer(): long
+            +terminateTimer(): long
+        }
+
+        class LoopInteraptionEvent {
+            +LoopInteraptionEvent()
+            +perform(EventLoop, DataContainer): void
+        }
+
+        class LoopInceptionEvent {
+            +LoopInceptionEvent()
+            +perform(EventLoop, DataContainer): void
+        }
+
+        enum LoopEvent {
+            {static} +INCEPTION
+            {static} +CONTINUATION
+            {static} +INTERAPTION
+            -LoopEvent()
+        }
+
+        class LoopContinuationEvent {
+            {static} -CONTINUE_LOOP_CHARACTER: String
+            +LoopContinuationEvent()
+            +perform(EventLoop, DataContainer): void
+        }
+
+        class GlobalEventsContainer {
+            -events: Map<EventType, Event>
+            -GlobalEventsContainer()
+            {static} +getInstance(): GlobalEventsContainer
+            +getEvent(EventType): Event
+            +putEvent(EventType, Event): void
+        }
+
+        class ua.khpi.oop.malokhvii02.event.GlobalEventsContainer.SingletonHolder {
+            {static} -instance: GlobalEventsContainer
+            -SingletonHolder()
+        }
+
+        interface EventType {
+        }
+
+        interface EventsContainer {
+            {abstract} +getEvent(EventType): Event
+            {abstract} +putEvent(EventType, Event): void
+        }
+
+        class EventLoop {
+            -isRunning: boolean
+            -dataContainer: DataContainer
+            +EventLoop(DataContainer, EventsContainer, PrintStream, Scanner)
+            +breakLoop(): void
+            +closeStream(): void
+            +collectDataContainer(): void
+            +computeDataContainer(): void
+            +getRuntime(): long
+            +handleCurrentEvent(): boolean
+            +isRunning(): boolean
+            +launchLoop(): void
+            +restoreLoop(): void
+            +terminateLoop(): void
+            +updateCurrentEvent(Event): void
+            +visualizeDataContainer(): void
+        }
+
+        interface Event {
+            {abstract} +perform(EventLoop, DataContainer): void
+        }
+
+        class DataVisualizationEvent {
+            +DataVisualizationEvent()
+            +perform(EventLoop, DataContainer): void
+        }
+
+        enum DataEvent {
+            {static} +COLLECTION
+            {static} +VISUALIZATION
+            {static} +COMPUTATION
+            -DataEvent()
+        }
+
+        class DataComputationEvent {
+            +DataComputationEvent()
+            +perform(EventLoop, DataContainer): void
+        }
+
+        class DataCollectionEvent {
+            +DataCollectionEvent()
+            +perform(EventLoop, DataContainer): void
+        }
+
+        Event <|.. LoopInteraptionEvent
+
+        Event <|.. LoopInceptionEvent
+
+        EventType <|.. LoopEvent
+
+        Event <|.. LoopContinuationEvent
+
+        EventsContainer <|.. GlobalEventsContainer
+
+        GlobalEventsContainer +-- ua.khpi.oop.malokhvii02.event.GlobalEventsContainer.SingletonHolder
+
+        Event <|.. DataVisualizationEvent
+
+        EventType <|.. DataEvent
+
+        Event <|.. DataComputationEvent
+
+        Event <|.. DataCollectionEvent
+
+        EventLoop --> EventsContainer: eventsContainer
+
+        EventLoop --> Event: currentEvent
+
+        EventLoop --> StreamHolder: stream\nstreamHolder
+
+        EventLoop --> MillisTimer: timer
+
+    }
+
+@enduml

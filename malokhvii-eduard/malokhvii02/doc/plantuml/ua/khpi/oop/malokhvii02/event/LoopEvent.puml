@@ -1,0 +1,10 @@
+@startuml
+
+    enum LoopEvent {
+        {static} +INCEPTION
+        {static} +CONTINUATION
+        {static} +INTERAPTION
+        -LoopEvent()
+    }
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+
+    class Ananym {
+        -word: String
+        -reversedWord: String
+        +Ananym(CharSequence, CharSequence)
+        +Ananym(String, String)
+        +getReversedWord(): String
+        +getWord(): String
+        +setReverseWord(String): void
+        +setWord(String): void
+    }
+
+@enduml

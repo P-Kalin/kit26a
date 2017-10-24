@@ -1,0 +1,52 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii03.text {
+
+        class PolynomialHash {
+            {static} -MAXIMUM_HASHABLE_CHAR_SEQUENCE_SIZE: int
+            {static} -POLYNOMIAL_BASE: int
+            {static} -polynomials: long[]
+            {static} +ZERO_HASH: long
+            -PolynomialHash()
+            {static} -calculatePolynomials(int): void
+            {static} +charSequenceHash(CharSequence): long
+            {static} +reversedCharSequenceHash(CharSequence): long
+        }
+
+        class HashableWord {
+            -charSequence: CharSequence
+            -polynomialHashCode: long
+            -reversedPolynomialHashCode: long
+            +HashableWord(CharSequence, long)
+            +getCharSequence(): CharSequence
+            +getPolynomialHashCode(): long
+            +getReversedPolynomialHashCode(): long
+            +setCharSequence(CharSequence): void
+            +setPolynomialHashCode(long): void
+            +setReversedPolynomialHashCode(long): void
+        }
+
+        class Ananym {
+            -word: String
+            -reversedWord: String
+            +Ananym(CharSequence, CharSequence)
+            +Ananym(String, String)
+            +getReversedWord(): String
+            +getWord(): String
+            +setReverseWord(String): void
+            +setWord(String): void
+        }
+
+        class Anagrams {
+            {static} +DEFAUL_WORD_PATTERN: String
+            -Anagrams()
+            {static} +findAllAnanyms(CharSequence, String): Collection<Ananym>
+            {static} +findAllAnanyms(Iterable<CharSequence>): Collection<Ananym>
+            {static} +findAllAnanyms(Iterable<CharSequence>, String): Collection<Ananym>
+            {static} +findAllAnanymsInString(Iterable<String>): Collection<Ananym>
+            {static} +findAllAnanymsInString(Iterable<String>, String): Collection<Ananym>
+        }
+
+    }
+
+@enduml

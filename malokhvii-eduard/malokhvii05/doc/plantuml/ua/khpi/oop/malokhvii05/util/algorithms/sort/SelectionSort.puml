@@ -1,0 +1,8 @@
+@startuml
+
+    class SelectionSort<T> {
+        +SelectionSort(Comparator<T>)
+        +sort(Array<T>): void
+    }
+
+@enduml
