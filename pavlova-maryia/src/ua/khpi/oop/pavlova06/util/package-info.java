@@ -46,8 +46,11 @@
  * string. </br>
  * - <i>extractElementsFromText</i> enables to divide a string in a specific
  * way. </br>
- * - <i>extractWordsFromText</i> enables to divide a string into words.
+ * - <i>extractWordsFromText</i> enables to divide a string into words. </br>
+ * </br>
+ * <b>sortAlgorithms</b>
  * 
+ * @see ua.khpi.oop.pavlova06.util.sortAlgorithms
  * @author pavlova-mv
  *
  */
