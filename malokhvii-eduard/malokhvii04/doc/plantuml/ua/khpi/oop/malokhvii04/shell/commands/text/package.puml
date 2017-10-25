@@ -29,6 +29,19 @@
             +update(Observable, Object): void
         }
 
+        class SearchTextCommand {
+            {static} -description: String
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +SearchTextCommand()
+            {static} -updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
+
         class SearchAnanymsCommand {
             {static} -ANANYMS_TABLE_FOOTER: String
             {static} -ANANYMS_TABLE_HEADER: String
@@ -91,6 +104,8 @@
 
         abstract class ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand
         ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand <|-- SerializeTextCommand
+
+        ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand <|-- SearchTextCommand
 
         OutputTextCommand <|-- SearchAnanymsCommand
 
