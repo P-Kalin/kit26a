@@ -1,7 +1,7 @@
 @startuml
 
     class PolynomialHash {
-        {static} -MAXIMUM_HASHABLE_CHAR_SEQUENCE_SIZE: int
+        {static} -DEFAULT_HASHABLE_CHAR_SEQUENCE_SIZE: int
         {static} -POLYNOMIAL_BASE: int
         {static} -polynomials: long[]
         {static} +ZERO_HASH: long
