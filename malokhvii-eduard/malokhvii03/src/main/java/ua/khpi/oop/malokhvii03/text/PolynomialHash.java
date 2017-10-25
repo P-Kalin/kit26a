@@ -19,17 +19,17 @@ package ua.khpi.oop.malokhvii03.text;
  * двох рядків на рівність.
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
+ * @version 1.0.1
  */
 public final class PolynomialHash {
 
     /**
-     * Максимальна, довжина хешованих рядків, використовується для ініціалізації
-     * ступенів деякого числа P.
+     * Довжина за змовчуванням для хешованих рядків, використовується для
+     * ініціалізації ступенів деякого числа POLYNOMIAL_BASE.
      *
      * @since 1.0.0
      */
-    private static final int MAXIMUM_HASHABLE_CHAR_SEQUENCE_SIZE = 512;
+    private static final int DEFAULT_HASHABLE_CHAR_SEQUENCE_SIZE = 512;
 
     /**
      * POLYNOMIAL_BASE - деяке число. Розумно вибирати для POLYNOMIAL_BASE
@@ -61,7 +61,7 @@ public final class PolynomialHash {
 
     static {
         PolynomialHash.calculatePolynomials(
-                PolynomialHash.MAXIMUM_HASHABLE_CHAR_SEQUENCE_SIZE);
+                PolynomialHash.DEFAULT_HASHABLE_CHAR_SEQUENCE_SIZE);
     }
 
     /**
@@ -94,7 +94,7 @@ public final class PolynomialHash {
      * @since 1.0.0
      */
     public static long charSequenceHash(final CharSequence charSequence) {
-        int charSequenceLength = charSequence.length();
+        final int charSequenceLength = charSequence.length();
         long hashCode = charSequence.charAt(0);
 
         int index;
@@ -117,7 +117,7 @@ public final class PolynomialHash {
      */
     public static long reversedCharSequenceHash(
             final CharSequence charSequence) {
-        int charSequenceLength = charSequence.length();
+        final int charSequenceLength = charSequence.length();
         long hashCode = charSequence.charAt(charSequenceLength - 1);
 
         int reversedIndex = charSequenceLength - 2;
