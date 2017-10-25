@@ -175,6 +175,22 @@ public class NewContainerOfStrings implements Iterable<String>, Serializable {
 	}
 
 	/**
+	 * Method for adding a new element by the specific index
+	 * 
+	 * @param index
+	 *            is a position for adding
+	 * @param newElement
+	 */
+	public void add(int index, String newElement) {
+		checkIndex(index);
+		ensureCapacity(size + 1);
+		System.arraycopy(elementData, index, elementData, index + 1, size - index);
+
+		elementData[index] = newElement;
+		size++;
+	}
+
+	/**
 	 * Method for removing all the data from the array of strings.
 	 */
 	public void clear() {
