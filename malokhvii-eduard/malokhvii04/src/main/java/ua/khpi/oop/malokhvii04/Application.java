@@ -19,7 +19,6 @@ import ua.khpi.oop.malokhvii04.shell.commands.Command;
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
  * @version 1.2.0
- * @since 1.0.0
  */
 public final class Application {
 
@@ -74,11 +73,14 @@ public final class Application {
      * <li>-e -exit Завершення сеансу інтерактивної оболонки</li>
      * <li>-i -input Введення шляху до текстового файлу</li>
      * <li>-o -output Виведення завантаженого текстового файлу</li>
-     * <li>-st -sort-text Сортування масиву рядків із поточним текстом</li>
+     * <li>-sot -sort-text Сортування масиву рядків із поточним текстом</li>
+     * <li>-srt -search-text Пошук підстроки у вхідному масиві рядків</li>
      * <li>-ser -serialize Серіалізація поточного стану рядків текстового
      * файлу</li>
      * <li>-deser -deserialize Десеріалізація текстового файлу із файлу у
      * вигляді масиву рядків</li>
+     * <li>-ss -settings Оновленння поточних налаштувань інтерактивної
+     * консолі</li>
      * <li>-ananyms -task08 -t08 Пошук ананимів в тексті (див. рішення до 3-ї
      * лабораторної роботи)</li>
      * </ul>
