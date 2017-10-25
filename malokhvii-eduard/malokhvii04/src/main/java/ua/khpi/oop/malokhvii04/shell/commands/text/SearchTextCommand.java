@@ -60,6 +60,19 @@ public final class SearchTextCommand extends AbstractCommand {
         SearchTextCommand.updateResourceBundle();
     }
 
+    /**
+     * Призначений, для оновлення усіх статичних полів, які залежать від
+     * поточної локалізації.
+     *
+     * @since 1.0.0
+     */
+    private static void updateResourceBundle() {
+        SearchTextCommand.resourceBundle = ShellResources.getInstance()
+                .getResourceBundle(SearchTextCommand.RESOURCE_BUNDLE_NAME);
+        SearchTextCommand.description = SearchTextCommand.resourceBundle
+                .getString("description");
+    }
+
     @Override
     public void execute() {
         final Collection<String> textLines = Shell.getInstance().getData()
@@ -106,20 +119,7 @@ public final class SearchTextCommand extends AbstractCommand {
     }
 
     @Override
-    public void update(Observable observable, Object object) {
+    public void update(final Observable observable, final Object object) {
         SearchTextCommand.updateResourceBundle();
-    }
-
-    /**
-     * Призначений, для оновлення усіх статичних полів, які залежать від
-     * поточної локалізації.
-     *
-     * @since 1.0.0
-     */
-    private static void updateResourceBundle() {
-        SearchTextCommand.resourceBundle = ShellResources.getInstance()
-                .getResourceBundle(SearchTextCommand.RESOURCE_BUNDLE_NAME);
-        SearchTextCommand.description = SearchTextCommand.resourceBundle
-                .getString("description");
     }
 }

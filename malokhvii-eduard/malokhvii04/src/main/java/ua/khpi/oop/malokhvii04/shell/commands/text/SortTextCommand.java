@@ -39,7 +39,7 @@ public final class SortTextCommand extends AbstractCommand {
      *
      * @since 1.0.0
      */
-    private static List<String> keys = Arrays.asList("-sort-text", "-st");
+    private static List<String> keys = Arrays.asList("-sort-text", "-sot");
 
     /**
      * Розташування текстового файлу, з властивостями, а саме текстовими
