@@ -9,4 +9,5 @@
 	<classpathentry kind="var" path="SOURCE_JAR/malokhvii05-1.0.0-sources.jar"/>
 	<classpathentry kind="var" path="SOURCE_JAR/malokhvii05-1.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
+	<referencedentry kind="lib" path="E:/Programming/malokhvii05-1.0.0.jar" sourcepath="src/ua/khpi/oop/pavlova06/bin/malokhvii05-1.0.0-sources.jar"/>
 </classpath>
