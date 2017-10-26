@@ -45,6 +45,10 @@
             {static} +findAllAnanyms(Iterable<CharSequence>, String): Collection<Ananym>
             {static} +findAllAnanymsInString(Iterable<String>): Collection<Ananym>
             {static} +findAllAnanymsInString(Iterable<String>, String): Collection<Ananym>
+            {static} +findAllPalindromes(Iterable<CharSequence>): Collection<CharSequence>
+            {static} +findAllPalindromes(Iterable<CharSequence>, String): Collection<CharSequence>
+            {static} +findAllPalindromesInString(Iterable<String>): Collection<String>
+            {static} +findAllPalindromesInString(Iterable<String>, String): Collection<String>
         }
 
     }
