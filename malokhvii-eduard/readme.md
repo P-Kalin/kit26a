@@ -18,7 +18,7 @@
 - [x] [Утилітарні класи. Обробка масивів і рядків](https://oop-khpi.github.io/#task_03)
 - [x] [Інтерактивні консольні програми для платформи Java SE](https://oop-khpi.github.io/#task_04)
 - [x] [Розробка власних контейнерів. Ітератори](https://github.com/oop-khpi/oop-khpi.github.io#task_05)
-- [ ] [Серіалізація/десеріалізація об'єктів. Бібліотека класів користувача](https://github.com/oop-khpi/oop-khpi.github.io#task_06)
+- [x] [Серіалізація/десеріалізація об'єктів. Бібліотека класів користувача](https://github.com/oop-khpi/oop-khpi.github.io#task_06)
 - [ ] [Об'єктно-орієнтована декомпозиція](https://github.com/oop-khpi/oop-khpi.github.io#task_07)
 - [ ] [Основи введення/виведення Java SE](https://github.com/oop-khpi/oop-khpi.github.io#task_08)
 - [ ] В розробці... :satisfied::grin::grin::grin:
