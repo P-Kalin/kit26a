@@ -5,6 +5,8 @@
         class ShellSettings {
             {static} -serialVersionUID: long
             {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -MAX_COMMAND_HISTORY_SIZE: int
+            {static} -MAX_CHARACTER_SIZE: int
             -commandCharacter: String
             -commandHistorySize: int
             -defaultLocale: String

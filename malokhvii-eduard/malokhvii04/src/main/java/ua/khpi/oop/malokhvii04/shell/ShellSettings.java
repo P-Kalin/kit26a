@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
  * оболонки.
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
+ * @version 1.0.1
  */
 public final class ShellSettings implements Serializable {
 
@@ -34,6 +34,20 @@ public final class ShellSettings implements Serializable {
      */
     private static final String RESOURCE_BUNDLE_NAME = "shell."
             + "ShellSettingsBundle";
+
+    /**
+     * Максимально допустимий розмір історії команд.
+     *
+     * @since 1.0.1
+     */
+    private static final int MAX_COMMAND_HISTORY_SIZE = 99;
+
+    /**
+     * Максимально допустима довжина рядків для виділення відступів та команд.
+     *
+     * @since 1.0.1
+     */
+    private static final int MAX_CHARACTER_SIZE = 5;
 
     /**
      * Призначений, для отримання об'єкту налаштувань з параметрами за
@@ -75,20 +89,11 @@ public final class ShellSettings implements Serializable {
      */
     public static ShellSettings load(final String filePath)
             throws IOException, ClassNotFoundException {
-        FileInputStream fileInputStream = null;
-        ObjectInputStream objectInputStream = null;
-        try {
-            fileInputStream = new FileInputStream(filePath);
-            objectInputStream = new ObjectInputStream(fileInputStream);
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(
+                new FileInputStream(filePath))) {
             return (ShellSettings) objectInputStream.readObject();
-        } finally {
-            if (objectInputStream != null) {
-                try {
-                    objectInputStream.close();
-                } catch (final IOException e) {
-
-                }
-            }
+        } catch (final Exception exception) {
+            throw exception;
         }
     }
 
@@ -106,20 +111,11 @@ public final class ShellSettings implements Serializable {
      */
     public static void save(final ShellSettings shellSettings,
             final String filePath) throws IOException {
-        FileOutputStream fileOutputStream = null;
-        ObjectOutputStream objectOutputStream = null;
-        try {
-            fileOutputStream = new FileOutputStream(filePath);
-            objectOutputStream = new ObjectOutputStream(fileOutputStream);
+        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(
+                new FileOutputStream(filePath))) {
             objectOutputStream.writeObject(shellSettings);
-        } finally {
-            if (objectOutputStream != null) {
-                try {
-                    objectOutputStream.close();
-                } catch (final IOException e) {
-
-                }
-            }
+        } catch (final Exception exception) {
+            throw exception;
         }
     }
 
@@ -197,10 +193,19 @@ public final class ShellSettings implements Serializable {
      *
      * @param commandCharacter
      *            новий символ виділення команд
+     * @throws IllegalArgumentException
+     *             розмір рядку для виділення команд не відповідає допустимому
+     *             розміру
      * @since 1.0.0
      */
-    public void setCommandCharacter(final String commandCharacter) {
-        this.commandCharacter = commandCharacter;
+    public void setCommandCharacter(final String commandCharacter)
+            throws IllegalArgumentException {
+        if (!commandCharacter.isEmpty() && commandCharacter
+                .length() <= ShellSettings.MAX_CHARACTER_SIZE) {
+            this.commandCharacter = commandCharacter;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     /**
@@ -210,10 +215,18 @@ public final class ShellSettings implements Serializable {
      * @param commandHistorySize
      *            новий допустимий розмір історії команд в інтерактивній
      *            оболонці
+     * @throws IllegalArgumentException
+     *             розмір історії команд не відповідає допустимому значенню
      * @since 1.0.0
      */
-    public void setCommandHistorySize(final int commandHistorySize) {
-        this.commandHistorySize = commandHistorySize;
+    public void setCommandHistorySize(final int commandHistorySize)
+            throws IllegalArgumentException {
+        if (commandHistorySize > 0
+                && commandHistorySize <= ShellSettings.MAX_COMMAND_HISTORY_SIZE) {
+            this.commandHistorySize = commandHistorySize;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     /**
@@ -232,9 +245,18 @@ public final class ShellSettings implements Serializable {
      *
      * @param tabCharacter
      *            новий символ табуляції
+     * @throws IllegalArgumentException
+     *             розмір рядку для текстових відступів не відповідає
+     *             допустимому розміру
      * @since 1.0.0
      */
-    public void setTabCharacter(final String tabCharacter) {
-        this.tabCharacter = tabCharacter;
+    public void setTabCharacter(final String tabCharacter)
+            throws IllegalArgumentException {
+        if (!tabCharacter.isEmpty()
+                && tabCharacter.length() <= ShellSettings.MAX_CHARACTER_SIZE) {
+            this.tabCharacter = tabCharacter;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 }

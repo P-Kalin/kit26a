@@ -1,0 +1,12 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii06 {
+
+        class Application {
+            -Application()
+            {static} +main(String[]): void
+        }
+
+    }
+
+@enduml

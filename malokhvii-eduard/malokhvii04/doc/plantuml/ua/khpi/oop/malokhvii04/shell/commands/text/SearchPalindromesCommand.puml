@@ -1,0 +1,18 @@
+@startuml
+
+    class SearchPalindromesCommand {
+        {static} -description: String
+        {static} -AMOUNT_OF_PALINDROMES_IN_SINGLE_LINE: int
+        {static} -keys: List<String>
+        {static} -RESOURCE_BUNDLE_NAME: String
+        {static} -resourceBundle: ResourceBundle
+        +SearchPalindromesCommand()
+        {static} -printPalindromes(Collection<String>): void
+        {static} #updateResourceBundle(): void
+        +execute(): void
+        +getDescription(): String
+        +getKeys(): List<String>
+        +update(Observable, Object): void
+    }
+
+@enduml

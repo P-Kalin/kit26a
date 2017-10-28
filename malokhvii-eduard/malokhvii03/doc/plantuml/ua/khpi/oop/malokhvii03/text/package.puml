@@ -3,7 +3,7 @@
     namespace ua.khpi.oop.malokhvii03.text {
 
         class PolynomialHash {
-            {static} -MAXIMUM_HASHABLE_CHAR_SEQUENCE_SIZE: int
+            {static} -DEFAULT_HASHABLE_CHAR_SEQUENCE_SIZE: int
             {static} -POLYNOMIAL_BASE: int
             {static} -polynomials: long[]
             {static} +ZERO_HASH: long
@@ -45,6 +45,10 @@
             {static} +findAllAnanyms(Iterable<CharSequence>, String): Collection<Ananym>
             {static} +findAllAnanymsInString(Iterable<String>): Collection<Ananym>
             {static} +findAllAnanymsInString(Iterable<String>, String): Collection<Ananym>
+            {static} +findAllPalindromes(Iterable<CharSequence>): Collection<CharSequence>
+            {static} +findAllPalindromes(Iterable<CharSequence>, String): Collection<CharSequence>
+            {static} +findAllPalindromesInString(Iterable<String>): Collection<String>
+            {static} +findAllPalindromesInString(Iterable<String>, String): Collection<String>
         }
 
     }

@@ -8,7 +8,7 @@
         {static} -RESOURCE_BUNDLE_NAME: String
         {static} -resourceBundle: ResourceBundle
         +SearchAnanymsCommand()
-        {static} -printAnanymsCollection(Collection<Ananym>): void
+        {static} -printAnanyms(Collection<Ananym>): void
         {static} #updateResourceBundle(): void
         +execute(): void
         +getDescription(): String

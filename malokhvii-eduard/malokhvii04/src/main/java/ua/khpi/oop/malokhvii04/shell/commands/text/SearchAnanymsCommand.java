@@ -85,8 +85,7 @@ public final class SearchAnanymsCommand extends OutputTextCommand {
      * @param ananyms
      *            колекція ананимів (анаграм)
      */
-    private static void printAnanymsCollection(
-            final Collection<Ananym> ananyms) {
+    private static void printAnanyms(final Collection<Ananym> ananyms) {
         System.out.print(SearchAnanymsCommand.resourceBundle
                 .getString("search-result-message"));
 
@@ -139,7 +138,7 @@ public final class SearchAnanymsCommand extends OutputTextCommand {
                     textLines, Anagrams.DEFAUL_WORD_PATTERN);
 
             if (!ananyms.isEmpty()) {
-                SearchAnanymsCommand.printAnanymsCollection(ananyms);
+                SearchAnanymsCommand.printAnanyms(ananyms);
             } else {
                 System.out.print(SearchAnanymsCommand.resourceBundle
                         .getString("ananyms-not-found-message"));
