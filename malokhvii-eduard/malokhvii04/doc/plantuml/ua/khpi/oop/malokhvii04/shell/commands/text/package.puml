@@ -42,6 +42,21 @@
             +update(Observable, Object): void
         }
 
+        class SearchPalindromesCommand {
+            {static} -description: String
+            {static} -AMOUNT_OF_PALINDROMES_IN_SINGLE_LINE: int
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +SearchPalindromesCommand()
+            {static} -printPalindromes(Collection<String>): void
+            {static} #updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
+
         class SearchAnanymsCommand {
             {static} -ANANYMS_TABLE_FOOTER: String
             {static} -ANANYMS_TABLE_HEADER: String
@@ -50,7 +65,7 @@
             {static} -RESOURCE_BUNDLE_NAME: String
             {static} -resourceBundle: ResourceBundle
             +SearchAnanymsCommand()
-            {static} -printAnanymsCollection(Collection<Ananym>): void
+            {static} -printAnanyms(Collection<Ananym>): void
             {static} #updateResourceBundle(): void
             +execute(): void
             +getDescription(): String
@@ -106,6 +121,8 @@
         ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand <|-- SerializeTextCommand
 
         ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand <|-- SearchTextCommand
+
+        OutputTextCommand <|-- SearchPalindromesCommand
 
         OutputTextCommand <|-- SearchAnanymsCommand
 

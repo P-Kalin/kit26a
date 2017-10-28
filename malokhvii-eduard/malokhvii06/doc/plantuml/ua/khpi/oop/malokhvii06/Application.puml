@@ -1,0 +1,8 @@
+@startuml
+
+    class Application {
+        -Application()
+        {static} +main(String[]): void
+    }
+
+@enduml
