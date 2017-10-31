@@ -31,7 +31,7 @@ public class NewContainerOfStrings implements Iterable<String>, Serializable {
 	private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
 	private static final int DEFAULT_CAPACITY = 10;
 	private static final String[] EMPTY_ELEMENT_DATA = {};
-	private int size;
+	private static int size;
 	transient String[] elementData;
 
 	/**
@@ -39,6 +39,22 @@ public class NewContainerOfStrings implements Iterable<String>, Serializable {
 	 */
 	public NewContainerOfStrings() {
 		this.elementData = EMPTY_ELEMENT_DATA;
+	}
+
+	public NewContainerOfStrings(NewContainerOfStrings collection) {
+		this();
+		this.addAll(collection);
+	}
+
+	public boolean addAll(final NewContainerOfStrings collection) {
+		final Object[] collectionData = collection.toArray();
+		final int amountOfNewElements = collectionData.length;
+
+		this.ensureCapacity(size + amountOfNewElements);
+		System.arraycopy(collectionData, 0, this.elementData, size, amountOfNewElements);
+		size += amountOfNewElements;
+
+		return amountOfNewElements != 0;
 	}
 
 	/**
@@ -157,8 +173,22 @@ public class NewContainerOfStrings implements Iterable<String>, Serializable {
 	public String toString() {
 		String containerContent = new String();
 		for (String string : elementData)
-			containerContent += string;
+			containerContent += string + " ";
 		return containerContent;
+	}
+
+	/**
+	 * Method gor getting index by the string
+	 * 
+	 * @param element
+	 *            is the string
+	 * @return index
+	 */
+	public int getIndex(String element) {
+		for (int index = 0; index < size; index++)
+			if (element.equals(elementData[index]))
+				return index;
+		return 0;
 	}
 
 	/**
@@ -172,6 +202,19 @@ public class NewContainerOfStrings implements Iterable<String>, Serializable {
 			ensureCapacity(size + 1);
 		elementData[size] = newElement;
 		size++;
+	}
+
+	/**
+	 * Method for setting data to the element
+	 * 
+	 */
+	public String set(int index, String element) {
+		checkIndex(index);
+
+		String oldElement = elementData[index];
+		elementData[index] = element;
+
+		return oldElement;
 	}
 
 	/**

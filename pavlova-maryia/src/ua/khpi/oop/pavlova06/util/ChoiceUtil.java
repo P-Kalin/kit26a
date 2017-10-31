@@ -64,16 +64,16 @@ public class ChoiceUtil {
 	 */
 	public static int listOfSorts(int command) {
 		System.out.println("Перечень сортировок на выбор:");
-		System.out.println("1. Сортировка Шейкера.");
-		System.out.println("2. Сортировка Шелла.");
-		System.out.println("3. Сортировка выборкой.");
-		System.out.println("4. Классическая пузырьковая сортировка.");
-		System.out.println("5. Модифицированная пузырьковая сортировка.");
-		System.out.println("6. Сортировка простыми включениями.");
+		System.out.println("1. Классическая сортировка пузырьком.");
+		System.out.println("2. Модифицировання сортировка пузырьком.");
+		System.out.println("3. Обменная сортировка простыми включениями.");
+		System.out.println("4. Пирамидальная сортировка.");
+		System.out.println("5. Сортировка вставками.");
+		System.out.println("6. Карманная сортировка.");
 		System.out.println("7. Сортировка Хоара.");
-		System.out.println("8. Сортировка вырожденным распределением.");
-		System.out.println("9. Сортировка прямым слиянием.");
-		System.out.println("10. Карманная сортировка.");
+		System.out.println("8. Сортировка Шейкера.");
+		System.out.println("9. Сортировка Шелла. ");
+		System.out.println("10. Сортировка простыми включениями.");
 
 		try {
 			command = Integer.valueOf(scanner.nextInt());
