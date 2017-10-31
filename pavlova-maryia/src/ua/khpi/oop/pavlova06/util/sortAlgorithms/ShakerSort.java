@@ -1,65 +1,42 @@
 package ua.khpi.oop.pavlova06.util.sortAlgorithms;
 
-import ua.khpi.oop.malokhvii05.util.Array;
 import ua.khpi.oop.pavlova06.NewContainerOfStrings;
 
-public class ShakerSort {
+/**
+ * Class <b>ShakerSort</b> contains the realization of Shaker sorting algorithm.
+ * is a variation of bubble sort that is both a stable sorting algorithm and a
+ * comparison sort. The algorithm differs from a bubble sort in that it sorts in
+ * both directions on each pass through the list. This sorting algorithm is only
+ * marginally more difficult to implement than a bubble sort, and solves the
+ * problem of turtles in bubble sorts. It provides only marginal performance
+ * improvements, and does not improve asymptotic performance; like the bubble
+ * sort, it is not of practical interest (insertion sort is preferred for simple
+ * sorts), though it finds some use in education.
+ * 
+ * @author pavlova-mv
+ * 
+ *
+ */
+public class ShakerSort extends ForSort implements SortAbstract {
 
-	public static Array<String> sort(Array<String> sortableArray) {
-		int left = 1;
-		int right = sortableArray.size() - 1;
-
-		while (left <= right) {
-			for (int i = right; i >= left; i--)
-				if (sortableArray.get(i - 1).length() > sortableArray.get(i).length())
-					changePlacesArray(sortableArray, i);
-
-			left++;
-			for (int i = left; i <= right; i++)
-				if (sortableArray.get(i - 1).length() > sortableArray.get(i).length())
-					changePlacesArray(sortableArray, i);
-
+	@Override
+	public void sort(NewContainerOfStrings array, boolean parameter) {
+		int left = 0;
+		int right = array.size() - 1;
+		int flag = -1;
+		while ((left < right) && (flag > 0)) {
+			flag = 0;
+			for (int i = left; i < right; i++) {
+				if (comparator(array, i, i + 1, parameter))
+					flag = 1;
+			}
 			right--;
-
-		}
-		return sortableArray;
-	}
-
-	public static NewContainerOfStrings sort(NewContainerOfStrings sortableArray) {
-		int left = 1;
-		int right = sortableArray.size() - 1;
-
-		while (left <= right) {
-			for (int i = right; i >= left; i--)
-				if (sortableArray.get(i - 1).length() > sortableArray.get(i).length())
-					changePlacesContainer(sortableArray, i);
-
+			for (int i = right; i > left; i--) {
+				if (comparator(array, i - 1, i, parameter))
+					flag = 1;
+			}
 			left++;
-			for (int i = left; i <= right; i++)
-				if (sortableArray.get(i - 1).length() > sortableArray.get(i).length())
-					changePlacesContainer(sortableArray, i);
-
-			right--;
-
 		}
-		return sortableArray;
 	}
 
-	private static void changePlacesArray(Array<String> sortableArray, int position) {
-		StringBuilder temp = new StringBuilder();
-		temp.append(sortableArray.get(position - 1));
-		sortableArray.remove(position - 1);
-		sortableArray.add(position - 1, sortableArray.get(position));
-		sortableArray.remove(position);
-		sortableArray.add(position, temp.toString());
-	}
-
-	private static void changePlacesContainer(NewContainerOfStrings sortableArray, int position) {
-		StringBuilder temp = new StringBuilder();
-		temp.append(sortableArray.get(position - 1));
-		sortableArray.remove(position - 1);
-		sortableArray.add(position - 1, sortableArray.get(position));
-		sortableArray.remove(position);
-		sortableArray.add(position, temp.toString());
-	}
 }
