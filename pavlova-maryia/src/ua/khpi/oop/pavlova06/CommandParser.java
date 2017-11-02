@@ -74,7 +74,7 @@ public class CommandParser {
 				demArray.add(0, "forest");
 				System.out.println("added");
 			} else {
-				demArray.add(InputUtil.inputInteger(value), InputUtil.inputString());
+				demArray.add(InputUtil.inputInteger(), InputUtil.inputString());
 				System.out.println("added!");
 			}
 			break;
@@ -87,7 +87,7 @@ public class CommandParser {
 				demArray.remove(0);
 				System.out.println("removed!");
 			} else {
-				demArray.remove(InputUtil.inputInteger(value));
+				demArray.remove(InputUtil.inputInteger());
 				System.out.println("removed!");
 			}
 			break;
@@ -137,7 +137,7 @@ public class CommandParser {
 				element = new String(demArray.get(0));
 
 			} else {
-				element = new String(demArray.get(InputUtil.inputInteger(value)));
+				element = new String(demArray.get(InputUtil.inputInteger()));
 
 			}
 			System.out.println("Got element:" + element);
@@ -190,7 +190,7 @@ public class CommandParser {
 			} else {
 				String string = new String();
 				string = InputUtil.inputString();
-				value = InputUtil.inputInteger(value);
+				value = InputUtil.inputInteger();
 				demContainer.add(value, string);
 				System.out.println("added!");
 			}
@@ -205,7 +205,7 @@ public class CommandParser {
 				demContainer.remove(0);
 				System.out.println("removed!");
 			} else {
-				demContainer.remove(InputUtil.inputInteger(value));
+				demContainer.remove(InputUtil.inputInteger());
 				System.out.println("removed!");
 			}
 			break;
@@ -255,7 +255,7 @@ public class CommandParser {
 			if (choiceInParser == 1)
 				element = new String(demContainer.get(0));
 			else {
-				element = new String(demContainer.get(InputUtil.inputInteger(value)));
+				element = new String(demContainer.get(InputUtil.inputInteger()));
 			}
 			System.out.println(":" + element);
 			break;
