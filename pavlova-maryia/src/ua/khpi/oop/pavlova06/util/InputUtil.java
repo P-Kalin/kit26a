@@ -38,7 +38,8 @@ public class InputUtil {
 	 * @param string
 	 * @return input value
 	 */
-	public static String inputString(String string) {
+	public static String inputString() {
+		String string = null;
 		try {
 			string = String.valueOf(scanner.nextLine());
 			scanner.nextLine();

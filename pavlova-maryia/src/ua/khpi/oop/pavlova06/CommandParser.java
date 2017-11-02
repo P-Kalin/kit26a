@@ -59,8 +59,8 @@ public class CommandParser {
 				System.out.println("added!");
 				break;
 			} else {
-				String string = new String();
-				demArray.add(InputUtil.inputString(string));
+
+				demArray.add(InputUtil.inputString());
 				System.out.println("added!");
 				break;
 			}
@@ -74,8 +74,7 @@ public class CommandParser {
 				demArray.add(0, "forest");
 				System.out.println("added");
 			} else {
-				String string = new String();
-				demArray.add(InputUtil.inputInteger(value), InputUtil.inputString(string));
+				demArray.add(InputUtil.inputInteger(value), InputUtil.inputString());
 				System.out.println("added!");
 			}
 			break;
@@ -101,8 +100,8 @@ public class CommandParser {
 			if (choiceInParser == 1)
 				ifRemoved = demArray.remove("mountain");
 			else {
-				String string = new String();
-				ifRemoved = demArray.remove(InputUtil.inputString(string));
+
+				ifRemoved = demArray.remove(InputUtil.inputString());
 			}
 			System.out.println("Элемент удален: " + ifRemoved);
 			break;
@@ -116,8 +115,8 @@ public class CommandParser {
 			if (choiceInParser == 1)
 				ifExist = demArray.contains("rain");
 			else {
-				String string = new String();
-				ifExist = demArray.contains(InputUtil.inputString(string));
+
+				ifExist = demArray.contains(InputUtil.inputString());
 			}
 			System.out.println("Element exist" + ifExist);
 			break;
@@ -175,7 +174,7 @@ public class CommandParser {
 				System.out.println("added!");
 			} else {
 				String string = new String();
-				string = InputUtil.inputString(string);
+				string = InputUtil.inputString();
 				demContainer.add(string);
 				System.out.println("added!");
 			}
@@ -190,7 +189,7 @@ public class CommandParser {
 				System.out.println("added!");
 			} else {
 				String string = new String();
-				string = InputUtil.inputString(string);
+				string = InputUtil.inputString();
 				value = InputUtil.inputInteger(value);
 				demContainer.add(value, string);
 				System.out.println("added!");
@@ -219,8 +218,8 @@ public class CommandParser {
 			if (choiceInParser == 1)
 				ifRemoved = demContainer.remove("rain");
 			else {
-				String string = new String();
-				ifRemoved = demContainer.remove(InputUtil.inputString(string));
+
+				ifRemoved = demContainer.remove(InputUtil.inputString());
 			}
 			System.out.println("Элемент удален: " + ifRemoved);
 			break;
@@ -234,8 +233,8 @@ public class CommandParser {
 			if (choiceInParser == 1)
 				ifExist = demContainer.contains("rain");
 			else {
-				String string = new String();
-				ifExist = demContainer.contains(InputUtil.inputString(string));
+
+				ifExist = demContainer.contains(InputUtil.inputString());
 			}
 			System.out.println("Element exists" + ifExist);
 			break;
