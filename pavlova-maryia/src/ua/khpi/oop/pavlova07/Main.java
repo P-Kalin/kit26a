@@ -12,7 +12,7 @@ public class Main {
 	public static void main(final String[] args) throws IOException {
 		int command = 0;
 		NewContainerOfStrings hotelGuests = new NewContainerOfStrings();
-		while (command < 4) {
+		while (command < 14) {
 			command = ChoiceUtil.listOfCommands(command);
 			CommandParser.doCommand(command, hotelGuests);
 		}

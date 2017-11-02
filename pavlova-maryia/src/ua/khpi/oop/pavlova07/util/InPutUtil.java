@@ -2,6 +2,7 @@ package ua.khpi.oop.pavlova07.util;
 
 import java.util.Scanner;
 
+import ua.khpi.oop.pavlova06.NewContainerOfStrings;
 import ua.khpi.oop.pavlova06.util.InputUtil;
 import ua.khpi.oop.pavlova07.HotelGuest;
 
@@ -34,5 +35,14 @@ public class InPutUtil {
 				dateOfEviction, roomNum, roomClass, roomPlaces, reasonOfArrival);
 
 		return newEl;
+	}
+
+	public static HotelGuest askToModifyHotelGuest(int index, NewContainerOfStrings containerOfStrings) {
+		System.out.println("Введите индекс элемента для изменения и новое значение.");
+		index = InputUtil.inputInteger();
+		if (index >= containerOfStrings.size())
+			index = 0;
+		HotelGuest toModify = ModifyUtil.getObject(index, containerOfStrings);
+		return toModify;
 	}
 }

@@ -1,5 +1,9 @@
 package ua.khpi.oop.pavlova07;
 
+import java.util.ArrayList;
+
+import ua.khpi.oop.pavlova03.TextUtil;
+
 /**
  * 
  * @author pavlova-mv
@@ -19,6 +23,9 @@ public class HotelGuest {
 	private static final String DEFAULT_ROOM_PLACES_NUM = "1";
 
 	private static final String DEFAULT_REASON_OF_ARRIVAL = "Турист";
+
+	private static final String LINES_SEPARATOR = "\n";
+	private static final String DATA_SEPARATOR = ":";
 
 	private String guestNameSurname;
 	private String guestDateOfBirth;
@@ -72,7 +79,7 @@ public class HotelGuest {
 	 *            the guestNameSurname to set
 	 */
 	public void setGuestNameSurname(String guestNameSurname) {
-		this.guestNameSurname = guestNameSurname;
+		this.guestNameSurname = new String(guestNameSurname);
 	}
 
 	/**
@@ -213,11 +220,29 @@ public class HotelGuest {
 	public String toString() {
 		StringBuilder temp = new StringBuilder();
 		temp.append(this.guestNameSurname + "\n" + this.guestDateOfBirth + "\n" + this.guestMotherland + "\n"
-				+ this.guestPassport + "\n\nДата заселения в номер: " + this.dateOfArrival + "\nДата выселения: "
-				+ this.dateOfEviction + "\n\nИнформация о номере" + "\nНомер: " + this.roomNum + "\nКласс: "
-				+ this.roomClass + "\nКоличество мест: " + this.roomPlaces + "\n\nПричина приезда: "
-				+ this.reasonOfArrival + "\n\n\n");
+				+ this.guestPassport + "\n\tДата заселения в номер: " + this.dateOfArrival + "\n\tДата выселения: "
+				+ this.dateOfEviction + "\n\tНомер: " + this.roomNum + "\n\tКласс: " + this.roomClass
+				+ "\n\tКоличество мест: " + this.roomPlaces + "\n\tПричина приезда: " + this.reasonOfArrival
+				+ "\n\n\n");
 		String info = new String(temp);
 		return info;
+	}
+
+	public static HotelGuest toObject(String info) {
+		ArrayList<String> inLines = (ArrayList<String>) TextUtil.extractElementsFromText(info, LINES_SEPARATOR);
+		String[] inArray = new String[10];
+		int i;
+
+		for (i = 0; i < 4; i++)
+			inArray[i] = inLines.get(i);
+
+		for (i = 4; i < 10; i++) {
+			ArrayList<String> twoHalves = (ArrayList<String>) TextUtil.extractElementsFromText(inLines.get(i),
+					DATA_SEPARATOR);
+			inArray[i] = twoHalves.get(1);
+		}
+		HotelGuest newObject = new HotelGuest(inArray[0], inArray[1], inArray[2], inArray[3], inArray[4], inArray[5],
+				inArray[6], inArray[7], inArray[8], inArray[9]);
+		return newObject;
 	}
 }
