@@ -21,7 +21,8 @@ public class InputUtil {
 	 * @param value
 	 * @return input value
 	 */
-	public static int inputInteger(int value) {
+	public static int inputInteger() {
+		int value = 0;
 		try {
 			value = Integer.valueOf(scanner.nextInt());
 			scanner.nextLine();
@@ -56,7 +57,8 @@ public class InputUtil {
 	 * @param value
 	 * @return input value
 	 */
-	public static float inputFloat(float value) {
+	public static float inputFloat() {
+		float value = 0;
 		try {
 			value = Float.valueOf(scanner.nextFloat());
 			scanner.nextLine();
@@ -73,7 +75,8 @@ public class InputUtil {
 	 * @param value
 	 * @return input value
 	 */
-	public static double inputDouble(double value) {
+	public static double inputDouble() {
+		double value = 0;
 		try {
 			value = Double.valueOf(scanner.nextDouble());
 			scanner.nextLine();
@@ -90,7 +93,8 @@ public class InputUtil {
 	 * @param value
 	 * @return
 	 */
-	public static long inputLong(long value) {
+	public static long inputLong() {
+		long value = 0;
 		try {
 			value = Long.valueOf(scanner.nextLong());
 			scanner.nextLine();
@@ -107,7 +111,8 @@ public class InputUtil {
 	 * @param value
 	 * @return input value
 	 */
-	public static short inputShort(short value) {
+	public static short inputShort() {
+		short value = 0;
 		try {
 			value = Short.valueOf(scanner.nextShort());
 			scanner.nextLine();
@@ -124,7 +129,8 @@ public class InputUtil {
 	 * @param value
 	 * @return input value
 	 */
-	public static byte inputByte(byte value) {
+	public static byte inputByte() {
+		byte value = 0;
 		try {
 			value = Byte.valueOf(scanner.nextByte());
 			scanner.nextLine();
