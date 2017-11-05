@@ -5,7 +5,65 @@ import java.util.ArrayList;
 import ua.khpi.oop.pavlova03.TextUtil;
 
 /**
+ * Class <b>HotelGuest</b> is used for creating domain-objects by the specific
+ * variant. In this class information about one guest in a hotel is stored.
  * 
+ * @param DEFAULT_GUEST_NAME_SURNAME
+ *            is a value for name and surname of the guest in a default case.
+ * @param DEFAULT_GUEST_BIRTH
+ *            is a value for the date of birth of the guest in a default case.
+ * @param DEFAULT_GUEST_COUNTRY_CITY
+ *            is a value for the counrty and the city where the guestis from in
+ *            a default case.
+ * @param DEFAULT_GUEST_PASSPORT_NUM
+ *            is a value of the guest's passport number in a default case.
+ * @param DEFAULT_DATE_OF_ARRIVAL
+ *            is a value for the guest's date of arrival in a default case.
+ * @param DEFAULT_DATE_OF_EVICTION
+ *            is a value for the guest's date of eviction in a default case.
+ * @param DEFAULT_ROOM_NUM
+ *            is a value for the guest's room number in a default case.
+ * 
+ * @param DEFAULT_ROOM_CLASS
+ *            is a type of room
+ * @param DEFAULT_ROOM_PLACES_NUM
+ *            is a value of places in the specific room
+ * @param DEFAULT_REASON_OF_ARRIVAL
+ *            is a line where the reason of coming to the hotel is described
+ * @param LINES_SEPARATOR
+ *            is a separator for getting serialized data in lines
+ * @param DATA_SEPARATOR
+ *            is a separator for getting exactly useful data from a line (in one
+ *            line the description of the data and data itself are written both)
+ * @param guestNameSurname
+ *            is data about guest's name and surname, that is written in the
+ *            object
+ * @param guestDateOfBirth
+ *            is data about guest's date of birth, that is written in the object
+ * @param guestMotherland
+ *            is data about country and city where the guest is from, that is
+ *            written ia the object
+ * @param guestPassport
+ *            is data about guest's passport number, that is wrritten in the
+ *            object
+ * @param dateOfArrival
+ *            is data about the date when the guest arrived to the hotel, that
+ *            is wriiten in the object
+ * @param dateOfEviction
+ *            is data about the date when the guest left the hotel, that is
+ *            wriiten in the object
+ * @param roomNum
+ *            is data about the number of a room, where the guest lived, that is
+ *            written in the object
+ * @param roomClass
+ *            is data about the state of the room where the guest lived, that is
+ *            written in the object
+ * @param roomPlaces
+ *            is data about number of places in the room the guest lived, that
+ *            is written in the object
+ * @param reasonOfArrival
+ *            is data with description of the reason of coming to the hotel,
+ *            that is written in the object
  * @author pavlova-mv
  *
  */
@@ -217,6 +275,11 @@ public class HotelGuest {
 		this.reasonOfArrival = reasonOfArrival;
 	}
 
+	/**
+	 * Method <b>toString</b> creates a line from an object
+	 * 
+	 * @return string with full data of an object
+	 */
 	public String toString() {
 		StringBuilder temp = new StringBuilder();
 		temp.append(this.guestNameSurname + "\n" + this.guestDateOfBirth + "\n" + this.guestMotherland + "\n"
@@ -228,6 +291,15 @@ public class HotelGuest {
 		return info;
 	}
 
+	/**
+	 * Method <b>toObject</b> creates an object from a line
+	 * 
+	 * @param info
+	 *            is a line with full information about an object
+	 * @return new object
+	 * 
+	 * @see TextUtil
+	 */
 	public static HotelGuest toObject(String info) {
 		ArrayList<String> inLines = (ArrayList<String>) TextUtil.extractElementsFromText(info, LINES_SEPARATOR);
 		String[] inArray = new String[10];

@@ -7,13 +7,35 @@ import ua.khpi.oop.pavlova06.util.InputUtil;
 import ua.khpi.oop.pavlova07.util.InPutUtil;
 import ua.khpi.oop.pavlova07.util.ModifyUtil;
 
+/**
+ * Class <b>CommandParser</b> contains methods for specific manipulations with a
+ * container and its elements by customer's choice. In this class
+ * <i>NewContainerOfStrings</i> is used as a container and converted in strings
+ * objects of <i>HotelGuest</i> are used as its elements. </br>
+ * Command is set in <b><i>ChoiceUtil</i></b>.
+ * 
+ * @author pavlova-mv
+ * @see NewContainerOfStrings
+ * @see HotelGuest
+ * @see ChoiceUtil
+ */
 public class CommandParser {
 	private static int index;
 
 	public static Scanner scanner = new Scanner(System.in);
 
+	/**
+	 * Method <b>doCommand</b> does specific manipulations with a container and its
+	 * elements by the code of each command.
+	 * 
+	 * @param command
+	 *            code of each command
+	 * @param containerOfStrings
+	 *            container for manipulations
+	 */
 	public static void doCommand(int command, NewContainerOfStrings containerOfStrings) {
 		switch (command) {
+
 		case 1:
 			HotelGuest newGuest = InPutUtil.inputGuest();
 			containerOfStrings.add(newGuest.toString());

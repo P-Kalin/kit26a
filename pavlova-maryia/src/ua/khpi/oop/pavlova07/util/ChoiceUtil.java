@@ -3,9 +3,29 @@ package ua.khpi.oop.pavlova07.util;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Class <b>ChoiceUtil</b> contains methods for dialogue window with a customer.
+ * It helps to get customer's choice by the index, and the this choice is used
+ * in <b><i>CommandParser</b></i> to do one of many proposed commands. Number is
+ * choosed using the <b><i>InPutUtil</i></b>
+ * 
+ * @see InPutUtil
+ * @see CommandParser
+ * 
+ * @author pavlova-mv
+ *
+ */
 public class ChoiceUtil {
 	public static Scanner scanner = new Scanner(System.in);
 
+	/**
+	 * Method <b>listOfCommands</b> gives to customer a list of possible actions
+	 * with a container.
+	 * 
+	 * @param command
+	 *            is an index of a command
+	 * @return chosen command
+	 */
 	public static int listOfCommands(int command) {
 		System.out.println("Выберите команду: ");
 		System.out.println("1. Добавление в картотеку нового гостя.");
