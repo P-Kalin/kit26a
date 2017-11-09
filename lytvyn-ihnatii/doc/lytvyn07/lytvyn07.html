@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<head>
+<title>readme</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<h1>Лабораторна робота №7</h1>
+<h1>Об’єктно-орієнтована декомпозиція</h1>
+<h2>Мета роботи:</h2>
+<ul>
+<li>Використання об’єктно-орієнтованого підходу для розробки об’єкта предметної (прикладної) галузі.</li>
+</ul>
+<h3>1. Вимоги до лабораторної роботи</h3>
+<h4>1.1 Розробник</h4>
+<p><em>студент Литвин Ігнатій Ігоревич; КІТ-26А; Варіант №7</em></p>
+<h4>1.2 Загальне завдання</h4>
+<ol>
+<li>Використовуючи об’єктно-орієнтований аналіз, реалізувати класи для представлення сутностей відповідно прикладної задачі - domain-об’єктів.</li>
+<li>Забезпечити та продемонструвати коректне введення та відображення кирилиці.</li>
+<li>Продемонструвати можливість управління масивом domain-об’єктів.</li>
+</ol>
+<h4>1.3 Прикладна задача</h4>
+<p>Бюро знайомств. Запис про клієнта: стать; реєстраційний номер; дата реєстрації; відомості про себе (довільний набір властивостей: ім’я, зріст, колір очей, дата народження, хобі тощо); вимоги до партнера (довільний набір властивостей).</p>
+<h3>2. Опис програми</h3>
+<p>Програма реалізована у вигляді інтерактивного консольного вікна з діалоговим режимом роботи з користувачем.</p>
+<p>Основне призначення: демонстрація управління масивом domain-об’єктів. Реалізовано додавання та генерування нових об’єктів, видалення, показ інформації.</p>
+<h4>2.1 Ієрархія та структура класів</h4>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="https://camo.githubusercontent.com/c816898ac776d0f79cd457b333b9375ac3826ed3/68747470733a2f2f73382e686f7374696e676b617274696e6f6b2e636f6d2f75706c6f6164732f696d616765732f323031372f31312f30303965386135613962366431653566353766373234633031373134646163372e706e67" target="_blank"><img src="https://camo.githubusercontent.com/c816898ac776d0f79cd457b333b9375ac3826ed3/68747470733a2f2f73382e686f7374696e676b617274696e6f6b2e636f6d2f75706c6f6164732f696d616765732f323031372f31312f30303965386135613962366431653566353766373234633031373134646163372e706e67" alt="" data-canonical-src="https://s8.hostingkartinok.com/uploads/images/2017/11/009e8a5a9b6d1e5f57f724c01714dac7.png" style="max-width:100%;"></a></td>
+</tr>
+<tr>
+<td align="center"><em>Рисунок 1 "Ієрархія та структура класів"</em></td>
+</tr></tbody></table>
+<h4>2.2 Важливі фрагменти програми</h4>
+<pre><code>
+/**
+ * Реалізує клієнта бюро знайомств.
+ * 
+ * @author student Lytvyn I.I. KIT-26A
+ */
+public class Client {
+
+	/**
+	 * Стать
+	 */
+	private String gender;
+
+	/**
+	 * Реєстраційний номер
+	 */
+	private int regNum;
+
+	/**
+	 * Дата реєстрації
+	 */
+	private String regDate;
+
+	/**
+	 * Ім'я
+	 */
+	private String name;
+
+	/**
+	 * Зріст
+	 */
+	private int height;
+
+	/**
+	 * Колір очей
+	 */
+	private String eyes;
+
+	/**
+	 * День народження
+	 */
+	private String birthday;
+
+	/**
+	 * Хобі
+	 */
+	private String[] hobby;
+
+	/**
+	 * Вимоги до партнера
+	 */
+	private String[] requirements;
+
+	/**
+	 * Конструктор за замовчуванням
+	 */
+	Client() {
+		gender = null;
+		regNum = 0;
+		regDate = null;
+		name = null;
+		height = 0;
+		eyes = null;
+		birthday = null;
+		hobby = null;
+		requirements = null;
+	}
+
+	/**
+	 * @return the birthday
+	 */
+	public String getBirthday() {
+		return birthday;
+	}
+
+	/**
+	 * @return the eyes
+	 */
+	public String getEyes() {
+		return eyes;
+	}
+
+	/**
+	 * @return the gender
+	 */
+	public String getGender() {
+		return gender;
+	}
+
+	/**
+	 * @return the height
+	 */
+	public int getHeight() {
+		return height;
+	}
+
+	/**
+	 * @return the hobbies
+	 */
+	public String[] getHobbies() {
+		return hobby;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @return the regDate
+	 */
+	public String getRegDate() {
+		return regDate;
+	}
+
+	/**
+	 * @return the regNum
+	 */
+	public int getRegNum() {
+		return regNum;
+	}
+
+	/**
+	 * @return the requirements
+	 */
+	public String[] getRequirements() {
+		return requirements;
+	}
+
+	/**
+	 * @param birthday
+	 *            the birthday to set
+	 */
+	public void setBirthday(String birthday) {
+		if (birthday == null || birthday.equals("")) {
+			throw new IllegalArgumentException(birthday);
+		}
+		this.birthday = birthday;
+	}
+
+	/**
+	 * @param eyes
+	 *            the eyes to set
+	 */
+	public void setEyes(String eyes) {
+		if (eyes == null || eyes.equals("")) {
+			throw new IllegalArgumentException(eyes);
+		}
+		this.eyes = eyes;
+	}
+
+	/**
+	 * @param gender
+	 *            the gender to set
+	 */
+	public void setGender(String gender) {
+		if (gender == null || gender.equals("")) {
+			throw new IllegalArgumentException(eyes);
+		}
+		this.gender = gender;
+	}
+
+	/**
+	 * @param height
+	 *            the height to set
+	 */
+	public void setHeight(int height) {
+		if (height &lt;= 0) {
+			throw new IllegalArgumentException("" + height);
+		}
+		this.height = height;
+	}
+
+	/**
+	 * @param hobby
+	 *            the hobbies to set
+	 */
+	public void setHobbies(String[] hobby) {
+		if (hobby.length == 0) {
+			throw new IllegalArgumentException(hobby.toString());
+		}
+		this.hobby = hobby;
+	}
+
+	/**
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(String name) {
+		if (name == null || name.equals("")) {
+			throw new IllegalArgumentException(name);
+		}
+		this.name = name;
+	}
+
+	/**
+	 * @param regDate
+	 *            the regDate to set
+	 */
+	public void setRegDate(String regDate) {
+		if (regDate == null || regDate.equals("")) {
+			throw new IllegalArgumentException(regDate);
+		}
+		this.regDate = regDate;
+	}
+
+	/**
+	 * @param regNum
+	 *            the regNum to set
+	 */
+	public void setRegNum(int regNum) {
+		if (regNum &lt;= 0) {
+			throw new IllegalArgumentException("" + regNum);
+		}
+		this.regNum = regNum;
+	}
+
+	/**
+	 * @param requirements
+	 *            the requirements to set
+	 */
+	public void setRequirements(String[] requirements) {
+		if (requirements.length == 0) {
+			throw new IllegalArgumentException(requirements.toString());
+		}
+		this.requirements = requirements;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+}
+
+</code></pre>
+<h3>3. РЕЗУЛЬТАТ РОБОТИ</h3>
+<p><strong>Для налагодження роботи програми було успішно проведено її тестування.</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">Скріншоти роботи програми</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="https://camo.githubusercontent.com/719e9112eb0386076a9555a15ae0379583ad639c/68747470733a2f2f73382e686f7374696e676b617274696e6f6b2e636f6d2f75706c6f6164732f696d616765732f323031372f31312f32636231646430323138363663303463376165376635633039373133626265612e706e67" target="_blank"><img src="https://camo.githubusercontent.com/719e9112eb0386076a9555a15ae0379583ad639c/68747470733a2f2f73382e686f7374696e676b617274696e6f6b2e636f6d2f75706c6f6164732f696d616765732f323031372f31312f32636231646430323138363663303463376165376635633039373133626265612e706e67" alt="" data-canonical-src="https://s8.hostingkartinok.com/uploads/images/2017/11/2cb1dd021866c04c7ae7f5c09713bbea.png" style="max-width:100%;"></a></td>
+</tr>
+<tr>
+<td align="center"><em>Рисунок 2 "Результати"</em></td>
+</tr>
+<tr>
+<td align="center"><a href="https://camo.githubusercontent.com/e1b40c07e0432162e549efb10f9f55eee38ada6a/68747470733a2f2f73382e686f7374696e676b617274696e6f6b2e636f6d2f75706c6f6164732f696d616765732f323031372f31312f34393237663135386534643932663835666330396163636262643962333138652e706e67" target="_blank"><img src="https://camo.githubusercontent.com/e1b40c07e0432162e549efb10f9f55eee38ada6a/68747470733a2f2f73382e686f7374696e676b617274696e6f6b2e636f6d2f75706c6f6164732f696d616765732f323031372f31312f34393237663135386534643932663835666330396163636262643962333138652e706e67" alt="" data-canonical-src="https://s8.hostingkartinok.com/uploads/images/2017/11/4927f158e4d92f85fc09accbbd9b318e.png" style="max-width:100%;"></a></td>
+</tr>
+<tr>
+<td align="center"><em>Рисунок 3 "Результати"</em></td>
+</tr></tbody></table>
+<h3>ВИСНОВКИ</h3>
+<p><strong><em>Створено і налагоджено програму, що повністю виконую поставлене індивідуальне завдання та відповідає вимогам.<br>
+Було отримано і вдосконалено навички у використанні об’єктно-орієнтованого підходу для розробки об’єкта предметної (прикладної) галузі.</em></strong></p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
