@@ -15,6 +15,15 @@ import ua.khpi.oop.lytvyn03.TextEditHelper;
 public class DialogHelper {
 
 	/**
+	 * Перелік команд
+	 * 
+	 * @author student Lytvyn I.I. KIT-26A
+	 *
+	 */
+	public enum ACTION {
+		input, calc, calc_all, exit, read, result, save, search, sort, show, view
+	}
+	/**
 	 * Розмежувач
 	 */
 	public static String LINE = "----------------------------------------------"
@@ -51,36 +60,11 @@ public class DialogHelper {
 	 * Буфер, що зберігає результат обчислень
 	 */
 	static ArrayList<Integer> data;
+
 	/**
 	 * Буфер, що зберігає речення
 	 */
 	static StringContainer sentences = new StringContainer();
-
-	/**
-	 * Перелік команд
-	 * 
-	 * @author student Lytvyn I.I. KIT-26A
-	 *
-	 */
-	public enum ACTION {
-		input, calc, calc_all, exit, read, result, save, search, sort, show, view
-	}
-
-	/**
-	 * Реалізує інтерактивне діалогове меню для забезпечення отримання команд
-	 * від користувача
-	 */
-	public static void start() {
-		do {
-			System.out.format("\n	Введіть команду: ");
-			ACTION cur = ACTION.valueOf(sc.next());
-			try {
-				handleAction(cur);
-			} catch (Exception ex) {
-				System.out.println(ex.toString());
-			}
-		} while (!exit);
-	}
 
 	/**
 	 * Виконує обробку введеної команди
@@ -101,8 +85,8 @@ public class DialogHelper {
 		case read:
 			/* Зчитування екземпляру контейнеру */
 			sentences = new StringContainer(SerializationUtil.deserialize());
-			StringBuffer buffer = new StringBuffer();
-			for (String string : sentences) {
+			final StringBuffer buffer = new StringBuffer();
+			for (final String string : sentences) {
 				buffer.append(string);
 			}
 			text = buffer.toString();
@@ -110,8 +94,8 @@ public class DialogHelper {
 			break;
 		case calc:
 			System.out.println("\n\tВведіть номер речення.");
-			int number = Integer.parseInt(InputHelper.getAnswer());
-			String sentence = sentences.get(number);
+			final int number = Integer.parseInt(InputHelper.getAnswer());
+			final String sentence = sentences.get(number);
 			System.out.println("\n\tВаше речення:\n\n" + sentence);
 			System.out.println("\n\n\tВиберіть один з варіантів опрацювання"
 			        + " тексту:\n");
@@ -119,7 +103,7 @@ public class DialogHelper {
 			        + " приголосних у речені.");
 			System.out.println("\t2. Видалення з речення слів заданої довжини,"
 			        + " що починаються з приголосної.");
-			int variant = Integer.parseInt(InputHelper.getAnswer());
+			final int variant = Integer.parseInt(InputHelper.getAnswer());
 			if (variant == 1) {
 				/* Результат опрацювання речень */
 				consonants = StringHelper
@@ -128,7 +112,7 @@ public class DialogHelper {
 				workMode = 1;
 			} else if (variant == 2) {
 				System.out.println("\n\tВведіть розмір слова.");
-				int size = Integer.parseInt(InputHelper.getAnswer());
+				final int size = Integer.parseInt(InputHelper.getAnswer());
 				result = TextEditHelper.deleteWords(sentence, size);
 				workMode = 3;
 			} else {
@@ -142,7 +126,7 @@ public class DialogHelper {
 			        + " приголосних у кожному речені.");
 			System.out.println("\t2. Видалення з тексту слів заданої довжини,"
 			        + " що починаються з приголосної.");
-			int choice = Integer.parseInt(InputHelper.getAnswer());
+			final int choice = Integer.parseInt(InputHelper.getAnswer());
 			if (choice == 1) {
 				if (sentences.isEmpty()) {
 					System.out.println("	Контейнер порожній!");
@@ -153,7 +137,7 @@ public class DialogHelper {
 				}
 			} else if (choice == 2) {
 				System.out.println("\n\tВведіть розмір слова.");
-				int size = Integer.parseInt(InputHelper.getAnswer());
+				final int size = Integer.parseInt(InputHelper.getAnswer());
 				result = TextEditHelper.edit(text, size);
 				workMode = 3;
 			} else {
@@ -175,8 +159,8 @@ public class DialogHelper {
 				        .println("	Пошук неможливий контейнер порожній!");
 			} else {
 				/* Пошук елементу в контейнері */
-				String find = InputHelper.getInput();
-				int result = sentences.indexOf(find);
+				final String find = InputHelper.getInput();
+				final int result = sentences.indexOf(find);
 				if (result >= 0) {
 					System.out.println("\n	Елемент:\n\n\"" + find
 					        + "\"\n\n	Знайдено під індексом [" + result
@@ -206,7 +190,7 @@ public class DialogHelper {
 				System.out.println("	Контейнер порожній!");
 			} else {
 				/* Виведення речень */
-				StringContainer.ContainerIterator<String> iterator = sentences
+				final StringContainer.ContainerIterator<String> iterator = sentences
 				        .iterator();
 				System.out.println("\n	Поточний вміст контейнеру:\n");
 				while (iterator.hasNext()) {
@@ -215,7 +199,7 @@ public class DialogHelper {
 			}
 			break;
 		case view:
-			String text = TextHelper.getText();
+			final String text = TextHelper.getText();
 			if (text != null) {
 				System.out.format("\n%s\n", text);
 			} else {
@@ -229,5 +213,21 @@ public class DialogHelper {
 			System.err.println("Error data ^-(");
 			break;
 		}
+	}
+
+	/**
+	 * Реалізує інтерактивне діалогове меню для забезпечення отримання команд
+	 * від користувача
+	 */
+	public static void start() {
+		do {
+			System.out.format("\n	Введіть команду: ");
+			final ACTION cur = ACTION.valueOf(sc.next());
+			try {
+				handleAction(cur);
+			} catch (final Exception ex) {
+				System.out.println(ex.toString());
+			}
+		} while (!exit);
 	}
 }

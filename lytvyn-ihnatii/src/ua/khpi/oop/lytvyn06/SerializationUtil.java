@@ -15,35 +15,6 @@ import java.io.ObjectOutputStream;
  */
 public class SerializationUtil {
 	/**
-	 * Виконує серіалізацію (збереження до файлу) отриманого контейнеру типу
-	 * <tt>StringContainer</tt>.
-	 * 
-	 * @param sentences
-	 *            контейнер, що буде серіалізовано
-	 */
-	public static void serialize(StringContainer sentences) {
-		ObjectOutputStream out = null;
-		try {
-			/* Відкриваємо потік для запису */
-			out = new ObjectOutputStream(
-			        new BufferedOutputStream(new FileOutputStream("Data.ser")));
-			/* Записуємо контейнер */
-			out.writeObject(sentences);
-			System.out.println("	Записано: " + sentences);
-		} catch (IOException ex) {
-			ex.printStackTrace();
-			/* Обов'язково зачиняємо потік */
-		} finally {
-			if (out != null)
-				try {
-					out.close();
-				} catch (IOException ex) {
-					ex.printStackTrace();
-				}
-		}
-	}
-
-	/**
 	 * Виконує десеріалізацію (відновлення з файлу) контейнеру типу
 	 * <tt>StringContainer</tt>.
 	 * 
@@ -59,19 +30,50 @@ public class SerializationUtil {
 			/* Відновлюємо контейнер */
 			sentences = (StringContainer) in.readObject();
 			System.out.println("	Зчитано: " + sentences);
-		} catch (IOException ex) {
+		} catch (final IOException ex) {
 			ex.printStackTrace();
-		} catch (Exception ex) {
+		} catch (final Exception ex) {
 			ex.printStackTrace();
 			/* Обов'язково зачиняємо потік */
 		} finally {
-			if (in != null)
+			if (in != null) {
 				try {
 					in.close();
-				} catch (IOException ex) {
+				} catch (final IOException ex) {
 					ex.printStackTrace();
 				}
+			}
 		}
 		return sentences;
+	}
+
+	/**
+	 * Виконує серіалізацію (збереження до файлу) отриманого контейнеру типу
+	 * <tt>StringContainer</tt>.
+	 * 
+	 * @param sentences
+	 *            контейнер, що буде серіалізовано
+	 */
+	public static void serialize(StringContainer sentences) {
+		ObjectOutputStream out = null;
+		try {
+			/* Відкриваємо потік для запису */
+			out = new ObjectOutputStream(
+			        new BufferedOutputStream(new FileOutputStream("Data.ser")));
+			/* Записуємо контейнер */
+			out.writeObject(sentences);
+			System.out.println("	Записано: " + sentences);
+		} catch (final IOException ex) {
+			ex.printStackTrace();
+			/* Обов'язково зачиняємо потік */
+		} finally {
+			if (out != null) {
+				try {
+					out.close();
+				} catch (final IOException ex) {
+					ex.printStackTrace();
+				}
+			}
+		}
 	}
 }

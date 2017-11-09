@@ -22,10 +22,11 @@ class StringComparator implements Comparator<String> {
 	 * @return від'ємне ціле число, нульове значення або позитивне ціле число,
 	 *         якщо перший аргумент менше, дорівнює, або більше, ніж другий
 	 */
+	@Override
 	public int compare(String first, String second) {
-		int firstLength = first.length();
-		int secondLength = second.length();
-		int min = Math.min(firstLength, secondLength);
+		final int firstLength = first.length();
+		final int secondLength = second.length();
+		final int min = Math.min(firstLength, secondLength);
 		for (int i = 0; i < min; i++) {
 			char firstChar = first.charAt(i);
 			char secondChar = second.charAt(i);

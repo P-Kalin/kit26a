@@ -12,22 +12,6 @@ import java.io.InputStreamReader;
 class InputHelper {
 
 	/**
-	 * Отримує текст для опрацювання
-	 * 
-	 * @return text введений текст латинкою
-	 * @throws IOException
-	 *             виняткова ситуація при роботі з вводом
-	 */
-	public static String getInput() throws IOException {
-		System.out.format("	Введіть будь-ласка текст(латинкою):\n\n");
-		BufferedReader br = new BufferedReader(
-		        new InputStreamReader(System.in));
-		String text = br.readLine(); // Запис тексту до буферу
-		// br.close();
-		return text;
-	}
-
-	/**
 	 * Отримує відповідь від користувача
 	 * 
 	 * @return answer відповідь від користувача
@@ -36,9 +20,25 @@ class InputHelper {
 	 */
 	public static String getAnswer() throws IOException {
 		System.out.format("\n\tВаша відповідь: ");
-		BufferedReader br = new BufferedReader(
+		final BufferedReader br = new BufferedReader(
 		        new InputStreamReader(System.in));
-		String answer = br.readLine(); // Запис тексту до буферу
+		final String answer = br.readLine(); // Запис тексту до буферу
 		return answer;
+	}
+
+	/**
+	 * Отримує текст для опрацювання
+	 * 
+	 * @return text введений текст латинкою
+	 * @throws IOException
+	 *             виняткова ситуація при роботі з вводом
+	 */
+	public static String getInput() throws IOException {
+		System.out.format("	Введіть будь-ласка текст(латинкою):\n\n");
+		final BufferedReader br = new BufferedReader(
+		        new InputStreamReader(System.in));
+		final String text = br.readLine(); // Запис тексту до буферу
+		// br.close();
+		return text;
 	}
 }

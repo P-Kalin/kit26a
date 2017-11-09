@@ -30,11 +30,11 @@ class TextHelper {
 	 */
 	public static StringContainer getSentences() {
 		/* Список, що зберігає результат */
-		StringContainer result = new StringContainer();
+		final StringContainer result = new StringContainer();
 		String temp = ""; // Буфер
 		int cnt = 0;
 		for (int i = 0; i < text.length(); ++i) {
-			char sign = text.charAt(i);
+			final char sign = text.charAt(i);
 			cnt = i + 1;
 			if (sign == DOT) {
 				if (cnt < text.length() && text.charAt(i + 1) == ' ') {

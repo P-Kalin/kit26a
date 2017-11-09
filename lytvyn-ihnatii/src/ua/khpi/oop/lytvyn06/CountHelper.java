@@ -19,19 +19,19 @@ class CountHelper {
 	 */
 	public static ArrayList<Integer> Count(StringContainer sentences) {
 		/* Для збереження результату підрахунку */
-		ArrayList<Integer> result = new ArrayList<Integer>();
+		final ArrayList<Integer> result = new ArrayList<>();
 		/* Виведення знайдених речень */
-		StringContainer.ContainerIterator<String> iterator = sentences
+		final StringContainer.ContainerIterator<String> iterator = sentences
 		        .iterator();
 		System.out.println("\nБуло знайдено і опрацьовано наступні речення:\n");
 		while (iterator.hasNext()) {
 			System.out.println("### " + iterator.next());
 		}
-		for (String string : sentences) {
+		for (final String string : sentences) {
 			/* Кількість голосних */
-			int vowels = StringHelper.countVowel(string);
+			final int vowels = StringHelper.countVowel(string);
 			/* Кількість приголосних */
-			int consonants = StringHelper.countConsonants(string);
+			final int consonants = StringHelper.countConsonants(string);
 			result.add(vowels);
 			result.add(consonants);
 		}

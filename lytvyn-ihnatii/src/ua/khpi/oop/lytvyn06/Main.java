@@ -21,7 +21,7 @@ public class Main {
 	 *             виняткова ситуація
 	 */
 	public static void main(String[] args) throws Exception {
-		for (String comand : args) {
+		for (final String comand : args) {
 			if (comand.equals("-h") || comand.equals("-help")) {
 				System.out.println(LINE);
 				System.out.format("Автор: студент КІТ-26А Литвин І.І.\n\n");

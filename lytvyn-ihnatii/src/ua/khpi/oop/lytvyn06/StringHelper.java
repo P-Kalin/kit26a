@@ -17,27 +17,21 @@ class StringHelper {
 	        + "BCDFGHJKLMNPQRSTVWXZ";
 
 	/**
-	 * Перевіряє чи є символ голосною
+	 * Підраховує приголосні у речені
 	 * 
-	 * @param ch
-	 *            символ для перевірки
-	 * @return <tt>true</tt> якщо цей символ є голосною
+	 * @param sentence
+	 *            речення для опрацювання
+	 * @return counter кількість приголосних у речені
 	 */
-	public static boolean isVowel(char ch) {
+	public static int countConsonants(String sentence) {
 
-		return VOWELS.indexOf(ch) >= 0;
-	}
-
-	/**
-	 * Перевіряє чи є символ приголосною
-	 * 
-	 * @param ch
-	 *            символ для перевірки
-	 * @return <tt>true</tt> якщо цей символ є приголосною
-	 */
-	public static boolean isConsonants(char ch) {
-
-		return CONSONANTS.indexOf(ch) >= 0;
+		int counter = 0;
+		for (int i = 0; i < sentence.length(); ++i) {
+			if (isConsonants(sentence.charAt(i))) {
+				++counter;
+			}
+		}
+		return counter;
 	}
 
 	/**
@@ -59,20 +53,26 @@ class StringHelper {
 	}
 
 	/**
-	 * Підраховує приголосні у речені
+	 * Перевіряє чи є символ приголосною
 	 * 
-	 * @param sentence
-	 *            речення для опрацювання
-	 * @return counter кількість приголосних у речені
+	 * @param ch
+	 *            символ для перевірки
+	 * @return <tt>true</tt> якщо цей символ є приголосною
 	 */
-	public static int countConsonants(String sentence) {
+	public static boolean isConsonants(char ch) {
 
-		int counter = 0;
-		for (int i = 0; i < sentence.length(); ++i) {
-			if (isConsonants(sentence.charAt(i))) {
-				++counter;
-			}
-		}
-		return counter;
+		return CONSONANTS.indexOf(ch) >= 0;
+	}
+
+	/**
+	 * Перевіряє чи є символ голосною
+	 * 
+	 * @param ch
+	 *            символ для перевірки
+	 * @return <tt>true</tt> якщо цей символ є голосною
+	 */
+	public static boolean isVowel(char ch) {
+
+		return VOWELS.indexOf(ch) >= 0;
 	}
 }

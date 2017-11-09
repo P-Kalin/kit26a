@@ -57,7 +57,7 @@ public class MergeSort {
 		 */
 		if (low < high) {
 			/* Отримуємо середній індекс */
-			int middle = low + (high - low) / 2;
+			final int middle = low + (high - low) / 2;
 			/* Сортуємо ліву частину */
 			doMergeSort(low, middle, comparator);
 			/* Сортуємо праву частину */
