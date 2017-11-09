@@ -56,4 +56,26 @@ public class ChoiceUtil {
 		}
 		return command;
 	}
+
+	/**
+	 * <i>chooseFirstOrSecond</i> enables the customer to choose one of two proposed
+	 * options.
+	 * 
+	 * @param choice
+	 * @return the chosen variant
+	 */
+	public static int chooseFirstOrSecond(int choice) {
+		try {
+			choice = Integer.valueOf(scanner.nextInt());
+			scanner.nextLine();
+		} catch (InputMismatchException inputMismatchException) {
+			scanner.nextLine();
+			System.out.println("Ошибка работы программы!");
+		}
+		if (choice > 2 || choice < 1) {
+			System.out.println("Неверно введена команда! Будет выбрана команда по умолчанию.");
+			return 1;
+		}
+		return choice;
+	}
 }

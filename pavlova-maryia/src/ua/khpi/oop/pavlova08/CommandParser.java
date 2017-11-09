@@ -1,10 +1,14 @@
 package ua.khpi.oop.pavlova08;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import ua.khpi.oop.pavlova06.NewContainerOfStrings;
+import ua.khpi.oop.pavlova06.util.ChoiceUtil;
 import ua.khpi.oop.pavlova08.util.InPutUtil;
 import ua.khpi.oop.pavlova08.util.ModifyUtil;
+import ua.khpi.oop.pavlova08.util.XMLUtil;
+import ua.khpi.oop.pavlova08.util.forFiles.DirectorySearch;
 
 /**
  * Class <b>CommandParser</b> contains methods for specific manipulations with a
@@ -31,8 +35,9 @@ public class CommandParser {
 	 *            code of each command
 	 * @param containerOfStrings
 	 *            container for manipulations
+	 * @throws IOException
 	 */
-	public static void doCommand(int command, NewContainerOfStrings containerOfStrings) {
+	public static void doCommand(int command, NewContainerOfStrings containerOfStrings) throws IOException {
 		switch (command) {
 
 		case 1:
@@ -127,6 +132,14 @@ public class CommandParser {
 			break;
 
 		case 14:
+			String toOpen = DirectorySearch.fileSearch();
+			XMLUtil.write(toOpen, containerOfStrings.get(0));
+
+			HotelGuest newOne = XMLUtil.read(toOpen);
+			System.out.println(newOne.toString());
+			break;
+
+		case 15:
 			break;
 		}
 	}
