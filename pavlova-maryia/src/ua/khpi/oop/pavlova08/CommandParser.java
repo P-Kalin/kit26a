@@ -132,10 +132,14 @@ public class CommandParser {
 			break;
 
 		case 14:
-			String toOpen = DirectorySearch.fileSearch();
-			XMLUtil.write(toOpen, containerOfStrings.get(0));
 
-			HotelGuest newOne = XMLUtil.read(toOpen);
+			String toOpen = DirectorySearch.fileSearch();
+			// System.out.println("Введите индекс нужного элемента.");
+			// int index = InPutUtil.inputInteger();
+			// String toSave = containerOfStrings.get(index);
+			XMLUtil.write(toOpen, containerOfStrings);
+
+			NewContainerOfStrings newOne = XMLUtil.read(toOpen);
 			System.out.println(newOne.toString());
 			break;
 
