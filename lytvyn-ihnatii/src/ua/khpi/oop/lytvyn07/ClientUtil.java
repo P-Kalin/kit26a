@@ -58,9 +58,9 @@ public class ClientUtil {
 	 * Повертає псевдо-рандомне число.
 	 * 
 	 * @param border
-	 *            максимальне можливе число
+	 *            допустима границя чисел
 	 *
-	 * @return Число типу Integer.
+	 * @return число типу Integer
 	 * @see java.util.Random#nextInt(int)
 	 */
 	public static int randInt(int border) {
@@ -77,12 +77,15 @@ public class ClientUtil {
 	 * 
 	 * @param size
 	 *            кількість клієнтів
+	 * @param regNum
+	 *            реєстраційний номер
 	 * @return bureau бюро знайомств
 	 */
-	static ArrayList<Client> generateBureau(int size) {
+	static ArrayList<Client> generateBureau(int size, int regNum) {
 		final ArrayList<Client> bureau = new ArrayList<>();
 		for (int i = 0; i < size; i++) {
-			bureau.add(ClientUtil.rngClient(bureau.size() + 1));
+			bureau.add(ClientUtil.rngClient(regNum));
+			regNum++;
 		}
 		return bureau;
 	}
@@ -90,12 +93,12 @@ public class ClientUtil {
 	/**
 	 * Створює нового клієнта бюро знайомств.
 	 * 
-	 * @param size
-	 *            кількість клієнтів
-	 * @return client
+	 * @param regNum
+	 *            реєстраційний номер
 	 * 
+	 * @return client
 	 */
-	static Client newClient(int size) {
+	static Client newClient(int regNum) {
 		final Client client = new Client();
 
 		final Date today = new Date();
@@ -128,9 +131,8 @@ public class ClientUtil {
 			client.setHeight(height);
 			client.setHobbies(hobbies);
 			client.setRegDate(ft.format(today));
-			client.setRegNum(size + 1);
+			client.setRegNum(regNum);
 			client.setRequirements(requirements);
-
 		} catch (final IOException e) {
 			System.out.println(e.getMessage());
 		}
@@ -141,12 +143,12 @@ public class ClientUtil {
 	/**
 	 * Генерує нового клієнта бюро знайомств.
 	 * 
-	 * @param size
-	 *            кількість клієнтів
-	 * @return client
+	 * @param regNum
+	 *            реєстраційний номер
 	 * 
+	 * @return client
 	 */
-	static Client rngClient(int size) {
+	static Client rngClient(int regNum) {
 		final Client client = new Client();
 
 		final Date today = new Date();
@@ -156,17 +158,16 @@ public class ClientUtil {
 		client.setBirthday(ft.format(today));
 		client.setEyes("Some_Eyes");
 		client.setGender("Some_Gender");
-		client.setHeight(DEFAULT_HIGHT + randInt(size));
+		client.setHeight(DEFAULT_HIGHT + randInt(regNum));
 		final String hobbies = "Some_Hobby;Some_Hobby;Some_Hobby";
 		final String[] hobby = hobbies.split(";");
 		client.setHobbies(hobby);
 		client.setRegDate(ft.format(today));
-		client.setRegNum(size);
+		client.setRegNum(regNum);
 		final String reqs = "Some_Requirement;Some_Requirement;"
 		        + "Some_Requirement";
 		final String[] requirements = reqs.split(";");
 		client.setRequirements(requirements);
-
 		return client;
 	}
 

@@ -29,4 +29,18 @@ public class Application {
 	 *            команда
 	 */
 	public static native void system(String str);
+
+	/**
+	 * Очищення консолі
+	 */
+	public static void clean() {
+		system("cls");
+	}
+
+	/**
+	 * Призупинення виводу консолі
+	 */
+	public static void pause() {
+		system("pause");
+	}
 }

@@ -20,16 +20,20 @@ public class DialogHelper {
 	 * Перелік команд
 	 * 
 	 * @author student Lytvyn I.I. KIT-26A
-	 *
 	 */
 	public enum ACTION {
 		add, exit, generate, remove, show
 	}
 
 	/**
-	 * 
+	 * Бюро знайомств
 	 */
 	static ArrayList<Client> bureau = new ArrayList<>();
+
+	/**
+	 * Реєстраційний номер
+	 */
+	public static int regNum = 1;
 
 	/**
 	 * Розмежувач
@@ -57,7 +61,6 @@ public class DialogHelper {
 		final BufferedReader br = new BufferedReader(
 		        new InputStreamReader(System.in));
 		final String answer = br.readLine(); // Запис тексту до буферу
-		// br.close();
 		return answer;
 	}
 
@@ -72,19 +75,21 @@ public class DialogHelper {
 	public static void handleAction(ACTION action) throws Exception {
 		switch (action) {
 		case add:
-			bureau.add(ClientUtil.newClient(bureau.size()));
+			bureau.add(ClientUtil.newClient(regNum));
+			regNum++;
 			break;
 		case generate:
 			System.out.println("Введіть кількість клієнтів.");
 			final String bureauSize = getInput();
-			bureau = new ArrayList<>(
-			        ClientUtil.generateBureau(Integer.parseInt(bureauSize)));
+			bureau = new ArrayList<>(ClientUtil.generateBureau(
+			        Integer.parseInt(bureauSize), regNum));
 			break;
 		case remove:
 			System.out.println("Введіть реєстраційний номер клієнта.");
 			/* Пошук елементу в контейнері */
 			final String remove = getInput();
-			bureau.remove(Integer.parseInt(remove));
+			bureau.remove(bureau.indexOf(ClientUtil.rngClient(
+			        Integer.parseInt(remove))));
 			break;
 		case show:
 			if (bureau.isEmpty()) {
@@ -113,25 +118,18 @@ public class DialogHelper {
 	 */
 	public static void start() {
 		do {
-			clean();
+			Application.clean();
 			comands();
 			System.out.format("\nВведіть команду: ");
 			sc = new Scanner(System.in);
 			final ACTION cur = ACTION.valueOf(sc.next());
 			try {
 				handleAction(cur);
-				Application.system("pause");
+				Application.pause();
 			} catch (final Exception ex) {
 				System.out.println(ex.toString());
 			}
 		} while (!exit);
-	}
-
-	/**
-	 * Очищення консолі
-	 */
-	private static void clean() {
-		Application.system("cls");
 	}
 
 	/**

@@ -232,6 +232,16 @@ public class Client {
 	/*
 	 * (non-Javadoc)
 	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object client) {
+		return this.regNum == ((Client) client).getRegNum();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
