@@ -154,7 +154,7 @@
                             </docletArtifact>
                             <additionalparam> -umlSkipStandardDoclet
                                 true -umlBasePath
-                                ${basedir}\doc\plantuml -umlImageFormat
+                                ${basedir}/doc/plantuml -umlImageFormat
                                 PNG -umlImageDirectory png 
                             </additionalparam>
                         </configuration>
@@ -170,7 +170,7 @@
                             </docletArtifact>
                             <additionalparam> -umlSkipStandardDoclet
                                 true -umlBasePath
-                                ${basedir}\doc\plantuml -umlImageFormat
+                                ${basedir}/doc/plantuml -umlImageFormat
                                 PNG -umlImageDirectory png
                                 -umlIncludePrivateFields true
                                 -umlIncludePackagePrivateFields true
