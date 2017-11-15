@@ -2,6 +2,15 @@
 
     namespace ua.khpi.oop.malokhvii01 {
 
+        class TaskPerformerForDecimalValues {
+            -decimalNumbers: ArrayList<Long>
+            +TaskPerformerForDecimalValues(TaskValues)
+            +countAmountOfPairedDigitsInNumber(Long): long
+            +countAmountOfPairedDigitsInNumbers(): long
+            +countAmountOfUnpairedDigitsInNumber(Long): long
+            +countAmountOfUnpairedDigitsInNumbers(): long
+        }
+
         class TaskValues {
             {static} -STUDENT_NUMBER_DIVIDER: int
             -englishUpperCaseLetter: char
@@ -37,13 +46,9 @@
             +setRecordBookNumber(int): TaskValues.LiteralBuilder
         }
 
-        class TaskPerformerForDecimalValues {
-            -decimalNumbers: ArrayList<Long>
-            +TaskPerformerForDecimalValues(TaskValues)
-            +countAmountOfPairedDigitsInNumber(Long): long
-            +countAmountOfPairedDigitsInNumbers(): long
-            +countAmountOfUnpairedDigitsInNumber(Long): long
-            +countAmountOfUnpairedDigitsInNumbers(): long
+        class Application {
+            -Application()
+            {static} +main(String[]): void
         }
 
         class TaskPerformerForBinaryValues {
@@ -52,11 +57,6 @@
             +countAmountOfBitsInNumber(String, char): long
             +countAmountOfOnesInNumbers(): long
             +countAmountOfZeroesInNumbers(): long
-        }
-
-        class Application {
-            -Application()
-            {static} +main(String[]): void
         }
 
         TaskValues +-- ua.khpi.oop.malokhvii01.TaskValues.Builder
