@@ -2,13 +2,12 @@
 
     namespace ua.khpi.oop.malokhvii05.util.algorithms {
 
-        abstract class NullAlgorithmWithComparator<T> {
-            +NullAlgorithmWithComparator()
+        interface Algorithm<T> {
+            {abstract} +isNull(): boolean
         }
 
-        class ua.khpi.oop.malokhvii05.util.algorithms.NullAlgorithmWithComparator.DefaultComparator {
-            -DefaultComparator()
-            +compare(T, T): int
+        abstract class AbstractAlgorithmWithComparator<T> {
+            +AbstractAlgorithmWithComparator(Comparator<T>)
         }
 
         abstract class NullAlgorithm<T> {
@@ -19,13 +18,20 @@
         interface AlgorithmWithComparator<T> {
         }
 
-        interface Algorithm<T> {
-            {abstract} +isNull(): boolean
+        abstract class NullAlgorithmWithComparator<T> {
+            +NullAlgorithmWithComparator()
         }
 
-        abstract class AbstractAlgorithmWithComparator<T> {
-            +AbstractAlgorithmWithComparator(Comparator<T>)
+        class ua.khpi.oop.malokhvii05.util.algorithms.NullAlgorithmWithComparator.DefaultComparator {
+            -DefaultComparator()
+            +compare(T, T): int
         }
+
+        AlgorithmWithComparator <|.. AbstractAlgorithmWithComparator
+
+        Algorithm <|.. NullAlgorithm
+
+        Algorithm <|.. AlgorithmWithComparator
 
         NullAlgorithm <|-- NullAlgorithmWithComparator
 
@@ -38,17 +44,11 @@
 
         NullAlgorithmWithComparator +-- ua.khpi.oop.malokhvii05.util.algorithms.NullAlgorithmWithComparator.DefaultComparator
 
-        Algorithm <|.. NullAlgorithm
-
-        Algorithm <|.. AlgorithmWithComparator
-
-        AlgorithmWithComparator <|.. AbstractAlgorithmWithComparator
-
-        NullAlgorithmWithComparator --> java.util.Comparator: defaultComparator\ncomparator
+        AbstractAlgorithmWithComparator --> java.util.Comparator: comparator
 
         AlgorithmWithComparator --> java.util.Comparator: comparator
 
-        AbstractAlgorithmWithComparator --> java.util.Comparator: comparator
+        NullAlgorithmWithComparator --> java.util.Comparator: defaultComparator\ncomparator
 
     }
 
