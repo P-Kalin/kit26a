@@ -2,6 +2,13 @@
 
     namespace ua.khpi.oop.malokhvii02.data {
 
+        enum DataCollectionStatus {
+            {static} +CONTINUE
+            {static} +REPEAT
+            {static} +FINISH
+            -DataCollectionStatus()
+        }
+
         class NumberEqualityContainer {
             {static} -NUMBER_BASE: short
             {static} -MIN_NUMBER: long
@@ -24,25 +31,18 @@
             +setNumber(long): void
         }
 
-        interface DataContainer {
-            {abstract} +collectData(PrintStream, Scanner): DataCollectionStatus
-            {abstract} +computeData(): DataComputationStatus
-            {abstract} +getContainerName(): String
-            {abstract} +prepareDataDescription(): String
-            {abstract} +prepareDataVisualization(): String
-        }
-
         enum DataComputationStatus {
             {static} +SUCCESS
             {static} +FAILURE
             -DataComputationStatus()
         }
 
-        enum DataCollectionStatus {
-            {static} +CONTINUE
-            {static} +REPEAT
-            {static} +FINISH
-            -DataCollectionStatus()
+        interface DataContainer {
+            {abstract} +collectData(PrintStream, Scanner): DataCollectionStatus
+            {abstract} +computeData(): DataComputationStatus
+            {abstract} +getContainerName(): String
+            {abstract} +prepareDataDescription(): String
+            {abstract} +prepareDataVisualization(): String
         }
 
         DataContainer <|.. NumberEqualityContainer
