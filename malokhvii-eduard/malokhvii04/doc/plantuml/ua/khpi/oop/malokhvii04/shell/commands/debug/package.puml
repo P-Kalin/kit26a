@@ -2,6 +2,21 @@
 
     namespace ua.khpi.oop.malokhvii04.shell.commands.debug {
 
+        class CommandWithDebug {
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            -memoryAfterExecution: long
+            -memoryBeforeExecution: long
+            -timeAfterExecution: long
+            -timeBeforeExecution: long
+            +CommandWithDebug(Command)
+            {static} -printClassInfo(Command, String): void
+            {static} -printPackageInfo(Command, String): void
+            +execute(): void
+            -printExecutionTime(String): void
+            -printMemoryUsage(String): void
+        }
+
         class NoDebugCommand {
             {static} -description: String
             {static} -keys: List<String>
@@ -28,28 +43,13 @@
             +update(Observable, Object): void
         }
 
-        class CommandWithDebug {
-            {static} -RESOURCE_BUNDLE_NAME: String
-            {static} -resourceBundle: ResourceBundle
-            -memoryAfterExecution: long
-            -memoryBeforeExecution: long
-            -timeAfterExecution: long
-            -timeBeforeExecution: long
-            +CommandWithDebug(Command)
-            {static} -printClassInfo(Command, String): void
-            {static} -printPackageInfo(Command, String): void
-            +execute(): void
-            -printExecutionTime(String): void
-            -printMemoryUsage(String): void
-        }
+        abstract class ua.khpi.oop.malokhvii04.shell.commands.AbstractCommandDecorator
+        ua.khpi.oop.malokhvii04.shell.commands.AbstractCommandDecorator <|-- CommandWithDebug
 
         abstract class ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand
         ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand <|-- NoDebugCommand
 
         ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand <|-- DebugCommand
-
-        abstract class ua.khpi.oop.malokhvii04.shell.commands.AbstractCommandDecorator
-        ua.khpi.oop.malokhvii04.shell.commands.AbstractCommandDecorator <|-- CommandWithDebug
 
     }
 

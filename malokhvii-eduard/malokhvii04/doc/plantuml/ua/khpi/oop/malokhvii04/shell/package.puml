@@ -2,6 +2,13 @@
 
     namespace ua.khpi.oop.malokhvii04.shell {
 
+        class ShellData {
+            -textLines: Array<String>
+            ~ShellData()
+            +getTextLines(): Array<String>
+            +setTextLines(Array<String>): void
+        }
+
         class ShellSettings {
             {static} -serialVersionUID: long
             {static} -RESOURCE_BUNDLE_NAME: String
@@ -40,22 +47,6 @@
             -SingletonHolder()
         }
 
-        class ShellData {
-            -textLines: Array<String>
-            ~ShellData()
-            +getTextLines(): Array<String>
-            +setTextLines(Array<String>): void
-        }
-
-        class ShellCommandsPool {
-            {static} -commands: HashMap<String, AbstractCommand>
-            -ShellCommandsPool()
-            {static} +getCommand(String): Command
-            {static} +getCommandsDescriptions(): Collection<String>
-            {static} +getCommandsKeys(): Collection<String>
-            {static} +registerCommand(List<String>, Class<?>): boolean
-        }
-
         class Shell {
             {static} -RESOURCE_BUNDLE_NAME: String
             -commandDecorator: Class<?>
@@ -84,6 +75,15 @@
         class ua.khpi.oop.malokhvii04.shell.Shell.SingletonHolder {
             {static} -INSTANCE: Shell
             -SingletonHolder()
+        }
+
+        class ShellCommandsPool {
+            {static} -commands: HashMap<String, AbstractCommand>
+            -ShellCommandsPool()
+            {static} +getCommand(String): Command
+            {static} +getCommandsDescriptions(): Collection<String>
+            {static} +getCommandsKeys(): Collection<String>
+            {static} +registerCommand(List<String>, Class<?>): boolean
         }
 
         interface java.io.Serializable

@@ -2,14 +2,13 @@
 
     namespace ua.khpi.oop.malokhvii04.shell.commands.text {
 
-        class SortTextCommand {
+        class DeserializeTextCommand {
+            {static} -RESOURCE_BUNDLE_NAME: String
             {static} -description: String
             {static} -keys: List<String>
-            {static} -RESOURCE_BUNDLE_NAME: String
             {static} -resourceBundle: ResourceBundle
-            +SortTextCommand()
-            {static} -getSortOrder(): boolean
-            {static} -updateResourceBundle(): void
+            +DeserializeTextCommand()
+            {static} #updateResourceBundle(): void
             +execute(): void
             +getDescription(): String
             +getKeys(): List<String>
@@ -29,27 +28,13 @@
             +update(Observable, Object): void
         }
 
-        class SearchTextCommand {
+        class OutputTextCommand {
             {static} -description: String
             {static} -keys: List<String>
             {static} -RESOURCE_BUNDLE_NAME: String
             {static} -resourceBundle: ResourceBundle
-            +SearchTextCommand()
-            {static} -updateResourceBundle(): void
-            +execute(): void
-            +getDescription(): String
-            +getKeys(): List<String>
-            +update(Observable, Object): void
-        }
-
-        class SearchPalindromesCommand {
-            {static} -description: String
-            {static} -AMOUNT_OF_PALINDROMES_IN_SINGLE_LINE: int
-            {static} -keys: List<String>
-            {static} -RESOURCE_BUNDLE_NAME: String
-            {static} -resourceBundle: ResourceBundle
-            +SearchPalindromesCommand()
-            {static} -printPalindromes(Collection<String>): void
+            +OutputTextCommand()
+            {static} #printTextLines(Collection<String>): void
             {static} #updateResourceBundle(): void
             +execute(): void
             +getDescription(): String
@@ -73,20 +58,6 @@
             +update(Observable, Object): void
         }
 
-        class OutputTextCommand {
-            {static} -description: String
-            {static} -keys: List<String>
-            {static} -RESOURCE_BUNDLE_NAME: String
-            {static} -resourceBundle: ResourceBundle
-            +OutputTextCommand()
-            {static} #printTextLines(Collection<String>): void
-            {static} #updateResourceBundle(): void
-            +execute(): void
-            +getDescription(): String
-            +getKeys(): List<String>
-            +update(Observable, Object): void
-        }
-
         class InputTextCommand {
             {static} -description: String
             {static} -keys: List<String>
@@ -101,12 +72,28 @@
             +update(Observable, Object): void
         }
 
-        class DeserializeTextCommand {
-            {static} -RESOURCE_BUNDLE_NAME: String
+        class SortTextCommand {
             {static} -description: String
             {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
             {static} -resourceBundle: ResourceBundle
-            +DeserializeTextCommand()
+            +SortTextCommand()
+            {static} -getSortOrder(): boolean
+            {static} -updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
+
+        class SearchPalindromesCommand {
+            {static} -description: String
+            {static} -AMOUNT_OF_PALINDROMES_IN_SINGLE_LINE: int
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +SearchPalindromesCommand()
+            {static} -printPalindromes(Collection<String>): void
             {static} #updateResourceBundle(): void
             +execute(): void
             +getDescription(): String
@@ -114,23 +101,36 @@
             +update(Observable, Object): void
         }
 
-        abstract class ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand
-        ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand <|-- SortTextCommand
+        class SearchTextCommand {
+            {static} -description: String
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +SearchTextCommand()
+            {static} -updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
 
         abstract class ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand
+        ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand <|-- DeserializeTextCommand
+
         ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand <|-- SerializeTextCommand
 
-        ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand <|-- SearchTextCommand
-
-        OutputTextCommand <|-- SearchPalindromesCommand
+        abstract class ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand
+        ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand <|-- OutputTextCommand
 
         OutputTextCommand <|-- SearchAnanymsCommand
 
-        ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand <|-- OutputTextCommand
-
         ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand <|-- InputTextCommand
 
-        ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand <|-- DeserializeTextCommand
+        ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand <|-- SortTextCommand
+
+        OutputTextCommand <|-- SearchPalindromesCommand
+
+        ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand <|-- SearchTextCommand
 
     }
 
