@@ -34,6 +34,5 @@
 	</classpathentry>
 	<classpathentry kind="src" path="/ua.khpi.oop.malokhvii05"/>
 	<classpathentry kind="src" path="/ua.khpi.oop.malokhvii03"/>
-	<classpathentry kind="lib" path="/malokhvii-eduard-algorithms/lib/malokhvii05-1.0.0.jar" sourcepath="/malokhvii-eduard-algorithms/lib/malokhvii05-1.0.0-sources.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
