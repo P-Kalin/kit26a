@@ -2,47 +2,8 @@
 
     namespace ua.khpi.oop.malokhvii02.event {
 
-        enum DataEvent {
-            {static} +COLLECTION
-            {static} +VISUALIZATION
-            {static} +COMPUTATION
-            -DataEvent()
-        }
-
-        class LoopInteraptionEvent {
-            +LoopInteraptionEvent()
-            +perform(EventLoop, DataContainer): void
-        }
-
-        interface EventsContainer {
-            {abstract} +getEvent(EventType): Event
-            {abstract} +putEvent(EventType, Event): void
-        }
-
-        interface Event {
-            {abstract} +perform(EventLoop, DataContainer): void
-        }
-
-        class DataCollectionEvent {
-            +DataCollectionEvent()
-            +perform(EventLoop, DataContainer): void
-        }
-
-        class LoopContinuationEvent {
-            {static} -CONTINUE_LOOP_CHARACTER: String
-            +LoopContinuationEvent()
-            +perform(EventLoop, DataContainer): void
-        }
-
-        enum LoopEvent {
-            {static} +INCEPTION
-            {static} +CONTINUATION
-            {static} +INTERAPTION
-            -LoopEvent()
-        }
-
-        class LoopInceptionEvent {
-            +LoopInceptionEvent()
+        class DataVisualizationEvent {
+            +DataVisualizationEvent()
             +perform(EventLoop, DataContainer): void
         }
 
@@ -55,6 +16,64 @@
             +getCurrentOutLabel(): String
             +getIn(): Scanner
             +getOut(): PrintStream
+        }
+
+        class DataCollectionEvent {
+            +DataCollectionEvent()
+            +perform(EventLoop, DataContainer): void
+        }
+
+        interface EventsContainer {
+            {abstract} +getEvent(EventType): Event
+            {abstract} +putEvent(EventType, Event): void
+        }
+
+        class DataComputationEvent {
+            +DataComputationEvent()
+            +perform(EventLoop, DataContainer): void
+        }
+
+        class LoopInceptionEvent {
+            +LoopInceptionEvent()
+            +perform(EventLoop, DataContainer): void
+        }
+
+        class LoopInteraptionEvent {
+            +LoopInteraptionEvent()
+            +perform(EventLoop, DataContainer): void
+        }
+
+        enum LoopEvent {
+            {static} +INCEPTION
+            {static} +CONTINUATION
+            {static} +INTERAPTION
+            -LoopEvent()
+        }
+
+        interface Event {
+            {abstract} +perform(EventLoop, DataContainer): void
+        }
+
+        class GlobalEventsContainer {
+            -events: Map<EventType, Event>
+            -GlobalEventsContainer()
+            {static} +getInstance(): GlobalEventsContainer
+            +getEvent(EventType): Event
+            +putEvent(EventType, Event): void
+        }
+
+        class ua.khpi.oop.malokhvii02.event.GlobalEventsContainer.SingletonHolder {
+            {static} -instance: GlobalEventsContainer
+            -SingletonHolder()
+        }
+
+        class MillisTimer {
+            -beginTimeMillis: long
+            -endTimeMillis: long
+            +MillisTimer()
+            +getRuntime(): long
+            +launchTimer(): long
+            +terminateTimer(): long
         }
 
         class EventLoop {
@@ -75,60 +94,41 @@
             +visualizeDataContainer(): void
         }
 
-        class DataVisualizationEvent {
-            +DataVisualizationEvent()
+        class LoopContinuationEvent {
+            {static} -CONTINUE_LOOP_CHARACTER: String
+            +LoopContinuationEvent()
             +perform(EventLoop, DataContainer): void
         }
 
         interface EventType {
         }
 
-        class GlobalEventsContainer {
-            -events: Map<EventType, Event>
-            -GlobalEventsContainer()
-            {static} +getInstance(): GlobalEventsContainer
-            +getEvent(EventType): Event
-            +putEvent(EventType, Event): void
+        enum DataEvent {
+            {static} +COLLECTION
+            {static} +VISUALIZATION
+            {static} +COMPUTATION
+            -DataEvent()
         }
 
-        class ua.khpi.oop.malokhvii02.event.GlobalEventsContainer.SingletonHolder {
-            {static} -instance: GlobalEventsContainer
-            -SingletonHolder()
-        }
-
-        class DataComputationEvent {
-            +DataComputationEvent()
-            +perform(EventLoop, DataContainer): void
-        }
-
-        class MillisTimer {
-            -beginTimeMillis: long
-            -endTimeMillis: long
-            +MillisTimer()
-            +getRuntime(): long
-            +launchTimer(): long
-            +terminateTimer(): long
-        }
-
-        EventType <|.. DataEvent
-
-        Event <|.. LoopInteraptionEvent
+        Event <|.. DataVisualizationEvent
 
         Event <|.. DataCollectionEvent
 
-        Event <|.. LoopContinuationEvent
-
-        EventType <|.. LoopEvent
+        Event <|.. DataComputationEvent
 
         Event <|.. LoopInceptionEvent
 
-        Event <|.. DataVisualizationEvent
+        Event <|.. LoopInteraptionEvent
+
+        EventType <|.. LoopEvent
 
         EventsContainer <|.. GlobalEventsContainer
 
         GlobalEventsContainer +-- ua.khpi.oop.malokhvii02.event.GlobalEventsContainer.SingletonHolder
 
-        Event <|.. DataComputationEvent
+        Event <|.. LoopContinuationEvent
+
+        EventType <|.. DataEvent
 
         EventLoop --> EventsContainer: eventsContainer
 
