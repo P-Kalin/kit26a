@@ -4,7 +4,8 @@ import javax.annotation.Nullable;
 
 /**
  * Призначений, для оголошення загальної виключної ситуації для пакету
- * {@link ua.khpi.oop.malokhvii05.common.eventbus.meta}.
+ * {@link ua.khpi.oop.malokhvii05.common.eventbus.meta}. Виникає під час не
+ * коректного створення метаданих.
  * 
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
  * @version 1.0.0
@@ -29,7 +30,6 @@ public final class AnnotationMetadataException extends RuntimeException {
      *
      * @param message
      *            деталізоване повідомлення
-     *
      * @since 1.0.0
      */
     public AnnotationMetadataException(@Nullable final String message) {
@@ -42,10 +42,8 @@ public final class AnnotationMetadataException extends RuntimeException {
      *
      * @param message
      *            деталізоване повідомлення
-     *
      * @param cause
      *            причина виключної ситуації
-     *
      * @since 1.0.0
      */
     public AnnotationMetadataException(@Nullable final String message,
@@ -58,7 +56,6 @@ public final class AnnotationMetadataException extends RuntimeException {
      *
      * @param cause
      *            причина виключної ситуації
-     *
      * @since 1.0.0
      */
     public AnnotationMetadataException(final Throwable cause) {
