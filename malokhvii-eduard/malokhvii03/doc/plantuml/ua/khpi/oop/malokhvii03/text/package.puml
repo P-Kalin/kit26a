@@ -2,6 +2,30 @@
 
     namespace ua.khpi.oop.malokhvii03.text {
 
+        class Ananym {
+            -word: String
+            -reversedWord: String
+            +Ananym(CharSequence, CharSequence)
+            +Ananym(String, String)
+            +getReversedWord(): String
+            +getWord(): String
+            +setReverseWord(String): void
+            +setWord(String): void
+        }
+
+        class HashableWord {
+            -charSequence: CharSequence
+            -polynomialHashCode: long
+            -reversedPolynomialHashCode: long
+            +HashableWord(CharSequence, long)
+            +getCharSequence(): CharSequence
+            +getPolynomialHashCode(): long
+            +getReversedPolynomialHashCode(): long
+            +setCharSequence(CharSequence): void
+            +setPolynomialHashCode(long): void
+            +setReversedPolynomialHashCode(long): void
+        }
+
         class Anagrams {
             {static} +DEFAUL_WORD_PATTERN: String
             -Anagrams()
@@ -16,17 +40,6 @@
             {static} +findAllPalindromesInString(Iterable<String>, String): Collection<String>
         }
 
-        class Ananym {
-            -word: String
-            -reversedWord: String
-            +Ananym(CharSequence, CharSequence)
-            +Ananym(String, String)
-            +getReversedWord(): String
-            +getWord(): String
-            +setReverseWord(String): void
-            +setWord(String): void
-        }
-
         class PolynomialHash {
             {static} -DEFAULT_HASHABLE_CHAR_SEQUENCE_SIZE: int
             {static} -POLYNOMIAL_BASE: int
@@ -36,19 +49,6 @@
             {static} -calculatePolynomials(int): void
             {static} +charSequenceHash(CharSequence): long
             {static} +reversedCharSequenceHash(CharSequence): long
-        }
-
-        class HashableWord {
-            -charSequence: CharSequence
-            -polynomialHashCode: long
-            -reversedPolynomialHashCode: long
-            +HashableWord(CharSequence, long)
-            +getCharSequence(): CharSequence
-            +getPolynomialHashCode(): long
-            +getReversedPolynomialHashCode(): long
-            +setCharSequence(CharSequence): void
-            +setPolynomialHashCode(long): void
-            +setReversedPolynomialHashCode(long): void
         }
 
     }
