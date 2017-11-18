@@ -14,7 +14,8 @@ import ua.khpi.oop.malokhvii05.common.eventbus.subscribe.Subscriber;
 /**
  * Призначений, для оповіщення усіх підписчиків однієї події А для виклику перед
  * будь-якими підписчиками на будь-які події В і С, які публікуються на
- * {@link EventBus шину} подій підписчика А.
+ * {@link ua.khpi.oop.malokhvii05.common.eventbus.publish.EventBus шину} подій
+ * підписчика А.
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
  * @version 1.0.0

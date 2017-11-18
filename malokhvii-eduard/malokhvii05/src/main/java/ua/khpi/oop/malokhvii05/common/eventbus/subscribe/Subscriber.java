@@ -52,21 +52,23 @@ public abstract class Subscriber implements Comparable<Subscriber> {
     /**
      * Метод підписчика, для обробки події.
      *
-     * @sicne 1.0.0
+     * @since 1.0.0
      */
     private final Method method;
 
     /**
-     * Об'єкте представлення вилучених даних із анотації {@link Subscribe}. Якою
-     * був помічений метод, для обробки події.
+     * Об'єкте представлення вилучених даних із анотації
+     * {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscribe
+     * Subscribe}. Якою був помічений метод, для обробки події.
      *
      * @since 1.0.0
      */
     private final SubscribeMetadata subscribeMetadata;
 
     /**
-     * Об'єкте представлення вилучених даних із анотації {@link Subscriber}.
-     * Якою був помічений підписчик.
+     * Об'єкте представлення вилучених даних із анотації
+     * {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscriber
+     * Subscriber}. Якою був помічений підписчик.
      *
      * @since 1.0.0
      */
@@ -82,10 +84,12 @@ public abstract class Subscriber implements Comparable<Subscriber> {
      *            посилання на об'єкт відповідальний за оповіщення
      * @param subscriberMetadata
      *            об'єкте представлення вилучених даних із анотації
-     *            {@link Subscribe}
+     *            {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscribe
+     *            Subscribe}
      * @param subscribeMetadata
      *            об'єкте представлення вилучених даних із анотації
-     *            {@link Subscriber}
+     *            {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscriber
+     *            Subscriber}
      * @since 1.0.0
      */
     protected Subscriber(@Nonnull final Method method,
@@ -137,10 +141,13 @@ public abstract class Subscriber implements Comparable<Subscriber> {
 
     /**
      * Призначений, для отримання об'єктного представлення вилучених даних із
-     * анотації {@link Subscribe} про виконавця події (методу).
+     * анотації
+     * {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscribe
+     * Subscribe} про виконавця події (методу).
      *
      * @return об'єкте представлення вилучених даних із анотації
-     *         {@link Subscribe}
+     *         {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscribe
+     *         Subscribe}
      * @since 1.0.0
      */
     public @Nonnull SubscribeMetadata getSubscribeMetadata() {
@@ -149,10 +156,13 @@ public abstract class Subscriber implements Comparable<Subscriber> {
 
     /**
      * Призначений, для отримання об'єктного представлення вилучених даних із
-     * анотації {@link Subscriber} про підписчика.
+     * анотації
+     * {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscriber
+     * Subscriber} про підписчика.
      *
      * @return об'єкте представлення вилучених даних із анотації
-     *         {@link Subscriber}
+     *         {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscriber
+     *         Subscriber}
      * @since 1.0.0
      */
     public @Nonnull SubscriberMetadata getSubscriberMetadata() {

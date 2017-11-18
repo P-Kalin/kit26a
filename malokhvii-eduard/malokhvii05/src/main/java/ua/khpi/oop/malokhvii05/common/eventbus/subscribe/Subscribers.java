@@ -38,10 +38,12 @@ public final class Subscribers {
      *            посилання на об'єкт відповідальний за оповіщення
      * @param subscriberMetadata
      *            об'єкте представлення вилучених даних із анотації
-     *            {@link Subscribe}
+     *            {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscribe
+     *            Subscribe}
      * @param subscribeMetadata
      *            об'єкте представлення вилучених даних із анотації
-     *            {@link Subscriber}
+     *            {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscriber
+     *            Subscriber}
      * @return запис про підписчика
      * @since 1.0.0
      */
@@ -50,8 +52,8 @@ public final class Subscribers {
             @Nonnull final EventBus eventBus,
             @Nonnull final SubscriberMetadata subscriberMetadata,
             @Nonnull final SubscribeMetadata subscribeMetadata) {
-        return new SoftSubscriber(subscriber, method, eventBus, subscriberMetadata,
-                subscribeMetadata);
+        return new SoftSubscriber(subscriber, method, eventBus,
+                subscriberMetadata, subscribeMetadata);
     }
 
     /**
@@ -66,10 +68,12 @@ public final class Subscribers {
      *            посилання на об'єкт відповідальний за оповіщення
      * @param subscriberMetadata
      *            об'єкте представлення вилучених даних із анотації
-     *            {@link Subscribe}
+     *            {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscribe
+     *            Subscribe}
      * @param subscribeMetadata
      *            об'єкте представлення вилучених даних із анотації
-     *            {@link Subscriber}
+     *            {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscriber
+     *            Subscriber}
      * @return запис про підписчика
      * @since 1.0.0
      */
@@ -78,8 +82,8 @@ public final class Subscribers {
             @Nonnull final EventBus eventBus,
             @Nonnull final SubscriberMetadata subscriberMetadata,
             @Nonnull final SubscribeMetadata subscribeMetadata) {
-        return new StrongSubcriber(subscriber, method, eventBus, subscriberMetadata,
-                subscribeMetadata);
+        return new StrongSubcriber(subscriber, method, eventBus,
+                subscriberMetadata, subscribeMetadata);
     }
 
     /**
@@ -94,10 +98,12 @@ public final class Subscribers {
      *            посилання на об'єкт відповідальний за оповіщення
      * @param subscriberMetadata
      *            об'єкте представлення вилучених даних із анотації
-     *            {@link Subscribe}
+     *            {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscribe
+     *            Subscribe}
      * @param subscribeMetadata
      *            об'єкте представлення вилучених даних із анотації
-     *            {@link Subscriber}
+     *            {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscriber
+     *            Subscriber}
      * @return запис про підписчика
      * @since 1.0.0
      */
@@ -106,7 +112,7 @@ public final class Subscribers {
             @Nonnull final EventBus eventBus,
             @Nonnull final SubscriberMetadata subscriberMetadata,
             @Nonnull final SubscribeMetadata subscribeMetadata) {
-        return new WeakSubscriber(subscriber, method, eventBus, subscriberMetadata,
-                subscribeMetadata);
+        return new WeakSubscriber(subscriber, method, eventBus,
+                subscriberMetadata, subscribeMetadata);
     }
 }

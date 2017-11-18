@@ -12,8 +12,8 @@ import ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscribe;
 
 /**
  * Призначений, для забезпечення об'єктного представлення анотації
- * {@link Subscribe}. Для подальшого використанні у механізмі
- * публікація-підписка.
+ * {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscribe
+ * Subscribe}. Для подальшого використанні у механізмі публікація-підписка.
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
  * @version 1.0.0
@@ -38,7 +38,9 @@ public final class SubscribeMetadata extends AnnotationMetadata {
 
     /**
      * Призначений, для ініціалізації об'єкту початковими даними, а саме
-     * анотацією {@link Subscriber}, та типом події, для подальшої обробки.
+     * анотацією
+     * {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscriber
+     * Subscriber}, та типом події, для подальшої обробки.
      *
      * @param annotation
      *            анотація, з метаданими про обробника події

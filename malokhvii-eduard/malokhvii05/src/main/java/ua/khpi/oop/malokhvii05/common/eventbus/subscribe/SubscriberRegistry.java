@@ -189,18 +189,21 @@ public final class SubscriberRegistry {
     }
 
     /**
-     * Містить вирівняну ієрархію типу класу у набір об'єктів {@link Class},
-     * включаючи всі суперкласи (транзитивно) і всі інтерфейси, реалізовані цими
-     * суперкласами.
+     * Призначений, для отримання вирівняної ієрархію типу класу у вигляді
+     * набіру об'єктів {@link Class}, включаючи всі суперкласи (транзитивно) і
+     * всі інтерфейси, реалізовані цими суперкласами.
      *
+     * @param concreteClass
+     *            класс, для якого необхідно отримати ієрархію
+     * @return вирівняна ієрархія типу класу
      * @since 1.0.0
      */
-    static @Nonnull ImmutableSet<Class<?>> flattenHierarchy(
+    private static @Nonnull ImmutableSet<Class<?>> getFlattenHierarchy(
             final Class<?> concreteClass) {
         try {
             return flattenHierarchyCache.getUnchecked(concreteClass);
         } catch (final UncheckedExecutionException exception) {
-            throw new RuntimeException();
+            throw new RuntimeException("Class not available in cache");
         }
     }
 
@@ -247,7 +250,7 @@ public final class SubscriberRegistry {
     public @Nonnull Iterator<Subscriber> getSubscribers(
             @Nonnull final Object event) {
         checkNotNull(event);
-        final ImmutableSet<Class<?>> eventTypes = flattenHierarchy(
+        final ImmutableSet<Class<?>> eventTypes = getFlattenHierarchy(
                 event.getClass());
 
         final List<Iterator<Subscriber>> subscribers = Lists

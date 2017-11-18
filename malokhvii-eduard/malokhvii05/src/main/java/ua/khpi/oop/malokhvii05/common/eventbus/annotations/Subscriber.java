@@ -16,7 +16,7 @@ import ua.khpi.oop.malokhvii05.common.eventbus.subscribe.SubscriberRegistry;
  * подальшого оповіщення. Використовується для визначення загальних налаштувань
  * для окремого типу підписчиків. Якщо анотація не застосовується до типу, тоді
  * підчас регестрації підписчика до об'єкту {@link EventBus}, буде отримано
- * виключну ситуацію {@link EventBusException}.
+ * виключну ситуацію.
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
  * @version 1.0.0

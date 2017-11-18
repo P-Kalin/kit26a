@@ -18,7 +18,7 @@ import ua.khpi.oop.malokhvii05.common.eventbus.publish.EventBus;
  * Тип події буде позначений першим (і тільки) параметром методу. Якщо анотація
  * застосовується до методів з відсутнім списком параметрів або більш ніж одним
  * параметром, тоді під час регестрації підписчика до об'єкту {@link EventBus},
- * буде отримано виключну ситуацію {@link EventBusException}.
+ * буде отримано виключну ситуацію.
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
  * @version 1.0.0

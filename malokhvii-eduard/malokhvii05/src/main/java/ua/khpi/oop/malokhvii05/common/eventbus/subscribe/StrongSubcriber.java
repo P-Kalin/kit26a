@@ -39,10 +39,12 @@ final class StrongSubcriber extends Subscriber {
      *            посилання на об'єкт відповідальний за оповіщення
      * @param subscriberMetadata
      *            об'єкте представлення вилучених даних із анотації
-     *            {@link Subscribe}
+     *            {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscribe
+     *            Subscirbe}
      * @param subscribeMetadata
      *            об'єкте представлення вилучених даних із анотації
-     *            {@link Subscriber}
+     *            {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscriber
+     *            Subscriber}
      * @since 1.0.0
      */
     protected StrongSubcriber(@Nonnull final Object subscriber,

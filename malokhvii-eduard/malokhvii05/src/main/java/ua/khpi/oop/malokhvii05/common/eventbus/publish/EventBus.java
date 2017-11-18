@@ -205,8 +205,10 @@ public final class EventBus {
 
     /**
      * Призначений, для регестрації нового підписчика. Підписчик повинен бути
-     * відмічений анотацією {@link Subscriber}, а його методи для обробки подій
-     * відмічені анотацією {@link Subscribe}.
+     * відмічений анотацією
+     * {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscriber
+     * Subscriber}, а його методи для обробки подій відмічені анотацією
+     * {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscribe}.
      *
      * @param subscriber
      *            підписчик
