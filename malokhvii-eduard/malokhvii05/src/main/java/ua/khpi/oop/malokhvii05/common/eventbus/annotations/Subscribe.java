@@ -38,6 +38,7 @@ public @interface Subscribe {
      * {@link Dispatchers#newPrioritizedDispatcher(Dispatcher, Comparator)}
      *
      * @return пріорітет оповіщення, за змовчуванням 0
+     * @since 1.0.0
      */
     int priority() default 0;
 }

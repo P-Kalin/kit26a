@@ -36,6 +36,7 @@ public @interface Subscriber {
      *
      * @return політика посилання, за змовчуванням
      *         {@link SubscriberReferencePolicy#STRONG}.
+     * @since 1.0.0
      */
     SubscriberReferencePolicy referencePolicy() default SubscriberReferencePolicy.STRONG;
 }
