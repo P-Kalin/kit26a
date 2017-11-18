@@ -12,7 +12,6 @@ import ua.khpi.oop.malokhvii05.common.eventbus.dispatch.Dispatcher;
 import ua.khpi.oop.malokhvii05.common.eventbus.dispatch.Dispatchers;
 import ua.khpi.oop.malokhvii05.common.eventbus.dispatch.PrioritizedDispatcher;
 import ua.khpi.oop.malokhvii05.common.eventbus.publish.EventBus;
-import ua.khpi.oop.malokhvii05.common.eventbus.publish.EventBusException;
 
 /**
  * Анотація призначена, для відмічення усіх методів, які здатні обробити подію.

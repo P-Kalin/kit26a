@@ -8,7 +8,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import ua.khpi.oop.malokhvii05.common.eventbus.publish.EventBus;
-import ua.khpi.oop.malokhvii05.common.eventbus.publish.EventBusException;
 import ua.khpi.oop.malokhvii05.common.eventbus.subscribe.SubscriberReferencePolicy;
 import ua.khpi.oop.malokhvii05.common.eventbus.subscribe.SubscriberRegistry;
 
