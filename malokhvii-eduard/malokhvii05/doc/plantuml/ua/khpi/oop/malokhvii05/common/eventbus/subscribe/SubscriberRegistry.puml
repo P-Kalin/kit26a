@@ -8,7 +8,7 @@
         +SubscriberRegistry(EventBus)
         {static} -getAnnotatedMethods(Class<?>): ImmutableList<Method>
         {static} -getAnnotatedMethodsNotCached(Class<?>): ImmutableList<Method>
-        {static} ~flattenHierarchy(Class<?>): ImmutableSet<Class<?>>
+        {static} -getFlattenHierarchy(Class<?>): ImmutableSet<Class<?>>
         +getSubscribers(Object): Iterator<Subscriber>
         +register(Object): void
         +removeUnusedSubscribers(): void
