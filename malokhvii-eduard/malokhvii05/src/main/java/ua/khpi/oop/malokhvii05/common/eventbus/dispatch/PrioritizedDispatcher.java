@@ -88,9 +88,9 @@ public final class PrioritizedDispatcher extends AbstractDispatcherDecorator {
      *            за пріорітетом
      * @since 1.0.0
      */
-    PrioritizedDispatcher(@Nonnull Dispatcher delegate,
+    PrioritizedDispatcher(@Nonnull Dispatcher dispatcher,
             @Nonnull final Comparator<Subscriber> comparator) {
-        super(delegate);
+        super(dispatcher);
         this.comparator = checkNotNull(comparator);
     }
 
