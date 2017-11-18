@@ -246,6 +246,7 @@ public final class SubscriberRegistry {
      */
     public @Nonnull Iterator<Subscriber> getSubscribers(
             @Nonnull final Object event) {
+        checkNotNull(event);
         final ImmutableSet<Class<?>> eventTypes = flattenHierarchy(
                 event.getClass());
 
