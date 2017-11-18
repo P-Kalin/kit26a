@@ -1,6 +1,6 @@
 package ua.khpi.oop.malokhvii04.shell;
 
-import ua.khpi.oop.malokhvii05.util.Array;
+import ua.khpi.oop.malokhvii05.common.Array;
 
 /**
  * Призначений, для збереження даних інтерактивної оболонки, для подальшої

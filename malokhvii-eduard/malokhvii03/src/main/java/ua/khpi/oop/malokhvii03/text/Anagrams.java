@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ua.khpi.oop.malokhvii05.util.Array;
+import ua.khpi.oop.malokhvii05.common.Array;
 
 /**
  * Утилітарний клас, призначения для обробки вхідних текстових наборів на

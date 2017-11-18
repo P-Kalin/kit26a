@@ -11,9 +11,9 @@ import ua.khpi.oop.malokhvii04.shell.Shell;
 import ua.khpi.oop.malokhvii04.shell.ShellCommandsPool;
 import ua.khpi.oop.malokhvii04.shell.ShellResources;
 import ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand;
-import ua.khpi.oop.malokhvii05.util.Array;
-import ua.khpi.oop.malokhvii05.util.algorithms.sort.SortAlgorithm;
-import ua.khpi.oop.malokhvii05.util.algorithms.sort.SortAlgorithmFactory;
+import ua.khpi.oop.malokhvii05.common.Array;
+import ua.khpi.oop.malokhvii05.common.algorithms.sort.SortAlgorithm;
+import ua.khpi.oop.malokhvii05.common.algorithms.sort.SortAlgorithmFactory;
 
 /**
  * Призначений, для інкапсуляції сортування колекції рядків, під виглядом
