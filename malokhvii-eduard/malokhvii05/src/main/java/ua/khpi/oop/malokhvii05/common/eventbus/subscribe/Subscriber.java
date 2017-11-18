@@ -73,8 +73,8 @@ public abstract class Subscriber implements Comparable<Subscriber> {
     private final SubscriberMetadata subscriberMetadata;
 
     /**
-     * Призначений, для ініціалізації підписчика необхідними даними, для
-     * подальшого оповіщення та обробки.
+     * Призначений, для ініціалізації запису про підписчика необхідними даними,
+     * для подальшого оповіщення та обробки.
      *
      * @param method
      *            обробник події
