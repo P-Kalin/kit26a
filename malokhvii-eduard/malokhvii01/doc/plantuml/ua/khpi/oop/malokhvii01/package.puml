@@ -11,6 +11,19 @@
             +countAmountOfUnpairedDigitsInNumbers(): long
         }
 
+        class Application {
+            -Application()
+            {static} +main(String[]): void
+        }
+
+        class TaskPerformerForBinaryValues {
+            -binaryNumbers: ArrayList<String>
+            +TaskPerformerForBinaryValues(TaskValues)
+            +countAmountOfBitsInNumber(String, char): long
+            +countAmountOfOnesInNumbers(): long
+            +countAmountOfZeroesInNumbers(): long
+        }
+
         class TaskValues {
             {static} -STUDENT_NUMBER_DIVIDER: int
             -englishUpperCaseLetter: char
@@ -44,19 +57,6 @@
             +setLastTwoDigitsOfMobilePhoneNumber(int): TaskValues.LiteralBuilder
             +setMobilePhoneNumber(long): TaskValues.LiteralBuilder
             +setRecordBookNumber(int): TaskValues.LiteralBuilder
-        }
-
-        class Application {
-            -Application()
-            {static} +main(String[]): void
-        }
-
-        class TaskPerformerForBinaryValues {
-            -binaryNumbers: ArrayList<String>
-            +TaskPerformerForBinaryValues(TaskValues)
-            +countAmountOfBitsInNumber(String, char): long
-            +countAmountOfOnesInNumbers(): long
-            +countAmountOfZeroesInNumbers(): long
         }
 
         TaskValues +-- ua.khpi.oop.malokhvii01.TaskValues.Builder
