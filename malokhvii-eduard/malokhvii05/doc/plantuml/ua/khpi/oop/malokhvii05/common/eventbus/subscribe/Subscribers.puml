@@ -1,0 +1,10 @@
+@startuml
+
+    class Subscribers {
+        -Subscribers()
+        {static} +newSoftSubscriber(Object, Method, EventBus, SubscriberMetadata, SubscribeMetadata): Subscriber
+        {static} +newStrongSubscriber(Object, Method, EventBus, SubscriberMetadata, SubscribeMetadata): Subscriber
+        {static} +newWeakSubscriber(Object, Method, EventBus, SubscriberMetadata, SubscribeMetadata): Subscriber
+    }
+
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+
+    class ImmediateDispatcher {
+        {static} ~INSTANCE: ImmediateDispatcher
+        -ImmediateDispatcher()
+        +dispatch(Object, Iterator<Subscriber>): void
+    }
+
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+
+    class AsynchronousDispatcher {
+        -queue: ConcurrentLinkedQueue<AsynchronousDispatcher.EventWithSubscriber>
+        ~AsynchronousDispatcher()
+        +dispatch(Object, Iterator<Subscriber>): void
+    }
+
+@enduml

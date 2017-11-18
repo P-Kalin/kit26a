@@ -1,0 +1,24 @@
+@startuml
+
+    class EventBus {
+        -cleanupAvailable: boolean
+        -dispatcher: Dispatcher
+        -exceptionHandler: SubscriberExceptionHandler
+        -executor: Executor
+        -subscribers: SubscriberRegistry
+        +EventBus()
+        +EventBus(Dispatcher, Executor)
+        +EventBus(Dispatcher)
+        +EventBus(Dispatcher, Executor, SubscriberExceptionHandler)
+        +abortCleanup(): void
+        +getDispatcher(): Dispatcher
+        +getExecutor(): Executor
+        +handleSubscriberException(Throwable, SubscriberExceptionContext): void
+        +post(Object): void
+        +register(Object): void
+        +requestCleanup(): void
+        +setDispatcher(Dispatcher): void
+        +unregister(Object): void
+    }
+
+@enduml

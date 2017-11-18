@@ -1,0 +1,11 @@
+@startuml
+
+    class SubscribeMetadata {
+        -eventType: Class<?>
+        -priority: int
+        ~SubscribeMetadata(Subscribe, Class<?>)
+        +getEventType(): Class<?>
+        +getPriority(): int
+    }
+
+@enduml

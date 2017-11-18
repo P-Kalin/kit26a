@@ -1,0 +1,11 @@
+@startuml
+
+    class DeadEvent {
+        -eventBus: Object
+        -event: Object
+        +DeadEvent(Object, Object)
+        +getEventBus(): Object
+        +getEvent(): Object
+    }
+
+@enduml

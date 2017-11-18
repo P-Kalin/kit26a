@@ -1,0 +1,7 @@
+@startuml
+
+    interface SubscriberExceptionHandler {
+        {abstract} +handleException(Throwable, SubscriberExceptionContext): void
+    }
+
+@enduml

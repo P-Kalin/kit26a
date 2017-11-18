@@ -1,0 +1,7 @@
+@startuml
+
+    interface Dispatcher {
+        {abstract} +dispatch(Object, Iterator<Subscriber>): void
+    }
+
+@enduml

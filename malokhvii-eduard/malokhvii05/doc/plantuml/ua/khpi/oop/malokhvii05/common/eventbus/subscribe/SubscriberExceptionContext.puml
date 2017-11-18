@@ -1,0 +1,15 @@
+@startuml
+
+    class SubscriberExceptionContext {
+        -eventBus: EventBus
+        -event: Object
+        -subscriber: Object
+        -subscriberMethod: Method
+        ~SubscriberExceptionContext(EventBus, Object, Object, Method)
+        +getEventBus(): EventBus
+        +getEvent(): Object
+        +getSubscriber(): Object
+        +getSubscriberMethod(): Method
+    }
+
+@enduml

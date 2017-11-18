@@ -1,0 +1,9 @@
+@startuml
+
+    class AsynchronousDispatcher.EventWithSubscriber {
+        -event: Object
+        -subscriber: Subscriber
+        -EventWithSubscriber(Object, Subscriber)
+    }
+
+@enduml

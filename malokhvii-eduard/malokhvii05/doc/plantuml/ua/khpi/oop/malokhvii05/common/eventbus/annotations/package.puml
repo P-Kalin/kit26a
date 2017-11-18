@@ -1,0 +1,11 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii05.common.eventbus.annotations {
+
+        annotation Subscribe
+
+        annotation Subscriber
+
+    }
+
+@enduml

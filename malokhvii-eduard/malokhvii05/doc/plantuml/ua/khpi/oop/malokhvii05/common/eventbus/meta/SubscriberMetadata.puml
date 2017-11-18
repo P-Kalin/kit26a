@@ -1,0 +1,11 @@
+@startuml
+
+    class SubscriberMetadata {
+        -subscriberType: Class<?>
+        -referencePolicy: SubscriberReferencePolicy
+        ~SubscriberMetadata(Subscriber, Class<?>)
+        +getReferencePolicy(): SubscriberReferencePolicy
+        +getSubscriberType(): Class<?>
+    }
+
+@enduml

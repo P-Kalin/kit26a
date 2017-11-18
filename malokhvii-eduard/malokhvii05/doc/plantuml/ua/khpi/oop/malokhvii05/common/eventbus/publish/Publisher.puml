@@ -1,0 +1,12 @@
+@startuml
+
+    interface Publisher {
+        {abstract} +publish(Object): void
+        {abstract} +publishAll(Iterable<Object>): void
+        {abstract} +subscribe(Object): void
+        {abstract} +subscribeAll(Iterable<Object>): void
+        {abstract} +unsubscribe(Object): void
+        {abstract} +unsubscribeAll(Iterable<Object>): void
+    }
+
+@enduml

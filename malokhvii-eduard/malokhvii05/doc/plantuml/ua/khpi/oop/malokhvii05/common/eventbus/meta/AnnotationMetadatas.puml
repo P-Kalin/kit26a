@@ -1,0 +1,9 @@
+@startuml
+
+    class AnnotationMetadatas {
+        -AnnotationMetadatas()
+        {static} +newSubscribeMetadata(Method): SubscribeMetadata
+        {static} +newSubscriberMetadata(Class<?>): SubscriberMetadata
+    }
+
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+
+    class PerThreadQueuedDispatcher.Event {
+        -event: Object
+        -subscribers: Iterator<Subscriber>
+        -Event(Object, Iterator<Subscriber>)
+    }
+
+@enduml
