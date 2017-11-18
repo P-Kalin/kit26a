@@ -49,22 +49,22 @@
 - algorithms.search - містить алгоритми пошуку за ключем в особистій колекції
 
 <p align="center">
-    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii05.util.algorithms.package.png"><br/>
+    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii05.common.algorithms.package.png"><br/>
     Рис. 1 - Діаграма класів із пакету algorithms
 </p>
 
 <p align="center">
-    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii05.util.algorithms.sort.package.png"><br/>
+    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii05.common.algorithms.sort.package.png"><br/>
     Рис. 2 - Діаграма класів із пакету sort
 </p>
 
 <p align="center">
-    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii05.util.algorithms.search.package.png"><br/>
+    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii05.common.algorithms.search.package.png"><br/>
     Рис. 3 - Діаграма класів із пакету search
 </p>
 
 <p align="center">
-    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii05.util.package.png"><br/>
+    <img src="doc/plantuml/png/ua.khpi.oop.malokhvii05.common.package.png"><br/>
     Рис. 4 - Діаграма класів із пакету util
 </p>
 
