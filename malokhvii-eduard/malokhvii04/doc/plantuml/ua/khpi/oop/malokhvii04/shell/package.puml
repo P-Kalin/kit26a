@@ -80,10 +80,10 @@
         }
 
         class ShellData {
-            -textLines: <any>
+            -textLines: Array<String>
             ~ShellData()
-            +getTextLines(): <any>
-            +setTextLines(<any>): void
+            +getTextLines(): Array<String>
+            +setTextLines(Array<String>): void
         }
 
         Shell +-- ua.khpi.oop.malokhvii04.shell.Shell.SingletonHolder
