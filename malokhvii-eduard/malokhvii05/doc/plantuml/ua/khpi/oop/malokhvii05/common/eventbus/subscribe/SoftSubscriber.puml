@@ -1,0 +1,9 @@
+@startuml
+
+    class SoftSubscriber {
+        -subscriber: SoftReference<Object>
+        ~SoftSubscriber(Object, Method, EventBus, SubscriberMetadata, SubscribeMetadata)
+        +getSubscriber(): Object
+    }
+
+@enduml

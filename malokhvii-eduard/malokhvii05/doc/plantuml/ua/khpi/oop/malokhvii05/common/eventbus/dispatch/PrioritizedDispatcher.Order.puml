@@ -1,0 +1,9 @@
+@startuml
+
+    enum PrioritizedDispatcher.Order {
+        {static} +ASCENDING
+        {static} +DESCENDING
+        -Order()
+    }
+
+@enduml

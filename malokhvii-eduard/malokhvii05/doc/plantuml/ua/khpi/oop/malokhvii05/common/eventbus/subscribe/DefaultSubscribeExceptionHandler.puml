@@ -1,0 +1,9 @@
+@startuml
+
+    enum DefaultSubscribeExceptionHandler {
+        {static} +INSTANCE
+        -DefaultSubscribeExceptionHandler()
+        +handleException(Throwable, SubscriberExceptionContext): void
+    }
+
+@enduml

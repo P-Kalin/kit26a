@@ -1,0 +1,19 @@
+@startuml
+
+    abstract class Subscriber {
+        -eventBus: WeakReference<EventBus>
+        -executor: Executor
+        -method: Method
+        -subscribeMetadata: SubscribeMetadata
+        -subscriberMetadata: SubscriberMetadata
+        #Subscriber(Method, EventBus, SubscriberMetadata, SubscribeMetadata)
+        +dispatchEvent(Object): void
+        +getSubscribeMetadata(): SubscribeMetadata
+        +getSubscriberMetadata(): SubscriberMetadata
+        -createExceptionContext(Object): SubscriberExceptionContext
+        -invokeSubscriberMethod(Object): void
+        +compareTo(Subscriber): int
+        {abstract} +getSubscriber(): Object
+    }
+
+@enduml

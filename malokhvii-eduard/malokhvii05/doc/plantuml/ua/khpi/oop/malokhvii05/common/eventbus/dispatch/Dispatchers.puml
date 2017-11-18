@@ -1,0 +1,11 @@
+@startuml
+
+    class Dispatchers {
+        -Dispatchers()
+        {static} +newAsynchronousDispatcher(): Dispatcher
+        {static} +newImmediateDispatcher(): Dispatcher
+        {static} +newPerThreadQueuedDispatcher(): Dispatcher
+        {static} +newPrioritizedDispatcher(Dispatcher, Comparator<Subscriber>): Dispatcher
+    }
+
+@enduml

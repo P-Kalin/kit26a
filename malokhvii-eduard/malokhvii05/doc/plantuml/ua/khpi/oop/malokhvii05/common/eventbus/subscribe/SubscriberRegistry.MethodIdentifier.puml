@@ -1,0 +1,9 @@
+@startuml
+
+    class SubscriberRegistry.MethodIdentifier {
+        -name: String
+        -parameterTypes: List<Class<?>>
+        ~MethodIdentifier(Method)
+    }
+
+@enduml

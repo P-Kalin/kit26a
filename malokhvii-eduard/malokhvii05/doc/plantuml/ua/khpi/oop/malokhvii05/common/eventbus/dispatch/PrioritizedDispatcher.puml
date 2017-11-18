@@ -1,0 +1,11 @@
+@startuml
+
+    class PrioritizedDispatcher {
+        -comparator: Comparator<Subscriber>
+        ~PrioritizedDispatcher(Dispatcher, Comparator<Subscriber>)
+        +dispatch(Object, Iterator<Subscriber>): void
+        +getComparator(): Comparator<Subscriber>
+        +setComparator(Comparator<Subscriber>): void
+    }
+
+@enduml

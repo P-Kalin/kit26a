@@ -1,0 +1,14 @@
+@startuml
+
+    abstract class AbstractPublisher {
+        -eventBus: EventBus
+        #AbstractPublisher(EventBus)
+        +publish(Object): void
+        +publishAll(Iterable<Object>): void
+        +subscribe(Object): void
+        +subscribeAll(Iterable<Object>): void
+        +unsubscribe(Object): void
+        +unsubscribeAll(Iterable<Object>): void
+    }
+
+@enduml

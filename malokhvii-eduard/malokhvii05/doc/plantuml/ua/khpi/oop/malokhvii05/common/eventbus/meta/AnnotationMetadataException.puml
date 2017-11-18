@@ -1,0 +1,11 @@
+@startuml
+
+    class AnnotationMetadataException {
+        {static} -serialVersionUID: long
+        +AnnotationMetadataException()
+        +AnnotationMetadataException(String)
+        +AnnotationMetadataException(String, Throwable)
+        +AnnotationMetadataException(Throwable)
+    }
+
+@enduml

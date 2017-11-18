@@ -1,0 +1,9 @@
+@startuml
+
+    class WeakSubscriber {
+        -subscriber: WeakReference<Object>
+        ~WeakSubscriber(Object, Method, EventBus, SubscriberMetadata, SubscribeMetadata)
+        +getSubscriber(): Object
+    }
+
+@enduml

@@ -1,0 +1,90 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii05.common.eventbus.dispatch {
+
+        class PerThreadQueuedDispatcher {
+            -queue: ThreadLocal<Queue<PerThreadQueuedDispatcher.Event>>
+            -dispatching: ThreadLocal<Boolean>
+            ~PerThreadQueuedDispatcher()
+            +dispatch(Object, Iterator<Subscriber>): void
+        }
+
+        class ua.khpi.oop.malokhvii05.common.eventbus.dispatch.PerThreadQueuedDispatcher.Event {
+            -event: Object
+            -subscribers: Iterator<Subscriber>
+            -Event(Object, Iterator<Subscriber>)
+        }
+
+        abstract class AbstractDispatcherDecorator {
+            #AbstractDispatcherDecorator(Dispatcher)
+        }
+
+        class AsynchronousDispatcher {
+            -queue: ConcurrentLinkedQueue<AsynchronousDispatcher.EventWithSubscriber>
+            ~AsynchronousDispatcher()
+            +dispatch(Object, Iterator<Subscriber>): void
+        }
+
+        class ua.khpi.oop.malokhvii05.common.eventbus.dispatch.AsynchronousDispatcher.EventWithSubscriber {
+            -event: Object
+            -subscriber: Subscriber
+            -EventWithSubscriber(Object, Subscriber)
+        }
+
+        class PrioritizedDispatcher {
+            ~PrioritizedDispatcher(Dispatcher, Comparator<Subscriber>)
+            +dispatch(Object, Iterator<Subscriber>): void
+        }
+
+        enum ua.khpi.oop.malokhvii05.common.eventbus.dispatch.PrioritizedDispatcher.Order {
+            {static} +ASCENDING
+            {static} +DESCENDING
+            -Order()
+        }
+
+        class Dispatchers {
+            -Dispatchers()
+            {static} +newAsynchronousDispatcher(): Dispatcher
+            {static} +newImmediateDispatcher(): Dispatcher
+            {static} +newPerThreadQueuedDispatcher(): Dispatcher
+            {static} +newPrioritizedDispatcher(Dispatcher, Comparator<Subscriber>): Dispatcher
+        }
+
+        interface Dispatcher {
+            {abstract} +dispatch(Object, Iterator<Subscriber>): void
+        }
+
+        class ImmediateDispatcher {
+            {static} ~INSTANCE: ImmediateDispatcher
+            -ImmediateDispatcher()
+            +dispatch(Object, Iterator<Subscriber>): void
+        }
+
+        Dispatcher <|.. PerThreadQueuedDispatcher
+
+        PerThreadQueuedDispatcher +-- ua.khpi.oop.malokhvii05.common.eventbus.dispatch.PerThreadQueuedDispatcher.Event
+
+        Dispatcher <|.. AbstractDispatcherDecorator
+
+        Dispatcher <|.. AsynchronousDispatcher
+
+        AsynchronousDispatcher +-- ua.khpi.oop.malokhvii05.common.eventbus.dispatch.AsynchronousDispatcher.EventWithSubscriber
+
+        AbstractDispatcherDecorator <|-- PrioritizedDispatcher
+
+        interface java.util.Comparator<T> {
+            {abstract} +compare(T, T): int
+        }
+        java.util.Comparator <|.. ua.khpi.oop.malokhvii05.common.eventbus.dispatch.PrioritizedDispatcher.Order
+
+        PrioritizedDispatcher +-- ua.khpi.oop.malokhvii05.common.eventbus.dispatch.PrioritizedDispatcher.Order
+
+        Dispatcher <|.. ImmediateDispatcher
+
+        AbstractDispatcherDecorator --> Dispatcher: dispatcher
+
+        PrioritizedDispatcher --> java.util.Comparator: comparator
+
+    }
+
+@enduml

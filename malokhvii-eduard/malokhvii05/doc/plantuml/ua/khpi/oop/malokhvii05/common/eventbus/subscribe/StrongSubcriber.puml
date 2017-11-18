@@ -1,0 +1,9 @@
+@startuml
+
+    class StrongSubcriber {
+        -subscriber: Object
+        #StrongSubcriber(Object, Method, EventBus, SubscriberMetadata, SubscribeMetadata)
+        +getSubscriber(): Object
+    }
+
+@enduml

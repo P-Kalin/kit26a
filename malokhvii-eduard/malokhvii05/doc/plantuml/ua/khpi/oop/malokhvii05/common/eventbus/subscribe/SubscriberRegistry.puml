@@ -1,0 +1,20 @@
+@startuml
+
+    class SubscriberRegistry {
+        {static} -flattenHierarchyCache: LoadingCache<Class<?>, ImmutableSet<Class<?>>>
+        {static} -subscriberMethodsCache: LoadingCache<Class<?>, ImmutableList<Method>>
+        -eventBus: WeakReference<EventBus>
+        -subscribers: ConcurrentMap<Class<?>, Set<Subscriber>>
+        +SubscriberRegistry(EventBus)
+        {static} -getAnnotatedMethods(Class<?>): ImmutableList<Method>
+        {static} -getAnnotatedMethodsNotCached(Class<?>): ImmutableList<Method>
+        {static} ~flattenHierarchy(Class<?>): ImmutableSet<Class<?>>
+        +getSubscribers(Object): Iterator<Subscriber>
+        +register(Object): void
+        +removeUnusedSubscribers(): void
+        +unregister(Object): void
+        -findAllSubscribers(Object): Multimap<Class<?>, Subscriber>
+        -newSubscriberEntry(Object, Method, SubscriberMetadata): Subscriber
+    }
+
+@enduml

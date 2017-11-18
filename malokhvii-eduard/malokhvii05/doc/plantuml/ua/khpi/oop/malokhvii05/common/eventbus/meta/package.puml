@@ -1,0 +1,50 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii05.common.eventbus.meta {
+
+        class AnnotationMetadatas {
+            -AnnotationMetadatas()
+            {static} +newSubscribeMetadata(Method): SubscribeMetadata
+            {static} +newSubscriberMetadata(Class<?>): SubscriberMetadata
+        }
+
+        class SubscribeMetadata {
+            -eventType: Class<?>
+            -priority: int
+            ~SubscribeMetadata(Subscribe, Class<?>)
+            +getEventType(): Class<?>
+            +getPriority(): int
+        }
+
+        class AnnotationMetadataException {
+            {static} -serialVersionUID: long
+            +AnnotationMetadataException()
+            +AnnotationMetadataException(String)
+            +AnnotationMetadataException(String, Throwable)
+            +AnnotationMetadataException(Throwable)
+        }
+
+        abstract class AnnotationMetadata {
+            -annotationType: Class<?>
+            #AnnotationMetadata(Annotation)
+            +getAnnotationType(): Class<?>
+        }
+
+        class SubscriberMetadata {
+            -subscriberType: Class<?>
+            -referencePolicy: SubscriberReferencePolicy
+            ~SubscriberMetadata(Subscriber, Class<?>)
+            +getReferencePolicy(): SubscriberReferencePolicy
+            +getSubscriberType(): Class<?>
+        }
+
+        AnnotationMetadata <|-- SubscribeMetadata
+
+        class java.lang.RuntimeException
+        java.lang.RuntimeException <|-- AnnotationMetadataException
+
+        AnnotationMetadata <|-- SubscriberMetadata
+
+    }
+
+@enduml

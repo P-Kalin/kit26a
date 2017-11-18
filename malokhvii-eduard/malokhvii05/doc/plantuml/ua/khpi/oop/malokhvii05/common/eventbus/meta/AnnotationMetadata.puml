@@ -1,0 +1,9 @@
+@startuml
+
+    abstract class AnnotationMetadata {
+        -annotationType: Class<?>
+        #AnnotationMetadata(Annotation)
+        +getAnnotationType(): Class<?>
+    }
+
+@enduml

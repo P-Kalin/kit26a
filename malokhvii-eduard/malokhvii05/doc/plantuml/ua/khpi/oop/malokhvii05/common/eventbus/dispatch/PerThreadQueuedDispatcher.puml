@@ -1,0 +1,10 @@
+@startuml
+
+    class PerThreadQueuedDispatcher {
+        -queue: ThreadLocal<Queue<PerThreadQueuedDispatcher.Event>>
+        -dispatching: ThreadLocal<Boolean>
+        ~PerThreadQueuedDispatcher()
+        +dispatch(Object, Iterator<Subscriber>): void
+    }
+
+@enduml

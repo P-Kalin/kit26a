@@ -1,0 +1,10 @@
+@startuml
+
+    abstract class AbstractDispatcherDecorator {
+        -dispatcher: Dispatcher
+        #AbstractDispatcherDecorator(Dispatcher)
+        +getDispatcher(): Dispatcher
+        +setDispatcher(Dispatcher): void
+    }
+
+@enduml
