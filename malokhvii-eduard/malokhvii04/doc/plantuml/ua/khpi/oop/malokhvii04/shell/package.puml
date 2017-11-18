@@ -2,51 +2,6 @@
 
     namespace ua.khpi.oop.malokhvii04.shell {
 
-        class ShellData {
-            -textLines: Array<String>
-            ~ShellData()
-            +getTextLines(): Array<String>
-            +setTextLines(Array<String>): void
-        }
-
-        class ShellSettings {
-            {static} -serialVersionUID: long
-            {static} -RESOURCE_BUNDLE_NAME: String
-            {static} -MAX_COMMAND_HISTORY_SIZE: int
-            {static} -MAX_CHARACTER_SIZE: int
-            -commandCharacter: String
-            -commandHistorySize: int
-            -defaultLocale: String
-            -tabCharacter: String
-            +ShellSettings()
-            {static} +getDefaultInstance(): ShellSettings
-            {static} +load(String): ShellSettings
-            {static} +save(ShellSettings, String): void
-            +getCommandCharacter(): String
-            +getCommandHistorySize(): int
-            +getDefaultLocale(): String
-            +getTabCharacter(): String
-            +setCommandCharacter(String): void
-            +setCommandHistorySize(int): void
-            +setDefaultLocale(String): void
-            +setTabCharacter(String): void
-        }
-
-        class ShellResources {
-            {static} -locales: Map<String, Locale>
-            -defaultLocale: Locale
-            -ShellResources()
-            {static} +getInstance(): ShellResources
-            +getResourceBundle(String): ResourceBundle
-            +setDefaultLocale(String, Locale): void
-            +setLocale(String, Locale): void
-        }
-
-        class ua.khpi.oop.malokhvii04.shell.ShellResources.SingletonHolder {
-            {static} -INSTANCE: ShellResources
-            -SingletonHolder()
-        }
-
         class Shell {
             {static} -RESOURCE_BUNDLE_NAME: String
             -commandDecorator: Class<?>
@@ -77,6 +32,29 @@
             -SingletonHolder()
         }
 
+        class ShellSettings {
+            {static} -serialVersionUID: long
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -MAX_COMMAND_HISTORY_SIZE: int
+            {static} -MAX_CHARACTER_SIZE: int
+            -commandCharacter: String
+            -commandHistorySize: int
+            -defaultLocale: String
+            -tabCharacter: String
+            +ShellSettings()
+            {static} +getDefaultInstance(): ShellSettings
+            {static} +load(String): ShellSettings
+            {static} +save(ShellSettings, String): void
+            +getCommandCharacter(): String
+            +getCommandHistorySize(): int
+            +getDefaultLocale(): String
+            +getTabCharacter(): String
+            +setCommandCharacter(String): void
+            +setCommandHistorySize(int): void
+            +setDefaultLocale(String): void
+            +setTabCharacter(String): void
+        }
+
         class ShellCommandsPool {
             {static} -commands: HashMap<String, AbstractCommand>
             -ShellCommandsPool()
@@ -86,6 +64,30 @@
             {static} +registerCommand(List<String>, Class<?>): boolean
         }
 
+        class ShellResources {
+            {static} -locales: Map<String, Locale>
+            -defaultLocale: Locale
+            -ShellResources()
+            {static} +getInstance(): ShellResources
+            +getResourceBundle(String): ResourceBundle
+            +setDefaultLocale(String, Locale): void
+            +setLocale(String, Locale): void
+        }
+
+        class ua.khpi.oop.malokhvii04.shell.ShellResources.SingletonHolder {
+            {static} -INSTANCE: ShellResources
+            -SingletonHolder()
+        }
+
+        class ShellData {
+            -textLines: <any>
+            ~ShellData()
+            +getTextLines(): <any>
+            +setTextLines(<any>): void
+        }
+
+        Shell +-- ua.khpi.oop.malokhvii04.shell.Shell.SingletonHolder
+
         interface java.io.Serializable
         java.io.Serializable <|.. ShellSettings
 
@@ -93,8 +95,6 @@
         java.util.Observable <|-- ShellResources
 
         ShellResources +-- ua.khpi.oop.malokhvii04.shell.ShellResources.SingletonHolder
-
-        Shell +-- ua.khpi.oop.malokhvii04.shell.Shell.SingletonHolder
 
         Shell --> ShellData: data
 

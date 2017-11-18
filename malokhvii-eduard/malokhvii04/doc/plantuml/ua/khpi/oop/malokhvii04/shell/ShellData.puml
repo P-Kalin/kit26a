@@ -1,10 +1,10 @@
 @startuml
 
     class ShellData {
-        -textLines: Array<String>
+        -textLines: <any>
         ~ShellData()
-        +getTextLines(): Array<String>
-        +setTextLines(Array<String>): void
+        +getTextLines(): <any>
+        +setTextLines(<any>): void
     }
 
 @enduml

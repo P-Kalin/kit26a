@@ -2,71 +2,11 @@
 
     namespace ua.khpi.oop.malokhvii04.shell.commands {
 
-        abstract class AbstractCommandDecorator {
-            +AbstractCommandDecorator(Command)
-            +getDescription(): String
-            +getKeys(): List<String>
-            +getName(): String
-        }
-
-        abstract class HandleTextFileCommand {
-            {static} #FILE_PATH_PATTERN: String
-            {static} -RESOURCE_BUNDLE_NAME: String
-            {static} -resourceBundle: ResourceBundle
-            +HandleTextFileCommand()
-            {static} #getFilePath(): String
-            {static} #updateResourceBundle(): void
-        }
-
-        class ExitCommand {
-            {static} -description: String
-            {static} -keys: List<String>
-            {static} -RESOURCE_BUNDLE_NAME: String
-            +ExitCommand()
-            {static} -updateResourceBundle(): void
-            +execute(): void
-            +getDescription(): String
-            +getKeys(): List<String>
-            +update(Observable, Object): void
-        }
-
-        class HistoryCommand {
-            {static} -description: String
-            {static} -keys: List<String>
-            {static} -RESOURCE_BUNDLE_NAME: String
-            {static} -resourceBundle: ResourceBundle
-            +HistoryCommand()
-            {static} -printCommandInfo(int, Command): void
-            {static} -updateResourceBundle(): void
-            +execute(): void
-            +getDescription(): String
-            +getKeys(): List<String>
-            +update(Observable, Object): void
-        }
-
         interface Command {
             {abstract} +execute(): void
             {abstract} +getDescription(): String
             {abstract} +getKeys(): List<String>
             {abstract} +getName(): String
-        }
-
-        class UpdateSettingsCommand {
-            {static} -description: String
-            {static} -keys: List<String>
-            {static} -RESOURCE_BUNDLE_NAME: String
-            {static} -resourceBundle: ResourceBundle
-            +UpdateSettingsCommand()
-            {static} -updateResourceBundle(): void
-            +execute(): void
-            +getDescription(): String
-            +getKeys(): List<String>
-            +update(Observable, Object): void
-        }
-
-        abstract class AbstractCommand {
-            +AbstractCommand()
-            +getName(): String
         }
 
         class HelpCommand {
@@ -83,15 +23,69 @@
             +update(Observable, Object): void
         }
 
-        Command <|.. AbstractCommandDecorator
+        class ExitCommand {
+            {static} -description: String
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            +ExitCommand()
+            {static} -updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
 
-        AbstractCommand <|-- HandleTextFileCommand
+        abstract class AbstractCommand {
+            +AbstractCommand()
+            +getName(): String
+        }
+
+        class HistoryCommand {
+            {static} -description: String
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +HistoryCommand()
+            {static} -printCommandInfo(int, Command): void
+            {static} -updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
+
+        class UpdateSettingsCommand {
+            {static} -description: String
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +UpdateSettingsCommand()
+            {static} -updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
+
+        abstract class HandleTextFileCommand {
+            {static} #FILE_PATH_PATTERN: String
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +HandleTextFileCommand()
+            {static} #getFilePath(): String
+            {static} #updateResourceBundle(): void
+        }
+
+        abstract class AbstractCommandDecorator {
+            +AbstractCommandDecorator(Command)
+            +getDescription(): String
+            +getKeys(): List<String>
+            +getName(): String
+        }
+
+        AbstractCommand <|-- HelpCommand
 
         AbstractCommand <|-- ExitCommand
-
-        AbstractCommand <|-- HistoryCommand
-
-        AbstractCommand <|-- UpdateSettingsCommand
 
         Command <|.. AbstractCommand
 
@@ -100,7 +94,13 @@
         }
         java.util.Observer <|.. AbstractCommand
 
-        AbstractCommand <|-- HelpCommand
+        AbstractCommand <|-- HistoryCommand
+
+        AbstractCommand <|-- UpdateSettingsCommand
+
+        AbstractCommand <|-- HandleTextFileCommand
+
+        Command <|.. AbstractCommandDecorator
 
         AbstractCommandDecorator --> Command: command
 

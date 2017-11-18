@@ -6,7 +6,7 @@
         {static} -RESOURCE_BUNDLE_NAME: String
         {static} -resourceBundle: ResourceBundle
         +InputTextCommand()
-        {static} -getInputText(String): Array<String>
+        {static} -getInputText(String): <any>
         {static} #updateResourceBundle(): void
         +execute(): void
         +getDescription(): String

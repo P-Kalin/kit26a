@@ -15,63 +15,6 @@
             +update(Observable, Object): void
         }
 
-        class SerializeTextCommand {
-            {static} -description: String
-            {static} -keys: List<String>
-            {static} -RESOURCE_BUNDLE_NAME: String
-            {static} -resourceBundle: ResourceBundle
-            +SerializeTextCommand()
-            {static} #updateResourceBundle(): void
-            +execute(): void
-            +getDescription(): String
-            +getKeys(): List<String>
-            +update(Observable, Object): void
-        }
-
-        class OutputTextCommand {
-            {static} -description: String
-            {static} -keys: List<String>
-            {static} -RESOURCE_BUNDLE_NAME: String
-            {static} -resourceBundle: ResourceBundle
-            +OutputTextCommand()
-            {static} #printTextLines(Collection<String>): void
-            {static} #updateResourceBundle(): void
-            +execute(): void
-            +getDescription(): String
-            +getKeys(): List<String>
-            +update(Observable, Object): void
-        }
-
-        class SearchAnanymsCommand {
-            {static} -ANANYMS_TABLE_FOOTER: String
-            {static} -ANANYMS_TABLE_HEADER: String
-            {static} -description: String
-            {static} -keys: List<String>
-            {static} -RESOURCE_BUNDLE_NAME: String
-            {static} -resourceBundle: ResourceBundle
-            +SearchAnanymsCommand()
-            {static} -printAnanyms(Collection<Ananym>): void
-            {static} #updateResourceBundle(): void
-            +execute(): void
-            +getDescription(): String
-            +getKeys(): List<String>
-            +update(Observable, Object): void
-        }
-
-        class InputTextCommand {
-            {static} -description: String
-            {static} -keys: List<String>
-            {static} -RESOURCE_BUNDLE_NAME: String
-            {static} -resourceBundle: ResourceBundle
-            +InputTextCommand()
-            {static} -getInputText(String): Array<String>
-            {static} #updateResourceBundle(): void
-            +execute(): void
-            +getDescription(): String
-            +getKeys(): List<String>
-            +update(Observable, Object): void
-        }
-
         class SortTextCommand {
             {static} -description: String
             {static} -keys: List<String>
@@ -101,6 +44,22 @@
             +update(Observable, Object): void
         }
 
+        class SearchAnanymsCommand {
+            {static} -ANANYMS_TABLE_FOOTER: String
+            {static} -ANANYMS_TABLE_HEADER: String
+            {static} -description: String
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +SearchAnanymsCommand()
+            {static} -printAnanyms(Collection<Ananym>): void
+            {static} #updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
+
         class SearchTextCommand {
             {static} -description: String
             {static} -keys: List<String>
@@ -114,23 +73,64 @@
             +update(Observable, Object): void
         }
 
+        class OutputTextCommand {
+            {static} -description: String
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +OutputTextCommand()
+            {static} #printTextLines(Collection<String>): void
+            {static} #updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
+
+        class InputTextCommand {
+            {static} -description: String
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +InputTextCommand()
+            {static} -getInputText(String): <any>
+            {static} #updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
+
+        class SerializeTextCommand {
+            {static} -description: String
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            {static} -resourceBundle: ResourceBundle
+            +SerializeTextCommand()
+            {static} #updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
+
         abstract class ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand
         ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand <|-- DeserializeTextCommand
 
-        ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand <|-- SerializeTextCommand
-
         abstract class ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand
-        ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand <|-- OutputTextCommand
-
-        OutputTextCommand <|-- SearchAnanymsCommand
-
-        ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand <|-- InputTextCommand
-
         ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand <|-- SortTextCommand
 
         OutputTextCommand <|-- SearchPalindromesCommand
 
+        OutputTextCommand <|-- SearchAnanymsCommand
+
         ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand <|-- SearchTextCommand
+
+        ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand <|-- OutputTextCommand
+
+        ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand <|-- InputTextCommand
+
+        ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand <|-- SerializeTextCommand
 
     }
 
