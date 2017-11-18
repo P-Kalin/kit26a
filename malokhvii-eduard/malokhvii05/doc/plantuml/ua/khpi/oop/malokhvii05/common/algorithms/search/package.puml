@@ -1,0 +1,130 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii05.common.algorithms.search {
+
+        class LinearSearch<T> {
+            +LinearSearch(Comparator<T>)
+            +search(Array<T>, T, int, int): int
+        }
+
+        class NullSearchAlgorithm<T> {
+            {static} +INSTANCE: SearchAlgorithm
+            -NullSearchAlgorithm()
+            +getLastFoundIndex(): int
+            +search(Array<T>, T): int
+            +search(Array<T>, T, int, int): int
+        }
+
+        interface SearchInRangeAlgorithm<T> {
+            {abstract} +search(Array<T>, T, int, int): int
+        }
+
+        class LinearWithBarrierSearch<T> {
+            +LinearWithBarrierSearch(Comparator<T>)
+            +search(Array<T>, T): int
+        }
+
+        interface SearchAlgorithm<T> {
+            {static} +INDEX_NOT_FOUND: int
+            {abstract} +getLastFoundIndex(): int
+            {abstract} +search(Array<T>, T): int
+        }
+
+        abstract class AbstractSearchInRangeAlgorithm<T> {
+            +AbstractSearchInRangeAlgorithm(Comparator<T>)
+            #isValidRange(Array<T>, int, int): boolean
+            +search(Array<T>, T): int
+        }
+
+        abstract class AbstractSearchAlgorithm<T> {
+            #lastFoundIndex: int
+            +AbstractSearchAlgorithm(Comparator<T>)
+            +getLastFoundIndex(): int
+            #indexNotFound(): int
+            +isNull(): boolean
+            #isValidArray(Array<T>): boolean
+        }
+
+        class SearchAlgorithmFactory {
+            {static} -classMapping: Map<String, Class<?>>
+            {static} -defaultAlgorithm: Class<?>
+            -SearchAlgorithmFactory()
+            {static} +getAlgorithm(String): SearchAlgorithm<T>
+            {static} +getAlgorithm(String, Comparator<T>): SearchAlgorithm<T>
+            {static} +getDefaultAlgorithm(): SearchAlgorithm<T>
+            {static} +getDefaultAlgorithm(Comparator<T>): SearchAlgorithm<T>
+            {static} +getRegisteredAlgorithms(): Set<String>
+            {static} -loadBasicAlgorithms(): void
+            {static} +registerAlgorithm(String, Class<?>): void
+            {static} +setDefaultAlgorithm(Class<?>): void
+            {static} ~unregisterAlgorithm(String): void
+        }
+
+        class BinarySearch<T> {
+            +BinarySearch(Comparator<T>)
+            +search(Array<T>, T, int, int): int
+        }
+
+        class GallopSearch<T> {
+            +GallopSearch(Comparator<T>)
+            +search(Array<T>, T, int, int): int
+        }
+
+        class ExponentialSearch<T> {
+            +ExponentialSearch(AbstractSearchInRangeAlgorithm<T>)
+            +ExponentialSearch(Comparator<T>)
+            +search(Array<T>, T): int
+        }
+
+        class FibonacciSearch<T> {
+            -currentFibonacciNumber: int
+            -fibonacciNumberM1: int
+            -fibonacciNumberM2: int
+            +FibonacciSearch(Comparator<T>)
+            -cutSubarrayAfterIndexPlusOne(): void
+            -cutSubarrayFromOffsetToIndex(): void
+            -prepareFibonacciNumbers(int): void
+            +search(Array<T>, T): int
+        }
+
+        AbstractSearchInRangeAlgorithm <|-- LinearSearch
+
+        abstract class ua.khpi.oop.malokhvii05.common.algorithms.NullAlgorithmWithComparator<T>
+        ua.khpi.oop.malokhvii05.common.algorithms.NullAlgorithmWithComparator <|-- NullSearchAlgorithm
+
+        SearchAlgorithm <|.. NullSearchAlgorithm
+
+        SearchInRangeAlgorithm <|.. NullSearchAlgorithm
+
+        interface ua.khpi.oop.malokhvii05.common.algorithms.AlgorithmWithComparator<T> {
+            {abstract} +getComparator(): Comparator<T>
+            {abstract} +setComparator(Comparator<T>): void
+        }
+        ua.khpi.oop.malokhvii05.common.algorithms.AlgorithmWithComparator <|.. SearchInRangeAlgorithm
+
+        AbstractSearchAlgorithm <|-- LinearWithBarrierSearch
+
+        ua.khpi.oop.malokhvii05.common.algorithms.AlgorithmWithComparator <|.. SearchAlgorithm
+
+        AbstractSearchAlgorithm <|-- AbstractSearchInRangeAlgorithm
+
+        SearchInRangeAlgorithm <|.. AbstractSearchInRangeAlgorithm
+
+        abstract class ua.khpi.oop.malokhvii05.common.algorithms.AbstractAlgorithmWithComparator<T>
+        ua.khpi.oop.malokhvii05.common.algorithms.AbstractAlgorithmWithComparator <|-- AbstractSearchAlgorithm
+
+        SearchAlgorithm <|.. AbstractSearchAlgorithm
+
+        AbstractSearchInRangeAlgorithm <|-- BinarySearch
+
+        AbstractSearchInRangeAlgorithm <|-- GallopSearch
+
+        AbstractSearchAlgorithm <|-- ExponentialSearch
+
+        AbstractSearchAlgorithm <|-- FibonacciSearch
+
+        ExponentialSearch --> SearchInRangeAlgorithm: searchInRangeAlgorithm
+
+    }
+
+@enduml
