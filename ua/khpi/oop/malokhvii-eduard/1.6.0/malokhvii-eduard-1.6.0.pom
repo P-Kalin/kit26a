@@ -45,6 +45,13 @@
         <github.deployBranch>maven</github.deployBranch>
         <github.deployTicket>#8</github.deployTicket>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>23.4-jre</version>
+        </dependency>
+    </dependencies>
     <repositories>
         <repository>
             <id>malokhvii-eduard-maven</id>
@@ -154,7 +161,7 @@
                             </docletArtifact>
                             <additionalparam> -umlSkipStandardDoclet
                                 true -umlBasePath
-                                ${basedir}\doc\plantuml -umlImageFormat
+                                ${basedir}/doc/plantuml -umlImageFormat
                                 PNG -umlImageDirectory png 
                             </additionalparam>
                         </configuration>
@@ -170,7 +177,7 @@
                             </docletArtifact>
                             <additionalparam> -umlSkipStandardDoclet
                                 true -umlBasePath
-                                ${basedir}\doc\plantuml -umlImageFormat
+                                ${basedir}/doc/plantuml -umlImageFormat
                                 PNG -umlImageDirectory png
                                 -umlIncludePrivateFields true
                                 -umlIncludePackagePrivateFields true
