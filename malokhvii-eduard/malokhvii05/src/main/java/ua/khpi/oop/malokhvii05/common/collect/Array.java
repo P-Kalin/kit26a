@@ -1,4 +1,4 @@
-package ua.khpi.oop.malokhvii05.common;
+package ua.khpi.oop.malokhvii05.common.collect;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -284,6 +284,29 @@ public final class Array<E> implements Collection<E>, Serializable {
     }
 
     /**
+     * Призначений, для збільшення ємкості буфера для розташування нових
+     * елементів. Коефіцієнт збільшення 1,3.
+     *
+     * @param minimumCapacity
+     *            мінімальна ємкість масиву
+     * @since 1.0.0
+     */
+    private void ensureCapacity(final int minimumCapacity) {
+        final int oldCapacity = this.data.length;
+        if (minimumCapacity > oldCapacity) {
+            int newCapacity = oldCapacity * 3 / 2 + 1;
+            if (newCapacity < minimumCapacity) {
+                newCapacity = minimumCapacity;
+            }
+
+            final Object[] copy = new Object[newCapacity];
+            System.arraycopy(this.data, 0, copy, 0,
+                    Math.min(this.data.length, newCapacity));
+            this.data = copy;
+        }
+    }
+
+    /**
      * Призначений, для отримання ітератора на початковий елемент масиву.
      *
      * @return ітератор на початковий елемент масиву
@@ -351,7 +374,8 @@ public final class Array<E> implements Collection<E>, Serializable {
     /**
      * Призначений, для отримання індексу об'єкту в масиві, якщо він присутній.
      * пошук об'єкту виконується за допомогою лінійного пошуку. Для швидкішого
-     * пошуку див. пакет {@link ua.khpi.oop.malokhvii05.common.algorithms.search}.
+     * пошуку див. пакет
+     * {@link ua.khpi.oop.malokhvii05.common.algorithms.search}.
      *
      * @param object
      *            об'єкт для пошуку
@@ -382,6 +406,38 @@ public final class Array<E> implements Collection<E>, Serializable {
         return this.size == 0;
     }
 
+    /**
+     * Призначений, для перевірки індексу на входження в розмір масиву під час
+     * задовільного доступу до елементів масиву.
+     *
+     * @param index
+     *            індекс для перевірки
+     * @return результат перевірки
+     * @since 1.0.0
+     */
+    private boolean isIndexInRange(final int index) {
+        if (index >= this.size) {
+            throw new IndexOutOfBoundsException();
+        }
+        return true;
+    }
+
+    /**
+     * Призначений, для перевірки індексу на вихід за розмір масиву під час
+     * додавання в задовільну позицію масива.
+     *
+     * @param index
+     *            індекс для перевірки
+     * @return результат перевірки
+     * @since 1.0.0
+     */
+    private boolean isNewElementIndexInRange(final int index) {
+        if (index > this.size || index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+        return true;
+    }
+
     @Override
     public Iterator<E> iterator() {
         return this.firstIterator();
@@ -409,6 +465,21 @@ public final class Array<E> implements Collection<E>, Serializable {
      */
     public ArrayIterator lastIterator() {
         return this.iterator(this.size - 1);
+    }
+
+    private void readObject(final ObjectInputStream objectInputStream)
+            throws ClassNotFoundException, IOException {
+        objectInputStream.defaultReadObject();
+
+        final int arraySize = objectInputStream.readInt();
+
+        if (arraySize >= 0) {
+            this.data = new Object[arraySize];
+            int index;
+            for (index = 0; index < this.size; index++) {
+                this.data[index] = objectInputStream.readObject();
+            }
+        }
     }
 
     /**
@@ -457,6 +528,24 @@ public final class Array<E> implements Collection<E>, Serializable {
         }
 
         return isModified;
+    }
+
+    /**
+     * Внутрішня реалізація видалення елементу масиву, усі піблічні методи
+     * видалення делегують викоритсання цього метода.
+     *
+     * @param index
+     *            індекс елементу для видалення
+     * @since 1.0.0
+     */
+    private void removeElement(final int index) {
+        final int amountOfMovedElements = this.size - index - 1;
+        if (amountOfMovedElements > 0) {
+            System.arraycopy(this.data, index + 1, this.data, index,
+                    amountOfMovedElements);
+        }
+
+        this.data[--this.size] = null;
     }
 
     /**
@@ -601,94 +690,6 @@ public final class Array<E> implements Collection<E>, Serializable {
         }
 
         return stringBuilder.toString();
-    }
-
-    /**
-     * Призначений, для збільшення ємкості буфера для розташування нових
-     * елементів. Коефіцієнт збільшення 1,3.
-     *
-     * @param minimumCapacity
-     *            мінімальна ємкість масиву
-     * @since 1.0.0
-     */
-    private void ensureCapacity(final int minimumCapacity) {
-        final int oldCapacity = this.data.length;
-        if (minimumCapacity > oldCapacity) {
-            int newCapacity = oldCapacity * 3 / 2 + 1;
-            if (newCapacity < minimumCapacity) {
-                newCapacity = minimumCapacity;
-            }
-
-            final Object[] copy = new Object[newCapacity];
-            System.arraycopy(this.data, 0, copy, 0,
-                    Math.min(this.data.length, newCapacity));
-            this.data = copy;
-        }
-    }
-
-    /**
-     * Призначений, для перевірки індексу на входження в розмір масиву під час
-     * задовільного доступу до елементів масиву.
-     *
-     * @param index
-     *            індекс для перевірки
-     * @return результат перевірки
-     * @since 1.0.0
-     */
-    private boolean isIndexInRange(final int index) {
-        if (index >= this.size) {
-            throw new IndexOutOfBoundsException();
-        }
-        return true;
-    }
-
-    /**
-     * Призначений, для перевірки індексу на вихід за розмір масиву під час
-     * додавання в задовільну позицію масива.
-     *
-     * @param index
-     *            індекс для перевірки
-     * @return результат перевірки
-     * @since 1.0.0
-     */
-    private boolean isNewElementIndexInRange(final int index) {
-        if (index > this.size || index < 0) {
-            throw new IndexOutOfBoundsException();
-        }
-        return true;
-    }
-
-    private void readObject(final ObjectInputStream objectInputStream)
-            throws ClassNotFoundException, IOException {
-        objectInputStream.defaultReadObject();
-
-        final int arraySize = objectInputStream.readInt();
-
-        if (arraySize >= 0) {
-            this.data = new Object[arraySize];
-            int index;
-            for (index = 0; index < this.size; index++) {
-                this.data[index] = objectInputStream.readObject();
-            }
-        }
-    }
-
-    /**
-     * Внутрішня реалізація видалення елементу масиву, усі піблічні методи
-     * видалення делегують викоритсання цього метода.
-     *
-     * @param index
-     *            індекс елементу для видалення
-     * @since 1.0.0
-     */
-    private void removeElement(final int index) {
-        final int amountOfMovedElements = this.size - index - 1;
-        if (amountOfMovedElements > 0) {
-            System.arraycopy(this.data, index + 1, this.data, index,
-                    amountOfMovedElements);
-        }
-
-        this.data[--this.size] = null;
     }
 
     private void writeObject(final ObjectOutputStream objectOutputStream)
