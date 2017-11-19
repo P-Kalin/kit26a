@@ -2,6 +2,8 @@ package ua.khpi.oop.malokhvii05.common.algorithms;
 
 import java.util.Comparator;
 
+import javax.annotation.Nonnull;
+
 /**
  * Інтерфейс, призначений для оголошення алгоритму, який потребує використання
  * компоратора для обчислення вхідних даних.
@@ -21,6 +23,7 @@ public interface AlgorithmWithComparator<T> extends Algorithm<T> {
      * @return поточний компаратор
      * @since 1.0.0
      */
+    @Nonnull
     Comparator<T> getComparator();
 
     /**
@@ -30,5 +33,5 @@ public interface AlgorithmWithComparator<T> extends Algorithm<T> {
      *            новий об'єкт компоратора
      * @since 1.0.0
      */
-    void setComparator(Comparator<T> comparator);
+    void setComparator(@Nonnull Comparator<T> comparator);
 }

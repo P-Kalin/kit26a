@@ -6,6 +6,5 @@
  * @see ua.khpi.oop.malokhvii05.common.algorithms.sort
  * @see ua.khpi.oop.malokhvii05.common.algorithms.search
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
  */
 package ua.khpi.oop.malokhvii05.common.algorithms;
