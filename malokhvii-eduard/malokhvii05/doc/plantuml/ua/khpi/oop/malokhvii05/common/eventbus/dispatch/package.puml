@@ -3,8 +3,8 @@
     namespace ua.khpi.oop.malokhvii05.common.eventbus.dispatch {
 
         class PerThreadQueuedDispatcher {
-            -queue: ThreadLocal<Queue<PerThreadQueuedDispatcher.Event>>
             -dispatching: ThreadLocal<Boolean>
+            -queue: ThreadLocal<Queue<PerThreadQueuedDispatcher.Event>>
             ~PerThreadQueuedDispatcher()
             +dispatch(Object, Iterator<Subscriber>): void
         }

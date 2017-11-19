@@ -1,8 +1,11 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -55,7 +58,7 @@ public final class SimpleQuickSort<T> extends AbstractSortAlgorithm<T> {
      *            компоратор для вхідних даних
      * @since 1.0.0
      */
-    public SimpleQuickSort(final Comparator<T> comparator) {
+    public SimpleQuickSort(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
@@ -74,26 +77,27 @@ public final class SimpleQuickSort<T> extends AbstractSortAlgorithm<T> {
      * @return індекс для розбиття масиву на частини
      * @since 1.0.0
      */
-    private int partition(final Array<T> array, final int left,
-            final int right) {
-        final T highValue = array.get(right);
+    private int partition(@Nonnull final T[] array, @Nonnegative final int left,
+            @Nonnegative final int right) {
+        final T highValue = array[right];
 
-        int i = (left - 1);
+        int i = left - 1;
         int j;
         for (j = left; j <= right - 1; j++) {
-            if (this.comparator.compare(array.get(j), highValue) <= -1) {
-                this.swap(array, ++i, j);
+            if (comparator.compare(array[j], highValue) <= -1) {
+                swap(array, ++i, j);
             }
         }
 
-        this.swap(array, ++i, right);
+        swap(array, ++i, right);
         return i;
     }
 
     @Override
-    public void sort(final Array<T> array) {
+    public void sort(@Nonnull final T[] array) {
+        checkNotNull(array);
         int low = 0;
-        int high = array.size() - 1;
+        int high = array.length - 1;
 
         final int[] stack = new int[high - low + 1];
         int top = -1;

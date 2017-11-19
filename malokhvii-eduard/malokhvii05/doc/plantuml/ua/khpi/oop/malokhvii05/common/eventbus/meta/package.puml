@@ -31,8 +31,8 @@
         }
 
         class SubscriberMetadata {
-            -subscriberType: Class<?>
             -referencePolicy: SubscriberReferencePolicy
+            -subscriberType: Class<?>
             ~SubscriberMetadata(Subscriber, Class<?>)
             +getReferencePolicy(): SubscriberReferencePolicy
             +getSubscriberType(): Class<?>

@@ -17,7 +17,7 @@
         <dependency>
             <groupId>ua.khpi.oop</groupId>
             <artifactId>malokhvii05</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.reflections</groupId>

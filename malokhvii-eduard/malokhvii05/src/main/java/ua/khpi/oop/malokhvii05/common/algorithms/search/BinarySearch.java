@@ -2,7 +2,10 @@ package ua.khpi.oop.malokhvii05.common.algorithms.search;
 
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.Signed;
 
 /**
  * Призначений, для реалізації алгоритму пошуку в масиві або діапазоні. Ключ у
@@ -43,34 +46,34 @@ public class BinarySearch<T> extends AbstractSearchInRangeAlgorithm<T> {
      *            компаратор для порівння під час сорутвання
      * @since 1.0.0
      */
-    public BinarySearch(final Comparator<T> comparator) {
+    public BinarySearch(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
     @Override
-    public final int search(final Array<T> array, final T value, final int left,
-            final int right) {
-        if (!this.isValidArray(array)
-                || !this.isValidRange(array, left, right)) {
-            return this.lastFoundIndex;
+    public final @Signed int search(@Nonnull final T[] array,
+            @Nullable final T value, @Nonnegative final int left,
+            @Nonnegative final int right) {
+        if (!isValidArray(array) || !isValidRange(array, left, right)) {
+            return lastFoundIndex;
         }
 
         int leftIndex = left;
         int rightIndex = right;
         T middleValue;
         while (left < right) {
-            this.lastFoundIndex = (leftIndex + rightIndex) >>> 1;
-            middleValue = array.get(this.lastFoundIndex);
+            lastFoundIndex = leftIndex + rightIndex >>> 1;
+            middleValue = array[lastFoundIndex];
 
-            if (this.comparator.compare(middleValue, value) == 1) {
-                rightIndex = this.lastFoundIndex;
-            } else if (this.comparator.compare(middleValue, value) == 0) {
-                return this.lastFoundIndex;
+            if (comparator.compare(middleValue, value) == 1) {
+                rightIndex = lastFoundIndex;
+            } else if (comparator.compare(middleValue, value) == 0) {
+                return lastFoundIndex;
             } else {
-                leftIndex = this.lastFoundIndex + 1;
+                leftIndex = lastFoundIndex + 1;
             }
         }
 
-        return this.indexNotFound();
+        return indexNotFound();
     }
 }

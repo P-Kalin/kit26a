@@ -2,7 +2,9 @@ package ua.khpi.oop.malokhvii05.common.algorithms.search;
 
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.Signed;
 
 /**
  * Призначений, для реалізації алгоритму пошуку в масиві. Ключ у фабриці
@@ -43,32 +45,33 @@ public class LinearWithBarrierSearch<T> extends AbstractSearchAlgorithm<T> {
      *            компаратор для порівння під час сорутвання
      * @since 1.0.0
      */
-    public LinearWithBarrierSearch(final Comparator<T> comparator) {
+    public LinearWithBarrierSearch(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
     @Override
-    public final int search(final Array<T> array, final T value) {
-        if (!this.isValidArray(array)) {
-            return this.lastFoundIndex;
+    public final @Signed int search(@Nonnull final T[] array,
+            @Nullable final T value) {
+        if (!isValidArray(array)) {
+            return lastFoundIndex;
         }
 
-        if (this.comparator.compare(array.getLast(), value) != 0) {
-            array.addLast(value);
-            for (this.lastFoundIndex = 0; this.comparator
-                    .compare(array.get(this.lastFoundIndex), value) != 0;
-                    this.lastFoundIndex++) {
+        if (comparator.compare(array[array.length - 1], value) != 0) {
+            T lastValue = array[array.length - 1];
+            array[array.length - 1] = value;
+            for (lastFoundIndex = 0; comparator.compare(array[lastFoundIndex],
+                    value) != 0; lastFoundIndex++) {
                 ;
             }
-            array.removeLast();
+            array[array.length - 1] = lastValue;
         } else {
-            return array.size() - 1;
+            return array.length - 1;
         }
 
-        if (this.lastFoundIndex < array.size()) {
-            return this.lastFoundIndex;
+        if (lastFoundIndex < array.length) {
+            return lastFoundIndex;
         }
 
-        return this.indexNotFound();
+        return indexNotFound();
     }
 }

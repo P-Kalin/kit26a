@@ -12,7 +12,7 @@ import ua.khpi.oop.malokhvii04.shell.Shell;
 import ua.khpi.oop.malokhvii04.shell.ShellCommandsPool;
 import ua.khpi.oop.malokhvii04.shell.ShellResources;
 import ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand;
-import ua.khpi.oop.malokhvii05.common.Array;
+import ua.khpi.oop.malokhvii05.common.collect.Array;
 
 /**
  * Призначений, для інкапсуляції серіалізації поточного стану колекції рядків,

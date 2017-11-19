@@ -1,6 +1,8 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.search;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nullable;
+import javax.annotation.Signed;
+
 import ua.khpi.oop.malokhvii05.common.algorithms.NullAlgorithmWithComparator;
 
 /**
@@ -33,18 +35,19 @@ public final class NullSearchAlgorithm<T> extends NullAlgorithmWithComparator<T>
     }
 
     @Override
-    public int getLastFoundIndex() {
+    public @Signed int getLastFoundIndex() {
         return SearchAlgorithm.INDEX_NOT_FOUND;
     }
 
     @Override
-    public int search(final Array<T> array, final T value) {
+    public @Signed int search(@Nullable final T[] array,
+            @Nullable final T value) {
         return SearchAlgorithm.INDEX_NOT_FOUND;
     }
 
     @Override
-    public int search(final Array<T> array, final T value, final int left,
-            final int right) {
+    public @Signed int search(@Nullable final T[] array,
+            @Nullable final T value, final int left, final int right) {
         return SearchAlgorithm.INDEX_NOT_FOUND;
     }
 }

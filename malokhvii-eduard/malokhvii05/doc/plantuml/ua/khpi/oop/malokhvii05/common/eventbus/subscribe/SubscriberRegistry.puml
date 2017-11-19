@@ -9,12 +9,12 @@
         {static} -getAnnotatedMethods(Class<?>): ImmutableList<Method>
         {static} -getAnnotatedMethodsNotCached(Class<?>): ImmutableList<Method>
         {static} -getFlattenHierarchy(Class<?>): ImmutableSet<Class<?>>
+        -findAllSubscribers(Object): Multimap<Class<?>, Subscriber>
         +getSubscribers(Object): Iterator<Subscriber>
+        -newSubscriberEntry(Object, Method, SubscriberMetadata): Subscriber
         +register(Object): void
         +removeUnusedSubscribers(): void
         +unregister(Object): void
-        -findAllSubscribers(Object): Multimap<Class<?>, Subscriber>
-        -newSubscriberEntry(Object, Method, SubscriberMetadata): Subscriber
     }
 
 @enduml

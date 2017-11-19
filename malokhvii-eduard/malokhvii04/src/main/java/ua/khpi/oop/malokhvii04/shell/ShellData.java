@@ -1,14 +1,13 @@
 package ua.khpi.oop.malokhvii04.shell;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import ua.khpi.oop.malokhvii05.common.collect.Array;
 
 /**
  * Призначений, для збереження даних інтерактивної оболонки, для подальшої
  * передачі між командами.
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.1.0
- * @since 1.0.0
+ * @version 1.1.1
  */
 public final class ShellData {
 
@@ -25,7 +24,7 @@ public final class ShellData {
      * @since 1.0.0
      */
     ShellData() {
-        this.textLines = new Array<String>();
+        textLines = new Array<>();
     }
 
     /**
@@ -35,7 +34,7 @@ public final class ShellData {
      * @since 1.0.0
      */
     public Array<String> getTextLines() {
-        return this.textLines;
+        return textLines;
     }
 
     /**
@@ -47,5 +46,19 @@ public final class ShellData {
      */
     public void setTextLines(final Array<String> textLines) {
         this.textLines = textLines;
+    }
+
+    /**
+     * Призначений, для оновлення буферу рядків вхідного тексту.
+     *
+     * @param textLines
+     *            новий буфер рядків вхідного тексту
+     * @since 1.1.1
+     */
+    public void setTextLines(final String[] textLines) {
+        this.textLines.clear();
+        for (String line : textLines) {
+            this.textLines.add(line);
+        }
     }
 }

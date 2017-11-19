@@ -7,12 +7,12 @@
         -subscribeMetadata: SubscribeMetadata
         -subscriberMetadata: SubscriberMetadata
         #Subscriber(Method, EventBus, SubscriberMetadata, SubscribeMetadata)
+        +compareTo(Subscriber): int
+        -createExceptionContext(Object): SubscriberExceptionContext
         +dispatchEvent(Object): void
         +getSubscribeMetadata(): SubscribeMetadata
         +getSubscriberMetadata(): SubscriberMetadata
-        -createExceptionContext(Object): SubscriberExceptionContext
         -invokeSubscriberMethod(Object): void
-        +compareTo(Subscriber): int
         {abstract} +getSubscriber(): Object
     }
 

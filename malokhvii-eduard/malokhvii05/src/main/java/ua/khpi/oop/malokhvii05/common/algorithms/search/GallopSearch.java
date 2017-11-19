@@ -2,7 +2,10 @@ package ua.khpi.oop.malokhvii05.common.algorithms.search;
 
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.Signed;
 
 /**
  * Призначений, для реалізації алгоритму пошуку в масиві або діапазоні. Ключ у
@@ -39,15 +42,16 @@ public class GallopSearch<T> extends AbstractSearchInRangeAlgorithm<T> {
      *            компаратор для порівння під час сорутвання
      * @since 1.0.0
      */
-    public GallopSearch(final Comparator<T> comparator) {
+    public GallopSearch(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
     @Override
-    public final int search(final Array<T> array, final T value, final int left,
-            final int right) {
-        if (!this.isValidArray(array)) {
-            return this.lastFoundIndex;
+    public final @Signed int search(@Nonnull final T[] array,
+            @Nullable final T value, @Nonnegative final int left,
+            @Nonnegative final int right) {
+        if (!isValidArray(array)) {
+            return lastFoundIndex;
         }
 
         int rightIndex = right;
@@ -56,21 +60,22 @@ public class GallopSearch<T> extends AbstractSearchInRangeAlgorithm<T> {
         int offset = 1;
         T currentValue;
         int nextLeftValue;
-        jump: while (left <= right) {
-            currentValue = array.get(leftIndex);
-            if (this.comparator.compare(currentValue, value) == 0) {
-                this.lastFoundIndex = leftIndex;
+        jump:
+        while (left <= right) {
+            currentValue = array[leftIndex];
+            if (comparator.compare(currentValue, value) == 0) {
+                lastFoundIndex = leftIndex;
                 return leftIndex;
             }
 
             nextLeftValue = leftIndex + offset;
-            if ((this.comparator.compare(currentValue, value) == -1)
+            if (comparator.compare(currentValue, value) == -1
                     || nextLeftValue > rightIndex) {
-                if (this.comparator.compare(currentValue, value) == 1) {
+                if (comparator.compare(currentValue, value) == 1) {
                     rightIndex = leftIndex;
                 }
 
-                leftIndex -= (offset >> 1);
+                leftIndex -= offset >> 1;
                 ++leftIndex;
                 offset = 1;
                 continue jump;
@@ -80,6 +85,6 @@ public class GallopSearch<T> extends AbstractSearchInRangeAlgorithm<T> {
             offset <<= 1;
         }
 
-        return this.indexNotFound();
+        return indexNotFound();
     }
 }

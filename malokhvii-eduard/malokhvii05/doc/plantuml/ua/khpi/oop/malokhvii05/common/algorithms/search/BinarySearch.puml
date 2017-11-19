@@ -2,7 +2,7 @@
 
     class BinarySearch<T> {
         +BinarySearch(Comparator<T>)
-        +search(Array<T>, T, int, int): int
+        +search(T[], T, int, int): int
     }
 
 @enduml

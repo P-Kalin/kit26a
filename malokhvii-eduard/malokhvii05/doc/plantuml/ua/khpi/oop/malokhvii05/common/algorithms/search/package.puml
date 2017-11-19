@@ -4,36 +4,36 @@
 
         class LinearSearch<T> {
             +LinearSearch(Comparator<T>)
-            +search(Array<T>, T, int, int): int
+            +search(T[], T, int, int): int
         }
 
         class NullSearchAlgorithm<T> {
             {static} +INSTANCE: SearchAlgorithm
             -NullSearchAlgorithm()
             +getLastFoundIndex(): int
-            +search(Array<T>, T): int
-            +search(Array<T>, T, int, int): int
+            +search(T[], T): int
+            +search(T[], T, int, int): int
         }
 
         interface SearchInRangeAlgorithm<T> {
-            {abstract} +search(Array<T>, T, int, int): int
+            {abstract} +search(T[], T, int, int): int
         }
 
         class LinearWithBarrierSearch<T> {
             +LinearWithBarrierSearch(Comparator<T>)
-            +search(Array<T>, T): int
+            +search(T[], T): int
         }
 
         interface SearchAlgorithm<T> {
             {static} +INDEX_NOT_FOUND: int
             {abstract} +getLastFoundIndex(): int
-            {abstract} +search(Array<T>, T): int
+            {abstract} +search(T[], T): int
         }
 
         abstract class AbstractSearchInRangeAlgorithm<T> {
             +AbstractSearchInRangeAlgorithm(Comparator<T>)
-            #isValidRange(Array<T>, int, int): boolean
-            +search(Array<T>, T): int
+            #isValidRange(T[], int, int): boolean
+            +search(T[], T): int
         }
 
         abstract class AbstractSearchAlgorithm<T> {
@@ -42,7 +42,7 @@
             +getLastFoundIndex(): int
             #indexNotFound(): int
             +isNull(): boolean
-            #isValidArray(Array<T>): boolean
+            #isValidArray(T[]): boolean
         }
 
         class SearchAlgorithmFactory {
@@ -57,23 +57,23 @@
             {static} -loadBasicAlgorithms(): void
             {static} +registerAlgorithm(String, Class<?>): void
             {static} +setDefaultAlgorithm(Class<?>): void
-            {static} ~unregisterAlgorithm(String): void
+            {static} +unregisterAlgorithm(String): void
         }
 
         class BinarySearch<T> {
             +BinarySearch(Comparator<T>)
-            +search(Array<T>, T, int, int): int
+            +search(T[], T, int, int): int
         }
 
         class GallopSearch<T> {
             +GallopSearch(Comparator<T>)
-            +search(Array<T>, T, int, int): int
+            +search(T[], T, int, int): int
         }
 
         class ExponentialSearch<T> {
             +ExponentialSearch(AbstractSearchInRangeAlgorithm<T>)
             +ExponentialSearch(Comparator<T>)
-            +search(Array<T>, T): int
+            +search(T[], T): int
         }
 
         class FibonacciSearch<T> {
@@ -84,7 +84,7 @@
             -cutSubarrayAfterIndexPlusOne(): void
             -cutSubarrayFromOffsetToIndex(): void
             -prepareFibonacciNumbers(int): void
-            +search(Array<T>, T): int
+            +search(T[], T): int
         }
 
         AbstractSearchInRangeAlgorithm <|-- LinearSearch

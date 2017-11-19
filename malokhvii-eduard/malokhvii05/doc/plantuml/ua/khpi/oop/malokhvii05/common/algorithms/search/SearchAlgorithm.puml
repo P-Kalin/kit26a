@@ -3,7 +3,7 @@
     interface SearchAlgorithm<T> {
         {static} +INDEX_NOT_FOUND: int
         {abstract} +getLastFoundIndex(): int
-        {abstract} +search(Array<T>, T): int
+        {abstract} +search(T[], T): int
     }
 
 @enduml

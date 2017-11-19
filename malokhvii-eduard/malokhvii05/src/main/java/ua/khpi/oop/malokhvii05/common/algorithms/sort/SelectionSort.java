@@ -1,8 +1,10 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnull;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -46,26 +48,24 @@ public final class SelectionSort<T> extends AbstractSortAlgorithm<T> {
      *            компоратор для вхідних даних
      * @since 1.0.0
      */
-    public SelectionSort(final Comparator<T> comparator) {
+    public SelectionSort(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
     @Override
-    public void sort(final Array<T> array) {
-        final int arraySize = array.size();
-
+    public void sort(@Nonnull final T[] array) {
+        checkNotNull(array);
         int minimumIndex;
         int i;
         int j;
-        for (i = 0; i < arraySize - 1; i++) {
+        for (i = 0; i < array.length - 1; i++) {
             minimumIndex = i;
-            for (j = i + 1; j < arraySize; j++) {
-                if (this.comparator.compare(array.get(j),
-                        array.get(minimumIndex)) < 0) {
+            for (j = i + 1; j < array.length; j++) {
+                if (comparator.compare(array[j], array[minimumIndex]) < 0) {
                     minimumIndex = j;
                 }
             }
-            this.swap(array, minimumIndex, i);
+            swap(array, minimumIndex, i);
         }
     }
 }

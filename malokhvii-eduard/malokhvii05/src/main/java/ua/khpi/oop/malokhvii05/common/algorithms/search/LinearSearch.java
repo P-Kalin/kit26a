@@ -2,7 +2,9 @@ package ua.khpi.oop.malokhvii05.common.algorithms.search;
 
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
+import javax.annotation.Signed;
 
 /**
  * Призначений, для реалізації алгоритму пошуку в масиві або діапазоні. Ключ у
@@ -46,25 +48,23 @@ public class LinearSearch<T> extends AbstractSearchInRangeAlgorithm<T> {
      *            компаратор для порівння під час сорутвання
      * @since 1.0.0
      */
-    public LinearSearch(final Comparator<T> comparator) {
+    public LinearSearch(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
     @Override
-    public final int search(final Array<T> array, final T value, final int left,
-            final int right) {
-        if (!this.isValidRange(array, left, right)) {
-            return this.lastFoundIndex;
+    public final @Signed int search(@Nonnull final T[] array, final T value,
+            @Nonnegative final int left, @Nonnegative final int right) {
+        if (!isValidRange(array, left, right)) {
+            return lastFoundIndex;
         }
 
-        for (this.lastFoundIndex = left; this.lastFoundIndex < right;
-                this.lastFoundIndex++) {
-            if (this.comparator.compare(array.get(this.lastFoundIndex),
-                    value) == 0) {
-                return this.lastFoundIndex;
+        for (lastFoundIndex = left; lastFoundIndex < right; lastFoundIndex++) {
+            if (comparator.compare(array[lastFoundIndex], value) == 0) {
+                return lastFoundIndex;
             }
         }
 
-        return this.indexNotFound();
+        return indexNotFound();
     }
 }

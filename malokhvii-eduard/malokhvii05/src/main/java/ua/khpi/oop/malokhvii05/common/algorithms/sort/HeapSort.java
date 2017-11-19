@@ -1,8 +1,11 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -44,7 +47,7 @@ public final class HeapSort<T> extends AbstractSortAlgorithm<T> {
      *            компоратор для вхідних даних
      * @since 1.0.0
      */
-    public HeapSort(final Comparator<T> comparator) {
+    public HeapSort(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
@@ -60,39 +63,39 @@ public final class HeapSort<T> extends AbstractSortAlgorithm<T> {
      *            позиція під-дерева
      * @since 1.0.0
      */
-    private void heapify(final Array<T> array, final int heapSize,
-            final int index) {
-        int largest = index;
-        final int left = 2 * index + 1;
-        final int right = 2 * index + 2;
+    private void heapify(@Nonnull final T[] array,
+            @Nonnegative final int heapSize, @Nonnegative final int index) {
+        int parent = index;
+        final int leftChild = 2 * index + 1;
+        final int rightChild = 2 * index + 2;
 
-        if (left < heapSize && (this.comparator.compare(array.get(left),
-                array.get(largest))) == 1) {
-            largest = left;
+        if (leftChild < heapSize
+                && comparator.compare(array[leftChild], array[parent]) == 1) {
+            parent = leftChild;
         }
 
-        if (right < heapSize && (this.comparator.compare(array.get(right),
-                array.get(largest))) == 1) {
-            largest = right;
+        if (rightChild < heapSize
+                && comparator.compare(array[rightChild], array[parent]) == 1) {
+            parent = rightChild;
         }
 
-        if (largest != index) {
-            this.swap(array, index, largest);
-            this.heapify(array, heapSize, largest);
+        if (parent != index) {
+            swap(array, index, parent);
+            heapify(array, heapSize, parent);
         }
     }
 
     @Override
-    public void sort(final Array<T> array) {
-        final int arraySize = array.size();
+    public void sort(@Nonnull final T[] array) {
+        checkNotNull(array);
         int index;
-        for (index = arraySize / 2 - 1; index >= 0; index--) {
-            this.heapify(array, arraySize, index);
+        for (index = array.length / 2 - 1; index >= 0; index--) {
+            heapify(array, array.length, index);
         }
 
-        for (index = arraySize - 1; index >= 0; index--) {
-            this.swap(array, 0, index);
-            this.heapify(array, index, 0);
+        for (index = array.length - 1; index >= 0; index--) {
+            swap(array, 0, index);
+            heapify(array, index, 0);
         }
     }
 }

@@ -15,15 +15,6 @@ import ua.khpi.oop.malokhvii05.common.eventbus.subscribe.Subscriber;
 public final class Dispatchers {
 
     /**
-     * Призначений, для заборони створення об'єктів.
-     *
-     * @since 1.0.0
-     */
-    private Dispatchers() {
-
-    }
-
-    /**
      * Призначений, для створення асинхроного оповіщувача.
      *
      * @return асинхроний оповіщувач
@@ -70,5 +61,14 @@ public final class Dispatchers {
             @Nonnull final Dispatcher dispatcher,
             @Nonnull final Comparator<Subscriber> comparator) {
         return new PrioritizedDispatcher(dispatcher, comparator);
+    }
+
+    /**
+     * Призначений, для заборони створення об'єктів.
+     *
+     * @since 1.0.0
+     */
+    private Dispatchers() {
+
     }
 }

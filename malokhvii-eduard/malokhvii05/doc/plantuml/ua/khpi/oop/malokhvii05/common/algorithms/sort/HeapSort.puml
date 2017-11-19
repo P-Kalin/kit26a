@@ -2,8 +2,8 @@
 
     class HeapSort<T> {
         +HeapSort(Comparator<T>)
-        -heapify(Array<T>, int, int): void
-        +sort(Array<T>): void
+        -heapify(T[], int, int): void
+        +sort(T[]): void
     }
 
 @enduml

@@ -1,6 +1,12 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import static com.google.common.base.Preconditions.checkNotNull;
+
+import java.util.Collection;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import ua.khpi.oop.malokhvii05.common.algorithms.NullAlgorithmWithComparator;
 
 /**
@@ -43,8 +49,15 @@ final class NullSortAlgorithm<T> extends NullAlgorithmWithComparator<T>
 
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public void sort(final Array<T> array) {
+    public @Nonnull T[] sort(@Nonnull final Collection<T> collection) {
+        checkNotNull(collection);
+        return (T[]) collection.toArray();
+    }
+
+    @Override
+    public void sort(@Nullable final T[] array) {
 
     }
 }

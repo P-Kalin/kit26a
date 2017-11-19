@@ -5,6 +5,7 @@
         ~ShellData()
         +getTextLines(): Array<String>
         +setTextLines(Array<String>): void
+        +setTextLines(String[]): void
     }
 
 @enduml

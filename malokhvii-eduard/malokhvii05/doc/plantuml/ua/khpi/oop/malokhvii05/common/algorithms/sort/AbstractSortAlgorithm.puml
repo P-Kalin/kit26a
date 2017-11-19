@@ -3,10 +3,11 @@
     abstract class AbstractSortAlgorithm<T> {
         #isReversedOrder: boolean
         +AbstractSortAlgorithm(Comparator<T>)
+        {static} #swap(T[], int, int): void
         +isNull(): boolean
         +isReversedOrder(): boolean
         +setReversedOrder(boolean): void
-        #swap(Array<T>, int, int): void
+        +sort(Collection<T>): T[]
     }
 
 @enduml

@@ -18,15 +18,6 @@ import ua.khpi.oop.malokhvii05.common.eventbus.publish.EventBus;
 public final class Subscribers {
 
     /**
-     * Призначений, для заборони створення об'єктів.
-     *
-     * @since 1.0.0
-     */
-    private Subscribers() {
-
-    }
-
-    /**
      * Призначений, для створення запису про підписчика, згідно політики
      * посилання {@link SubscriberReferencePolicy#SOFT}.
      *
@@ -114,5 +105,14 @@ public final class Subscribers {
             @Nonnull final SubscribeMetadata subscribeMetadata) {
         return new WeakSubscriber(subscriber, method, eventBus,
                 subscriberMetadata, subscribeMetadata);
+    }
+
+    /**
+     * Призначений, для заборони створення об'єктів.
+     *
+     * @since 1.0.0
+     */
+    private Subscribers() {
+
     }
 }

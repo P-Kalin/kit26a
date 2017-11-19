@@ -1,6 +1,10 @@
 package ua.khpi.oop.malokhvii05.common.algorithms;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.Comparator;
+
+import javax.annotation.Nonnull;
 
 /**
  * Абстрактний клас, призначений для об'єднання усіх алгоритмів які потребують
@@ -30,17 +34,18 @@ public abstract class AbstractAlgorithmWithComparator<T>
      *            компоратор для вхідних даних
      * @since 1.0.0
      */
-    public AbstractAlgorithmWithComparator(final Comparator<T> comparator) {
-        this.comparator = comparator;
+    public AbstractAlgorithmWithComparator(
+            @Nonnull final Comparator<T> comparator) {
+        this.comparator = checkNotNull(comparator);
     }
 
     @Override
-    public Comparator<T> getComparator() {
+    public @Nonnull Comparator<T> getComparator() {
         return this.comparator;
     }
 
     @Override
-    public void setComparator(final Comparator<T> comparator) {
-        this.comparator = comparator;
+    public void setComparator(@Nonnull final Comparator<T> comparator) {
+        this.comparator = checkNotNull(comparator);
     }
 }

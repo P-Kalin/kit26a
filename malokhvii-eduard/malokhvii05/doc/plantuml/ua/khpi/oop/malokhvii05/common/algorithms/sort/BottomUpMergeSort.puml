@@ -3,7 +3,7 @@
     class BottomUpMergeSort<T> {
         +BottomUpMergeSort(Comparator<T>)
         -mergeSlice(Object[], Object[], int, int): void
-        +sort(Array<T>): void
+        +sort(T[]): void
     }
 
 @enduml

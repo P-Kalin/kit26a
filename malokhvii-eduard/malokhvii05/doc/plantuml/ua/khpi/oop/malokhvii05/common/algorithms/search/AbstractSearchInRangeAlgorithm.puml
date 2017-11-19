@@ -2,8 +2,8 @@
 
     abstract class AbstractSearchInRangeAlgorithm<T> {
         +AbstractSearchInRangeAlgorithm(Comparator<T>)
-        #isValidRange(Array<T>, int, int): boolean
-        +search(Array<T>, T): int
+        #isValidRange(T[], int, int): boolean
+        +search(T[], T): int
     }
 
 @enduml

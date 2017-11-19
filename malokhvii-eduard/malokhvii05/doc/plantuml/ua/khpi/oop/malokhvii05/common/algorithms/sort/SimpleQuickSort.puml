@@ -2,8 +2,8 @@
 
     class SimpleQuickSort<T> {
         +SimpleQuickSort(Comparator<T>)
-        -partition(Array<T>, int, int): int
-        +sort(Array<T>): void
+        -partition(T[], int, int): int
+        +sort(T[]): void
     }
 
 @enduml

@@ -4,8 +4,8 @@
         {static} +INSTANCE: SearchAlgorithm
         -NullSearchAlgorithm()
         +getLastFoundIndex(): int
-        +search(Array<T>, T): int
-        +search(Array<T>, T, int, int): int
+        +search(T[], T): int
+        +search(T[], T, int, int): int
     }
 
 @enduml

@@ -5,7 +5,7 @@
         +ExponentialSearch(AbstractSearchInRangeAlgorithm<T>)
         +ExponentialSearch(Comparator<T>)
         +getSearchInRangeAlgorithm(): SearchInRangeAlgorithm<T>
-        +search(Array<T>, T): int
+        +search(T[], T): int
         +setSearchInRangeAlgorithm(SearchInRangeAlgorithm<T>): void
     }
 

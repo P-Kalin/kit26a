@@ -1,8 +1,10 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnull;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -50,27 +52,26 @@ public final class ShellSort<T> extends AbstractSortAlgorithm<T> {
      *            компоратор для вхідних даних
      * @since 1.0.0
      */
-    public ShellSort(final Comparator<T> comparator) {
+    public ShellSort(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
     @Override
-    public void sort(final Array<T> array) {
-        final int arraySize = array.size();
+    public void sort(@Nonnull final T[] array) {
+        checkNotNull(array);
         T comparableValue;
         int gap;
 
         int i;
         int j;
-        for (gap = arraySize >> 1; gap > 0; gap >>= 1) {
-            for (i = gap; i < arraySize; i++) {
-                comparableValue = array.get(i);
-                for (j = i; j >= gap && this.comparator
-                        .compare(array.get(j - gap), comparableValue) == 1;
-                        j -= gap) {
-                    array.set(j, array.get(j - gap));
+        for (gap = array.length >> 1; gap > 0; gap >>= 1) {
+            for (i = gap; i < array.length; i++) {
+                comparableValue = array[i];
+                for (j = i; j >= gap && comparator.compare(array[j - gap],
+                        comparableValue) == 1; j -= gap) {
+                    array[j] = array[j - gap];
                 }
-                array.set(j, comparableValue);
+                array[j] = comparableValue;
             }
         }
     }

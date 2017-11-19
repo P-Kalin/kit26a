@@ -238,6 +238,39 @@ public final class SubscriberRegistry {
     }
 
     /**
+     * Призначений, для пошуку усіх підписчиків (обробників) в об'єкті
+     * підписчика.
+     *
+     * @param subscriber
+     *            підписчик
+     * @return перелік усіх записів про підписчиків
+     * @throws AnnotationMetadataException
+     *             підписчика не було відмічено анотацією {@link Subscriber},
+     *             або виконавців події (методів) не було відмічено анотацією
+     *             {@link Subscribe}
+     * @since 1.0.0
+     */
+    private @Nonnull Multimap<Class<?>, Subscriber> findAllSubscribers(
+            @Nonnull final Object subscriber)
+            throws AnnotationMetadataException {
+        final Multimap<Class<?>, Subscriber> methodsInListener = HashMultimap
+                .create();
+
+        final Class<?> subscriberType = subscriber.getClass();
+        final SubscriberMetadata subscriberMetadata;
+        subscriberMetadata = AnnotationMetadatas
+                .newSubscriberMetadata(subscriberType);
+
+        for (final Method method : getAnnotatedMethods(subscriberType)) {
+            final Class<?>[] parameterTypes = method.getParameterTypes();
+            final Class<?> eventType = parameterTypes[0];
+            methodsInListener.put(eventType,
+                    newSubscriberEntry(subscriber, method, subscriberMetadata));
+        }
+        return methodsInListener;
+    }
+
+    /**
      * Призначений, для отримання ітератору, що представляє незмінний знімок
      * усіх підписчиків даної події на час виклику цього методу.
      *
@@ -265,6 +298,42 @@ public final class SubscriberRegistry {
         }
 
         return Iterators.concat(subscribers.iterator());
+    }
+
+    /**
+     * Призначений, для створення нового запису про підписчика.
+     *
+     * @param subscriber
+     *            підписчик
+     * @param method
+     *            виконавець події
+     * @param subscriberMetadata
+     *            об'єкте представлення вилучених даних із анотації
+     *            {@link Subscriber}
+     * @return запис про підписчика
+     * @throws AnnotationMetadataException
+     *             виконавця події (метод) не було відмічено анотацією
+     *             {@link Subscribe}
+     */
+    private @Nonnull Subscriber newSubscriberEntry(
+            @Nonnull final Object subscriber, @Nonnull final Method method,
+            @Nonnull final SubscriberMetadata subscriberMetadata)
+            throws AnnotationMetadataException {
+        SubscribeMetadata subscribeMetadata;
+
+        subscribeMetadata = AnnotationMetadatas.newSubscribeMetadata(method);
+        switch (subscriberMetadata.getReferencePolicy()) {
+        case WEAK:
+            return Subscribers.newWeakSubscriber(subscriber, method,
+                    eventBus.get(), subscriberMetadata, subscribeMetadata);
+        case SOFT:
+            return Subscribers.newSoftSubscriber(subscriber, method,
+                    eventBus.get(), subscriberMetadata, subscribeMetadata);
+        case STRONG:
+            return Subscribers.newStrongSubscriber(subscriber, method,
+                    eventBus.get(), subscriberMetadata, subscribeMetadata);
+        }
+        throw new NullPointerException("Reference policy value is null");
     }
 
     /**
@@ -353,74 +422,5 @@ public final class SubscriberRegistry {
                         "Missing event subscriber for an annotated method");
             }
         }
-    }
-
-    /**
-     * Призначений, для пошуку усіх підписчиків (обробників) в об'єкті
-     * підписчика.
-     *
-     * @param subscriber
-     *            підписчик
-     * @return перелік усіх записів про підписчиків
-     * @throws AnnotationMetadataException
-     *             підписчика не було відмічено анотацією {@link Subscriber},
-     *             або виконавців події (методів) не було відмічено анотацією
-     *             {@link Subscribe}
-     * @since 1.0.0
-     */
-    private @Nonnull Multimap<Class<?>, Subscriber> findAllSubscribers(
-            @Nonnull final Object subscriber)
-            throws AnnotationMetadataException {
-        final Multimap<Class<?>, Subscriber> methodsInListener = HashMultimap
-                .create();
-
-        final Class<?> subscriberType = subscriber.getClass();
-        final SubscriberMetadata subscriberMetadata;
-        subscriberMetadata = AnnotationMetadatas
-                .newSubscriberMetadata(subscriberType);
-
-        for (final Method method : getAnnotatedMethods(subscriberType)) {
-            final Class<?>[] parameterTypes = method.getParameterTypes();
-            final Class<?> eventType = parameterTypes[0];
-            methodsInListener.put(eventType,
-                    newSubscriberEntry(subscriber, method, subscriberMetadata));
-        }
-        return methodsInListener;
-    }
-
-    /**
-     * Призначений, для створення нового запису про підписчика.
-     *
-     * @param subscriber
-     *            підписчик
-     * @param method
-     *            виконавець події
-     * @param subscriberMetadata
-     *            об'єкте представлення вилучених даних із анотації
-     *            {@link Subscriber}
-     * @return запис про підписчика
-     * @throws AnnotationMetadataException
-     *             виконавця події (метод) не було відмічено анотацією
-     *             {@link Subscribe}
-     */
-    private @Nonnull Subscriber newSubscriberEntry(
-            @Nonnull final Object subscriber, @Nonnull final Method method,
-            @Nonnull final SubscriberMetadata subscriberMetadata)
-            throws AnnotationMetadataException {
-        SubscribeMetadata subscribeMetadata;
-
-        subscribeMetadata = AnnotationMetadatas.newSubscribeMetadata(method);
-        switch (subscriberMetadata.getReferencePolicy()) {
-        case WEAK:
-            return Subscribers.newWeakSubscriber(subscriber, method,
-                    eventBus.get(), subscriberMetadata, subscribeMetadata);
-        case SOFT:
-            return Subscribers.newSoftSubscriber(subscriber, method,
-                    eventBus.get(), subscriberMetadata, subscribeMetadata);
-        case STRONG:
-            return Subscribers.newStrongSubscriber(subscriber, method,
-                    eventBus.get(), subscriberMetadata, subscribeMetadata);
-        }
-        throw new NullPointerException("Reference policy value is null");
     }
 }

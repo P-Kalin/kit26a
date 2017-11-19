@@ -1,8 +1,11 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -51,7 +54,7 @@ public final class BottomUpMergeSort<T> extends AbstractSortAlgorithm<T> {
      *            компоратор для вхідних даних
      * @since 1.0.0
      */
-    public BottomUpMergeSort(final Comparator<T> comparator) {
+    public BottomUpMergeSort(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
@@ -70,8 +73,9 @@ public final class BottomUpMergeSort<T> extends AbstractSortAlgorithm<T> {
      * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
-    private void mergeSlice(final Object[] array, final Object[] mergeBuffer,
-            final int left, final int chunkSize) {
+    private void mergeSlice(@Nonnull final Object[] array,
+            @Nonnull final Object[] mergeBuffer, @Nonnegative final int left,
+            @Nonnegative final int chunkSize) {
         final int right = left + chunkSize;
         final int end = Math.min(left + chunkSize * 2 - 1,
                 mergeBuffer.length - 1);
@@ -81,7 +85,7 @@ public final class BottomUpMergeSort<T> extends AbstractSortAlgorithm<T> {
 
         for (int i = 0; i <= end - left; i++) {
             if (leftIndex < right && (rightIndex > end
-                    || this.comparator.compare((T) array[leftIndex],
+                    || comparator.compare((T) array[leftIndex],
                             (T) array[rightIndex]) <= 0)) {
                 mergeBuffer[i] = array[leftIndex++];
             } else {
@@ -95,15 +99,16 @@ public final class BottomUpMergeSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void sort(final Array<T> array) {
-        final Object[] arrayData = array.getData();
-        final Object[] mergeBuffer = new Object[array.size()];
+    public void sort(@Nonnull final T[] array) {
+        final Object[] arrayData = checkNotNull(array);
+        final Object[] mergeBuffer = new Object[array.length];
 
         int chunkSize = 1;
+        int i;
         while (chunkSize < mergeBuffer.length) {
-            int i = 0;
+            i = 0;
             while (i < mergeBuffer.length - chunkSize) {
-                this.mergeSlice(arrayData, mergeBuffer, i, chunkSize);
+                mergeSlice(arrayData, mergeBuffer, i, chunkSize);
                 i += chunkSize << 1;
             }
             chunkSize <<= 1;

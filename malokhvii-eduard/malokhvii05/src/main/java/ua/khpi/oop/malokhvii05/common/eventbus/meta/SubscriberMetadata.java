@@ -24,18 +24,18 @@ import ua.khpi.oop.malokhvii05.common.eventbus.subscribe.SubscriberRegistry;
 public final class SubscriberMetadata extends AnnotationMetadata {
 
     /**
-     * Тип підписчика.
-     *
-     * @since 1.0.0
-     */
-    private final Class<?> subscriberType;
-
-    /**
      * Політика посилання на підписчика у {@link SubscriberRegistry}.
      *
      * @since 1.0.0
      */
     private final SubscriberReferencePolicy referencePolicy;
+
+    /**
+     * Тип підписчика.
+     *
+     * @since 1.0.0
+     */
+    private final Class<?> subscriberType;
 
     /**
      * Призначений, для ініціалізації об'єкту початковими даними, а саме

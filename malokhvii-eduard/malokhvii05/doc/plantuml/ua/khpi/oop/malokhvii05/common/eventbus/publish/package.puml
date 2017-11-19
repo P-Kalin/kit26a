@@ -19,8 +19,8 @@
             -executor: Executor
             -subscribers: SubscriberRegistry
             +EventBus()
-            +EventBus(Dispatcher, Executor)
             +EventBus(Dispatcher)
+            +EventBus(Dispatcher, Executor)
             +EventBus(Dispatcher, Executor, SubscriberExceptionHandler)
             +abortCleanup(): void
             +getDispatcher(): Dispatcher
@@ -43,11 +43,11 @@
         }
 
         class DeadEvent {
-            -eventBus: Object
             -event: Object
+            -eventBus: Object
             +DeadEvent(Object, Object)
-            +getEventBus(): Object
             +getEvent(): Object
+            +getEventBus(): Object
         }
 
         Publisher <|.. AbstractPublisher

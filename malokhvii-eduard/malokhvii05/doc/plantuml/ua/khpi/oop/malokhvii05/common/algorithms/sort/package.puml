@@ -4,38 +4,40 @@
 
         class InsertionSort<T> {
             +InsertionSort(Comparator<T>)
-            +sort(Array<T>): void
+            +sort(T[]): void
         }
 
         class GnomeSort<T> {
             +GnomeSort(Comparator<T>)
-            +sort(Array<T>): void
+            +sort(T[]): void
         }
 
         abstract class AbstractSortAlgorithm<T> {
             #isReversedOrder: boolean
             +AbstractSortAlgorithm(Comparator<T>)
+            {static} #swap(T[], int, int): void
             +isNull(): boolean
             +isReversedOrder(): boolean
             +setReversedOrder(boolean): void
-            #swap(Array<T>, int, int): void
+            +sort(Collection<T>): T[]
         }
 
         interface SortAlgorithm<T> {
             {abstract} +isReversedOrder(): boolean
             {abstract} +setReversedOrder(boolean): void
-            {abstract} +sort(Array<T>): void
+            {abstract} +sort(Collection<T>): T[]
+            {abstract} +sort(T[]): void
         }
 
         class BottomUpMergeSort<T> {
             +BottomUpMergeSort(Comparator<T>)
             -mergeSlice(Object[], Object[], int, int): void
-            +sort(Array<T>): void
+            +sort(T[]): void
         }
 
         class ShellSort<T> {
             +ShellSort(Comparator<T>)
-            +sort(Array<T>): void
+            +sort(T[]): void
         }
 
         class SortAlgorithmFactory {
@@ -55,8 +57,8 @@
 
         class SimpleQuickSort<T> {
             +SimpleQuickSort(Comparator<T>)
-            -partition(Array<T>, int, int): int
-            +sort(Array<T>): void
+            -partition(T[], int, int): int
+            +sort(T[]): void
         }
 
         class TimSort<T> {
@@ -84,37 +86,37 @@
             -mergeLowRuns(int, int, int, int): void
             -pushRun(int, int): void
             -setUnorderedArray(T[], int): void
-            +sort(Array<T>): void
+            +sort(T[]): void
         }
 
         class TopDownMergeSort<T> {
             +TopDownMergeSort(Comparator<T>)
             -mergeSlices(Object[], Object[]): Object[]
             -mergeSort(Object[]): Object[]
-            +sort(Array<T>): void
+            +sort(T[]): void
         }
 
         class BubbleSort<T> {
             +BubbleSort(Comparator<T>)
-            +sort(Array<T>): void
+            +sort(T[]): void
         }
 
         class JSort<T> {
             +JSort(Comparator<T>)
-            -inverseReheap(Array<T>, int): void
-            -reheap(Array<T>, int): void
-            +sort(Array<T>): void
+            -inverseReheap(T[], int): void
+            -reheap(T[], int): void
+            +sort(T[]): void
         }
 
         class SelectionSort<T> {
             +SelectionSort(Comparator<T>)
-            +sort(Array<T>): void
+            +sort(T[]): void
         }
 
         class HeapSort<T> {
             +HeapSort(Comparator<T>)
-            -heapify(Array<T>, int, int): void
-            +sort(Array<T>): void
+            -heapify(T[], int, int): void
+            +sort(T[]): void
         }
 
         class NullSortAlgorithm<T> {
@@ -122,7 +124,8 @@
             -NullSortAlgorithm()
             +isReversedOrder(): boolean
             +setReversedOrder(boolean): void
-            +sort(Array<T>): void
+            +sort(Collection<T>): T[]
+            +sort(T[]): void
         }
 
         AbstractSortAlgorithm <|-- InsertionSort

@@ -1,6 +1,6 @@
 @startuml
 
-    namespace ua.khpi.oop.malokhvii05.common {
+    namespace ua.khpi.oop.malokhvii05.common.collect {
 
         class Array<E> {
             {static} -DEFAULT_INITIAL_CAPACITY: int
@@ -20,6 +20,7 @@
             +clear(): void
             +contains(Object): boolean
             +containsAll(Collection<?>): boolean
+            -ensureCapacity(int): void
             +firstIterator(): Array.ArrayIterator
             +get(int): E
             +getData(): Object[]
@@ -27,12 +28,16 @@
             +getLast(): E
             +indexOf(Object): int
             +isEmpty(): boolean
+            -isIndexInRange(int): boolean
+            -isNewElementIndexInRange(int): boolean
             +iterator(): Iterator<E>
             +iterator(int): Array.ArrayIterator
             +lastIterator(): Array.ArrayIterator
+            -readObject(ObjectInputStream): void
             +remove(int): void
             +remove(Object): boolean
             +removeAll(Collection<?>): boolean
+            -removeElement(int): void
             +removeFirst(): void
             +removeLast(): void
             +retainAll(Collection<?>): boolean
@@ -43,15 +48,10 @@
             +toArray(): Object[]
             +toArray(T[]): T[]
             +toString(String): String
-            -ensureCapacity(int): void
-            -isIndexInRange(int): boolean
-            -isNewElementIndexInRange(int): boolean
-            -readObject(ObjectInputStream): void
-            -removeElement(int): void
             -writeObject(ObjectOutputStream): void
         }
 
-        class ua.khpi.oop.malokhvii05.common.Array.ArrayIterator {
+        class ua.khpi.oop.malokhvii05.common.collect.Array.ArrayIterator {
             -nextIndex: int
             -ArrayIterator(int)
             +hasNext(): boolean
@@ -85,9 +85,9 @@
             {abstract} +hasNext(): boolean
             {abstract} +next(): E
         }
-        java.util.Iterator <|.. ua.khpi.oop.malokhvii05.common.Array.ArrayIterator
+        java.util.Iterator <|.. ua.khpi.oop.malokhvii05.common.collect.Array.ArrayIterator
 
-        Array +-- ua.khpi.oop.malokhvii05.common.Array.ArrayIterator
+        Array +-- ua.khpi.oop.malokhvii05.common.collect.Array.ArrayIterator
 
     }
 

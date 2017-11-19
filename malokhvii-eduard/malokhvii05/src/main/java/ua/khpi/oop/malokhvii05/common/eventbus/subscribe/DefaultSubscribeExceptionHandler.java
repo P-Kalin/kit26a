@@ -19,8 +19,8 @@ public enum DefaultSubscribeExceptionHandler
     INSTANCE;
 
     @Override
-    public void handleException(Throwable exception,
-            SubscriberExceptionContext context) {
+    public void handleException(final Throwable exception,
+            final SubscriberExceptionContext context) {
 
     }
 }

@@ -2,7 +2,7 @@
 
     class GallopSearch<T> {
         +GallopSearch(Comparator<T>)
-        +search(Array<T>, T, int, int): int
+        +search(T[], T, int, int): int
     }
 
 @enduml

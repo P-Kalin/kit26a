@@ -2,7 +2,10 @@ package ua.khpi.oop.malokhvii05.common.algorithms.search;
 
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.Signed;
 
 /**
  * Призначений, для реалізації алгоритму пошуку в масиві. Ключ у фабриці
@@ -69,7 +72,7 @@ public final class FibonacciSearch<T> extends AbstractSearchAlgorithm<T> {
      *            компаратор для порівння під час сорутвання
      * @since 1.0.0
      */
-    public FibonacciSearch(final Comparator<T> comparator) {
+    public FibonacciSearch(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
@@ -106,7 +109,7 @@ public final class FibonacciSearch<T> extends AbstractSearchAlgorithm<T> {
      *            розмір вхідного масиву
      * @since 1.0.0
      */
-    private void prepareFibonacciNumbers(final int arraySize) {
+    private void prepareFibonacciNumbers(@Nonnegative final int arraySize) {
         this.fibonacciNumberM1 = 1;
         this.fibonacciNumberM2 = 0;
         this.currentFibonacciNumber = this.fibonacciNumberM2
@@ -121,35 +124,36 @@ public final class FibonacciSearch<T> extends AbstractSearchAlgorithm<T> {
     }
 
     @Override
-    public int search(final Array<T> array, final T value) {
-        if (!this.isValidArray(array)) {
-            return this.lastFoundIndex;
+    public @Signed int search(@Nonnull final T[] array,
+            @Nullable final T value) {
+        if (!isValidArray(array)) {
+            return lastFoundIndex;
         }
 
-        final int subarraySize = array.size() - 1;
+        final int subarraySize = array.length - 1;
         this.prepareFibonacciNumbers(subarraySize);
 
         int offset = -1;
         T currentValue;
         while (this.currentFibonacciNumber > 1) {
-            this.lastFoundIndex = Math.min(offset + this.fibonacciNumberM2,
+            lastFoundIndex = Math.min(offset + this.fibonacciNumberM2,
                     subarraySize - 1);
-            currentValue = array.get(this.lastFoundIndex);
-            if (this.comparator.compare(currentValue, value) == -1) {
+            currentValue = array[lastFoundIndex];
+            if (comparator.compare(currentValue, value) == -1) {
                 this.cutSubarrayFromOffsetToIndex();
-                offset = this.lastFoundIndex;
-            } else if (this.comparator.compare(currentValue, value) == 1) {
+                offset = lastFoundIndex;
+            } else if (comparator.compare(currentValue, value) == 1) {
                 this.cutSubarrayAfterIndexPlusOne();
             } else {
-                return this.lastFoundIndex;
+                return lastFoundIndex;
             }
         }
 
         if (this.fibonacciNumberM1 != 0
-                && this.comparator.compare(array.get(offset ^ 1), value) == 0) {
+                && comparator.compare(array[offset ^ 1], value) == 0) {
             return offset ^ 1;
         }
 
-        return this.indexNotFound();
+        return indexNotFound();
     }
 }

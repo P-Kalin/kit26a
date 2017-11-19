@@ -14,18 +14,18 @@ import com.google.common.base.MoreObjects;
 public final class DeadEvent {
 
     /**
-     * Об'єкт який надіслав подію.
-     *
-     * @since 1.0.0
-     */
-    private final Object eventBus;
-
-    /**
      * Подія, під час якої виникла не передбачена ситуація.
      *
      * @since 1.0.0
      */
     private final Object event;
+
+    /**
+     * Об'єкт який надіслав подію.
+     *
+     * @since 1.0.0
+     */
+    private final Object eventBus;
 
     /**
      * Призначений, для ініціалізації фатальної події.
@@ -36,19 +36,9 @@ public final class DeadEvent {
      *            подія, під час якої виникла не передбачена ситуація
      * @since 1.0.0
      */
-    public DeadEvent(Object eventBus, Object event) {
+    public DeadEvent(final Object eventBus, final Object event) {
         this.eventBus = checkNotNull(eventBus);
         this.event = checkNotNull(event);
-    }
-
-    /**
-     * Призначений, для отримання об'єкту який відправив подію.
-     *
-     * @return об'єкт який відправив подію
-     * @since 1.0.0
-     */
-    public Object getEventBus() {
-        return eventBus;
     }
 
     /**
@@ -59,6 +49,16 @@ public final class DeadEvent {
      */
     public Object getEvent() {
         return event;
+    }
+
+    /**
+     * Призначений, для отримання об'єкту який відправив подію.
+     *
+     * @return об'єкт який відправив подію
+     * @since 1.0.0
+     */
+    public Object getEventBus() {
+        return eventBus;
     }
 
     @Override

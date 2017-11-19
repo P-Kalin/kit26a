@@ -1,13 +1,13 @@
 @startuml
 
     class SubscriberExceptionContext {
-        -eventBus: EventBus
         -event: Object
+        -eventBus: EventBus
         -subscriber: Object
         -subscriberMethod: Method
         ~SubscriberExceptionContext(EventBus, Object, Object, Method)
-        +getEventBus(): EventBus
         +getEvent(): Object
+        +getEventBus(): EventBus
         +getSubscriber(): Object
         +getSubscriberMethod(): Method
     }

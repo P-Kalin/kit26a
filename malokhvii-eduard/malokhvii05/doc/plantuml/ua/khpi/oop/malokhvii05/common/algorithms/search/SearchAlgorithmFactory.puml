@@ -12,7 +12,7 @@
         {static} -loadBasicAlgorithms(): void
         {static} +registerAlgorithm(String, Class<?>): void
         {static} +setDefaultAlgorithm(Class<?>): void
-        {static} ~unregisterAlgorithm(String): void
+        {static} +unregisterAlgorithm(String): void
     }
 
 @enduml
