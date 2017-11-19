@@ -50,7 +50,7 @@ public abstract class AbstractDispatcherDecorator implements Dispatcher {
      *            оновленний обгорнутий об'єкт оповіщення
      * @since 1.0.0
      */
-    public void setDispatcher(@Nonnull Dispatcher dispatcher) {
+    public void setDispatcher(@Nonnull final Dispatcher dispatcher) {
         this.dispatcher = checkNotNull(dispatcher);
     }
 }

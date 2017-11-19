@@ -26,7 +26,7 @@ final class SoftSubscriber extends Subscriber {
      *
      * @since 1.0.0
      */
-    private SoftReference<Object> subscriber;
+    private final SoftReference<Object> subscriber;
 
     /**
      * Призначений, для ініціалізації підписчика необхідними даними, для

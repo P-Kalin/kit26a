@@ -10,23 +10,6 @@ package ua.khpi.oop.malokhvii05.common.eventbus.subscribe;
 public enum SubscriberReferencePolicy {
 
     /**
-     * Політика слабкого посилання, тобто слабке посилання на об'єкт підписчика,
-     * не завадить видаленню під час виклику збирача сміття. Коли буде повернено
-     * {@code null} методом {@link Subscriber#getSubscriber}, у методі
-     * {@link Subscriber#dispatchEvent(Object)}, буде надіслано запит на виклик
-     * {@link SubscriberRegistry#removeUnusedSubscribers()}.
-     *
-     * @since 1.0.0
-     */
-    WEAK,
-    /**
-     * Політика сильного посилання, тобто звичайне посилання на об'єкт
-     * підписчика.
-     *
-     * @since 1.0.0
-     */
-    STRONG,
-    /**
      * Політика м'якого посилання, тобто м'яке посилання на об'єкт, не завадить
      * видаленню під час виклику збирача сміття, якщо пам'ять заповнена и
      * виникає можливість виникнення {@link OutOfMemoryError}. Коли буде
@@ -36,5 +19,22 @@ public enum SubscriberReferencePolicy {
      *
      * @since 1.0.0
      */
-    SOFT
+    SOFT,
+    /**
+     * Політика сильного посилання, тобто звичайне посилання на об'єкт
+     * підписчика.
+     *
+     * @since 1.0.0
+     */
+    STRONG,
+    /**
+     * Політика слабкого посилання, тобто слабке посилання на об'єкт підписчика,
+     * не завадить видаленню під час виклику збирача сміття. Коли буде повернено
+     * {@code null} методом {@link Subscriber#getSubscriber}, у методі
+     * {@link Subscriber#dispatchEvent(Object)}, буде надіслано запит на виклик
+     * {@link SubscriberRegistry#removeUnusedSubscribers()}.
+     *
+     * @since 1.0.0
+     */
+    WEAK
 }

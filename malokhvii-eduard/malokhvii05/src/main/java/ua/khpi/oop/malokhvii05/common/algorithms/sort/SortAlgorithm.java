@@ -6,8 +6,8 @@ import java.util.Comparator;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import ua.khpi.oop.malokhvii05.common.Array;
 import ua.khpi.oop.malokhvii05.common.algorithms.AlgorithmWithComparator;
+import ua.khpi.oop.malokhvii05.common.collect.Array;
 
 /**
  * Ітерфейс, призначений для оголошення алгоритму сортування для масиву. Усі

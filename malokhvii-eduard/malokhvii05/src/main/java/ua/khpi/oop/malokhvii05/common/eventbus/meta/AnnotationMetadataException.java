@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
  * Призначений, для оголошення загальної виключної ситуації для пакету
  * {@link ua.khpi.oop.malokhvii05.common.eventbus.meta}. Виникає під час не
  * коректного створення метаданих.
- * 
+ *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
  * @version 1.0.0
  */

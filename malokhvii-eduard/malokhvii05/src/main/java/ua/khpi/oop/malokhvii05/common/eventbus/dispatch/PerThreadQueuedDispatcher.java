@@ -23,11 +23,42 @@ import ua.khpi.oop.malokhvii05.common.eventbus.subscribe.Subscriber;
 public final class PerThreadQueuedDispatcher implements Dispatcher {
 
     /**
-     * Поточна черга подій для відправлення.
+     * Призначений, для збереження подій у черзі.
      *
-     * @since 1.0.0
+     * @author malokhvii-eduard (malokhvii.ee@gmail.com)
+     * @version 1.0.0
      */
-    private final ThreadLocal<Queue<Event>> queue;
+    private static final class Event {
+
+        /**
+         * Подія для оповіщення.
+         *
+         * @since 1.0.0
+         */
+        private final Object event;
+
+        /**
+         * Перелік підписчиків, для оповіщення.
+         *
+         * @since 1.0.0
+         */
+        private final Iterator<Subscriber> subscribers;
+
+        /**
+         * Призначений, для ініціалізації запису черги.
+         *
+         * @param event
+         *            подія
+         * @param subscribers
+         *            перелік підписчиків
+         * @since 1.0.0
+         */
+        private Event(@Nonnull final Object event,
+                @Nonnull final Iterator<Subscriber> subscribers) {
+            this.event = event;
+            this.subscribers = subscribers;
+        }
+    }
 
     /**
      * Статус відправлення для кожного потоку, що використовується, щоб уникнути
@@ -36,6 +67,13 @@ public final class PerThreadQueuedDispatcher implements Dispatcher {
      * @since 1.0.0
      */
     private final ThreadLocal<Boolean> dispatching;
+
+    /**
+     * Поточна черга подій для відправлення.
+     *
+     * @since 1.0.0
+     */
+    private final ThreadLocal<Queue<Event>> queue;
 
     /**
      * Призначений, для ініціалізації за-змовчуванням.
@@ -81,44 +119,6 @@ public final class PerThreadQueuedDispatcher implements Dispatcher {
                 dispatching.remove();
                 queue.remove();
             }
-        }
-    }
-
-    /**
-     * Призначений, для збереження подій у черзі.
-     *
-     * @author malokhvii-eduard (malokhvii.ee@gmail.com)
-     * @version 1.0.0
-     */
-    private static final class Event {
-
-        /**
-         * Подія для оповіщення.
-         *
-         * @since 1.0.0
-         */
-        private final Object event;
-
-        /**
-         * Перелік підписчиків, для оповіщення.
-         *
-         * @since 1.0.0
-         */
-        private final Iterator<Subscriber> subscribers;
-
-        /**
-         * Призначений, для ініціалізації запису черги.
-         *
-         * @param event
-         *            подія
-         * @param subscribers
-         *            перелік підписчиків
-         * @since 1.0.0
-         */
-        private Event(@Nonnull final Object event,
-                @Nonnull final Iterator<Subscriber> subscribers) {
-            this.event = event;
-            this.subscribers = subscribers;
         }
     }
 }

@@ -78,6 +78,18 @@ public final class EventBus {
     }
 
     /**
+     * Призначений, для ініціалізаці шини подій з задовільним відправником.
+     *
+     * @param dispatcher
+     *            відправник подій
+     * @since 1.0.0
+     */
+    public EventBus(@Nonnull final Dispatcher dispatcher) {
+        this(dispatcher, MoreExecutors.directExecutor(),
+                DefaultSubscribeExceptionHandler.INSTANCE);
+    }
+
+    /**
      * Призначений, для ініціалізаці шини подій з задовільним відправником та
      * виконавцем методів для обробки подій.
      *
@@ -90,18 +102,6 @@ public final class EventBus {
     public EventBus(@Nonnull final Dispatcher dispatcher,
             @Nonnull final Executor executor) {
         this(dispatcher, executor, DefaultSubscribeExceptionHandler.INSTANCE);
-    }
-
-    /**
-     * Призначений, для ініціалізаці шини подій з задовільним відправником.
-     *
-     * @param dispatcher
-     *            відправник подій
-     * @since 1.0.0
-     */
-    public EventBus(@Nonnull final Dispatcher dispatcher) {
-        this(dispatcher, MoreExecutors.directExecutor(),
-                DefaultSubscribeExceptionHandler.INSTANCE);
     }
 
     /**

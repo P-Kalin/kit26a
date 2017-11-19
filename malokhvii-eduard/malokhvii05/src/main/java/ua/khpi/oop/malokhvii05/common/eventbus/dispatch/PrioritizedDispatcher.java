@@ -21,14 +21,6 @@ import ua.khpi.oop.malokhvii05.common.eventbus.subscribe.Subscriber;
 public final class PrioritizedDispatcher extends AbstractDispatcherDecorator {
 
     /**
-     * Компаратор, для визначення порядку постановлення підписчиків за
-     * пріорітетом.
-     *
-     * @since 1.0.0
-     */
-    private Comparator<Subscriber> comparator;
-
-    /**
      * Призначений, для оголошення компараторів, для упорядкування виконавців.
      *
      * @author malokhvii-eduard (malokhvii.ee@gmail.com)
@@ -45,8 +37,8 @@ public final class PrioritizedDispatcher extends AbstractDispatcherDecorator {
         ASCENDING {
 
             @Override
-            public int compare(@Nonnull Subscriber subscriber1,
-                    @Nonnull Subscriber subscriber2) {
+            public int compare(@Nonnull final Subscriber subscriber1,
+                    @Nonnull final Subscriber subscriber2) {
                 checkNotNull(subscriber1);
                 checkNotNull(subscriber2);
 
@@ -64,8 +56,8 @@ public final class PrioritizedDispatcher extends AbstractDispatcherDecorator {
         DESCENDING {
 
             @Override
-            public int compare(@Nonnull Subscriber subscriber1,
-                    @Nonnull Subscriber subscriber2) {
+            public int compare(@Nonnull final Subscriber subscriber1,
+                    @Nonnull final Subscriber subscriber2) {
                 checkNotNull(subscriber1);
                 checkNotNull(subscriber2);
 
@@ -75,6 +67,14 @@ public final class PrioritizedDispatcher extends AbstractDispatcherDecorator {
             }
         };
     }
+
+    /**
+     * Компаратор, для визначення порядку постановлення підписчиків за
+     * пріорітетом.
+     *
+     * @since 1.0.0
+     */
+    private Comparator<Subscriber> comparator;
 
     /**
      * Призначений, для ініціалізації декоратору, об'єктом для оповіщення
@@ -88,7 +88,7 @@ public final class PrioritizedDispatcher extends AbstractDispatcherDecorator {
      *            за пріорітетом
      * @since 1.0.0
      */
-    PrioritizedDispatcher(@Nonnull Dispatcher dispatcher,
+    PrioritizedDispatcher(@Nonnull final Dispatcher dispatcher,
             @Nonnull final Comparator<Subscriber> comparator) {
         super(dispatcher);
         this.comparator = checkNotNull(comparator);

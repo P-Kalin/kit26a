@@ -19,15 +19,6 @@ import ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscriber;
 public final class AnnotationMetadatas {
 
     /**
-     * Призначений, для заборони створення об'єктів.
-     *
-     * @since 1.0.0
-     */
-    private AnnotationMetadatas() {
-
-    }
-
-    /**
      * Призначений, для вилучення метаданих із методу (обробника подій).
      *
      * @param method
@@ -71,5 +62,14 @@ public final class AnnotationMetadatas {
         }
         throw new AnnotationMetadataException(
                 "Type is not marked with annotation Subscriber");
+    }
+
+    /**
+     * Призначений, для заборони створення об'єктів.
+     *
+     * @since 1.0.0
+     */
+    private AnnotationMetadatas() {
+
     }
 }

@@ -20,18 +20,18 @@ import ua.khpi.oop.malokhvii05.common.eventbus.publish.EventBus;
 public final class SubscriberExceptionContext {
 
     /**
-     * Об'єкт, який відповідний за оповіщення усіх підписчиків.
-     *
-     * @since 1.0.0
-     */
-    private final EventBus eventBus;
-
-    /**
      * Подія, якою повинен був бути оповіщен підписчик.
      *
      * @since 1.0.0
      */
     private final Object event;
+
+    /**
+     * Об'єкт, який відповідний за оповіщення усіх підписчиків.
+     *
+     * @since 1.0.0
+     */
+    private final EventBus eventBus;
 
     /**
      * Підписчик, який повинен був отримати подію.
@@ -60,17 +60,13 @@ public final class SubscriberExceptionContext {
      *            метод підписчика, який повинен був обробити подію
      * @since 1.0.0
      */
-    SubscriberExceptionContext(@Nonnull EventBus eventBus,
-            @Nonnull Object event, @Nonnull Object subscriber,
-            @Nonnull Method subscriberMethod) {
+    SubscriberExceptionContext(@Nonnull final EventBus eventBus,
+            @Nonnull final Object event, @Nonnull final Object subscriber,
+            @Nonnull final Method subscriberMethod) {
         this.eventBus = checkNotNull(eventBus);
         this.event = checkNotNull(event);
         this.subscriber = checkNotNull(subscriber);
         this.subscriberMethod = checkNotNull(subscriberMethod);
-    }
-
-    public @Nonnull EventBus getEventBus() {
-        return eventBus;
     }
 
     /**
@@ -82,6 +78,10 @@ public final class SubscriberExceptionContext {
      */
     public @Nonnull Object getEvent() {
         return event;
+    }
+
+    public @Nonnull EventBus getEventBus() {
+        return eventBus;
     }
 
     /**

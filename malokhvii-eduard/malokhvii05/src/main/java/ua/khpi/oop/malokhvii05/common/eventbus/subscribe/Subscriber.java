@@ -106,6 +106,27 @@ public abstract class Subscriber implements Comparable<Subscriber> {
         executor = eventBus.getExecutor();
     }
 
+    @Override
+    public int compareTo(@Nonnull final Subscriber subscriber) {
+        return Integer.compare(subscribeMetadata.getPriority(),
+                subscriber.subscribeMetadata.getPriority());
+    }
+
+    /**
+     * Призначений, для отримання контексту для поточної виключної ситуації під
+     * час оповіщення виконавця (методу).
+     *
+     * @param event
+     *            подія
+     * @return контекст виключної ситуації
+     * @since 1.0.0
+     */
+    private @Nonnull SubscriberExceptionContext createExceptionContext(
+            @Nonnull final Object event) {
+        return new SubscriberExceptionContext(eventBus.get(), event,
+                getSubscriber(), method);
+    }
+
     /**
      * Відправляє подію підписчику за допомогою належного виконавця (методу).
      *
@@ -115,12 +136,16 @@ public abstract class Subscriber implements Comparable<Subscriber> {
      * @since 1.0.0
      */
     public final void dispatchEvent(@Nonnull final Object event) {
-        executor.execute(() -> {
-            try {
-                invokeSubscriberMethod(event);
-            } catch (final InvocationTargetException exception) {
-                eventBus.get().handleSubscriberException(exception.getCause(),
-                        createExceptionContext(event));
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    invokeSubscriberMethod(event);
+                } catch (final InvocationTargetException exception) {
+                    eventBus.get().handleSubscriberException(
+                            exception.getCause(),
+                            createExceptionContext(event));
+                }
             }
         });
     }
@@ -155,6 +180,15 @@ public abstract class Subscriber implements Comparable<Subscriber> {
     }
 
     /**
+     * Призначений, для отримання підписчика.
+     *
+     * @return підписчик
+     * @since 1.0.0
+     */
+    @ForOverride
+    public abstract @Nonnull Object getSubscriber();
+
+    /**
      * Призначений, для отримання об'єктного представлення вилучених даних із
      * анотації
      * {@link ua.khpi.oop.malokhvii05.common.eventbus.annotations.Subscriber
@@ -174,38 +208,6 @@ public abstract class Subscriber implements Comparable<Subscriber> {
         return (31 + method.hashCode()) * 31
                 + System.identityHashCode(getSubscriber());
     }
-
-    @Override
-    public @Nonnull String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("type",
-                        subscriberMetadata.getSubscriberType().getSimpleName())
-                .add("method", method.getName()).toString();
-    }
-
-    /**
-     * Призначений, для отримання контексту для поточної виключної ситуації під
-     * час оповіщення виконавця (методу).
-     *
-     * @param event
-     *            подія
-     * @return контекст виключної ситуації
-     * @since 1.0.0
-     */
-    private @Nonnull SubscriberExceptionContext createExceptionContext(
-            @Nonnull final Object event) {
-        return new SubscriberExceptionContext(eventBus.get(), event,
-                getSubscriber(), method);
-    }
-
-    /**
-     * Призначений, для отримання підписчика.
-     *
-     * @return підписчик
-     * @since 1.0.0
-     */
-    @ForOverride
-    public abstract @Nonnull Object getSubscriber();
 
     /**
      * Призначений, для виклику виконавця (методу), для обробки події. Якщо,
@@ -241,8 +243,10 @@ public abstract class Subscriber implements Comparable<Subscriber> {
     }
 
     @Override
-    public int compareTo(@Nonnull Subscriber subscriber) {
-        return Integer.compare(subscribeMetadata.getPriority(),
-                subscriber.subscribeMetadata.getPriority());
+    public @Nonnull String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("type",
+                        subscriberMetadata.getSubscriberType().getSimpleName())
+                .add("method", method.getName()).toString();
     }
 }
