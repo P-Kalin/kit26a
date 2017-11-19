@@ -2,7 +2,10 @@ package ua.khpi.oop.malokhvii05.common.algorithms.search;
 
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.Signed;
 
 /**
  * Абстрактний клас, призначений для об'єднання усіх алгоритмів пошуку в
@@ -24,7 +27,8 @@ public abstract class AbstractSearchInRangeAlgorithm<T> extends
      *            компаратор для порівння під час сорутвання
      * @since 1.0.0
      */
-    public AbstractSearchInRangeAlgorithm(final Comparator<T> comparator) {
+    public AbstractSearchInRangeAlgorithm(
+            @Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
@@ -41,23 +45,23 @@ public abstract class AbstractSearchInRangeAlgorithm<T> extends
      * @return результат перевірки вхідного діапазону
      * @since 1.0.0
      */
-    protected final boolean isValidRange(final Array<T> array, final int left,
-            final int right) {
-        final int arraySize = array.size();
+    protected final boolean isValidRange(@Nonnull final T[] array,
+            @Nonnegative final int left, @Nonnegative final int right) {
         boolean isValidRange = true;
         if (right < left) {
             isValidRange = false;
-        } else if (right > arraySize) {
+        } else if (right > array.length) {
             isValidRange = false;
         } else if (left < 0) {
             isValidRange = false;
         }
-        this.indexNotFound();
+        indexNotFound();
         return isValidRange;
     }
 
     @Override
-    public final int search(final Array<T> array, final T value) {
-        return this.search(array, value, 0, array.size());
+    public final @Signed int search(@Nonnull final T[] array,
+            @Nullable final T value) {
+        return this.search(array, value, 0, array.length);
     }
 }

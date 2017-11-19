@@ -1,6 +1,10 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.search;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.Signed;
+
 import ua.khpi.oop.malokhvii05.common.algorithms.AlgorithmWithComparator;
 
 /**
@@ -29,5 +33,7 @@ public interface SearchInRangeAlgorithm<T> extends AlgorithmWithComparator<T> {
      *         {@link SearchAlgorithm#INDEX_NOT_FOUND}.
      * @since 1.0.0
      */
-    int search(Array<T> array, T value, int left, int right);
+    @Signed
+    int search(@Nonnull T[] array, @Nullable T value, @Nonnegative int left,
+            @Nonnegative int right);
 }

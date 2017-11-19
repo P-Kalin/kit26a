@@ -1,5 +1,7 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.search;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.lang.reflect.Constructor;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -7,6 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * Фабрика, алгоритмів пошуку, призначена для отримання об'єкту алгоритму. Якщо,
@@ -53,8 +58,8 @@ public final class SearchAlgorithmFactory {
      * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
-    public static <T extends Comparable<T>> SearchAlgorithm<T> getAlgorithm(
-            final String name) {
+    public static @Nonnull <T extends Comparable<T>> SearchAlgorithm<T> getAlgorithm(
+            @Nullable final String name) {
         SearchAlgorithm<T> searchAlgorithm = NullSearchAlgorithm.INSTANCE;
         final Class<? extends SearchAlgorithm> sortAlgorithmClass = SearchAlgorithmFactory.classMapping
                 .get(name);
@@ -85,8 +90,9 @@ public final class SearchAlgorithmFactory {
      * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
-    public static <T> SearchAlgorithm<T> getAlgorithm(final String name,
-            final Comparator<T> comparator) {
+    public static @Nonnull <T> SearchAlgorithm<T> getAlgorithm(
+            @Nullable final String name,
+            @Nonnull final Comparator<T> comparator) {
         SearchAlgorithm<T> searchtAlgorithm = NullSearchAlgorithm.INSTANCE;
         final Class<? extends SearchAlgorithm> searchAlgorithmClass = SearchAlgorithmFactory.classMapping
                 .get(name);
@@ -115,7 +121,7 @@ public final class SearchAlgorithmFactory {
      * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
-    public static <T extends Comparable<T>> SearchAlgorithm<T> getDefaultAlgorithm() {
+    public static @Nonnull <T extends Comparable<T>> SearchAlgorithm<T> getDefaultAlgorithm() {
         if (SearchAlgorithmFactory.defaultAlgorithm != null) {
             try {
                 return SearchAlgorithmFactory.defaultAlgorithm
@@ -140,7 +146,7 @@ public final class SearchAlgorithmFactory {
      * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
-    public static <T> SearchAlgorithm<T> getDefaultAlgorithm(
+    public static @Nonnull <T> SearchAlgorithm<T> getDefaultAlgorithm(
             final Comparator<T> comparator) {
         if (SearchAlgorithmFactory.defaultAlgorithm != null) {
             try {
@@ -160,7 +166,7 @@ public final class SearchAlgorithmFactory {
      * @return множина зарегестрованих назв алгоритмів
      * @since 1.0.0
      */
-    public static Set<String> getRegisteredAlgorithms() {
+    public static @Nonnull Set<String> getRegisteredAlgorithms() {
         return SearchAlgorithmFactory.classMapping.keySet();
     }
 
@@ -194,9 +200,10 @@ public final class SearchAlgorithmFactory {
      *            клас нового алгоритму пошуку
      * @since 1.0.0
      */
-    public static void registerAlgorithm(final String name,
-            final Class<? extends SearchAlgorithm> algorithmClass) {
-        SearchAlgorithmFactory.classMapping.put(name, algorithmClass);
+    public static void registerAlgorithm(@Nonnull final String name,
+            @Nonnull final Class<? extends SearchAlgorithm> algorithmClass) {
+        SearchAlgorithmFactory.classMapping.put(checkNotNull(name),
+                checkNotNull(algorithmClass));
     }
 
     /**
@@ -207,8 +214,8 @@ public final class SearchAlgorithmFactory {
      * @since 1.0.0
      */
     public static void setDefaultAlgorithm(
-            final Class<? extends SearchAlgorithm> algorithmClass) {
-        SearchAlgorithmFactory.defaultAlgorithm = algorithmClass;
+            @Nonnull final Class<? extends SearchAlgorithm> algorithmClass) {
+        SearchAlgorithmFactory.defaultAlgorithm = checkNotNull(algorithmClass);
     }
 
     /**
@@ -218,7 +225,7 @@ public final class SearchAlgorithmFactory {
      *            зарегестрована назва алгоритму
      * @since 1.0.0
      */
-    static void unregisterAlgorithm(final String name) {
+    public static void unregisterAlgorithm(@Nullable final String name) {
         SearchAlgorithmFactory.classMapping.remove(name);
     }
 

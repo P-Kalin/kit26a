@@ -1,8 +1,14 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.search;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnull;
+import javax.annotation.Signed;
+
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
+
 import ua.khpi.oop.malokhvii05.common.algorithms.AbstractAlgorithmWithComparator;
 
 /**
@@ -32,12 +38,12 @@ public abstract class AbstractSearchAlgorithm<T> extends
      *            компоратор для вхідних даних
      * @since 1.0.0
      */
-    public AbstractSearchAlgorithm(final Comparator<T> comparator) {
+    public AbstractSearchAlgorithm(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
     @Override
-    public final int getLastFoundIndex() {
+    public final @Signed int getLastFoundIndex() {
         return this.lastFoundIndex;
     }
 
@@ -47,7 +53,8 @@ public abstract class AbstractSearchAlgorithm<T> extends
      * @return індекс не знайденого елементу
      * @since 1.0.0
      */
-    protected final int indexNotFound() {
+    @CanIgnoreReturnValue
+    protected final @Signed int indexNotFound() {
         this.lastFoundIndex = SearchAlgorithm.INDEX_NOT_FOUND;
         return this.lastFoundIndex;
     }
@@ -65,8 +72,10 @@ public abstract class AbstractSearchAlgorithm<T> extends
      * @return результат перевірки
      * @since 1.0.0
      */
-    protected final boolean isValidArray(final Array<T> array) {
-        if (array.isEmpty()) {
+    @CanIgnoreReturnValue
+    protected final boolean isValidArray(@Nonnull final T[] array) {
+        checkNotNull(array);
+        if (array.length == 0) {
             this.lastFoundIndex = SearchAlgorithm.INDEX_NOT_FOUND;
             return false;
         }

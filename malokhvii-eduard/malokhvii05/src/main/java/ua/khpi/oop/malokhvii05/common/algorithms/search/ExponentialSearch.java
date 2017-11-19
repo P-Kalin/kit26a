@@ -1,8 +1,12 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.search;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.Signed;
 
 /**
  * Призначений, для реалізації алгоритму пошуку в масиві. Ключ у фабриці
@@ -54,8 +58,8 @@ public class ExponentialSearch<T> extends AbstractSearchAlgorithm<T> {
      * @since 1.0.0
      */
     public ExponentialSearch(
-            final AbstractSearchInRangeAlgorithm<T> searchInRangeAlgorithm) {
-        super(searchInRangeAlgorithm.getComparator());
+            @Nonnull final AbstractSearchInRangeAlgorithm<T> searchInRangeAlgorithm) {
+        super(checkNotNull(searchInRangeAlgorithm).getComparator());
         this.searchInRangeAlgorithm = searchInRangeAlgorithm;
     }
 
@@ -67,7 +71,7 @@ public class ExponentialSearch<T> extends AbstractSearchAlgorithm<T> {
      *            компаратор для порівння під час сорутвання
      * @since 1.0.0
      */
-    public ExponentialSearch(final Comparator<T> comparator) {
+    public ExponentialSearch(@Nonnull final Comparator<T> comparator) {
         super(comparator);
         this.searchInRangeAlgorithm = (AbstractSearchInRangeAlgorithm<T>) SearchAlgorithmFactory
                 .getAlgorithm("binary-search", comparator);
@@ -79,25 +83,25 @@ public class ExponentialSearch<T> extends AbstractSearchAlgorithm<T> {
      * @return внутрішній алгоритм пошуку в діапазоні
      * @since 1.0.0
      */
-    public final SearchInRangeAlgorithm<T> getSearchInRangeAlgorithm() {
+    public final @Nonnull SearchInRangeAlgorithm<T> getSearchInRangeAlgorithm() {
         return this.searchInRangeAlgorithm;
     }
 
     @Override
-    public final int search(final Array<T> array, final T value) {
-        if (!this.isValidArray(array)) {
-            return this.lastFoundIndex;
+    public final @Signed int search(@Nonnull final T[] array,
+            @Nullable final T value) {
+        if (!isValidArray(array)) {
+            return lastFoundIndex;
         }
 
         int index = 1;
-        final int arraySize = array.size();
-        while (index < arraySize
-                && this.comparator.compare(array.get(index), value) <= -1) {
+        while (index < array.length
+                && comparator.compare(array[index], value) <= -1) {
             index = index << 1;
         }
 
         return this.searchInRangeAlgorithm.search(array, value, index >> 1,
-                Math.min(index, arraySize));
+                Math.min(index, array.length));
     }
 
     /**
@@ -108,7 +112,7 @@ public class ExponentialSearch<T> extends AbstractSearchAlgorithm<T> {
      * @since 1.0.0
      */
     public final void setSearchInRangeAlgorithm(
-            final SearchInRangeAlgorithm<T> searchInRangeAlgorithm) {
-        this.searchInRangeAlgorithm = searchInRangeAlgorithm;
+            @Nonnull final SearchInRangeAlgorithm<T> searchInRangeAlgorithm) {
+        this.searchInRangeAlgorithm = checkNotNull(searchInRangeAlgorithm);
     }
 }
