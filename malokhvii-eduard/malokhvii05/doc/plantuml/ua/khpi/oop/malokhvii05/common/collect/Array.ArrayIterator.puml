@@ -1,0 +1,13 @@
+@startuml
+
+    class Array.ArrayIterator {
+        -nextIndex: int
+        -ArrayIterator(int)
+        +hasNext(): boolean
+        +hasPrevious(): boolean
+        +next(): E
+        +previous(): E
+        +remove(): void
+    }
+
+@enduml

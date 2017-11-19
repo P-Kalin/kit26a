@@ -6,7 +6,7 @@
         +getLastFoundIndex(): int
         #indexNotFound(): int
         +isNull(): boolean
-        #isValidArray(Array<T>): boolean
+        #isValidArray(T[]): boolean
     }
 
 @enduml

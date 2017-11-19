@@ -2,7 +2,7 @@
 
     class BubbleSort<T> {
         +BubbleSort(Comparator<T>)
-        +sort(Array<T>): void
+        +sort(T[]): void
     }
 
 @enduml

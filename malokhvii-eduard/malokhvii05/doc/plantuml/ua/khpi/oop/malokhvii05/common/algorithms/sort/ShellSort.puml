@@ -2,7 +2,7 @@
 
     class ShellSort<T> {
         +ShellSort(Comparator<T>)
-        +sort(Array<T>): void
+        +sort(T[]): void
     }
 
 @enduml

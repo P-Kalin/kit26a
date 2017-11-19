@@ -2,7 +2,7 @@
 
     class LinearWithBarrierSearch<T> {
         +LinearWithBarrierSearch(Comparator<T>)
-        +search(Array<T>, T): int
+        +search(T[], T): int
     }
 
 @enduml

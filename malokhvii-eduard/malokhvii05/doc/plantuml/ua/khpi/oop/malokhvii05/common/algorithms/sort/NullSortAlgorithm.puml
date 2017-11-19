@@ -5,7 +5,8 @@
         -NullSortAlgorithm()
         +isReversedOrder(): boolean
         +setReversedOrder(boolean): void
-        +sort(Array<T>): void
+        +sort(Collection<T>): T[]
+        +sort(T[]): void
     }
 
 @enduml

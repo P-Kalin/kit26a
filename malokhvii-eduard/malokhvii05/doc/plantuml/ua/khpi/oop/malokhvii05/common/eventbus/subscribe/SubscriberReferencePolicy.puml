@@ -1,9 +1,9 @@
 @startuml
 
     enum SubscriberReferencePolicy {
-        {static} +WEAK
-        {static} +STRONG
         {static} +SOFT
+        {static} +STRONG
+        {static} +WEAK
         -SubscriberReferencePolicy()
     }
 
