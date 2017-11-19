@@ -11,9 +11,9 @@ import ua.khpi.oop.malokhvii04.shell.Shell;
 import ua.khpi.oop.malokhvii04.shell.ShellCommandsPool;
 import ua.khpi.oop.malokhvii04.shell.ShellResources;
 import ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand;
-import ua.khpi.oop.malokhvii05.common.Array;
 import ua.khpi.oop.malokhvii05.common.algorithms.sort.SortAlgorithm;
 import ua.khpi.oop.malokhvii05.common.algorithms.sort.SortAlgorithmFactory;
+import ua.khpi.oop.malokhvii05.common.collect.Array;
 
 /**
  * Призначений, для інкапсуляції сортування колекції рядків, під виглядом
@@ -121,8 +121,8 @@ public final class SortTextCommand extends AbstractCommand {
                 System.out.println(SortTextCommand.resourceBundle
                         .getString("mismatch-message"));
             }
-            sortAlgorithm.sort(textLines);
-            Shell.getInstance().getData().setTextLines(textLines);
+            String[] sortedLines = sortAlgorithm.sort(textLines);
+            Shell.getInstance().getData().setTextLines(sortedLines);
         } else {
             System.out.println(SortTextCommand.resourceBundle
                     .getString("text-lines-not-found-message"));
