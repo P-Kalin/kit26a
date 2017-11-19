@@ -84,6 +84,7 @@
             ~ShellData()
             +getTextLines(): Array<String>
             +setTextLines(Array<String>): void
+            +setTextLines(String[]): void
         }
 
         Shell +-- ua.khpi.oop.malokhvii04.shell.Shell.SingletonHolder
