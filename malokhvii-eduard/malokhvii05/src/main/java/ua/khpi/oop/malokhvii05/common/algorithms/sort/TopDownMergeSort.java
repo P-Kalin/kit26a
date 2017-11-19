@@ -1,8 +1,10 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnull;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -51,7 +53,7 @@ public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
      *            компоратор для вхідних даних
      * @since 1.0.0
      */
-    public TopDownMergeSort(final Comparator<T> comparator) {
+    public TopDownMergeSort(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
@@ -66,7 +68,8 @@ public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
      * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
-    private Object[] mergeSlices(final Object[] left, final Object[] right) {
+    private @Nonnull Object[] mergeSlices(@Nonnull final Object[] left,
+            @Nonnull final Object[] right) {
         final Object[] mergeBuffer = new Integer[left.length + right.length];
 
         int leftIndex = 0;
@@ -74,7 +77,7 @@ public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
         int resultIndex = 0;
         while (leftIndex < left.length || rightIndex < right.length) {
             if (leftIndex < left.length && rightIndex < right.length) {
-                if (this.comparator.compare((T) left[leftIndex],
+                if (comparator.compare((T) left[leftIndex],
                         (T) right[rightIndex]) < 1) {
                     mergeBuffer[resultIndex++] = left[leftIndex++];
                 } else {
@@ -98,7 +101,7 @@ public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
      * @return відсортований масив
      * @since 1.0.0
      */
-    private Object[] mergeSort(final Object[] array) {
+    private @Nonnull Object[] mergeSort(@Nonnull final Object[] array) {
         if (array.length <= 1) {
             return array;
         }
@@ -118,10 +121,10 @@ public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void sort(final Array<T> array) {
-        final Object[] arrayData = array.getData();
-        final Object[] sortedArrayData = this.mergeSort(array.toArray());
+    public void sort(@Nonnull final T[] array) {
+        final Object[] arrayData = checkNotNull(array);
+        final Object[] sortedArrayData = this.mergeSort(array);
         System.arraycopy(sortedArrayData, 0, arrayData, 0,
-                arrayData.length - (arrayData.length - array.size()));
+                arrayData.length - (arrayData.length - array.length));
     }
 }

@@ -1,5 +1,7 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.lang.reflect.Constructor;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -7,6 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * Фабрика, алгоритмів сортування, призначена для отримання об'єкту алгоритму.
@@ -53,8 +58,8 @@ public final class SortAlgorithmFactory {
      * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
-    public static <T extends Comparable<T>> SortAlgorithm<T> getAlgorithm(
-            final String name) {
+    public static @Nonnull <T extends Comparable<T>> SortAlgorithm<T> getAlgorithm(
+            @Nullable final String name) {
         SortAlgorithm<T> sortAlgorithm = NullSortAlgorithm.INSTANCE;
         final Class<? extends SortAlgorithm> sortAlgorithmClass = SortAlgorithmFactory.classMapping
                 .get(name);
@@ -85,8 +90,9 @@ public final class SortAlgorithmFactory {
      * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
-    public static <T> SortAlgorithm<T> getAlgorithm(final String name,
-            final Comparator<? super T> comparator) {
+    public static @Nonnull <T> SortAlgorithm<T> getAlgorithm(
+            @Nullable final String name,
+            @Nonnull final Comparator<? super T> comparator) {
         SortAlgorithm<T> sortAlgorithm = NullSortAlgorithm.INSTANCE;
         final Class<? extends SortAlgorithm> sortAlgorithmClass = SortAlgorithmFactory.classMapping
                 .get(name);
@@ -115,7 +121,7 @@ public final class SortAlgorithmFactory {
      * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
-    public static <T extends Comparable<T>> SortAlgorithm<T> getDefaultAlgorithm() {
+    public static @Nonnull <T extends Comparable<T>> SortAlgorithm<T> getDefaultAlgorithm() {
         if (SortAlgorithmFactory.defaultAlgorithm != null) {
             try {
                 return SortAlgorithmFactory.defaultAlgorithm
@@ -140,8 +146,8 @@ public final class SortAlgorithmFactory {
      * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
-    public static <T> SortAlgorithm<T> getDefaultAlgorithm(
-            final Comparator<? super T> comparator) {
+    public static @Nonnull <T> SortAlgorithm<T> getDefaultAlgorithm(
+            @Nonnull final Comparator<? super T> comparator) {
         if (SortAlgorithmFactory.defaultAlgorithm != null) {
             try {
                 return SortAlgorithmFactory.defaultAlgorithm
@@ -160,7 +166,7 @@ public final class SortAlgorithmFactory {
      * @return множина зарегестрованих назв алгоритмів
      * @since 1.0.0
      */
-    public static Set<String> getRegisteredAlgorithms() {
+    public static @Nonnull Set<String> getRegisteredAlgorithms() {
         return SortAlgorithmFactory.classMapping.keySet();
     }
 
@@ -195,9 +201,10 @@ public final class SortAlgorithmFactory {
      *            клас нового алгоритму сортування
      * @since 1.0.0
      */
-    public static void registerAlgorithm(final String name,
-            final Class<? extends SortAlgorithm> algorithmClass) {
-        SortAlgorithmFactory.classMapping.put(name, algorithmClass);
+    public static void registerAlgorithm(@Nonnull final String name,
+            @Nonnull final Class<? extends SortAlgorithm> algorithmClass) {
+        SortAlgorithmFactory.classMapping.put(checkNotNull(name),
+                checkNotNull(algorithmClass));
     }
 
     /**
@@ -208,8 +215,8 @@ public final class SortAlgorithmFactory {
      * @since 1.0.0
      */
     public static void setDefaultAlgorithm(
-            final Class<? extends SortAlgorithm> algorithmClass) {
-        SortAlgorithmFactory.defaultAlgorithm = algorithmClass;
+            @Nonnull final Class<? extends SortAlgorithm> algorithmClass) {
+        SortAlgorithmFactory.defaultAlgorithm = checkNotNull(algorithmClass);
     }
 
     /**
@@ -220,7 +227,7 @@ public final class SortAlgorithmFactory {
      *            зарегестрована назва алгоритму
      * @since 1.0.0
      */
-    public static void unregisterAlgorithm(final String name) {
+    public static void unregisterAlgorithm(@Nullable final String name) {
         SortAlgorithmFactory.classMapping.remove(name);
     }
 

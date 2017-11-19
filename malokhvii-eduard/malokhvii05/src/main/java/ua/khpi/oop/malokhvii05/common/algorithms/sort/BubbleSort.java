@@ -1,8 +1,10 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnull;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -49,23 +51,22 @@ public final class BubbleSort<T extends Comparable<T>>
      *            компоратор для вхідних даних
      * @since 1.0.0
      */
-    public BubbleSort(final Comparator<T> comparator) {
+    public BubbleSort(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
     @Override
-    public void sort(final Array<T> array) {
-        final int externalLoopBarrier = array.size();
+    public void sort(@Nonnull final T[] array) {
+        checkNotNull(array);
         boolean isSwapped;
 
         int i;
         int j;
-        for (i = 0; i < externalLoopBarrier; i++) {
+        for (i = 0; i < array.length; i++) {
             isSwapped = false;
-            for (j = 0; j < externalLoopBarrier - i - 1; j++) {
-                if (this.comparator.compare(array.get(j),
-                        array.get(j + 1)) == 1) {
-                    this.swap(array, j, j + 1);
+            for (j = 0; j < array.length - i - 1; j++) {
+                if (comparator.compare(array[j], array[j + 1]) == 1) {
+                    swap(array, j, j + 1);
                     isSwapped = true;
                 }
             }

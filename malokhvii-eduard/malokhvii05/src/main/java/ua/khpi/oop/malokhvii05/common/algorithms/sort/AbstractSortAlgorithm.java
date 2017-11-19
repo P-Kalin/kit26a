@@ -1,8 +1,14 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
+import java.util.Collection;
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import ua.khpi.oop.malokhvii05.common.algorithms.AbstractAlgorithmWithComparator;
 
 /**
@@ -19,6 +25,24 @@ public abstract class AbstractSortAlgorithm<T>
         extends AbstractAlgorithmWithComparator<T> implements SortAlgorithm<T> {
 
     /**
+     * Призначений, для обміну значень елементів у масиві.
+     *
+     * @param array
+     *            масив
+     * @param left
+     *            індекс лівого елементу
+     * @param right
+     *            індекс правого елементу
+     * @since 1.0.0
+     */
+    protected static <T> void swap(@Nonnull final T[] array,
+            @Nonnegative final int left, @Nonnegative final int right) {
+        final T temp = array[left];
+        array[left] = array[right];
+        array[right] = temp;
+    }
+
+    /**
      * Внутрішній ключ порядку сортування.
      *
      * @since 1.0.0
@@ -33,7 +57,7 @@ public abstract class AbstractSortAlgorithm<T>
      *            компаратор для порівння під час сорутвання
      * @since 1.0.0
      */
-    public AbstractSortAlgorithm(final Comparator<T> comparator) {
+    public AbstractSortAlgorithm(@Nonnull final Comparator<T> comparator) {
         super(comparator);
         this.setReversedOrder(false);
     }
@@ -51,24 +75,21 @@ public abstract class AbstractSortAlgorithm<T>
     @Override
     public void setReversedOrder(final boolean isReversedOrder) {
         if (isReversedOrder != this.isReversedOrder) {
-            this.comparator = this.comparator.reversed();
+            comparator = comparator.reversed();
         }
     }
 
-    /**
-     * Призначений, для обміну значень елементів у масиві.
-     *
-     * @param array
-     *            масив
-     * @param left
-     *            індекс лівого елементу
-     * @param right
-     *            індекс правого елементу
-     * @since 1.0.0
-     */
-    protected void swap(final Array<T> array, final int left, final int right) {
-        final T temp = array.get(left);
-        array.set(left, array.get(right));
-        array.set(right, temp);
+    @SuppressWarnings("unchecked")
+    @Override
+    public @Nullable T[] sort(@Nonnull final Collection<T> collection) {
+        checkNotNull(collection);
+        if (collection.isEmpty()) {
+            return null;
+        }
+
+        T[] array = (T[]) new Object[collection.size()];
+        collection.toArray(array);
+        sort(array);
+        return array;
     }
 }

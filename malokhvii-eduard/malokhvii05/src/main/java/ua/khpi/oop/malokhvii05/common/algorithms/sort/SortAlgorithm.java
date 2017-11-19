@@ -1,6 +1,10 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
+import java.util.Collection;
 import java.util.Comparator;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import ua.khpi.oop.malokhvii05.common.Array;
 import ua.khpi.oop.malokhvii05.common.algorithms.AlgorithmWithComparator;
@@ -35,6 +39,9 @@ public interface SortAlgorithm<T> extends AlgorithmWithComparator<T> {
      */
     void setReversedOrder(boolean isReversedOrder);
 
+    @Nullable
+    T[] sort(@Nonnull final Collection<T> collection);
+
     /**
      * Призначений, для сотування вхідного масиву.
      *
@@ -43,5 +50,5 @@ public interface SortAlgorithm<T> extends AlgorithmWithComparator<T> {
      *            вхідний масив для сорутвання
      * @since 1.0.0
      */
-    void sort(Array<T> array);
+    void sort(@Nonnull T[] array);
 }

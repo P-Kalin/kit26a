@@ -44,7 +44,8 @@
  * <td>Так</td>
  * </tr>
  * <tr align="center">
- * <td>{@link ua.khpi.oop.malokhvii05.common.algorithms.sort.TimSort TimSort}</td>
+ * <td>{@link ua.khpi.oop.malokhvii05.common.algorithms.sort.TimSort
+ * TimSort}</td>
  * <td>Insertion + Merging</td>
  * <td>Ω(n)</td>
  * <td>Θ(n log(n))</td>

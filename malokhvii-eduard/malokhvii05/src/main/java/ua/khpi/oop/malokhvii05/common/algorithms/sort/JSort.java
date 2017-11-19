@@ -1,8 +1,11 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -44,7 +47,7 @@ public final class JSort<T> extends AbstractSortAlgorithm<T> {
      *            компоратор для вхідних даних
      * @since 1.0.0
      */
-    public JSort(final Comparator<T> comparator) {
+    public JSort(@Nonnull final Comparator<T> comparator) {
         super(comparator);
 
     }
@@ -59,36 +62,35 @@ public final class JSort<T> extends AbstractSortAlgorithm<T> {
      *            індекс елементу купи
      * @since 1.0.0
      */
-    private void inverseReheap(final Array<T> array, final int index) {
-        final int heapSize = array.size();
-
+    private void inverseReheap(@Nonnull final T[] array,
+            @Nonnegative final int index) {
         boolean done = false;
 
-        final T parentValue = array.get(heapSize - 1 - index);
+        final T parentValue = array[array.length - 1 - index];
         int parent = index;
         int child = 2 * (index + 1) - 1;
 
-        while ((child < heapSize) && (!done)) {
-            if (child < heapSize - 1) {
-                if (this.comparator.compare(array.get(heapSize - 1 - child),
-                        array.get(heapSize - 1 - (child + 1))) <= 0) {
+        while (child < array.length && !done) {
+            if (child < array.length - 1) {
+                if (comparator.compare(array[array.length - 1 - child],
+                        array[array.length - 1 - (child + 1)]) <= 0) {
                     child += 1;
                 }
 
             }
 
-            if (this.comparator.compare(parentValue,
-                    array.get(heapSize - 1 - child)) == 1) {
+            if (comparator.compare(parentValue,
+                    array[array.length - 1 - child]) == 1) {
                 done = true;
             } else {
-                array.set(heapSize - 1 - parent,
-                        array.get(heapSize - 1 - child));
+                array[array.length - 1 - parent] = array[array.length - 1
+                        - child];
                 parent = child;
                 child = 2 * (parent + 1) - 1;
 
             }
         }
-        array.set(heapSize - 1 - parent, parentValue);
+        array[array.length - 1 - parent] = parentValue;
     }
 
     /**
@@ -101,58 +103,55 @@ public final class JSort<T> extends AbstractSortAlgorithm<T> {
      *            індекс елементу купи
      * @since 1.0.0
      */
-    private void reheap(final Array<T> array, final int index) {
-        final int heapLength = array.size();
-
+    private void reheap(@Nonnull final T[] array,
+            @Nonnegative final int index) {
         boolean done = false;
 
-        final T parentValue = array.get(index);
+        final T parentValue = array[index];
         int parent = index;
         int child = 2 * (index + 1) - 1;
 
-        while ((child < heapLength) && (!done)) {
-            if (child < heapLength - 1) {
-                if (this.comparator.compare(array.get(child),
-                        array.get(child + 1)) >= 0) {
+        while (child < array.length && !done) {
+            if (child < array.length - 1) {
+                if (comparator.compare(array[child], array[child + 1]) >= 0) {
                     child += 1;
                 }
             }
 
-            if (this.comparator.compare(parentValue, array.get(child)) == -1) {
+            if (comparator.compare(parentValue, array[child]) == -1) {
                 done = true;
             } else {
-                array.set(parent, array.get(child));
+                array[parent] = array[child];
                 parent = child;
                 child = 2 * (parent + 1) - 1;
 
             }
         }
-        array.set(parent, parentValue);
+        array[parent] = parentValue;
     }
 
     @Override
-    public void sort(final Array<T> array) {
-        final int arraySize = array.size();
-
+    public void sort(@Nonnull final T[] array) {
+        checkNotNull(array);
         int i;
-        for (i = arraySize - 1; i >= 0; i--) {
+        for (i = array.length - 1; i >= 0; i--) {
             this.reheap(array, i);
         }
 
-        for (i = arraySize - 1; i >= 0; i--) {
+        for (i = array.length - 1; i >= 0; i--) {
             this.inverseReheap(array, i);
         }
 
         T key;
         int j;
-        for (i = 1; i < arraySize; i++) {
-            key = array.get(i);
+        for (i = 1; i < array.length; i++) {
+            key = array[i];
             j = i - 1;
-            while (j >= 0 && this.comparator.compare(array.get(j), key) > 0) {
-                array.set(j + 1, array.get(j));
+            while (j >= 0 && comparator.compare(array[j], key) > 0) {
+                array[j + 1] = array[j];
                 j = j - 1;
             }
-            array.set(j + 1, key);
+            array[j + 1] = key;
         }
     }
 }

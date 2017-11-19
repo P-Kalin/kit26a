@@ -1,8 +1,10 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnull;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -46,22 +48,22 @@ public final class GnomeSort<T> extends AbstractSortAlgorithm<T> {
      *            компоратор для вхідних даних
      * @since 1.0.0
      */
-    public GnomeSort(final Comparator<T> comparator) {
+    public GnomeSort(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
     @Override
-    public void sort(final Array<T> array) {
+    public void sort(@Nonnull final T[] array) {
+        checkNotNull(array);
         int index = 0;
-        final int arraySize = array.size();
-        while (index < arraySize) {
+        while (index < array.length) {
             if (index == 0) {
                 index++;
-            } else if (this.isReversedOrder == (this.comparator
-                    .compare(array.get(index), array.get(index - 1)) == -1)) {
+            } else if (isReversedOrder == (comparator.compare(array[index],
+                    array[index - 1]) == -1)) {
                 index++;
             } else {
-                this.swap(array, index, index - 1);
+                swap(array, index, index - 1);
                 index--;
             }
         }

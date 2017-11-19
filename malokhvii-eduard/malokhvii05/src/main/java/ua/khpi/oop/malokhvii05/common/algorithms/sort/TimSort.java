@@ -1,8 +1,11 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.Comparator;
 
-import ua.khpi.oop.malokhvii05.common.Array;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -99,8 +102,10 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            компаратор, для порівняння елементів
      * @since 1.0.0
      */
-    private static <T> void binaryInsertionSort(final T[] array, final int low,
-            final int high, int start, final Comparator<? super T> comparator) {
+    private static <T> void binaryInsertionSort(@Nonnull final T[] array,
+            @Nonnegative final int low, @Nonnegative final int high,
+            @Nonnegative int start,
+            @Nonnull final Comparator<? super T> comparator) {
         if (start == low) {
             start++;
         }
@@ -117,7 +122,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
             left = low;
             right = start;
             while (left < right) {
-                middle = (left + right) >>> 1;
+                middle = left + right >>> 1;
                 if (comparator.compare(currentValue, array[middle]) < 0) {
                     right = middle;
                 } else {
@@ -160,8 +165,10 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      * @return довжина прогону, з найменшого індексу в масиві
      * @since 1.0.0
      */
-    private static <T> int countRunAndMakeAscending(final T[] array,
-            final int low, final int high, final Comparator<T> comparator) {
+    private static @Nonnegative <T> int countRunAndMakeAscending(
+            @Nonnull final T[] array, @Nonnegative final int low,
+            @Nonnegative final int high,
+            @Nonnull final Comparator<T> comparator) {
         int runHigh = low + 1;
         if (runHigh == high) {
             return 1;
@@ -189,9 +196,9 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
 
     /**
      * Призначений, для отримання мінімальної допустимої довжини пробігу для
-     * вхідного масиву. Пробіги, довжина котрих менше будуть розширин за
+     * вхідного масиву. Пробіги, довжина котрих менше будуть розширині за
      * допомогою {@link TimSort#binaryInsertionSort}. Основні критерії
-     * мінімаьнох довжини прогону.
+     * мінімальної довжини прогону.
      * <ul>
      * <li>Не повинна бути досить великою, оскільки під час подальших обчислень
      * до кожного прогону буд використано {@link TimSort#binaryInsertionSort
@@ -210,10 +217,10 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      * @return довжина мінімального пробігу, який необхідно відсортувати
      * @since 1.0.0
      */
-    private static int getMinRunSize(int arraySize) {
+    private static @Nonnegative int getMinRunSize(@Nonnegative int arraySize) {
         int shiftedBits = 0;
         while (arraySize >= TimSort.DEFAULT_MIN_MERGE) {
-            shiftedBits |= (arraySize & 1);
+            shiftedBits |= arraySize & 1;
             arraySize >>= 1;
         }
 
@@ -244,9 +251,10 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      * @return індекс найлівішого рівного елементу
      * @since 1.0.0
      */
-    private static <T> int leftGallopSearch(final T[] array, final T value,
-            final int base, final int length, final int hint,
-            final Comparator<? super T> comparator) {
+    private static <T> int leftGallopSearch(@Nonnull final T[] array,
+            @Nonnull final T value, @Nonnegative final int base,
+            @Nonnegative final int length, @Nonnegative final int hint,
+            @Nonnull final Comparator<? super T> comparator) {
         int lastOffset = 0;
         int offset = 1;
         int maxOffset;
@@ -293,7 +301,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
         lastOffset++;
         int middle;
         while (lastOffset < offset) {
-            middle = lastOffset + ((offset - lastOffset) >>> 1);
+            middle = lastOffset + (offset - lastOffset >>> 1);
 
             if (comparator.compare(value, array[base + middle]) > 0) {
                 lastOffset = middle + 1;
@@ -316,7 +324,8 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            індекс елементу після елементу який необхідно обернути
      * @since 1.0.0
      */
-    private static void reverseSlice(final Object[] array, int low, int high) {
+    private static void reverseSlice(@Nonnull final Object[] array,
+            @Nonnegative int low, @Nonnegative int high) {
         high--;
         Object temp;
         while (low < high) {
@@ -349,9 +358,11 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      * @return індекс після найправішого елемент
      * @since 1.0.0
      */
-    private static <T> int rightGallopSearch(final T[] array, final T value,
-            final int base, final int length, final int hint,
-            final Comparator<? super T> comparator) {
+    private static @Nonnegative <T> int rightGallopSearch(
+            @Nonnull final T[] array, @Nonnull final T value,
+            @Nonnegative final int base, @Nonnegative final int length,
+            @Nonnegative final int hint,
+            @Nonnull final Comparator<? super T> comparator) {
         int offset = 1;
         int lastOffset = 0;
         int maxOffset;
@@ -398,7 +409,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
         lastOffset++;
         int middle;
         while (lastOffset < offset) {
-            middle = lastOffset + ((offset - lastOffset) >>> 1);
+            middle = lastOffset + (offset - lastOffset >>> 1);
 
             if (comparator.compare(value, array[base + middle]) < 0) {
                 offset = middle;
@@ -463,7 +474,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            компоратор для вхідних даних
      * @since 1.0.0
      */
-    public TimSort(final Comparator<T> comparator) {
+    public TimSort(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
@@ -477,7 +488,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            мінімальна необхідна ємність буфера для злиття прогонів
      * @since 1.0.0
      */
-    private void ensureMergeBufferCapacity(final int minCapacity) {
+    private void ensureMergeBufferCapacity(@Nonnegative final int minCapacity) {
         if (this.mergeBuffer.length < minCapacity) {
             int newSize = minCapacity;
             newSize |= newSize >> 1;
@@ -555,7 +566,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            індекс першого прогону із двох прогонів у стеці
      * @since 1.0.0
      */
-    private void mergeAtIndex(final int index) {
+    private void mergeAtIndex(@Nonnegative final int index) {
         int runBase1 = this.runBaseStack[index];
         int runSize1 = this.runSizeStack[index];
 
@@ -571,7 +582,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
 
         final int indexOfFirstFromRun2InRun1 = TimSort.rightGallopSearch(
                 this.array, this.array[runBase2], runBase1, runSize1, 0,
-                this.comparator);
+                comparator);
 
         runBase1 += indexOfFirstFromRun2InRun1;
         runSize1 -= indexOfFirstFromRun2InRun1;
@@ -581,7 +592,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
 
         runSize2 = TimSort.leftGallopSearch(this.array,
                 this.array[runBase1 + runSize1 - 1], runBase2, runSize2,
-                runSize2 - 1, this.comparator);
+                runSize2 - 1, comparator);
 
         if (runSize2 == 0) {
             return;
@@ -607,8 +618,9 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            довжина другого прогону
      * @since 1.0.0
      */
-    private void mergeHighRuns(final int baseRun1, int runSize1,
-            final int baseRun2, int runSize2) {
+    private void mergeHighRuns(@Nonnegative final int baseRun1,
+            @Nonnegative int runSize1, @Nonnegative final int baseRun2,
+            @Nonnegative int runSize2) {
         this.ensureMergeBufferCapacity(runSize2);
         System.arraycopy(this.array, baseRun2, this.mergeBuffer, 0, runSize2);
 
@@ -635,12 +647,13 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
         int oldMinGallop = this.minGallop;
         int amountOfCorrectFirstRuns;
         int amountOfCorrectSecondRuns;
-        outerLoop: while (true) {
+        outerLoop:
+        while (true) {
             amountOfCorrectFirstRuns = 0;
             amountOfCorrectSecondRuns = 0;
 
             do {
-                if (this.comparator.compare(this.mergeBuffer[mergeBufferCursor],
+                if (comparator.compare(this.mergeBuffer[mergeBufferCursor],
                         this.array[unorderedArrayCursor]) < 0) {
                     this.array[orderedArrayCursor--] = this.array[unorderedArrayCursor--];
                     amountOfCorrectFirstRuns++;
@@ -662,7 +675,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
             do {
                 amountOfCorrectFirstRuns = runSize1 - TimSort.rightGallopSearch(
                         this.array, this.mergeBuffer[mergeBufferCursor],
-                        baseRun1, runSize1, runSize1 - 1, this.comparator);
+                        baseRun1, runSize1, runSize1 - 1, comparator);
                 if (amountOfCorrectFirstRuns != 0) {
                     orderedArrayCursor -= amountOfCorrectFirstRuns;
                     unorderedArrayCursor -= amountOfCorrectFirstRuns;
@@ -682,7 +695,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
 
                 amountOfCorrectSecondRuns = runSize2 - TimSort.leftGallopSearch(
                         this.mergeBuffer, this.array[unorderedArrayCursor], 0,
-                        runSize2, runSize2 - 1, this.comparator);
+                        runSize2, runSize2 - 1, comparator);
                 if (amountOfCorrectSecondRuns != 0) {
                     orderedArrayCursor -= amountOfCorrectSecondRuns;
                     mergeBufferCursor -= amountOfCorrectSecondRuns;
@@ -736,8 +749,9 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            довжина другого прогону
      * @since 1.0.0
      */
-    private void mergeLowRuns(final int baseRun1, int runSize1,
-            final int baseRun2, int runSize2) {
+    private void mergeLowRuns(@Nonnegative final int baseRun1,
+            @Nonnegative int runSize1, @Nonnegative final int baseRun2,
+            @Nonnegative int runSize2) {
         this.ensureMergeBufferCapacity(runSize1);
         System.arraycopy(this.array, baseRun1, this.mergeBuffer, 0, runSize1);
 
@@ -762,12 +776,13 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
         int oldMinGallop = this.minGallop;
         int amountOfCorrectFirstRuns;
         int amountOfCorrectSecondRuns;
-        outerLoop: while (true) {
+        outerLoop:
+        while (true) {
             amountOfCorrectFirstRuns = 0;
             amountOfCorrectSecondRuns = 0;
 
             do {
-                if (this.comparator.compare(this.array[unorderedArrayCursor],
+                if (comparator.compare(this.array[unorderedArrayCursor],
                         this.mergeBuffer[mergeBufferCursor]) < 0) {
                     this.array[orderedArrayCursor++] = this.array[unorderedArrayCursor++];
                     amountOfCorrectSecondRuns++;
@@ -789,7 +804,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
             do {
                 amountOfCorrectFirstRuns = TimSort.rightGallopSearch(
                         this.mergeBuffer, this.array[unorderedArrayCursor],
-                        mergeBufferCursor, runSize1, 0, this.comparator);
+                        mergeBufferCursor, runSize1, 0, comparator);
 
                 if (amountOfCorrectFirstRuns != 0) {
                     System.arraycopy(this.mergeBuffer, mergeBufferCursor,
@@ -809,7 +824,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
 
                 amountOfCorrectSecondRuns = TimSort.leftGallopSearch(this.array,
                         this.mergeBuffer[mergeBufferCursor],
-                        unorderedArrayCursor, runSize2, 0, this.comparator);
+                        unorderedArrayCursor, runSize2, 0, comparator);
                 if (amountOfCorrectSecondRuns != 0) {
                     System.arraycopy(this.array, unorderedArrayCursor,
                             this.array, orderedArrayCursor,
@@ -857,7 +872,8 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            довжина очікуваного прогону
      * @since 1.0.0
      */
-    private void pushRun(final int newRunBase, final int newRunSize) {
+    private void pushRun(@Nonnegative final int newRunBase,
+            @Nonnegative final int newRunSize) {
         this.runBaseStack[this.stackSize] = newRunBase;
         this.runSizeStack[this.stackSize] = newRunSize;
         this.stackSize++;
@@ -877,8 +893,9 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *            кількість заповнених комірок буфера
      * @since 1.0.0
      */
-    private void setUnorderedArray(final T[] array, final int arraySize) {
-        this.array = array;
+    private void setUnorderedArray(@Nonnull final T[] array,
+            @Nonnegative final int arraySize) {
+        this.array = checkNotNull(array);
 
         @SuppressWarnings("unchecked")
         final T[] mergeBufferAllocation = (T[]) new Object[arraySize < 2
@@ -886,18 +903,18 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
                         : TimSort.DEFAULT_MERGE_BUFFER_SIZE];
         this.mergeBuffer = mergeBufferAllocation;
 
-        final int stackSize = (arraySize < 120 ? 5
-                : arraySize < 1542 ? 10 : arraySize < 119151 ? 19 : 40);
+        final int stackSize = arraySize < 120 ? 5
+                : arraySize < 1542 ? 10 : arraySize < 119151 ? 19 : 40;
 
         this.runBaseStack = new int[stackSize];
         this.runSizeStack = new int[stackSize];
     }
 
     @Override
-    public void sort(final Array<T> array) {
-        @SuppressWarnings("unchecked")
-        final T[] arrayData = (T[]) array.getData();
-        final int arraySize = array.size();
+    public void sort(@Nonnull final T[] array) {
+        checkNotNull(array);
+        final T[] arrayData = array;
+        final int arraySize = array.length;
 
         int low = 0;
         final int high = arraySize;
@@ -908,10 +925,10 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
         }
 
         if (numberOfRemainingElements < TimSort.DEFAULT_MIN_MERGE) {
-            final int initialRunSize = TimSort.countRunAndMakeAscending(
-                    arrayData, low, high, this.comparator);
+            final int initialRunSize = TimSort
+                    .countRunAndMakeAscending(arrayData, low, high, comparator);
             TimSort.binaryInsertionSort(arrayData, low, high,
-                    low + initialRunSize, this.comparator);
+                    low + initialRunSize, comparator);
             return;
         }
 
@@ -922,13 +939,13 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
 
         do {
             currentRunSize = TimSort.countRunAndMakeAscending(arrayData, low,
-                    high, this.comparator);
+                    high, comparator);
             if (currentRunSize < minRunSize) {
                 forceRunSize = numberOfRemainingElements <= minRunSize
                         ? numberOfRemainingElements
                         : minRunSize;
                 TimSort.binaryInsertionSort(arrayData, low, low + forceRunSize,
-                        low + currentRunSize, this.comparator);
+                        low + currentRunSize, comparator);
                 currentRunSize = forceRunSize;
             }
 
