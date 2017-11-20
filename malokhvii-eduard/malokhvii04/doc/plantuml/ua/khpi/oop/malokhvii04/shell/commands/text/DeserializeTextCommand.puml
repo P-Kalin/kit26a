@@ -1,9 +1,9 @@
 @startuml
 
     class DeserializeTextCommand {
-        {static} -RESOURCE_BUNDLE_NAME: String
         {static} -description: String
         {static} -keys: List<String>
+        {static} -RESOURCE_BUNDLE_NAME: String
         {static} -resourceBundle: ResourceBundle
         +DeserializeTextCommand()
         {static} #updateResourceBundle(): void
