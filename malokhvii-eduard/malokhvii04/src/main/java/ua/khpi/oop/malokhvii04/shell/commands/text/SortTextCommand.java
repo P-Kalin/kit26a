@@ -13,7 +13,6 @@ import ua.khpi.oop.malokhvii04.shell.ShellResources;
 import ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand;
 import ua.khpi.oop.malokhvii05.common.algorithms.sort.SortAlgorithm;
 import ua.khpi.oop.malokhvii05.common.algorithms.sort.SortAlgorithmFactory;
-import ua.khpi.oop.malokhvii05.common.collect.Array;
 
 /**
  * Призначений, для інкапсуляції сортування колекції рядків, під виглядом
@@ -109,8 +108,8 @@ public final class SortTextCommand extends AbstractCommand {
     @Override
     public void execute() {
 
-        final Array<String> textLines = Shell.getInstance().getData()
-                .getTextLines();
+        final ua.khpi.oop.malokhvii05.common.collect.List<String> textLines = Shell
+                .getInstance().getData().getTextLines();
         if (!textLines.isEmpty()) {
             final SortAlgorithm<String> sortAlgorithm = SortAlgorithmFactory
                     .getDefaultAlgorithm();

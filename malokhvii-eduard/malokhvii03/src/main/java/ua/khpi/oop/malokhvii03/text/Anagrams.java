@@ -7,7 +7,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ua.khpi.oop.malokhvii05.common.collect.Array;
+import ua.khpi.oop.malokhvii05.common.collect.ArrayList;
+import ua.khpi.oop.malokhvii05.common.collect.List;
+import ua.khpi.oop.malokhvii05.common.collect.Lists;
 
 /**
  * Утилітарний клас, призначения для обробки вхідних текстових наборів на
@@ -45,14 +47,14 @@ public final class Anagrams {
      * @see HashableWord
      * @see PolynomialHash
      * @see Ananym
-     * @return {@link Array перелік} ананимів.
+     * @return {@link ArrayList перелік} ананимів.
      * @since 1.0.0
      */
     public static Collection<Ananym> findAllAnanyms(
             final CharSequence charSequence, final String regex) {
         assert charSequence == null;
-        final Array<Ananym> ananyms = new Array<Ananym>();
-        final HashMap<Long, HashableWord> mappedWords = new HashMap<Long, HashableWord>();
+        final List<Ananym> ananyms = Lists.newArrayList();
+        final HashMap<Long, HashableWord> mappedWords = new HashMap<>();
         final Pattern wordPattern = Pattern.compile(regex);
 
         long polynomialHash;
@@ -99,14 +101,14 @@ public final class Anagrams {
      * @see HashableWord
      * @see PolynomialHash
      * @see Ananym
-     * @return {@link Array перелік} ананимів.
+     * @return {@link ArrayList перелік} ананимів.
      * @since 1.0.0
      */
     public static Collection<Ananym> findAllAnanyms(
             final Iterable<CharSequence> words) {
         assert words == null;
-        final Array<Ananym> ananyms = new Array<Ananym>();
-        final HashMap<Long, HashableWord> mappedWords = new HashMap<Long, HashableWord>();
+        final List<Ananym> ananyms = Lists.newArrayList();
+        final HashMap<Long, HashableWord> mappedWords = new HashMap<>();
 
         long polynomialHash;
         for (final CharSequence word : words) {
@@ -151,14 +153,14 @@ public final class Anagrams {
      * @see HashableWord
      * @see PolynomialHash
      * @see Ananym
-     * @return {@link Array перелік} ананимів.
+     * @return {@link ArrayList перелік} ананимів.
      * @since 1.0.0
      */
     public static Collection<Ananym> findAllAnanyms(
             final Iterable<CharSequence> lines, final String regex) {
         assert lines == null;
-        final Array<Ananym> ananyms = new Array<Ananym>();
-        final HashMap<Long, HashableWord> mappedWords = new HashMap<Long, HashableWord>();
+        final List<Ananym> ananyms = Lists.newArrayList();
+        final HashMap<Long, HashableWord> mappedWords = new HashMap<>();
         final Pattern wordPattern = Pattern.compile(regex);
 
         long polynomialHash;
@@ -207,14 +209,14 @@ public final class Anagrams {
      * @see HashableWord
      * @see PolynomialHash
      * @see Ananym
-     * @return {@link Array перелік} ананимів.
+     * @return {@link ArrayList перелік} ананимів.
      * @since 1.1.0
      */
     public static Collection<Ananym> findAllAnanymsInString(
             final Iterable<String> words) {
         assert words == null;
-        final Array<Ananym> ananyms = new Array<Ananym>();
-        final HashMap<Long, HashableWord> mappedWords = new HashMap<Long, HashableWord>();
+        final List<Ananym> ananyms = Lists.newArrayList();
+        final HashMap<Long, HashableWord> mappedWords = new HashMap<>();
 
         long polynomialHash;
         for (final CharSequence word : words) {
@@ -259,14 +261,14 @@ public final class Anagrams {
      * @see HashableWord
      * @see PolynomialHash
      * @see Ananym
-     * @return {@link Array перелік} ананимів.
+     * @return {@link ArrayList перелік} ананимів.
      * @since 1.1.0
      */
     public static Collection<Ananym> findAllAnanymsInString(
             final Iterable<String> lines, final String regex) {
         assert lines == null;
-        final Array<Ananym> ananyms = new Array<Ananym>();
-        final HashMap<Long, HashableWord> mappedWords = new HashMap<Long, HashableWord>();
+        final List<Ananym> ananyms = Lists.newArrayList();
+        final HashMap<Long, HashableWord> mappedWords = new HashMap<>();
         final Pattern wordPattern = Pattern.compile(regex);
 
         long polynomialHash;
@@ -313,7 +315,7 @@ public final class Anagrams {
     public static Collection<CharSequence> findAllPalindromes(
             final Iterable<CharSequence> words) {
         assert words == null;
-        final HashSet<CharSequence> palindromes = new HashSet<CharSequence>();
+        final HashSet<CharSequence> palindromes = new HashSet<>();
 
         for (final CharSequence word : words) {
             if (!palindromes.contains(word)) {
@@ -343,7 +345,7 @@ public final class Anagrams {
     public static Collection<CharSequence> findAllPalindromes(
             final Iterable<CharSequence> lines, final String regex) {
         assert lines == null;
-        final Set<CharSequence> palindromes = new HashSet<CharSequence>();
+        final Set<CharSequence> palindromes = new HashSet<>();
         final Pattern wordPattern = Pattern.compile(regex);
 
         String word;
@@ -377,7 +379,7 @@ public final class Anagrams {
     public static Collection<String> findAllPalindromesInString(
             final Iterable<String> words) {
         assert words == null;
-        final HashSet<String> palindromes = new HashSet<String>();
+        final HashSet<String> palindromes = new HashSet<>();
 
         for (final String word : words) {
             if (!palindromes.contains(word)) {
@@ -407,7 +409,7 @@ public final class Anagrams {
     public static Collection<String> findAllPalindromesInString(
             final Iterable<String> lines, final String regex) {
         assert lines == null;
-        final Set<String> palindromes = new HashSet<String>();
+        final Set<String> palindromes = new HashSet<>();
         final Pattern wordPattern = Pattern.compile(regex);
 
         String word;

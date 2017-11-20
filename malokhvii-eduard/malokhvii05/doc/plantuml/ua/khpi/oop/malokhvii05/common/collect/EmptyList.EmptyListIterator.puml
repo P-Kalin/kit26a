@@ -1,0 +1,11 @@
+@startuml
+
+    class EmptyList.EmptyListIterator<E> {
+        ~EmptyListIterator()
+        +hasNext(): boolean
+        +hasPrevious(): boolean
+        +next(): E
+        +previous(): E
+    }
+
+@enduml

@@ -1,0 +1,38 @@
+@startuml
+
+    interface List<E> {
+        {abstract} +add(E): boolean
+        {abstract} +add(int, E): boolean
+        {abstract} +addAfter(int, E): boolean
+        {abstract} +addAll(Collection<?>): boolean
+        {abstract} +addAll(E[]): boolean
+        {abstract} +addBefore(int, E): boolean
+        {abstract} +addFirst(E): boolean
+        {abstract} +addLast(E): boolean
+        {abstract} +clear(): void
+        {abstract} +contains(Object): boolean
+        {abstract} +containsAll(Collection<?>): boolean
+        {abstract} +firstIterator(): List.ListIterator<E>
+        {abstract} +get(int): E
+        {abstract} +getFirst(): E
+        {abstract} +getLast(): E
+        {abstract} +indexOf(Object): int
+        {abstract} +isEmpty(): boolean
+        {abstract} +iterator(): Iterator<E>
+        {abstract} +iterator(int): List.ListIterator<E>
+        {abstract} +lastIterator(): List.ListIterator<E>
+        {abstract} +remove(int): E
+        {abstract} +remove(Object): boolean
+        {abstract} +removeAll(Collection<?>): boolean
+        {abstract} +removeFirst(): E
+        {abstract} +removeLast(): E
+        {abstract} +retainAll(Collection<?>): boolean
+        {abstract} +set(int, E): E
+        {abstract} +setFirst(E): E
+        {abstract} +setLast(E): E
+        {abstract} +size(): int
+        {abstract} +toArray(): Object[]
+        {abstract} +toArray(T[]): T[]
+    }
+
+@enduml

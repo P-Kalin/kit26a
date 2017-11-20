@@ -1,0 +1,40 @@
+@startuml
+
+    class LinkedList<E> {
+        {static} -serialVersionUID: long
+        -cursor: LinkedList.Node<E>
+        +LinkedList()
+        +LinkedList(Collection<E>)
+        +LinkedList(E[])
+        +add(E): boolean
+        +add(int, E): boolean
+        +addAfter(int, E): boolean
+        +addAll(Collection<?>): boolean
+        +addAll(E[]): boolean
+        +addBefore(int, E): boolean
+        +addFirst(E): boolean
+        +addLast(E): boolean
+        -addNodeAfter(E, LinkedList.Node<E>): void
+        -addNodeBefore(E, LinkedList.Node<E>): void
+        +clear(): void
+        +get(int): E
+        +getFirst(): E
+        +getLast(): E
+        -getNodeByIndex(int): LinkedList.Node<E>
+        +indexOf(Object): int
+        +iterator(int): List.ListIterator<E>
+        #readObject(ObjectInputStream): void
+        +remove(int): E
+        +remove(Object): boolean
+        +removeFirst(): E
+        +removeLast(): E
+        -removeNode(LinkedList.Node<E>): E
+        +set(int, E): E
+        +setFirst(E): E
+        +setLast(E): E
+        +toArray(): Object[]
+        +toArray(T[]): T[]
+        #writeObject(ObjectOutputStream): void
+    }
+
+@enduml

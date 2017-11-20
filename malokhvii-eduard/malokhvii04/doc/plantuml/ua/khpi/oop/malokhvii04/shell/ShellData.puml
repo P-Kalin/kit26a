@@ -1,10 +1,10 @@
 @startuml
 
     class ShellData {
-        -textLines: Array<String>
+        -textLines: List<String>
         ~ShellData()
-        +getTextLines(): Array<String>
-        +setTextLines(Array<String>): void
+        +getTextLines(): List<String>
+        +setTextLines(List<String>): void
         +setTextLines(String[]): void
     }
 

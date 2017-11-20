@@ -1,0 +1,10 @@
+@startuml
+
+    class LinkedList.Node<E> {
+        ~element: E
+        ~next: LinkedList.Node<E>
+        ~previous: LinkedList.Node<E>
+        ~Node(E, LinkedList.Node<E>, LinkedList.Node<E>)
+    }
+
+@enduml

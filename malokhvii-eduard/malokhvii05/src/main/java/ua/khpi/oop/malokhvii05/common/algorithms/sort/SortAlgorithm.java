@@ -7,7 +7,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import ua.khpi.oop.malokhvii05.common.algorithms.AlgorithmWithComparator;
-import ua.khpi.oop.malokhvii05.common.collect.Array;
 
 /**
  * Ітерфейс, призначений для оголошення алгоритму сортування для масиву. Усі
@@ -45,7 +44,6 @@ public interface SortAlgorithm<T> extends AlgorithmWithComparator<T> {
     /**
      * Призначений, для сотування вхідного масиву.
      *
-     * @see Array
      * @param array
      *            вхідний масив для сорутвання
      * @since 1.0.0
