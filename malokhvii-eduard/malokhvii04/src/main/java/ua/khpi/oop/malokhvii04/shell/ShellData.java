@@ -1,6 +1,7 @@
 package ua.khpi.oop.malokhvii04.shell;
 
-import ua.khpi.oop.malokhvii05.common.collect.Array;
+import ua.khpi.oop.malokhvii05.common.collect.List;
+import ua.khpi.oop.malokhvii05.common.collect.Lists;
 
 /**
  * Призначений, для збереження даних інтерактивної оболонки, для подальшої
@@ -16,7 +17,7 @@ public final class ShellData {
      *
      * @since 1.0.0
      */
-    private Array<String> textLines;
+    private List<String> textLines;
 
     /**
      * Приватний конструктор, задля створення об'єкт за допомогою Builder-а.
@@ -24,7 +25,7 @@ public final class ShellData {
      * @since 1.0.0
      */
     ShellData() {
-        textLines = new Array<>();
+        textLines = Lists.newArrayList();
     }
 
     /**
@@ -33,7 +34,7 @@ public final class ShellData {
      * @return буфер рядків вхідного тексту
      * @since 1.0.0
      */
-    public Array<String> getTextLines() {
+    public List<String> getTextLines() {
         return textLines;
     }
 
@@ -44,7 +45,7 @@ public final class ShellData {
      *            новий буфер рядків вхідного тексту
      * @since 1.0.0
      */
-    public void setTextLines(final Array<String> textLines) {
+    public void setTextLines(final List<String> textLines) {
         this.textLines = textLines;
     }
 

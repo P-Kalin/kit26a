@@ -14,7 +14,7 @@ import ua.khpi.oop.malokhvii04.shell.Shell;
 import ua.khpi.oop.malokhvii04.shell.ShellCommandsPool;
 import ua.khpi.oop.malokhvii04.shell.ShellResources;
 import ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand;
-import ua.khpi.oop.malokhvii05.common.collect.Array;
+import ua.khpi.oop.malokhvii05.common.collect.ArrayList;
 
 /**
  * Призначений, для інкапсуляції введення шляху до файлу для подальшої обробки
@@ -73,9 +73,9 @@ public final class InputTextCommand extends HandleTextFileCommand {
      *             Помилка, під час обробки вхідного файлу
      * @since 1.0.0
      */
-    private static Array<String> getInputText(final String filePath)
+    private static ArrayList<String> getInputText(final String filePath)
             throws IOException {
-        final Array<String> lines = new Array<String>();
+        final ArrayList<String> lines = new ArrayList<String>();
 
         try (final BufferedReader bufferedReader = new BufferedReader(
                 new InputStreamReader(new FileInputStream(filePath)))) {
@@ -123,7 +123,7 @@ public final class InputTextCommand extends HandleTextFileCommand {
             return;
         }
 
-        Shell.getInstance().getData().setTextLines((Array<String>) lines);
+        Shell.getInstance().getData().setTextLines((ArrayList<String>) lines);
         System.out.println();
     }
 
