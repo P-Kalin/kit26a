@@ -1,0 +1,10 @@
+@startuml
+
+    interface List.ListIterator<E> {
+        {abstract} +hasNext(): boolean
+        {abstract} +hasPrevious(): boolean
+        {abstract} +next(): E
+        {abstract} +previous(): E
+    }
+
+@enduml

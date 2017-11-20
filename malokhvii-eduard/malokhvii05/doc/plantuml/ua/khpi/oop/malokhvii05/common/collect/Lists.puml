@@ -1,0 +1,14 @@
+@startuml
+
+    class Lists {
+        -Lists()
+        {static} +newArrayList(): List<E>
+        {static} +newArrayList(Collection<E>): List<E>
+        {static} +newArrayList(E[]): List<E>
+        {static} +newEmptyList(): List<E>
+        {static} +newLinkedList(): List<E>
+        {static} +newLinkedList(Collection<E>): List<E>
+        {static} +newLinkedList(E[]): List<E>
+    }
+
+@enduml

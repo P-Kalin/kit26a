@@ -1,0 +1,15 @@
+@startuml
+
+    class LinkedList.LinkedListIterator {
+        -lastReturnedNode: LinkedList.Node<E>
+        -nextIndex: int
+        -nextNode: LinkedList.Node<E>
+        -LinkedListIterator(int)
+        +hasNext(): boolean
+        +hasPrevious(): boolean
+        +next(): E
+        +previous(): E
+        +remove(): void
+    }
+
+@enduml

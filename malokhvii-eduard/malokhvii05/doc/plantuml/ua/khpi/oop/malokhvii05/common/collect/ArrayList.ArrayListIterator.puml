@@ -1,8 +1,8 @@
 @startuml
 
-    class Array.ArrayIterator {
+    class ArrayList.ArrayListIterator {
         -nextIndex: int
-        -ArrayIterator(int)
+        -ArrayListIterator(int)
         +hasNext(): boolean
         +hasPrevious(): boolean
         +next(): E
