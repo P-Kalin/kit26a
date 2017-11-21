@@ -4,7 +4,7 @@
         +TopDownMergeSort(Comparator<T>)
         -mergeSlices(Object[], Object[]): Object[]
         -mergeSort(Object[]): Object[]
-        +sort(T[]): void
+        +sort(T[], int): boolean
     }
 
 @enduml

@@ -3,8 +3,8 @@
     interface SortAlgorithm<T> {
         {abstract} +isReversedOrder(): boolean
         {abstract} +setReversedOrder(boolean): void
-        {abstract} +sort(Collection<T>): T[]
-        {abstract} +sort(T[]): void
+        {abstract} +sort(T[]): boolean
+        {abstract} +sort(T[], int): boolean
     }
 
 @enduml

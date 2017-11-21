@@ -3,7 +3,7 @@
     class HeapSort<T> {
         +HeapSort(Comparator<T>)
         -heapify(T[], int, int): void
-        +sort(T[]): void
+        +sort(T[], int): boolean
     }
 
 @enduml

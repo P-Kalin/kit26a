@@ -5,6 +5,7 @@
         class EmptyList<E> {
             {static} -serialVersionUID: long
             ~EmptyList()
+            +acceptVisitor(ListVisitor<E>): void
             +add(E): boolean
             +add(int, E): boolean
             +addAfter(int, E): boolean
@@ -42,11 +43,12 @@
         class ArrayList<E> {
             {static} -DEFAULT_INITIAL_CAPACITY: int
             {static} -serialVersionUID: long
-            -data: Object[]
+            ~data: Object[]
             +ArrayList()
             +ArrayList(Collection<?>)
             +ArrayList(E[])
             +ArrayList(int)
+            +acceptVisitor(ListVisitor<E>): void
             +add(E): boolean
             +add(int, E): boolean
             +addAfter(int, E): boolean
@@ -114,14 +116,16 @@
             {static} +newLinkedList(): List<E>
             {static} +newLinkedList(Collection<E>): List<E>
             {static} +newLinkedList(E[]): List<E>
+            {static} +sort(List<E>, Comparator<E>): void
         }
 
         class LinkedList<E> {
             {static} -serialVersionUID: long
-            -cursor: LinkedList.Node<E>
+            ~cursor: LinkedList.Node<E>
             +LinkedList()
             +LinkedList(Collection<E>)
             +LinkedList(E[])
+            +acceptVisitor(ListVisitor<E>): void
             +add(E): boolean
             +add(int, E): boolean
             +addAfter(int, E): boolean
@@ -165,7 +169,18 @@
             +remove(): void
         }
 
+        class ListSortingVisitor<E> {
+            -comparator: Comparator<E>
+            -ListSortingVisitor(Comparator<E>)
+            {static} ~create(Comparator<E>): ListVisitor<E>
+            -linkedListPartition(LinkedList.Node<E>, LinkedList.Node<E>): LinkedList.Node<E>
+            -linkedListQuickSort(LinkedList.Node<E>, LinkedList.Node<E>): void
+            +visit(ArrayList<E>): void
+            +visit(LinkedList<E>): void
+        }
+
         interface List<E> {
+            {abstract} +acceptVisitor(ListVisitor<E>): void
             {abstract} +add(E): boolean
             {abstract} +add(int, E): boolean
             {abstract} +addAfter(int, E): boolean
@@ -207,6 +222,12 @@
             {abstract} +previous(): E
         }
 
+        interface ListVisitor<E> {
+            +visit(EmptyList<E>): void
+            {abstract} +visit(ArrayList<E>): void
+            {abstract} +visit(LinkedList<E>): void
+        }
+
         List <|.. EmptyList
 
         AbstractList <|-- ArrayList
@@ -222,6 +243,8 @@
         ua.khpi.oop.malokhvii05.common.collect.List.ListIterator <|.. ua.khpi.oop.malokhvii05.common.collect.LinkedList.LinkedListIterator
 
         LinkedList +-- ua.khpi.oop.malokhvii05.common.collect.LinkedList.LinkedListIterator
+
+        ListVisitor <|.. ListSortingVisitor
 
         interface java.util.Collection<E> {
             {abstract} +size(): int

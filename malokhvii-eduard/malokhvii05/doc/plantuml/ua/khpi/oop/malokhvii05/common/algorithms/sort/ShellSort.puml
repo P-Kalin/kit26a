@@ -2,7 +2,7 @@
 
     class ShellSort<T> {
         +ShellSort(Comparator<T>)
-        +sort(T[]): void
+        +sort(T[], int): boolean
     }
 
 @enduml

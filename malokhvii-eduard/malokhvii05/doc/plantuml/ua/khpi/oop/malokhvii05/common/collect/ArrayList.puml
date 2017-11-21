@@ -3,11 +3,12 @@
     class ArrayList<E> {
         {static} -DEFAULT_INITIAL_CAPACITY: int
         {static} -serialVersionUID: long
-        -data: Object[]
+        ~data: Object[]
         +ArrayList()
         +ArrayList(Collection<?>)
         +ArrayList(E[])
         +ArrayList(int)
+        +acceptVisitor(ListVisitor<E>): void
         +add(E): boolean
         +add(int, E): boolean
         +addAfter(int, E): boolean

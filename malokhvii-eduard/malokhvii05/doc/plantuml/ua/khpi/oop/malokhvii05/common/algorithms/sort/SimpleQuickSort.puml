@@ -1,9 +1,0 @@
-@startuml
-
-    class SimpleQuickSort<T> {
-        +SimpleQuickSort(Comparator<T>)
-        -partition(T[], int, int): int
-        +sort(T[]): void
-    }
-
-@enduml

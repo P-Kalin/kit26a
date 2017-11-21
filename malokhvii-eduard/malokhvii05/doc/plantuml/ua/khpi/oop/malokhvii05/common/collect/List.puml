@@ -1,6 +1,7 @@
 @startuml
 
     interface List<E> {
+        {abstract} +acceptVisitor(ListVisitor<E>): void
         {abstract} +add(E): boolean
         {abstract} +add(int, E): boolean
         {abstract} +addAfter(int, E): boolean

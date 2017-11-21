@@ -1,0 +1,13 @@
+@startuml
+
+    class ListSortingVisitor<E> {
+        -comparator: Comparator<E>
+        -ListSortingVisitor(Comparator<E>)
+        {static} ~create(Comparator<E>): ListVisitor<E>
+        -linkedListPartition(LinkedList.Node<E>, LinkedList.Node<E>): LinkedList.Node<E>
+        -linkedListQuickSort(LinkedList.Node<E>, LinkedList.Node<E>): void
+        +visit(ArrayList<E>): void
+        +visit(LinkedList<E>): void
+    }
+
+@enduml

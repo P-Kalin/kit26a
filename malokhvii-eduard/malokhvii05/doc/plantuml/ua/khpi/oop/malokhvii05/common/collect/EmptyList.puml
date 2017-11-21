@@ -3,6 +3,7 @@
     class EmptyList<E> {
         {static} -serialVersionUID: long
         ~EmptyList()
+        +acceptVisitor(ListVisitor<E>): void
         +add(E): boolean
         +add(int, E): boolean
         +addAfter(int, E): boolean
