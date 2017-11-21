@@ -1,11 +1,11 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.util.Comparator;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -27,7 +27,7 @@ import javax.annotation.Nonnull;
  * </ul>
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
+ * @version 1.0.1
  * @see SortAlgorithmFactory
  * @param <T>
  *            Тип даних, елементів масиву для сортування, та компаратору для
@@ -86,16 +86,22 @@ public final class HeapSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void sort(@Nonnull final T[] array) {
-        checkNotNull(array);
-        int index;
-        for (index = array.length / 2 - 1; index >= 0; index--) {
-            heapify(array, array.length, index);
+    @CanIgnoreReturnValue
+    public boolean sort(@Nonnull final T[] array,
+            @Nonnegative final int length) {
+        if (!checkArray(array) && !checkLength(array, length)) {
+            return false;
         }
 
-        for (index = array.length - 1; index >= 0; index--) {
+        int index;
+        for (index = length / 2 - 1; index >= 0; index--) {
+            heapify(array, length, index);
+        }
+
+        for (index = length - 1; index >= 0; index--) {
             swap(array, 0, index);
             heapify(array, index, 0);
         }
+        return true;
     }
 }

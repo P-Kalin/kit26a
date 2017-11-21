@@ -2,7 +2,7 @@
 
     class InsertionSort<T> {
         +InsertionSort(Comparator<T>)
-        +sort(T[]): void
+        +sort(T[], int): boolean
     }
 
 @enduml

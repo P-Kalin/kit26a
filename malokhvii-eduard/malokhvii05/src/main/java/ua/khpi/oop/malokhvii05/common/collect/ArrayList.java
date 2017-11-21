@@ -24,7 +24,7 @@ import ua.khpi.oop.malokhvii05.common.collect.EmptyList.EmptyListIterator;
  * алгоритмами.
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
+ * @version 1.0.1
  * @see ua.khpi.oop.malokhvii05.common.algorithms
  * @see ua.khpi.oop.malokhvii05.common.algorithms.sort
  * @see ua.khpi.oop.malokhvii05.common.algorithms.search
@@ -119,7 +119,7 @@ public final class ArrayList<E> extends AbstractList<E> {
      *
      * @since 1.0.0
      */
-    private transient Object[] data;
+    transient Object[] data;
 
     /**
      * Призначений, для ініціалізації масиву з ємкостю внутрішнього буфера за
@@ -166,6 +166,12 @@ public final class ArrayList<E> extends AbstractList<E> {
     public ArrayList(@Nonnegative final int capacity) {
         checkArgument(capacity > 0);
         data = new Object[capacity];
+    }
+
+    @Override
+    public void acceptVisitor(final ListVisitor<E> listVisitor) {
+        checkNotNull(listVisitor);
+        listVisitor.visit(this);
     }
 
     @Override

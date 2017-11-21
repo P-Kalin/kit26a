@@ -1,0 +1,9 @@
+@startuml
+
+    interface ListVisitor<E> {
+        +visit(EmptyList<E>): void
+        {abstract} +visit(ArrayList<E>): void
+        {abstract} +visit(LinkedList<E>): void
+    }
+
+@enduml

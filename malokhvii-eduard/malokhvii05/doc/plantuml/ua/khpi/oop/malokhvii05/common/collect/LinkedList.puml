@@ -2,10 +2,11 @@
 
     class LinkedList<E> {
         {static} -serialVersionUID: long
-        -cursor: LinkedList.Node<E>
+        ~cursor: LinkedList.Node<E>
         +LinkedList()
         +LinkedList(Collection<E>)
         +LinkedList(E[])
+        +acceptVisitor(ListVisitor<E>): void
         +add(E): boolean
         +add(int, E): boolean
         +addAfter(int, E): boolean

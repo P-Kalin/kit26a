@@ -1,5 +1,7 @@
 package ua.khpi.oop.malokhvii05.common.collect;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -21,7 +23,7 @@ import ua.khpi.oop.malokhvii05.common.collect.EmptyList.EmptyListIterator;
  * списку. Для обробки елементів див. детальнше пакет з типовими алгоритмами.
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
+ * @version 1.0.1
  * @see ua.khpi.oop.malokhvii05.common.algorithms
  * @see ua.khpi.oop.malokhvii05.common.algorithms.sort
  * @see ua.khpi.oop.malokhvii05.common.algorithms.search
@@ -195,7 +197,7 @@ public final class LinkedList<E> extends AbstractList<E> {
      *
      * @since 1.0.0
      */
-    private transient Node<E> cursor;
+    transient Node<E> cursor;
 
     /**
      * Призначений, для ініціалізації порожнього списку.
@@ -229,6 +231,12 @@ public final class LinkedList<E> extends AbstractList<E> {
     public LinkedList(@Nullable final E[] elements) {
         this();
         addAll(elements);
+    }
+
+    @Override
+    public void acceptVisitor(@Nonnull final ListVisitor<E> listVisitor) {
+        checkNotNull(listVisitor);
+        listVisitor.visit(this);
     }
 
     @Override
@@ -444,6 +452,7 @@ public final class LinkedList<E> extends AbstractList<E> {
     protected void readObject(
             @Nonnull final ObjectInputStream objectInputStream)
             throws ClassNotFoundException, IOException {
+        checkNotNull(objectInputStream);
         objectInputStream.defaultReadObject();
         int size = objectInputStream.readInt();
 
@@ -573,6 +582,7 @@ public final class LinkedList<E> extends AbstractList<E> {
     protected void writeObject(
             @Nonnull final ObjectOutputStream objectOutputStream)
             throws IOException {
+        checkNotNull(objectOutputStream);
         objectOutputStream.defaultWriteObject();
         objectOutputStream.writeInt(size);
 

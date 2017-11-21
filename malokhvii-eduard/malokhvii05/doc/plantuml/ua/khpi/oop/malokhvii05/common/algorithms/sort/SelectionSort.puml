@@ -2,7 +2,7 @@
 
     class SelectionSort<T> {
         +SelectionSort(Comparator<T>)
-        +sort(T[]): void
+        +sort(T[], int): boolean
     }
 
 @enduml

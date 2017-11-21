@@ -1,11 +1,11 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.util.Comparator;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -33,7 +33,7 @@ import javax.annotation.Nonnull;
  * </ul>
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
+ * @version 1.0.1
  * @see SortAlgorithmFactory
  * @param <T>
  *            Тип даних, елементів масиву для сортування, та компаратору для
@@ -99,9 +99,15 @@ public final class BottomUpMergeSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void sort(@Nonnull final T[] array) {
-        final Object[] arrayData = checkNotNull(array);
-        final Object[] mergeBuffer = new Object[array.length];
+    @CanIgnoreReturnValue
+    public boolean sort(@Nonnull final T[] array,
+            @Nonnegative final int length) {
+        if (!checkArray(array) && !checkLength(array, length)) {
+            return false;
+        }
+
+        final Object[] arrayData = array;
+        final Object[] mergeBuffer = new Object[length];
 
         int chunkSize = 1;
         int i;
@@ -113,5 +119,6 @@ public final class BottomUpMergeSort<T> extends AbstractSortAlgorithm<T> {
             }
             chunkSize <<= 1;
         }
+        return true;
     }
 }

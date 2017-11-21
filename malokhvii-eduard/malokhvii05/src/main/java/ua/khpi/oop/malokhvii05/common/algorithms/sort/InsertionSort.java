@@ -1,9 +1,8 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.util.Comparator;
 
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 /**
@@ -61,13 +60,17 @@ public final class InsertionSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void sort(@Nonnull final T[] array) {
-        checkNotNull(array);
+    public boolean sort(@Nonnull final T[] array,
+            @Nonnegative final int length) {
+        if (!checkArray(array) && !checkLength(array, length)) {
+            return false;
+        }
+
         T key;
 
         int i;
         int j;
-        for (i = 1; i < array.length; i++) {
+        for (i = 1; i < length; i++) {
             key = array[i];
             j = i - 1;
             while (j >= 0 && comparator.compare(array[j], key) > 0) {
@@ -76,5 +79,6 @@ public final class InsertionSort<T> extends AbstractSortAlgorithm<T> {
             }
             array[j + 1] = key;
         }
+        return true;
     }
 }

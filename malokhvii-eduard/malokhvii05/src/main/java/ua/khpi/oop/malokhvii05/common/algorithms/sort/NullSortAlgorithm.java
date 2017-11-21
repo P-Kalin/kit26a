@@ -1,11 +1,9 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
-import java.util.Collection;
-
-import javax.annotation.Nonnull;
+import javax.annotation.Nonnegative;
 import javax.annotation.Nullable;
+
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 import ua.khpi.oop.malokhvii05.common.algorithms.NullAlgorithmWithComparator;
 
@@ -49,15 +47,16 @@ final class NullSortAlgorithm<T> extends NullAlgorithmWithComparator<T>
 
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public @Nonnull T[] sort(@Nonnull final Collection<T> collection) {
-        checkNotNull(collection);
-        return (T[]) collection.toArray();
+    @CanIgnoreReturnValue
+    public boolean sort(@Nullable final T[] array) {
+        return false;
     }
 
     @Override
-    public void sort(@Nullable final T[] array) {
-
+    @CanIgnoreReturnValue
+    public boolean sort(@Nullable final T[] array,
+            @Nonnegative final int length) {
+        return false;
     }
 }

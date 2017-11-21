@@ -1,0 +1,9 @@
+@startuml
+
+    class QuickSort<T> {
+        +QuickSort(Comparator<T>)
+        -partition(T[], int, int): int
+        +sort(T[], int): boolean
+    }
+
+@enduml

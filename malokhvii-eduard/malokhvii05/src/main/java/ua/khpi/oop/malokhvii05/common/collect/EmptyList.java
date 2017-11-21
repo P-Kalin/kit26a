@@ -16,7 +16,7 @@ import ua.khpi.oop.malokhvii05.common.algorithms.search.SearchAlgorithm;
  * порожньої колекції.
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
+ * @version 1.0.1
  * @see ua.khpi.oop.malokhvii05.common.algorithms
  * @see ua.khpi.oop.malokhvii05.common.algorithms.sort
  * @see ua.khpi.oop.malokhvii05.common.algorithms.search
@@ -58,6 +58,11 @@ class EmptyList<E> implements List<E> {
     }
 
     private static final long serialVersionUID = -1743173312260000598L;
+
+    @Override
+    public void acceptVisitor(final ListVisitor<E> listVisitor) {
+        listVisitor.visit(this);
+    }
 
     @Override
     @CanIgnoreReturnValue
