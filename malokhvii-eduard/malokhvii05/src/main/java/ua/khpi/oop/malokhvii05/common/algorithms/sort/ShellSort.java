@@ -1,10 +1,11 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.util.Comparator;
 
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -57,15 +58,20 @@ public final class ShellSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void sort(@Nonnull final T[] array) {
-        checkNotNull(array);
+    @CanIgnoreReturnValue
+    public boolean sort(@Nonnull final T[] array,
+            @Nonnegative final int length) {
+        if (!checkArray(array) && !checkLength(array, length)) {
+            return false;
+        }
+
         T comparableValue;
         int gap;
 
         int i;
         int j;
-        for (gap = array.length >> 1; gap > 0; gap >>= 1) {
-            for (i = gap; i < array.length; i++) {
+        for (gap = length >> 1; gap > 0; gap >>= 1) {
+            for (i = gap; i < length; i++) {
                 comparableValue = array[i];
                 for (j = i; j >= gap && comparator.compare(array[j - gap],
                         comparableValue) == 1; j -= gap) {
@@ -74,5 +80,6 @@ public final class ShellSort<T> extends AbstractSortAlgorithm<T> {
                 array[j] = comparableValue;
             }
         }
+        return true;
     }
 }

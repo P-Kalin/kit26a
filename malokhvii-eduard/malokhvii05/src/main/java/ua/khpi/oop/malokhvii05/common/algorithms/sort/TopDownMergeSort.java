@@ -1,10 +1,11 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.util.Comparator;
 
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -114,17 +115,24 @@ public final class TopDownMergeSort<T> extends AbstractSortAlgorithm<T> {
         System.arraycopy(array, 0, left, 0, left.length);
         System.arraycopy(array, left.length, right, 0, right.length);
 
-        left = this.mergeSort(left);
-        right = this.mergeSort(right);
+        left = mergeSort(left);
+        right = mergeSort(right);
 
-        return this.mergeSlices(left, right);
+        return mergeSlices(left, right);
     }
 
     @Override
-    public void sort(@Nonnull final T[] array) {
-        final Object[] arrayData = checkNotNull(array);
-        final Object[] sortedArrayData = this.mergeSort(array);
+    @CanIgnoreReturnValue
+    public boolean sort(@Nonnull final T[] array,
+            @Nonnegative final int length) {
+        if (!checkArray(array) && !checkLength(array, length)) {
+            return false;
+        }
+
+        final Object[] arrayData = array;
+        final Object[] sortedArrayData = mergeSort(array);
         System.arraycopy(sortedArrayData, 0, arrayData, 0,
-                arrayData.length - (arrayData.length - array.length));
+                arrayData.length - (arrayData.length - length));
+        return true;
     }
 }

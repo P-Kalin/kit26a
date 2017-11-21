@@ -1,0 +1,22 @@
+@startuml
+
+    abstract class AbstractList<E> {
+        {static} -serialVersionUID: long
+        #size: int
+        +AbstractList()
+        +contains(Object): boolean
+        +containsAll(Collection<?>): boolean
+        +firstIterator(): List.ListIterator<E>
+        +isEmpty(): boolean
+        #isIndexInRange(int): boolean
+        #isNewElementIndexInRange(int): boolean
+        +iterator(): Iterator<E>
+        +lastIterator(): List.ListIterator<E>
+        +removeAll(Collection<?>): boolean
+        +retainAll(Collection<?>): boolean
+        +size(): int
+        {abstract} #readObject(ObjectInputStream): void
+        {abstract} #writeObject(ObjectOutputStream): void
+    }
+
+@enduml

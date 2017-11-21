@@ -7,12 +7,12 @@
         <version>1.6.0</version>
     </parent>
     <artifactId>malokhvii06</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <dependencies>
         <dependency>
             <groupId>ua.khpi.oop</groupId>
             <artifactId>malokhvii04</artifactId>
-            <version>1.2.3</version>
+            <version>1.2.5</version>
         </dependency>
     </dependencies>
     <properties>

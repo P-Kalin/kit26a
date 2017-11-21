@@ -1,0 +1,41 @@
+@startuml
+
+    class EmptyList<E> {
+        {static} -serialVersionUID: long
+        ~EmptyList()
+        +acceptVisitor(ListVisitor<E>): void
+        +add(E): boolean
+        +add(int, E): boolean
+        +addAfter(int, E): boolean
+        +addAll(Collection<?>): boolean
+        +addAll(E[]): boolean
+        +addBefore(int, E): boolean
+        +addFirst(E): boolean
+        +addLast(E): boolean
+        +clear(): void
+        +contains(Object): boolean
+        +containsAll(Collection<?>): boolean
+        +firstIterator(): List.ListIterator<E>
+        +get(int): E
+        +getFirst(): E
+        +getLast(): E
+        +indexOf(Object): int
+        +isEmpty(): boolean
+        +iterator(): Iterator<E>
+        +iterator(int): List.ListIterator<E>
+        +lastIterator(): List.ListIterator<E>
+        +remove(int): E
+        +remove(Object): boolean
+        +removeAll(Collection<?>): boolean
+        +removeFirst(): E
+        +removeLast(): E
+        +retainAll(Collection<?>): boolean
+        +set(int, E): E
+        +setFirst(E): E
+        +setLast(E): E
+        +size(): int
+        +toArray(): Object[]
+        +toArray(T[]): T[]
+    }
+
+@enduml

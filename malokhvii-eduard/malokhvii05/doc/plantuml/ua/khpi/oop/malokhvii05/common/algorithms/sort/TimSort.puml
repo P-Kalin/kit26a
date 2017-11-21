@@ -25,7 +25,7 @@
         -mergeLowRuns(int, int, int, int): void
         -pushRun(int, int): void
         -setUnorderedArray(T[], int): void
-        +sort(T[]): void
+        +sort(T[], int): boolean
     }
 
 @enduml

@@ -4,7 +4,7 @@
         +JSort(Comparator<T>)
         -inverseReheap(T[], int): void
         -reheap(T[], int): void
-        +sort(T[]): void
+        +sort(T[], int): boolean
     }
 
 @enduml

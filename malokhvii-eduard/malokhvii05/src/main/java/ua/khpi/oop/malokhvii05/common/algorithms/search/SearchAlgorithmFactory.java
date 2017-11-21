@@ -40,7 +40,7 @@ public final class SearchAlgorithmFactory {
     private static Class<? extends SearchAlgorithm> defaultAlgorithm;
 
     static {
-        SearchAlgorithmFactory.classMapping = new HashMap<String, Class<? extends SearchAlgorithm>>();
+        SearchAlgorithmFactory.classMapping = new HashMap<>();
         SearchAlgorithmFactory.loadBasicAlgorithms();
     }
 
@@ -176,7 +176,7 @@ public final class SearchAlgorithmFactory {
      * @since 1.0.0
      */
     private static void loadBasicAlgorithms() {
-        final String basicPackage = "ua.khpi.oop.malokhvii05.util.algorithms"
+        final String basicPackage = "ua.khpi.oop.malokhvii05.common.algorithms"
                 + ".search";
         final List<String> basicSortAlgorithms = Arrays.asList("BinarySearch",
                 "ExponentialSearch", "LinearSearch", "LinearWithBarrierSearch",

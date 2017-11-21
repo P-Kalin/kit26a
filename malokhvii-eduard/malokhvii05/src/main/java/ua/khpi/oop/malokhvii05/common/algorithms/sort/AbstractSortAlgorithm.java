@@ -1,10 +1,8 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
-import java.util.Collection;
 import java.util.Comparator;
 
+import javax.annotation.CheckForSigned;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -16,7 +14,7 @@ import ua.khpi.oop.malokhvii05.common.algorithms.AbstractAlgorithmWithComparator
  * єдиною реалізацією.
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
+ * @version 1.0.1
  * @param <T>
  *            Тип даних, елементів масиву для сортування, та компаратору для
  *            порівняння елементів
@@ -25,8 +23,44 @@ public abstract class AbstractSortAlgorithm<T>
         extends AbstractAlgorithmWithComparator<T> implements SortAlgorithm<T> {
 
     /**
+     * Призначений, для перевірки вхідного масиву для сортування на коректність.
+     *
+     * @param array
+     *            вхідний масив для сорутвання
+     * @return результат перевірки
+     * @since 1.0.1
+     */
+    protected static boolean checkArray(@Nullable final Object[] array) {
+        if (array == null || array.length == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Призначений, для перевірки вхідного розміру фрагменту масиву для
+     * сортування.
+     *
+     * @param array
+     *            масив для сортування
+     * @param length
+     *            розмір фрагменту для сорутвання
+     * @return результат перевірки
+     * @since 1.0.1
+     */
+    protected static boolean checkLength(@Nullable final Object[] array,
+            @CheckForSigned final int length) {
+        if (array == null || array.length < length) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * Призначений, для обміну значень елементів у масиві.
      *
+     * @param <T>
+     *            Тип даних, елементів масиву для переміщення
      * @param array
      *            масив
      * @param left
@@ -68,28 +102,19 @@ public abstract class AbstractSortAlgorithm<T>
     }
 
     @Override
-    public boolean isReversedOrder() {
+    public final boolean isReversedOrder() {
         return this.isReversedOrder;
     }
 
     @Override
-    public void setReversedOrder(final boolean isReversedOrder) {
+    public final void setReversedOrder(final boolean isReversedOrder) {
         if (isReversedOrder != this.isReversedOrder) {
             comparator = comparator.reversed();
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public @Nullable T[] sort(@Nonnull final Collection<T> collection) {
-        checkNotNull(collection);
-        if (collection.isEmpty()) {
-            return null;
-        }
-
-        T[] array = (T[]) new Object[collection.size()];
-        collection.toArray(array);
-        sort(array);
-        return array;
+    public final boolean sort(@Nonnull final T[] array) {
+        return sort(array, array.length);
     }
 }

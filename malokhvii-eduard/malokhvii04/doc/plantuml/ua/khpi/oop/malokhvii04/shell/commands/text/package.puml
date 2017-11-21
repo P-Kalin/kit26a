@@ -3,9 +3,9 @@
     namespace ua.khpi.oop.malokhvii04.shell.commands.text {
 
         class DeserializeTextCommand {
-            {static} -RESOURCE_BUNDLE_NAME: String
             {static} -description: String
             {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
             {static} -resourceBundle: ResourceBundle
             +DeserializeTextCommand()
             {static} #updateResourceBundle(): void
@@ -93,7 +93,7 @@
             {static} -RESOURCE_BUNDLE_NAME: String
             {static} -resourceBundle: ResourceBundle
             +InputTextCommand()
-            {static} -getInputText(String): Array<String>
+            {static} -getInputText(String): ArrayList<String>
             {static} #updateResourceBundle(): void
             +execute(): void
             +getDescription(): String

@@ -1,11 +1,11 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.util.Comparator;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -131,20 +131,25 @@ public final class JSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void sort(@Nonnull final T[] array) {
-        checkNotNull(array);
-        int i;
-        for (i = array.length - 1; i >= 0; i--) {
-            this.reheap(array, i);
+    @CanIgnoreReturnValue
+    public boolean sort(@Nonnull final T[] array,
+            @Nonnegative final int length) {
+        if (!checkArray(array) && !checkLength(array, length)) {
+            return false;
         }
 
-        for (i = array.length - 1; i >= 0; i--) {
-            this.inverseReheap(array, i);
+        int i;
+        for (i = length - 1; i >= 0; i--) {
+            reheap(array, i);
+        }
+
+        for (i = length - 1; i >= 0; i--) {
+            inverseReheap(array, i);
         }
 
         T key;
         int j;
-        for (i = 1; i < array.length; i++) {
+        for (i = 1; i < length; i++) {
             key = array[i];
             j = i - 1;
             while (j >= 0 && comparator.compare(array[j], key) > 0) {
@@ -153,5 +158,6 @@ public final class JSort<T> extends AbstractSortAlgorithm<T> {
             }
             array[j + 1] = key;
         }
+        return true;
     }
 }

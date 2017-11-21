@@ -2,7 +2,7 @@
 
     class GnomeSort<T> {
         +GnomeSort(Comparator<T>)
-        +sort(T[]): void
+        +sort(T[], int): boolean
     }
 
 @enduml

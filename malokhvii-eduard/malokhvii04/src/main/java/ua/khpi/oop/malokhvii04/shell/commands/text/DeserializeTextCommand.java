@@ -11,7 +11,6 @@ import ua.khpi.oop.malokhvii04.shell.Shell;
 import ua.khpi.oop.malokhvii04.shell.ShellCommandsPool;
 import ua.khpi.oop.malokhvii04.shell.ShellResources;
 import ua.khpi.oop.malokhvii04.shell.commands.HandleTextFileCommand;
-import ua.khpi.oop.malokhvii05.common.collect.Array;
 
 /**
  * Призначений, для інкапсуляції десеріалізації текстового файлу у вигляді
@@ -23,15 +22,6 @@ import ua.khpi.oop.malokhvii05.common.collect.Array;
  * @see ShellCommandsPool
  */
 public final class DeserializeTextCommand extends HandleTextFileCommand {
-
-    /**
-     * Розташування текстового файлу, з властивостями, а саме текстовими
-     * рядками, для подальшого виведення в інтерактивній оболонці.
-     *
-     * @since 1.0.0
-     */
-    private static final String RESOURCE_BUNDLE_NAME = "shell.commands."
-            + "text.DeserializeTextCommandBundle";
 
     /**
      * Детальний опис команди.
@@ -46,6 +36,15 @@ public final class DeserializeTextCommand extends HandleTextFileCommand {
      * @since 1.0.0
      */
     private static List<String> keys = Arrays.asList("-deserialize", "-deser");
+
+    /**
+     * Розташування текстового файлу, з властивостями, а саме текстовими
+     * рядками, для подальшого виведення в інтерактивній оболонці.
+     *
+     * @since 1.0.0
+     */
+    private static final String RESOURCE_BUNDLE_NAME = "shell.commands."
+            + "text.DeserializeTextCommandBundle";
 
     /**
      * Загальний об'єкт ресурсів для локалізації усіх команд.
@@ -85,8 +84,8 @@ public final class DeserializeTextCommand extends HandleTextFileCommand {
         try (ObjectInputStream objectInputStream = new ObjectInputStream(
                 new FileInputStream(filePath))) {
             final Object textLines = objectInputStream.readObject();
-            Shell.getInstance().getData()
-                    .setTextLines((Array<String>) textLines);
+            Shell.getInstance().getData().setTextLines(
+                    (ua.khpi.oop.malokhvii05.common.collect.List<String>) textLines);
         } catch (final Exception exception) {
             System.out.println(DeserializeTextCommand.resourceBundle
                     .getString("deserialization-fail-message"));

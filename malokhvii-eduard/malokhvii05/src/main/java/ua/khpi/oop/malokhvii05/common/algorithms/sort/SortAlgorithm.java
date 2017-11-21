@@ -1,13 +1,9 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
-import java.util.Collection;
-import java.util.Comparator;
-
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import ua.khpi.oop.malokhvii05.common.algorithms.AlgorithmWithComparator;
-import ua.khpi.oop.malokhvii05.common.collect.Array;
 
 /**
  * Ітерфейс, призначений для оголошення алгоритму сортування для масиву. Усі
@@ -31,7 +27,7 @@ public interface SortAlgorithm<T> extends AlgorithmWithComparator<T> {
 
     /**
      * Призначений, для оновлення поточного порядку сортування за допомогою
-     * методу {@link Comparator#reversed}.
+     * методу {@link java.util.Comparator#reversed}.
      *
      * @param isReversedOrder
      *            новий порядок сортування
@@ -39,16 +35,25 @@ public interface SortAlgorithm<T> extends AlgorithmWithComparator<T> {
      */
     void setReversedOrder(boolean isReversedOrder);
 
-    @Nullable
-    T[] sort(@Nonnull final Collection<T> collection);
-
     /**
      * Призначений, для сотування вхідного масиву.
      *
-     * @see Array
      * @param array
      *            вхідний масив для сорутвання
+     * @return результат операції сортування
      * @since 1.0.0
      */
-    void sort(@Nonnull T[] array);
+    boolean sort(@Nonnull T[] array);
+
+    /**
+     * Призначений, для сотування вхідного масиву, з конкретною довжиною.
+     *
+     * @param array
+     *            вхідний масив для сорутвання
+     * @param length
+     *            довжина фрагменту масиву для сортування
+     * @return результат операції сортування
+     * @since 1.0.0
+     */
+    boolean sort(@Nonnull T[] array, @Nonnegative int length);
 }
