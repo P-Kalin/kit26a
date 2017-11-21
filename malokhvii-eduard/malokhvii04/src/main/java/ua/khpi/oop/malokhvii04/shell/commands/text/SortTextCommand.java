@@ -2,6 +2,7 @@ package ua.khpi.oop.malokhvii04.shell.commands.text;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
@@ -11,8 +12,7 @@ import ua.khpi.oop.malokhvii04.shell.Shell;
 import ua.khpi.oop.malokhvii04.shell.ShellCommandsPool;
 import ua.khpi.oop.malokhvii04.shell.ShellResources;
 import ua.khpi.oop.malokhvii04.shell.commands.AbstractCommand;
-import ua.khpi.oop.malokhvii05.common.algorithms.sort.SortAlgorithm;
-import ua.khpi.oop.malokhvii05.common.algorithms.sort.SortAlgorithmFactory;
+import ua.khpi.oop.malokhvii05.common.collect.Lists;
 
 /**
  * Призначений, для інкапсуляції сортування колекції рядків, під виглядом
@@ -111,17 +111,19 @@ public final class SortTextCommand extends AbstractCommand {
         final ua.khpi.oop.malokhvii05.common.collect.List<String> textLines = Shell
                 .getInstance().getData().getTextLines();
         if (!textLines.isEmpty()) {
-            final SortAlgorithm<String> sortAlgorithm = SortAlgorithmFactory
-                    .getDefaultAlgorithm();
             try {
-                sortAlgorithm.setReversedOrder(SortTextCommand.getSortOrder());
+                Comparator<String> comparator = Comparator.naturalOrder();
+                if (SortTextCommand.getSortOrder()) {
+                    comparator = comparator.reversed();
+                }
                 System.out.println();
+
+                Lists.sort(textLines, comparator);
+                Shell.getInstance().getData().setTextLines(textLines);
             } catch (final IOException exception) {
                 System.out.println(SortTextCommand.resourceBundle
                         .getString("mismatch-message"));
             }
-            String[] sortedLines = sortAlgorithm.sort(textLines);
-            Shell.getInstance().getData().setTextLines(sortedLines);
         } else {
             System.out.println(SortTextCommand.resourceBundle
                     .getString("text-lines-not-found-message"));
