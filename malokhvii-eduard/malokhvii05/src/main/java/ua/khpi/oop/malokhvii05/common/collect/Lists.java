@@ -1,6 +1,7 @@
 package ua.khpi.oop.malokhvii05.common.collect;
 
 import java.util.Collection;
+import java.util.Comparator;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -119,6 +120,11 @@ public final class Lists {
     public static @Nonnull <E> List<E> newLinkedList(
             @Nullable final E... elements) {
         return new LinkedList<>(elements);
+    }
+
+    public static <E> void sort(final List<E> list,
+            final Comparator<E> comparator) {
+        list.acceptVisitor(ListSortingVisitor.create(comparator));
     }
 
     /**
