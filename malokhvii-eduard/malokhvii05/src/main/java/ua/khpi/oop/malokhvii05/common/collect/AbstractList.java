@@ -17,7 +17,7 @@ import com.google.errorprone.annotations.CanIgnoreReturnValue;
  * переліку елементів для подальшого розширення спеціалізованими реалізаціями.
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
+ * @version 1.0.1
  * @param <E>
  *            Тип елементів розташованих у колекції
  */

@@ -15,7 +15,7 @@ import com.google.errorprone.annotations.CanIgnoreReturnValue;
  * переліку елементів.
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
+ * @version 1.0.1
  * @see ua.khpi.oop.malokhvii05.common.algorithms
  * @see ua.khpi.oop.malokhvii05.common.algorithms.sort
  * @see ua.khpi.oop.malokhvii05.common.algorithms.search
@@ -71,6 +71,16 @@ public interface List<E> extends Collection<E>, Serializable {
         @Nullable
         E previous();
     }
+
+    /**
+     * Призначений, для розширення функціоналу списку, за допомогою зовнішніх
+     * компонентів.
+     *
+     * @param listVisitor
+     *            компонет, розширюючий функціонал списку
+     * @since 1.0.1
+     */
+    void acceptVisitor(@Nonnull ListVisitor<E> listVisitor);
 
     /**
      * Призначений, для додавання нового елементу у кінець колекції.
