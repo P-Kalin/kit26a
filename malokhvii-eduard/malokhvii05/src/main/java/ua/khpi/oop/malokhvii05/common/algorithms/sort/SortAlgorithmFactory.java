@@ -40,7 +40,7 @@ public final class SortAlgorithmFactory {
     private static Class<? extends SortAlgorithm> defaultAlgorithm;
 
     static {
-        SortAlgorithmFactory.classMapping = new HashMap<String, Class<? extends SortAlgorithm>>();
+        SortAlgorithmFactory.classMapping = new HashMap<>();
         SortAlgorithmFactory.loadBasicAlgorithms();
     }
 
@@ -176,11 +176,11 @@ public final class SortAlgorithmFactory {
      * @since 1.0.0
      */
     private static void loadBasicAlgorithms() {
-        final String basicPackage = "ua.khpi.oop.malokhvii05.util.algorithms"
+        final String basicPackage = "ua.khpi.oop.malokhvii05.common.algorithms"
                 + ".sort";
         final List<String> basicSortAlgorithms = Arrays.asList("GnomeSort",
                 "BubbleSort", "ShellSort", "HeapSort", "TopDownMergeSort",
-                "BottomUpMergeSort", "SimpleQuickSort", "InsertionSort",
+                "BottomUpMergeSort", "QuickSort", "InsertionSort",
                 "SelectionSort", "JSort", "TimSort");
 
         for (final String basicSortAlgorithm : basicSortAlgorithms) {

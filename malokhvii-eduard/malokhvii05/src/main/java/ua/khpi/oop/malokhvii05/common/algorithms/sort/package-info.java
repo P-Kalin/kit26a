@@ -14,8 +14,8 @@
  * <td>Стабільний</td>
  * </tr>
  * <tr align="center">
- * <td>{@link ua.khpi.oop.malokhvii05.common.algorithms.sort.SimpleQuickSort
- * SimpleQuickSort}</td>
+ * <td>{@link ua.khpi.oop.malokhvii05.common.algorithms.sort.QuickSort
+ * QuickSort}</td>
  * <td>Partitioning</td>
  * <td>Ω(n log(n))</td>
  * <td>Θ(n log(n))</td>

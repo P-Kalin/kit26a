@@ -1,10 +1,11 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.util.Comparator;
 
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -30,7 +31,7 @@ import javax.annotation.Nonnull;
  * </ul>
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
+ * @version 1.0.1
  * @see SortAlgorithmFactory
  * @param <T>
  *            Тип даних, елементів масиву для сортування, та компаратору для
@@ -55,14 +56,19 @@ public final class BubbleSort<T extends Comparable<T>>
         super(comparator);
     }
 
+    @CanIgnoreReturnValue
     @Override
-    public void sort(@Nonnull final T[] array) {
-        checkNotNull(array);
+    public boolean sort(@Nonnull final T[] array,
+            @Nonnegative final int length) {
+        if (!checkArray(array) && !checkLength(array, length)) {
+            return false;
+        }
+
         boolean isSwapped;
 
         int i;
         int j;
-        for (i = 0; i < array.length; i++) {
+        for (i = 0; i < length; i++) {
             isSwapped = false;
             for (j = 0; j < array.length - i - 1; j++) {
                 if (comparator.compare(array[j], array[j + 1]) == 1) {
@@ -75,5 +81,6 @@ public final class BubbleSort<T extends Comparable<T>>
                 break;
             }
         }
+        return true;
     }
 }

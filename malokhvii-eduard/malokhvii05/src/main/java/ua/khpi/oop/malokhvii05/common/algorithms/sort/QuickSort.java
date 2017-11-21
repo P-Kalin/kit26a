@@ -1,11 +1,11 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.util.Comparator;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -43,11 +43,11 @@ import javax.annotation.Nonnull;
  *            Тип даних, елементів масиву для сортування, та компаратору для
  *            порівняння елементів
  */
-public final class SimpleQuickSort<T> extends AbstractSortAlgorithm<T> {
+public final class QuickSort<T> extends AbstractSortAlgorithm<T> {
 
     static {
         SortAlgorithmFactory.registerAlgorithm("simple-quick-sort",
-                SimpleQuickSort.class);
+                QuickSort.class);
     }
 
     /**
@@ -58,7 +58,7 @@ public final class SimpleQuickSort<T> extends AbstractSortAlgorithm<T> {
      *            компоратор для вхідних даних
      * @since 1.0.0
      */
-    public SimpleQuickSort(@Nonnull final Comparator<T> comparator) {
+    public QuickSort(@Nonnull final Comparator<T> comparator) {
         super(comparator);
     }
 
@@ -94,11 +94,15 @@ public final class SimpleQuickSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void sort(@Nonnull final T[] array) {
-        checkNotNull(array);
-        int low = 0;
-        int high = array.length - 1;
+    @CanIgnoreReturnValue
+    public boolean sort(@Nonnull final T[] array,
+            @Nonnegative final int length) {
+        if (!checkArray(array) && !checkLength(array, length)) {
+            return false;
+        }
 
+        int low = 0;
+        int high = length - 1;
         final int[] stack = new int[high - low + 1];
         int top = -1;
 
@@ -109,7 +113,7 @@ public final class SimpleQuickSort<T> extends AbstractSortAlgorithm<T> {
             high = stack[top--];
             low = stack[top--];
 
-            final int partition = this.partition(array, low, high);
+            final int partition = partition(array, low, high);
 
             if (partition - 1 > low) {
                 stack[++top] = low;
@@ -121,5 +125,6 @@ public final class SimpleQuickSort<T> extends AbstractSortAlgorithm<T> {
                 stack[++top] = high;
             }
         }
+        return true;
     }
 }

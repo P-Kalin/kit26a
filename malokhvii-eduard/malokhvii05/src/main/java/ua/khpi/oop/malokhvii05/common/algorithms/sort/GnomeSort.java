@@ -1,10 +1,11 @@
 package ua.khpi.oop.malokhvii05.common.algorithms.sort;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.util.Comparator;
 
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
@@ -28,7 +29,7 @@ import javax.annotation.Nonnull;
  * </ul>
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
+ * @version 1.0.1
  * @see SortAlgorithmFactory
  * @param <T>
  *            Тип даних, елементів масиву для сортування, та компаратору для
@@ -53,10 +54,15 @@ public final class GnomeSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void sort(@Nonnull final T[] array) {
-        checkNotNull(array);
+    @CanIgnoreReturnValue
+    public boolean sort(@Nonnull final T[] array,
+            @Nonnegative final int length) {
+        if (!checkArray(array) && !checkLength(array, length)) {
+            return false;
+        }
+
         int index = 0;
-        while (index < array.length) {
+        while (index < length) {
             if (index == 0) {
                 index++;
             } else if (isReversedOrder == (comparator.compare(array[index],
@@ -67,5 +73,6 @@ public final class GnomeSort<T> extends AbstractSortAlgorithm<T> {
                 index--;
             }
         }
+        return true;
     }
 }

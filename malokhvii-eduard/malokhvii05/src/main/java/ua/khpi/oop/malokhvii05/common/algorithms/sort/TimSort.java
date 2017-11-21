@@ -7,6 +7,8 @@ import java.util.Comparator;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
+
 /**
  * Призначений, для реалізації алгоритму сортування вхідного масиву. Ключ у
  * фабриці алгоритмів - "tim-sort".
@@ -219,7 +221,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      */
     private static @Nonnegative int getMinRunSize(@Nonnegative int arraySize) {
         int shiftedBits = 0;
-        while (arraySize >= TimSort.DEFAULT_MIN_MERGE) {
+        while (arraySize >= DEFAULT_MIN_MERGE) {
             shiftedBits |= arraySize & 1;
             arraySize >>= 1;
         }
@@ -443,7 +445,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      *
      * @since 1.0.0
      */
-    private int minGallop = TimSort.DEFAULT_MIN_GALLOP;
+    private int minGallop = DEFAULT_MIN_GALLOP;
 
     /**
      * Стек, для розміщення індексів перших елементів очікуваних прогонів.
@@ -576,7 +578,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
             runBaseStack[index + 1] = runBaseStack[index + 2];
             runSizeStack[index + 1] = runSizeStack[index + 2];
         }
-        this.stackSize--;
+        stackSize--;
 
         final int indexOfFirstFromRun2InRun1 = rightGallopSearch(array,
                 array[runBase2], runBase1, runSize1, 0, comparator);
@@ -866,8 +868,8 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
      */
     private void pushRun(@Nonnegative final int newRunBase,
             @Nonnegative final int newRunSize) {
-        runBaseStack[this.stackSize] = newRunBase;
-        runSizeStack[this.stackSize] = newRunSize;
+        runBaseStack[stackSize] = newRunBase;
+        runSizeStack[stackSize] = newRunSize;
         stackSize++;
     }
 
@@ -903,17 +905,22 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
     }
 
     @Override
-    public void sort(@Nonnull final T[] array) {
-        checkNotNull(array);
+    @CanIgnoreReturnValue
+    public boolean sort(@Nonnull final T[] array,
+            @Nonnegative final int length) {
+        if (!checkArray(array) && !checkLength(array, length)) {
+            return false;
+        }
+
         final T[] arrayData = array;
-        final int arraySize = array.length;
+        final int arraySize = length;
 
         int low = 0;
         final int high = arraySize;
 
         int numberOfRemainingElements = high - low;
         if (numberOfRemainingElements < 2) {
-            return;
+            return true;
         }
 
         if (numberOfRemainingElements < DEFAULT_MIN_MERGE) {
@@ -921,7 +928,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
                     high, comparator);
             binaryInsertionSort(arrayData, low, high, low + initialRunSize,
                     comparator);
-            return;
+            return true;
         }
 
         setUnorderedArray(arrayData, arraySize);
@@ -949,5 +956,6 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
         } while (numberOfRemainingElements != 0);
 
         mergeAllRuns();
+        return true;
     }
 }
