@@ -108,15 +108,17 @@ public class LinkedList<H> implements Iterable<H> {
 		Element<H> toDel = getElement(position);
 		Element<H> next = toDel.getNextElement();
 		Element<H> prev = toDel.getPrevElement();
-		if (next != null) {
+		if (next != null && prev != null) {
 			prev.setNextElement(next);
 			next.setPrevElement(prev);
 		} else if (prev == null && next == null) {
 			head = null;
-		} else {
+		} else if (prev != null && next == null) {
 			prev.nextElement = null;
 			tail = prev;
-
+		} else if (prev == null && next != null) {
+			next.prevElement = null;
+			head = next;
 		}
 		toDel = null;
 		this.size--;
