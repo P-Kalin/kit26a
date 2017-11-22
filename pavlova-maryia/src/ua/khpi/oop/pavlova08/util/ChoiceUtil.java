@@ -65,6 +65,7 @@ public class ChoiceUtil {
 	 * @return the chosen variant
 	 */
 	public static int chooseFirstOrSecond(int choice) {
+
 		try {
 			choice = Integer.valueOf(scanner.nextInt());
 			scanner.nextLine();
