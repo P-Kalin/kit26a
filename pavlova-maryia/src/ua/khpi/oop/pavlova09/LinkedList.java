@@ -11,6 +11,7 @@ public class LinkedList<H> implements Iterable<H> {
 
 	private static final int MAX_LIST_CAPACITY = Integer.MAX_VALUE;
 	private Element<H> head;
+	private Element<H> tail;
 
 	public LinkedList() {
 		this.head = null;
@@ -23,13 +24,15 @@ public class LinkedList<H> implements Iterable<H> {
 		initialCapacity = checkInitialCapacity(initialCapacity);
 		if (initialCapacity == 0) {
 			this.head = null;
-			this.head.prevElement = null;
-			this.head.nextElement = null;
+			this.head.setPrevElement(null);
+			;
+			this.head.setNextElement(null);
 			this.size = initialCapacity;
 		} else {
-			head = null;
-			this.head.prevElement = null;
-			this.head.nextElement = null;
+			this.head = null;
+			this.head.setPrevElement(null);
+			;
+			this.head.setNextElement(null);
 			size = initialCapacity;
 		}
 	}
@@ -44,32 +47,77 @@ public class LinkedList<H> implements Iterable<H> {
 	}
 
 	public void add(H newElement) {
-		if (this.capacity - this.size < 1)
+		if (capacity - size < 2)
 			ensureCapacity();
-		this.size++;
-		Element<H> toAdd = new Element<>();
-		toAdd.setData(newElement);
-		this.head.nextElement = toAdd;
-		toAdd.prevElement = head;
+		linkLast(newElement);
+
+	}
+
+	private void linkLast(H newElement) {
+
+		final Element<H> t = tail;
+		final Element<H> newH = new Element<>(tail, newElement, null);
+		tail = newH;
+		if (t == null) {
+			head = newH;
+			// head.nextElement = tail;
+		} else {
+			tail = t;
+			tail.nextElement = newH;
+		}
+
+		size++;
+	}
+
+	private void link(int position, H newElement) {
+		if (getElement(position) == head) {
+			final Element<H> oldHead = head;
+			final Element<H> newH = new Element<>(null, newElement, oldHead);
+			head = newH;
+			head.nextElement = oldHead;
+			oldHead.prevElement = head;
+			size++;
+		} else if (getElement(position) == tail) {
+			final Element<H> oldTail = tail;
+			final Element<H> newH = new Element<>(oldTail, newElement, null);
+			tail = newH;
+			tail.prevElement = oldTail;
+			oldTail.nextElement = tail;
+			size++;
+		} else {
+			final Element<H> next = getElement(position);
+			final Element<H> prev = getElement(position - 1);
+			final Element<H> newH = new Element<>(prev, newElement, next);
+			prev.nextElement = newH;
+			newH.nextElement = next;
+			newH.prevElement = prev;
+			next.prevElement = newH;
+			size++;
+		}
 	}
 
 	public void add(int position, H newElement) {
-		if (this.capacity - this.size < 1)
-			ensureCapacity();
-		this.size++;
 		checkPosition(position);
-		Element<H> toAdd = new Element<>();
-		toAdd.prevElement = getElement(position - 1);
-		toAdd.nextElement = getElement(position);
+		if (capacity - size < 2)
+			ensureCapacity();
+		link(position, newElement);
 	}
 
 	public void remove(int position) {
 		checkPosition(position);
 		Element<H> toDel = getElement(position);
-		Element<H> next = toDel.nextElement;
-		Element<H> prev = toDel.prevElement;
-		prev.nextElement = next;
-		next.prevElement = prev;
+		Element<H> next = toDel.getNextElement();
+		Element<H> prev = toDel.getPrevElement();
+		if (next != null) {
+			prev.setNextElement(next);
+			next.setPrevElement(prev);
+		} else if (prev == null && next == null) {
+			head = null;
+		} else {
+			prev.nextElement = null;
+			tail = prev;
+
+		}
 		toDel = null;
 		this.size--;
 	}
@@ -78,9 +126,9 @@ public class LinkedList<H> implements Iterable<H> {
 		Element<H> toDel = head;
 		int i = 0;
 		while (toDel.getData() != extra) {
-			if (toDel.nextElement == null)
+			if (toDel.getNextElement() == null)
 				return false;
-			toDel = toDel.nextElement;
+			toDel = toDel.getNextElement();
 			i++;
 		}
 		remove(i);
@@ -101,14 +149,16 @@ public class LinkedList<H> implements Iterable<H> {
 			return false;
 	}
 
-	public void clear() {
+	public boolean clear() {
 		int i = this.size - 1;
 		remove(i);
 		while (!isEmpty()) {
 			i--;
 			remove(i);
 		}
-
+		if (isEmpty())
+			return true;
+		return false;
 	}
 
 	public Object[] toArray() {
@@ -121,17 +171,19 @@ public class LinkedList<H> implements Iterable<H> {
 
 	public String toString() {
 		String dataInfo = new String();
+		if (isEmpty())
+			return "Is clear!";
 		for (Element<H> x = head; x != null; x = x.nextElement)
-			dataInfo += x.toString();
+			dataInfo += x.getData();
 
 		return dataInfo;
 	}
 
 	public boolean contains(H toCheck) {
 		Element<H> temp = head;
-
 		while (temp.getData() != toCheck) {
-			if (temp.nextElement == null)
+
+			if (temp.getNextElement() == null)
 				return false;
 			temp = temp.nextElement;
 		}
@@ -179,6 +231,12 @@ public class LinkedList<H> implements Iterable<H> {
 		/**
 		 * @return the data
 		 */
+		Element(Element<H> prev, H element, Element<H> next) {
+			this.data = element;
+			this.nextElement = next;
+			this.prevElement = prev;
+		}
+
 		public H getData() {
 			return data;
 		}
@@ -205,6 +263,15 @@ public class LinkedList<H> implements Iterable<H> {
 		public void setNextElement(Element<H> nextElement) {
 			this.nextElement = nextElement;
 		}
+
+		public void setPrevElement(Element<H> prevElement) {
+			this.prevElement = prevElement;
+		}
+
+		public Element<H> getPrevElement() {
+			return prevElement;
+		}
+
 	}
 
 	@Override
