@@ -2,12 +2,6 @@
 
     namespace ua.khpi.oop.malokhvii02.data {
 
-        enum DataComputationStatus {
-            {static} +SUCCESS
-            {static} +FAILURE
-            -DataComputationStatus()
-        }
-
         class NumberEqualityContainer {
             {static} -NUMBER_BASE: short
             {static} -MIN_NUMBER: long
@@ -36,6 +30,12 @@
             {abstract} +getContainerName(): String
             {abstract} +prepareDataDescription(): String
             {abstract} +prepareDataVisualization(): String
+        }
+
+        enum DataComputationStatus {
+            {static} +SUCCESS
+            {static} +FAILURE
+            -DataComputationStatus()
         }
 
         enum DataCollectionStatus {
