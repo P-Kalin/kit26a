@@ -2,9 +2,6 @@
 
     namespace ua.khpi.oop.malokhvii05.common.algorithms {
 
-        interface AlgorithmWithComparator<T> {
-        }
-
         abstract class NullAlgorithmWithComparator<T> {
             +NullAlgorithmWithComparator()
         }
@@ -19,6 +16,9 @@
             +isNull(): boolean
         }
 
+        interface AlgorithmWithComparator<T> {
+        }
+
         interface Algorithm<T> {
             {abstract} +isNull(): boolean
         }
@@ -26,8 +26,6 @@
         abstract class AbstractAlgorithmWithComparator<T> {
             +AbstractAlgorithmWithComparator(Comparator<T>)
         }
-
-        Algorithm <|.. AlgorithmWithComparator
 
         NullAlgorithm <|-- NullAlgorithmWithComparator
 
@@ -42,11 +40,13 @@
 
         Algorithm <|.. NullAlgorithm
 
+        Algorithm <|.. AlgorithmWithComparator
+
         AlgorithmWithComparator <|.. AbstractAlgorithmWithComparator
 
-        AlgorithmWithComparator --> java.util.Comparator: comparator
-
         NullAlgorithmWithComparator --> java.util.Comparator: defaultComparator\ncomparator
+
+        AlgorithmWithComparator --> java.util.Comparator: comparator
 
         AbstractAlgorithmWithComparator --> java.util.Comparator: comparator
 

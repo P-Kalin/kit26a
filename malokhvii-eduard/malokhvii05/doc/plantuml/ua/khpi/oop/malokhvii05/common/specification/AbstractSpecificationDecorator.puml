@@ -1,0 +1,12 @@
+@startuml
+
+    abstract class AbstractSpecificationDecorator<T> {
+        {static} -serialVersionUID: long
+        -specification: Specification<T>
+        #AbstractSpecificationDecorator(Specification<T>)
+        +getSpecification(): Specification<T>
+        +isSatisfiedBy(T): boolean
+        +toString(): String
+    }
+
+@enduml

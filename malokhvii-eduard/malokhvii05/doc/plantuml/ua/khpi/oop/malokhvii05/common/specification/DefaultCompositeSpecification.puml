@@ -1,0 +1,10 @@
+@startuml
+
+    class DefaultCompositeSpecification<T> {
+        {static} -serialVersionUID: long
+        ~DefaultCompositeSpecification()
+        ~DefaultCompositeSpecification(Iterable<Specification<T>>)
+        ~DefaultCompositeSpecification(Specification<T>[])
+    }
+
+@enduml

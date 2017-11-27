@@ -1,0 +1,12 @@
+@startuml
+
+    interface Specification<T> {
+        {abstract} +isSatisfiedBy(T): boolean
+        {abstract} +or(Specification<T>): Specification<T>
+        {abstract} +and(Specification<T>): Specification<T>
+        {abstract} +not(): Specification<T>
+        {abstract} +toPredicate(): Predicate<T>
+        {abstract} +getSpecifications(): List<Specification<T>>
+    }
+
+@enduml

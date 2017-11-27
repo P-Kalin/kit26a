@@ -2,6 +2,17 @@
 
     namespace ua.khpi.oop.malokhvii05.common.eventbus.dispatch {
 
+        class PrioritizedDispatcher {
+            ~PrioritizedDispatcher(Dispatcher, Comparator<Subscriber>)
+            +dispatch(Object, Iterator<Subscriber>): void
+        }
+
+        enum ua.khpi.oop.malokhvii05.common.eventbus.dispatch.PrioritizedDispatcher.Order {
+            {static} +ASCENDING
+            {static} +DESCENDING
+            -Order()
+        }
+
         class PerThreadQueuedDispatcher {
             -dispatching: ThreadLocal<Boolean>
             -queue: ThreadLocal<Queue<PerThreadQueuedDispatcher.Event>>
@@ -15,31 +26,10 @@
             -Event(Object, Iterator<Subscriber>)
         }
 
-        abstract class AbstractDispatcherDecorator {
-            #AbstractDispatcherDecorator(Dispatcher)
-        }
-
-        class AsynchronousDispatcher {
-            -queue: ConcurrentLinkedQueue<AsynchronousDispatcher.EventWithSubscriber>
-            ~AsynchronousDispatcher()
+        class ImmediateDispatcher {
+            {static} ~INSTANCE: ImmediateDispatcher
+            -ImmediateDispatcher()
             +dispatch(Object, Iterator<Subscriber>): void
-        }
-
-        class ua.khpi.oop.malokhvii05.common.eventbus.dispatch.AsynchronousDispatcher.EventWithSubscriber {
-            -event: Object
-            -subscriber: Subscriber
-            -EventWithSubscriber(Object, Subscriber)
-        }
-
-        class PrioritizedDispatcher {
-            ~PrioritizedDispatcher(Dispatcher, Comparator<Subscriber>)
-            +dispatch(Object, Iterator<Subscriber>): void
-        }
-
-        enum ua.khpi.oop.malokhvii05.common.eventbus.dispatch.PrioritizedDispatcher.Order {
-            {static} +ASCENDING
-            {static} +DESCENDING
-            -Order()
         }
 
         class Dispatchers {
@@ -54,21 +44,21 @@
             {abstract} +dispatch(Object, Iterator<Subscriber>): void
         }
 
-        class ImmediateDispatcher {
-            {static} ~INSTANCE: ImmediateDispatcher
-            -ImmediateDispatcher()
+        class AsynchronousDispatcher {
+            -queue: ConcurrentLinkedQueue<AsynchronousDispatcher.EventWithSubscriber>
+            ~AsynchronousDispatcher()
             +dispatch(Object, Iterator<Subscriber>): void
         }
 
-        Dispatcher <|.. PerThreadQueuedDispatcher
+        class ua.khpi.oop.malokhvii05.common.eventbus.dispatch.AsynchronousDispatcher.EventWithSubscriber {
+            -event: Object
+            -subscriber: Subscriber
+            -EventWithSubscriber(Object, Subscriber)
+        }
 
-        PerThreadQueuedDispatcher +-- ua.khpi.oop.malokhvii05.common.eventbus.dispatch.PerThreadQueuedDispatcher.Event
-
-        Dispatcher <|.. AbstractDispatcherDecorator
-
-        Dispatcher <|.. AsynchronousDispatcher
-
-        AsynchronousDispatcher +-- ua.khpi.oop.malokhvii05.common.eventbus.dispatch.AsynchronousDispatcher.EventWithSubscriber
+        abstract class AbstractDispatcherDecorator {
+            #AbstractDispatcherDecorator(Dispatcher)
+        }
 
         AbstractDispatcherDecorator <|-- PrioritizedDispatcher
 
@@ -79,11 +69,21 @@
 
         PrioritizedDispatcher +-- ua.khpi.oop.malokhvii05.common.eventbus.dispatch.PrioritizedDispatcher.Order
 
+        Dispatcher <|.. PerThreadQueuedDispatcher
+
+        PerThreadQueuedDispatcher +-- ua.khpi.oop.malokhvii05.common.eventbus.dispatch.PerThreadQueuedDispatcher.Event
+
         Dispatcher <|.. ImmediateDispatcher
 
-        AbstractDispatcherDecorator --> Dispatcher: dispatcher
+        Dispatcher <|.. AsynchronousDispatcher
+
+        AsynchronousDispatcher +-- ua.khpi.oop.malokhvii05.common.eventbus.dispatch.AsynchronousDispatcher.EventWithSubscriber
+
+        Dispatcher <|.. AbstractDispatcherDecorator
 
         PrioritizedDispatcher --> java.util.Comparator: comparator
+
+        AbstractDispatcherDecorator --> Dispatcher: dispatcher
 
     }
 

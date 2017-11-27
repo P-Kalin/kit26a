@@ -1,0 +1,17 @@
+@startuml
+
+    class EmptyCompositeSpecification<T> {
+        {static} -serialVersionUID: long
+        {static} ~INSTANCE: CompositeSpecification
+        ~EmptyCompositeSpecification()
+        +getUnsatisfiedSpecifications(T): Set<Specification<T>>
+        +getSatisfiedSpecifications(T): Set<Specification<T>>
+        +getSpecification(int): Specification<T>
+        +addSpecification(Specification<T>): boolean
+        +removeSpecification(int): Specification<T>
+        +isSatisfiedBy(T): boolean
+        -writeObject(ObjectOutputStream): void
+        -readObject(ObjectInputStream): void
+    }
+
+@enduml

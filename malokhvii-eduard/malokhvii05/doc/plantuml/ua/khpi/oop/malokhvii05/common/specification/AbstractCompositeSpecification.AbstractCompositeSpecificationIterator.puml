@@ -1,0 +1,10 @@
+@startuml
+
+    class AbstractCompositeSpecification.AbstractCompositeSpecificationIterator {
+        -iterators: Deque<Iterator<Specification<T>>>
+        -AbstractCompositeSpecificationIterator(Iterator<Specification<T>>)
+        +hasNext(): boolean
+        +next(): Specification<T>
+    }
+
+@enduml
