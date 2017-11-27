@@ -1,0 +1,12 @@
+@startuml
+
+    class EmptySpecification<T> {
+        {static} -serialVersionUID: long
+        {static} ~INSTANCE: Specification
+        ~EmptySpecification()
+        +isSatisfiedBy(T): boolean
+        -writeObject(ObjectOutputStream): void
+        -readObject(ObjectInputStream): void
+    }
+
+@enduml

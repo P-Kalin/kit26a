@@ -1,0 +1,13 @@
+@startuml
+
+    abstract class AbstractSpecificationPair<T> {
+        {static} -serialVersionUID: long
+        #AbstractSpecificationPair(Specification<T>, Specification<T>)
+        +getFirstSpecification(): Specification<T>
+        +getSecondSpecification(): Specification<T>
+        +addSpecification(Specification<T>): boolean
+        +removeSpecification(int): Specification<T>
+        +toString(): String
+    }
+
+@enduml

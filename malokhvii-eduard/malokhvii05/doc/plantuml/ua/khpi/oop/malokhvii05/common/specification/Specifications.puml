@@ -1,0 +1,17 @@
+@startuml
+
+    class Specifications {
+        -Specifications()
+        {static} +newEmptySpecification(): Specification<T>
+        {static} +newEmptyCompositeSpecification(): CompositeSpecification<T>
+        {static} +newDisjunctionSpecification(Specification<T>, Specification<T>): SpecificationPair<T>
+        {static} +newConjuctionSpecification(Specification<T>, Specification<T>): SpecificationPair<T>
+        {static} +newNegationSpecification(Specification<T>): SpecificationDecorator<T>
+        {static} +newTrueSpecification(): Specification<T>
+        {static} +newFalseSpecification(): Specification<T>
+        {static} +newCompositeSpecification(): CompositeSpecification<T>
+        {static} +newCompositeSpecification(Iterable<Specification<T>>): CompositeSpecification<T>
+        {static} +newCompositeSpecification(Specification<T>[]): CompositeSpecification<T>
+    }
+
+@enduml

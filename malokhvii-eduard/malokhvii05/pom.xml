@@ -8,7 +8,7 @@
         <version>1.6.0</version>
     </parent>
     <artifactId>malokhvii05</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.5-SNAPSHOT</version>
     <build>
         <plugins>
             <plugin>

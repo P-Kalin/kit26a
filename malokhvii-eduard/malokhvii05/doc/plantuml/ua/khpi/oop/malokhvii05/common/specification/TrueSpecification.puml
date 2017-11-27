@@ -1,0 +1,12 @@
+@startuml
+
+    class TrueSpecification<T> {
+        {static} -serialVersionUID: long
+        {static} ~INSTANCE: Specification
+        ~TrueSpecification()
+        +isSatisfiedBy(T): boolean
+        -writeObject(ObjectOutputStream): void
+        -readObject(ObjectInputStream): void
+    }
+
+@enduml

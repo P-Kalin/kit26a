@@ -2,65 +2,11 @@
 
     namespace ua.khpi.oop.malokhvii05.common.algorithms.sort {
 
-        class InsertionSort<T> {
-            +InsertionSort(Comparator<T>)
+        class TopDownMergeSort<T> {
+            +TopDownMergeSort(Comparator<T>)
+            -mergeSlices(Object[], Object[]): Object[]
+            -mergeSort(Object[]): Object[]
             +sort(T[], int): boolean
-        }
-
-        class GnomeSort<T> {
-            +GnomeSort(Comparator<T>)
-            +sort(T[], int): boolean
-        }
-
-        abstract class AbstractSortAlgorithm<T> {
-            #isReversedOrder: boolean
-            +AbstractSortAlgorithm(Comparator<T>)
-            {static} #checkArray(Object[]): boolean
-            {static} #checkLength(Object[], int): boolean
-            {static} #swap(T[], int, int): void
-            +isNull(): boolean
-            +isReversedOrder(): boolean
-            +setReversedOrder(boolean): void
-            +sort(T[]): boolean
-        }
-
-        class QuickSort<T> {
-            +QuickSort(Comparator<T>)
-            -partition(T[], int, int): int
-            +sort(T[], int): boolean
-        }
-
-        interface SortAlgorithm<T> {
-            {abstract} +isReversedOrder(): boolean
-            {abstract} +setReversedOrder(boolean): void
-            {abstract} +sort(T[]): boolean
-            {abstract} +sort(T[], int): boolean
-        }
-
-        class BottomUpMergeSort<T> {
-            +BottomUpMergeSort(Comparator<T>)
-            -mergeSlice(Object[], Object[], int, int): void
-            +sort(T[], int): boolean
-        }
-
-        class ShellSort<T> {
-            +ShellSort(Comparator<T>)
-            +sort(T[], int): boolean
-        }
-
-        class SortAlgorithmFactory {
-            {static} -classMapping: Map<String, Class<?>>
-            {static} -defaultAlgorithm: Class<?>
-            -SortAlgorithmFactory()
-            {static} +getAlgorithm(String): SortAlgorithm<T>
-            {static} +getAlgorithm(String, Comparator<?>): SortAlgorithm<T>
-            {static} +getDefaultAlgorithm(): SortAlgorithm<T>
-            {static} +getDefaultAlgorithm(Comparator<?>): SortAlgorithm<T>
-            {static} +getRegisteredAlgorithms(): Set<String>
-            {static} -loadBasicAlgorithms(): void
-            {static} +registerAlgorithm(String, Class<?>): void
-            {static} +setDefaultAlgorithm(Class<?>): void
-            {static} +unregisterAlgorithm(String): void
         }
 
         class TimSort<T> {
@@ -91,22 +37,30 @@
             +sort(T[], int): boolean
         }
 
-        class TopDownMergeSort<T> {
-            +TopDownMergeSort(Comparator<T>)
-            -mergeSlices(Object[], Object[]): Object[]
-            -mergeSort(Object[]): Object[]
-            +sort(T[], int): boolean
+        class SortAlgorithmFactory {
+            {static} -classMapping: Map<String, Class<?>>
+            {static} -defaultAlgorithm: Class<?>
+            -SortAlgorithmFactory()
+            {static} +getAlgorithm(String): SortAlgorithm<T>
+            {static} +getAlgorithm(String, Comparator<?>): SortAlgorithm<T>
+            {static} +getDefaultAlgorithm(): SortAlgorithm<T>
+            {static} +getDefaultAlgorithm(Comparator<?>): SortAlgorithm<T>
+            {static} +getRegisteredAlgorithms(): Set<String>
+            {static} -loadBasicAlgorithms(): void
+            {static} +registerAlgorithm(String, Class<?>): void
+            {static} +setDefaultAlgorithm(Class<?>): void
+            {static} +unregisterAlgorithm(String): void
         }
 
-        class BubbleSort<T> {
-            +BubbleSort(Comparator<T>)
-            +sort(T[], int): boolean
+        interface SortAlgorithm<T> {
+            {abstract} +isReversedOrder(): boolean
+            {abstract} +setReversedOrder(boolean): void
+            {abstract} +sort(T[]): boolean
+            {abstract} +sort(T[], int): boolean
         }
 
-        class JSort<T> {
-            +JSort(Comparator<T>)
-            -inverseReheap(T[], int): void
-            -reheap(T[], int): void
+        class ShellSort<T> {
+            +ShellSort(Comparator<T>)
             +sort(T[], int): boolean
         }
 
@@ -115,9 +69,9 @@
             +sort(T[], int): boolean
         }
 
-        class HeapSort<T> {
-            +HeapSort(Comparator<T>)
-            -heapify(T[], int, int): void
+        class QuickSort<T> {
+            +QuickSort(Comparator<T>)
+            -partition(T[], int, int): int
             +sort(T[], int): boolean
         }
 
@@ -130,16 +84,55 @@
             +sort(T[], int): boolean
         }
 
-        AbstractSortAlgorithm <|-- InsertionSort
+        class JSort<T> {
+            +JSort(Comparator<T>)
+            -inverseReheap(T[], int): void
+            -reheap(T[], int): void
+            +sort(T[], int): boolean
+        }
 
-        AbstractSortAlgorithm <|-- GnomeSort
+        class InsertionSort<T> {
+            +InsertionSort(Comparator<T>)
+            +sort(T[], int): boolean
+        }
 
-        abstract class ua.khpi.oop.malokhvii05.common.algorithms.AbstractAlgorithmWithComparator<T>
-        ua.khpi.oop.malokhvii05.common.algorithms.AbstractAlgorithmWithComparator <|-- AbstractSortAlgorithm
+        class HeapSort<T> {
+            +HeapSort(Comparator<T>)
+            -heapify(T[], int, int): void
+            +sort(T[], int): boolean
+        }
 
-        SortAlgorithm <|.. AbstractSortAlgorithm
+        class GnomeSort<T> {
+            +GnomeSort(Comparator<T>)
+            +sort(T[], int): boolean
+        }
 
-        AbstractSortAlgorithm <|-- QuickSort
+        class BubbleSort<T> {
+            +BubbleSort(Comparator<T>)
+            +sort(T[], int): boolean
+        }
+
+        class BottomUpMergeSort<T> {
+            +BottomUpMergeSort(Comparator<T>)
+            -mergeSlice(Object[], Object[], int, int): void
+            +sort(T[], int): boolean
+        }
+
+        abstract class AbstractSortAlgorithm<T> {
+            #isReversedOrder: boolean
+            +AbstractSortAlgorithm(Comparator<T>)
+            {static} #checkArray(Object[]): boolean
+            {static} #checkLength(Object[], int): boolean
+            {static} #swap(T[], int, int): void
+            +isNull(): boolean
+            +isReversedOrder(): boolean
+            +setReversedOrder(boolean): void
+            +sort(T[]): boolean
+        }
+
+        AbstractSortAlgorithm <|-- TopDownMergeSort
+
+        AbstractSortAlgorithm <|-- TimSort
 
         interface ua.khpi.oop.malokhvii05.common.algorithms.AlgorithmWithComparator<T> {
             {abstract} +getComparator(): Comparator<T>
@@ -147,26 +140,33 @@
         }
         ua.khpi.oop.malokhvii05.common.algorithms.AlgorithmWithComparator <|.. SortAlgorithm
 
-        AbstractSortAlgorithm <|-- BottomUpMergeSort
-
         AbstractSortAlgorithm <|-- ShellSort
-
-        AbstractSortAlgorithm <|-- TimSort
-
-        AbstractSortAlgorithm <|-- TopDownMergeSort
-
-        AbstractSortAlgorithm <|-- BubbleSort
-
-        AbstractSortAlgorithm <|-- JSort
 
         AbstractSortAlgorithm <|-- SelectionSort
 
-        AbstractSortAlgorithm <|-- HeapSort
+        AbstractSortAlgorithm <|-- QuickSort
 
         abstract class ua.khpi.oop.malokhvii05.common.algorithms.NullAlgorithmWithComparator<T>
         ua.khpi.oop.malokhvii05.common.algorithms.NullAlgorithmWithComparator <|-- NullSortAlgorithm
 
         SortAlgorithm <|.. NullSortAlgorithm
+
+        AbstractSortAlgorithm <|-- JSort
+
+        AbstractSortAlgorithm <|-- InsertionSort
+
+        AbstractSortAlgorithm <|-- HeapSort
+
+        AbstractSortAlgorithm <|-- GnomeSort
+
+        AbstractSortAlgorithm <|-- BubbleSort
+
+        AbstractSortAlgorithm <|-- BottomUpMergeSort
+
+        abstract class ua.khpi.oop.malokhvii05.common.algorithms.AbstractAlgorithmWithComparator<T>
+        ua.khpi.oop.malokhvii05.common.algorithms.AbstractAlgorithmWithComparator <|-- AbstractSortAlgorithm
+
+        SortAlgorithm <|.. AbstractSortAlgorithm
 
     }
 

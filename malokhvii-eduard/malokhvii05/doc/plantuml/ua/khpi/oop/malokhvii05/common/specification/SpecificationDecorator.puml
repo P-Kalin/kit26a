@@ -1,0 +1,7 @@
+@startuml
+
+    interface SpecificationDecorator<T> {
+        {abstract} +getSpecification(): Specification<T>
+    }
+
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+
+    class DisjunctionSpecification<T> {
+        {static} -serialVersionUID: long
+        ~DisjunctionSpecification(Specification<T>, Specification<T>)
+        +isSatisfiedBy(T): boolean
+    }
+
+@enduml

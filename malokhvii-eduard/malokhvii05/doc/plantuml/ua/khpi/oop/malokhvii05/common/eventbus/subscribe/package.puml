@@ -2,50 +2,9 @@
 
     namespace ua.khpi.oop.malokhvii05.common.eventbus.subscribe {
 
-        class StrongSubcriber {
-            -subscriber: Object
-            #StrongSubcriber(Object, Method, EventBus, SubscriberMetadata, SubscribeMetadata)
-            +getSubscriber(): Object
-        }
-
-        class SubscriberExceptionContext {
-            -event: Object
-            -eventBus: EventBus
-            -subscriber: Object
-            -subscriberMethod: Method
-            ~SubscriberExceptionContext(EventBus, Object, Object, Method)
-            +getEvent(): Object
-            +getEventBus(): EventBus
-            +getSubscriber(): Object
-            +getSubscriberMethod(): Method
-        }
-
-        enum DefaultSubscribeExceptionHandler {
-            {static} +INSTANCE
-            -DefaultSubscribeExceptionHandler()
-            +handleException(Throwable, SubscriberExceptionContext): void
-        }
-
-        interface SubscriberExceptionHandler {
-            {abstract} +handleException(Throwable, SubscriberExceptionContext): void
-        }
-
-        enum SubscriberReferencePolicy {
-            {static} +SOFT
-            {static} +STRONG
-            {static} +WEAK
-            -SubscriberReferencePolicy()
-        }
-
         class WeakSubscriber {
             -subscriber: WeakReference<Object>
             ~WeakSubscriber(Object, Method, EventBus, SubscriberMetadata, SubscribeMetadata)
-            +getSubscriber(): Object
-        }
-
-        class SoftSubscriber {
-            -subscriber: SoftReference<Object>
-            ~SoftSubscriber(Object, Method, EventBus, SubscriberMetadata, SubscribeMetadata)
             +getSubscriber(): Object
         }
 
@@ -79,6 +38,29 @@
             ~MethodIdentifier(Method)
         }
 
+        enum SubscriberReferencePolicy {
+            {static} +SOFT
+            {static} +STRONG
+            {static} +WEAK
+            -SubscriberReferencePolicy()
+        }
+
+        interface SubscriberExceptionHandler {
+            {abstract} +handleException(Throwable, SubscriberExceptionContext): void
+        }
+
+        class SubscriberExceptionContext {
+            -event: Object
+            -eventBus: EventBus
+            -subscriber: Object
+            -subscriberMethod: Method
+            ~SubscriberExceptionContext(EventBus, Object, Object, Method)
+            +getEvent(): Object
+            +getEventBus(): EventBus
+            +getSubscriber(): Object
+            +getSubscriberMethod(): Method
+        }
+
         abstract class Subscriber {
             -eventBus: WeakReference<EventBus>
             -executor: Executor
@@ -95,13 +77,25 @@
             {abstract} +getSubscriber(): Object
         }
 
-        Subscriber <|-- StrongSubcriber
+        class StrongSubcriber {
+            -subscriber: Object
+            #StrongSubcriber(Object, Method, EventBus, SubscriberMetadata, SubscribeMetadata)
+            +getSubscriber(): Object
+        }
 
-        SubscriberExceptionHandler <|.. DefaultSubscribeExceptionHandler
+        class SoftSubscriber {
+            -subscriber: SoftReference<Object>
+            ~SoftSubscriber(Object, Method, EventBus, SubscriberMetadata, SubscribeMetadata)
+            +getSubscriber(): Object
+        }
+
+        enum DefaultSubscribeExceptionHandler {
+            {static} +INSTANCE
+            -DefaultSubscribeExceptionHandler()
+            +handleException(Throwable, SubscriberExceptionContext): void
+        }
 
         Subscriber <|-- WeakSubscriber
-
-        Subscriber <|-- SoftSubscriber
 
         SubscriberRegistry +-- ua.khpi.oop.malokhvii05.common.eventbus.subscribe.SubscriberRegistry.MethodIdentifier
 
@@ -109,6 +103,12 @@
             {abstract} +compareTo(T): int
         }
         java.lang.Comparable <|.. Subscriber
+
+        Subscriber <|-- StrongSubcriber
+
+        Subscriber <|-- SoftSubscriber
+
+        SubscriberExceptionHandler <|.. DefaultSubscribeExceptionHandler
 
     }
 

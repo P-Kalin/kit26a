@@ -1,0 +1,14 @@
+@startuml
+
+    abstract class AbstractSpecification<T> {
+        {static} -serialVersionUID: long
+        +AbstractSpecification()
+        +iterator(): Iterator<Specification<T>>
+        +or(Specification<T>): Specification<T>
+        +and(Specification<T>): Specification<T>
+        +not(): Specification<T>
+        +getSpecifications(): List<Specification<T>>
+        +toPredicate(): Predicate<T>
+    }
+
+@enduml

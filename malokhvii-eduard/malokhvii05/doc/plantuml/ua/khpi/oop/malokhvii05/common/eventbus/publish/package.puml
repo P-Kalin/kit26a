@@ -2,14 +2,13 @@
 
     namespace ua.khpi.oop.malokhvii05.common.eventbus.publish {
 
-        abstract class AbstractPublisher {
-            #AbstractPublisher(EventBus)
-            +publish(Object): void
-            +publishAll(Iterable<Object>): void
-            +subscribe(Object): void
-            +subscribeAll(Iterable<Object>): void
-            +unsubscribe(Object): void
-            +unsubscribeAll(Iterable<Object>): void
+        interface Publisher {
+            {abstract} +publish(Object): void
+            {abstract} +publishAll(Iterable<Object>): void
+            {abstract} +subscribe(Object): void
+            {abstract} +subscribeAll(Iterable<Object>): void
+            {abstract} +unsubscribe(Object): void
+            {abstract} +unsubscribeAll(Iterable<Object>): void
         }
 
         class EventBus {
@@ -33,21 +32,22 @@
             +unregister(Object): void
         }
 
-        interface Publisher {
-            {abstract} +publish(Object): void
-            {abstract} +publishAll(Iterable<Object>): void
-            {abstract} +subscribe(Object): void
-            {abstract} +subscribeAll(Iterable<Object>): void
-            {abstract} +unsubscribe(Object): void
-            {abstract} +unsubscribeAll(Iterable<Object>): void
-        }
-
         class DeadEvent {
             -event: Object
             -eventBus: Object
             +DeadEvent(Object, Object)
             +getEvent(): Object
             +getEventBus(): Object
+        }
+
+        abstract class AbstractPublisher {
+            #AbstractPublisher(EventBus)
+            +publish(Object): void
+            +publishAll(Iterable<Object>): void
+            +subscribe(Object): void
+            +subscribeAll(Iterable<Object>): void
+            +unsubscribe(Object): void
+            +unsubscribeAll(Iterable<Object>): void
         }
 
         Publisher <|.. AbstractPublisher

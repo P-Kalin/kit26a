@@ -1,0 +1,20 @@
+@startuml
+
+    abstract class AbstractCompositeSpecification<T> {
+        {static} -serialVersionUID: long
+        -specifications: List<Specification<T>>
+        #AbstractCompositeSpecification()
+        #AbstractCompositeSpecification(Specification<T>[])
+        #AbstractCompositeSpecification(Iterable<Specification<T>>)
+        +getSpecifications(): List<Specification<T>>
+        +getUnsatisfiedSpecifications(T): Set<Specification<T>>
+        +getSatisfiedSpecifications(T): Set<Specification<T>>
+        +getSpecification(int): Specification<T>
+        +iterator(): Iterator<Specification<T>>
+        +removeSpecification(int): Specification<T>
+        +addSpecification(Specification<T>): boolean
+        +toString(): String
+        +isSatisfiedBy(T): boolean
+    }
+
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+
+    interface SpecificationPair<T> {
+        {abstract} +getFirstSpecification(): Specification<T>
+        {abstract} +getSecondSpecification(): Specification<T>
+    }
+
+@enduml

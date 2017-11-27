@@ -1,0 +1,11 @@
+@startuml
+
+    interface CompositeSpecification<T> {
+        {abstract} +getUnsatisfiedSpecifications(T): Set<Specification<T>>
+        {abstract} +getSatisfiedSpecifications(T): Set<Specification<T>>
+        {abstract} +getSpecification(int): Specification<T>
+        {abstract} +addSpecification(Specification<T>): boolean
+        {abstract} +removeSpecification(int): Specification<T>
+    }
+
+@enduml

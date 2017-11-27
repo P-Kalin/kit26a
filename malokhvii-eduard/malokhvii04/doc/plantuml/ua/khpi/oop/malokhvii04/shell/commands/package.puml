@@ -2,42 +2,17 @@
 
     namespace ua.khpi.oop.malokhvii04.shell.commands {
 
-        interface Command {
-            {abstract} +execute(): void
-            {abstract} +getDescription(): String
-            {abstract} +getKeys(): List<String>
-            {abstract} +getName(): String
-        }
-
-        class HelpCommand {
+        class UpdateSettingsCommand {
             {static} -description: String
             {static} -keys: List<String>
             {static} -RESOURCE_BUNDLE_NAME: String
             {static} -resourceBundle: ResourceBundle
-            +HelpCommand()
-            {static} -printCommandDescription(String, String): void
+            +UpdateSettingsCommand()
             {static} -updateResourceBundle(): void
             +execute(): void
             +getDescription(): String
             +getKeys(): List<String>
             +update(Observable, Object): void
-        }
-
-        class ExitCommand {
-            {static} -description: String
-            {static} -keys: List<String>
-            {static} -RESOURCE_BUNDLE_NAME: String
-            +ExitCommand()
-            {static} -updateResourceBundle(): void
-            +execute(): void
-            +getDescription(): String
-            +getKeys(): List<String>
-            +update(Observable, Object): void
-        }
-
-        abstract class AbstractCommand {
-            +AbstractCommand()
-            +getName(): String
         }
 
         class HistoryCommand {
@@ -54,12 +29,13 @@
             +update(Observable, Object): void
         }
 
-        class UpdateSettingsCommand {
+        class HelpCommand {
             {static} -description: String
             {static} -keys: List<String>
             {static} -RESOURCE_BUNDLE_NAME: String
             {static} -resourceBundle: ResourceBundle
-            +UpdateSettingsCommand()
+            +HelpCommand()
+            {static} -printCommandDescription(String, String): void
             {static} -updateResourceBundle(): void
             +execute(): void
             +getDescription(): String
@@ -76,6 +52,25 @@
             {static} #updateResourceBundle(): void
         }
 
+        class ExitCommand {
+            {static} -description: String
+            {static} -keys: List<String>
+            {static} -RESOURCE_BUNDLE_NAME: String
+            +ExitCommand()
+            {static} -updateResourceBundle(): void
+            +execute(): void
+            +getDescription(): String
+            +getKeys(): List<String>
+            +update(Observable, Object): void
+        }
+
+        interface Command {
+            {abstract} +execute(): void
+            {abstract} +getDescription(): String
+            {abstract} +getKeys(): List<String>
+            {abstract} +getName(): String
+        }
+
         abstract class AbstractCommandDecorator {
             +AbstractCommandDecorator(Command)
             +getDescription(): String
@@ -83,9 +78,22 @@
             +getName(): String
         }
 
+        abstract class AbstractCommand {
+            +AbstractCommand()
+            +getName(): String
+        }
+
+        AbstractCommand <|-- UpdateSettingsCommand
+
+        AbstractCommand <|-- HistoryCommand
+
         AbstractCommand <|-- HelpCommand
 
+        AbstractCommand <|-- HandleTextFileCommand
+
         AbstractCommand <|-- ExitCommand
+
+        Command <|.. AbstractCommandDecorator
 
         Command <|.. AbstractCommand
 
@@ -93,14 +101,6 @@
             {abstract} +update(Observable, Object): void
         }
         java.util.Observer <|.. AbstractCommand
-
-        AbstractCommand <|-- HistoryCommand
-
-        AbstractCommand <|-- UpdateSettingsCommand
-
-        AbstractCommand <|-- HandleTextFileCommand
-
-        Command <|.. AbstractCommandDecorator
 
         AbstractCommandDecorator --> Command: command
 

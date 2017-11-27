@@ -2,6 +2,127 @@
 
     namespace ua.khpi.oop.malokhvii05.common.collect {
 
+        interface ListVisitor<E> {
+            +visit(EmptyList<E>): void
+            {abstract} +visit(ArrayList<E>): void
+            {abstract} +visit(LinkedList<E>): void
+        }
+
+        class ListSortingVisitor<E> {
+            -comparator: Comparator<E>
+            -ListSortingVisitor(Comparator<E>)
+            {static} ~create(Comparator<E>): ListVisitor<E>
+            -linkedListPartition(LinkedList.Node<E>, LinkedList.Node<E>): LinkedList.Node<E>
+            -linkedListQuickSort(LinkedList.Node<E>, LinkedList.Node<E>): void
+            +visit(ArrayList<E>): void
+            +visit(LinkedList<E>): void
+        }
+
+        class Lists {
+            -Lists()
+            {static} +newArrayList(): List<E>
+            {static} +newArrayList(Collection<E>): List<E>
+            {static} +newArrayList(E[]): List<E>
+            {static} +newEmptyList(): List<E>
+            {static} +newLinkedList(): List<E>
+            {static} +newLinkedList(Collection<E>): List<E>
+            {static} +newLinkedList(E[]): List<E>
+            {static} +sort(List<E>, Comparator<E>): void
+        }
+
+        interface List<E> {
+            {abstract} +acceptVisitor(ListVisitor<E>): void
+            {abstract} +add(E): boolean
+            {abstract} +add(int, E): boolean
+            {abstract} +addAfter(int, E): boolean
+            {abstract} +addAll(Collection<?>): boolean
+            {abstract} +addAll(E[]): boolean
+            {abstract} +addBefore(int, E): boolean
+            {abstract} +addFirst(E): boolean
+            {abstract} +addLast(E): boolean
+            {abstract} +clear(): void
+            {abstract} +contains(Object): boolean
+            {abstract} +containsAll(Collection<?>): boolean
+            {abstract} +firstIterator(): List.ListIterator<E>
+            {abstract} +get(int): E
+            {abstract} +getFirst(): E
+            {abstract} +getLast(): E
+            {abstract} +indexOf(Object): int
+            {abstract} +isEmpty(): boolean
+            {abstract} +iterator(): Iterator<E>
+            {abstract} +iterator(int): List.ListIterator<E>
+            {abstract} +lastIterator(): List.ListIterator<E>
+            {abstract} +remove(int): E
+            {abstract} +remove(Object): boolean
+            {abstract} +removeAll(Collection<?>): boolean
+            {abstract} +removeFirst(): E
+            {abstract} +removeLast(): E
+            {abstract} +retainAll(Collection<?>): boolean
+            {abstract} +set(int, E): E
+            {abstract} +setFirst(E): E
+            {abstract} +setLast(E): E
+            {abstract} +size(): int
+            {abstract} +toArray(): Object[]
+            {abstract} +toArray(T[]): T[]
+        }
+
+        interface ua.khpi.oop.malokhvii05.common.collect.List.ListIterator<E> {
+            {abstract} +hasNext(): boolean
+            {abstract} +hasPrevious(): boolean
+            {abstract} +next(): E
+            {abstract} +previous(): E
+        }
+
+        class LinkedList<E> {
+            {static} -serialVersionUID: long
+            ~cursor: LinkedList.Node<E>
+            +LinkedList()
+            +LinkedList(Collection<E>)
+            +LinkedList(E[])
+            +acceptVisitor(ListVisitor<E>): void
+            +add(E): boolean
+            +add(int, E): boolean
+            +addAfter(int, E): boolean
+            +addAll(Collection<?>): boolean
+            +addAll(E[]): boolean
+            +addBefore(int, E): boolean
+            +addFirst(E): boolean
+            +addLast(E): boolean
+            -addNodeAfter(E, LinkedList.Node<E>): void
+            -addNodeBefore(E, LinkedList.Node<E>): void
+            +clear(): void
+            +get(int): E
+            +getFirst(): E
+            +getLast(): E
+            -getNodeByIndex(int): LinkedList.Node<E>
+            +indexOf(Object): int
+            +iterator(int): List.ListIterator<E>
+            #readObject(ObjectInputStream): void
+            +remove(int): E
+            +remove(Object): boolean
+            +removeFirst(): E
+            +removeLast(): E
+            -removeNode(LinkedList.Node<E>): E
+            +set(int, E): E
+            +setFirst(E): E
+            +setLast(E): E
+            +toArray(): Object[]
+            +toArray(T[]): T[]
+            #writeObject(ObjectOutputStream): void
+        }
+
+        class ua.khpi.oop.malokhvii05.common.collect.LinkedList.LinkedListIterator {
+            -lastReturnedNode: LinkedList.Node<E>
+            -nextIndex: int
+            -nextNode: LinkedList.Node<E>
+            -LinkedListIterator(int)
+            +hasNext(): boolean
+            +hasPrevious(): boolean
+            +next(): E
+            +previous(): E
+            +remove(): void
+        }
+
         class EmptyList<E> {
             {static} -serialVersionUID: long
             ~EmptyList()
@@ -107,143 +228,6 @@
             {abstract} #writeObject(ObjectOutputStream): void
         }
 
-        class Lists {
-            -Lists()
-            {static} +newArrayList(): List<E>
-            {static} +newArrayList(Collection<E>): List<E>
-            {static} +newArrayList(E[]): List<E>
-            {static} +newEmptyList(): List<E>
-            {static} +newLinkedList(): List<E>
-            {static} +newLinkedList(Collection<E>): List<E>
-            {static} +newLinkedList(E[]): List<E>
-            {static} +sort(List<E>, Comparator<E>): void
-        }
-
-        class LinkedList<E> {
-            {static} -serialVersionUID: long
-            ~cursor: LinkedList.Node<E>
-            +LinkedList()
-            +LinkedList(Collection<E>)
-            +LinkedList(E[])
-            +acceptVisitor(ListVisitor<E>): void
-            +add(E): boolean
-            +add(int, E): boolean
-            +addAfter(int, E): boolean
-            +addAll(Collection<?>): boolean
-            +addAll(E[]): boolean
-            +addBefore(int, E): boolean
-            +addFirst(E): boolean
-            +addLast(E): boolean
-            -addNodeAfter(E, LinkedList.Node<E>): void
-            -addNodeBefore(E, LinkedList.Node<E>): void
-            +clear(): void
-            +get(int): E
-            +getFirst(): E
-            +getLast(): E
-            -getNodeByIndex(int): LinkedList.Node<E>
-            +indexOf(Object): int
-            +iterator(int): List.ListIterator<E>
-            #readObject(ObjectInputStream): void
-            +remove(int): E
-            +remove(Object): boolean
-            +removeFirst(): E
-            +removeLast(): E
-            -removeNode(LinkedList.Node<E>): E
-            +set(int, E): E
-            +setFirst(E): E
-            +setLast(E): E
-            +toArray(): Object[]
-            +toArray(T[]): T[]
-            #writeObject(ObjectOutputStream): void
-        }
-
-        class ua.khpi.oop.malokhvii05.common.collect.LinkedList.LinkedListIterator {
-            -lastReturnedNode: LinkedList.Node<E>
-            -nextIndex: int
-            -nextNode: LinkedList.Node<E>
-            -LinkedListIterator(int)
-            +hasNext(): boolean
-            +hasPrevious(): boolean
-            +next(): E
-            +previous(): E
-            +remove(): void
-        }
-
-        class ListSortingVisitor<E> {
-            -comparator: Comparator<E>
-            -ListSortingVisitor(Comparator<E>)
-            {static} ~create(Comparator<E>): ListVisitor<E>
-            -linkedListPartition(LinkedList.Node<E>, LinkedList.Node<E>): LinkedList.Node<E>
-            -linkedListQuickSort(LinkedList.Node<E>, LinkedList.Node<E>): void
-            +visit(ArrayList<E>): void
-            +visit(LinkedList<E>): void
-        }
-
-        interface List<E> {
-            {abstract} +acceptVisitor(ListVisitor<E>): void
-            {abstract} +add(E): boolean
-            {abstract} +add(int, E): boolean
-            {abstract} +addAfter(int, E): boolean
-            {abstract} +addAll(Collection<?>): boolean
-            {abstract} +addAll(E[]): boolean
-            {abstract} +addBefore(int, E): boolean
-            {abstract} +addFirst(E): boolean
-            {abstract} +addLast(E): boolean
-            {abstract} +clear(): void
-            {abstract} +contains(Object): boolean
-            {abstract} +containsAll(Collection<?>): boolean
-            {abstract} +firstIterator(): List.ListIterator<E>
-            {abstract} +get(int): E
-            {abstract} +getFirst(): E
-            {abstract} +getLast(): E
-            {abstract} +indexOf(Object): int
-            {abstract} +isEmpty(): boolean
-            {abstract} +iterator(): Iterator<E>
-            {abstract} +iterator(int): List.ListIterator<E>
-            {abstract} +lastIterator(): List.ListIterator<E>
-            {abstract} +remove(int): E
-            {abstract} +remove(Object): boolean
-            {abstract} +removeAll(Collection<?>): boolean
-            {abstract} +removeFirst(): E
-            {abstract} +removeLast(): E
-            {abstract} +retainAll(Collection<?>): boolean
-            {abstract} +set(int, E): E
-            {abstract} +setFirst(E): E
-            {abstract} +setLast(E): E
-            {abstract} +size(): int
-            {abstract} +toArray(): Object[]
-            {abstract} +toArray(T[]): T[]
-        }
-
-        interface ua.khpi.oop.malokhvii05.common.collect.List.ListIterator<E> {
-            {abstract} +hasNext(): boolean
-            {abstract} +hasPrevious(): boolean
-            {abstract} +next(): E
-            {abstract} +previous(): E
-        }
-
-        interface ListVisitor<E> {
-            +visit(EmptyList<E>): void
-            {abstract} +visit(ArrayList<E>): void
-            {abstract} +visit(LinkedList<E>): void
-        }
-
-        List <|.. EmptyList
-
-        AbstractList <|-- ArrayList
-
-        ua.khpi.oop.malokhvii05.common.collect.List.ListIterator <|.. ua.khpi.oop.malokhvii05.common.collect.ArrayList.ArrayListIterator
-
-        ArrayList +-- ua.khpi.oop.malokhvii05.common.collect.ArrayList.ArrayListIterator
-
-        List <|.. AbstractList
-
-        AbstractList <|-- LinkedList
-
-        ua.khpi.oop.malokhvii05.common.collect.List.ListIterator <|.. ua.khpi.oop.malokhvii05.common.collect.LinkedList.LinkedListIterator
-
-        LinkedList +-- ua.khpi.oop.malokhvii05.common.collect.LinkedList.LinkedListIterator
-
         ListVisitor <|.. ListSortingVisitor
 
         interface java.util.Collection<E> {
@@ -273,6 +257,22 @@
         java.util.Iterator <|.. ua.khpi.oop.malokhvii05.common.collect.List.ListIterator
 
         List +-- ua.khpi.oop.malokhvii05.common.collect.List.ListIterator
+
+        AbstractList <|-- LinkedList
+
+        ua.khpi.oop.malokhvii05.common.collect.List.ListIterator <|.. ua.khpi.oop.malokhvii05.common.collect.LinkedList.LinkedListIterator
+
+        LinkedList +-- ua.khpi.oop.malokhvii05.common.collect.LinkedList.LinkedListIterator
+
+        List <|.. EmptyList
+
+        AbstractList <|-- ArrayList
+
+        ua.khpi.oop.malokhvii05.common.collect.List.ListIterator <|.. ua.khpi.oop.malokhvii05.common.collect.ArrayList.ArrayListIterator
+
+        ArrayList +-- ua.khpi.oop.malokhvii05.common.collect.ArrayList.ArrayListIterator
+
+        List <|.. AbstractList
 
     }
 

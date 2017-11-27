@@ -2,10 +2,12 @@
 
     namespace ua.khpi.oop.malokhvii05.common.eventbus.meta {
 
-        class AnnotationMetadatas {
-            -AnnotationMetadatas()
-            {static} +newSubscribeMetadata(Method): SubscribeMetadata
-            {static} +newSubscriberMetadata(Class<?>): SubscriberMetadata
+        class SubscriberMetadata {
+            -referencePolicy: SubscriberReferencePolicy
+            -subscriberType: Class<?>
+            ~SubscriberMetadata(Subscriber, Class<?>)
+            +getReferencePolicy(): SubscriberReferencePolicy
+            +getSubscriberType(): Class<?>
         }
 
         class SubscribeMetadata {
@@ -14,6 +16,12 @@
             ~SubscribeMetadata(Subscribe, Class<?>)
             +getEventType(): Class<?>
             +getPriority(): int
+        }
+
+        class AnnotationMetadatas {
+            -AnnotationMetadatas()
+            {static} +newSubscribeMetadata(Method): SubscribeMetadata
+            {static} +newSubscriberMetadata(Class<?>): SubscriberMetadata
         }
 
         class AnnotationMetadataException {
@@ -30,20 +38,12 @@
             +getAnnotationType(): Class<?>
         }
 
-        class SubscriberMetadata {
-            -referencePolicy: SubscriberReferencePolicy
-            -subscriberType: Class<?>
-            ~SubscriberMetadata(Subscriber, Class<?>)
-            +getReferencePolicy(): SubscriberReferencePolicy
-            +getSubscriberType(): Class<?>
-        }
+        AnnotationMetadata <|-- SubscriberMetadata
 
         AnnotationMetadata <|-- SubscribeMetadata
 
         class java.lang.RuntimeException
         java.lang.RuntimeException <|-- AnnotationMetadataException
-
-        AnnotationMetadata <|-- SubscriberMetadata
 
     }
 
