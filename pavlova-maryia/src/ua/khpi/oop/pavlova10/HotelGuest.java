@@ -210,7 +210,7 @@ public class HotelGuest {
 	 */
 	public void setDateOfArrival(String dateOfArrival) {
 		this.dateOfArrival = dateOfArrival;
-		if (dateOfArrival != DEFAULT_DATE_OF_ARRIVAL)
+		if (dateOfArrival != DEFAULT_DATE_OF_ARRIVAL && dateOfEviction != null)
 			this.days = SortUtil.countDays(this);
 	}
 
