@@ -12,16 +12,21 @@ public class Demonstration {
 	static SecondThread secondThread;
 	private static Random random = new Random();
 
-	public static void demonstrateParallel() {
-		firstThread = new FirstThread(); // Создание потока
-		secondThread = new SecondThread();
-		firstThread.start(); // Запуск потока
-		secondThread.start();
+	public static void demonstrateParallel(int num) {
+
+		for (int i = 0; i < num; i++) {
+			firstThread = new FirstThread(); // Создание потока
+			secondThread = new SecondThread();
+			firstThread.start(); // Запуск потока
+			secondThread.start();
+
+		}
 	}
 
-	public static void demonstrateSequential() {
+	public static void demonstrateSequential(int num) {
 		LinkedList<HotelGuest> list = ExtraFunctions.createDefaultList();
-		for (int i = 0; i < 3; i++) {
+		int i = 0;
+		while (i < num) {
 			int value = Integer.valueOf(random.nextInt(6));
 			switch (value) {
 			case 1:
@@ -63,6 +68,7 @@ public class Demonstration {
 				RegexSearch.search(list, "Эконом");
 				break;
 			}
+			i++;
 		}
 
 	}
