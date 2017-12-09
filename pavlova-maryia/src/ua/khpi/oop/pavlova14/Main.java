@@ -7,13 +7,13 @@ public class Main {
 
 	public static void main(final String[] args) {
 
-		System.out.println("Parallel processing");
+		System.out.println("Sequential processing");
 		start = System.nanoTime();
 		Demonstration.demonstrateSequential();
 		;
 		countTime(start);
 
-		System.out.println("Sequential processing");
+		System.out.println("Parallel processing");
 		start = System.nanoTime();
 		Demonstration.demonstrateParallel();
 		countTime(start);
