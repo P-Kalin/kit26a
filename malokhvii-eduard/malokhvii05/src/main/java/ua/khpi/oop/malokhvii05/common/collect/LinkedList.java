@@ -404,11 +404,13 @@ public final class LinkedList<E> extends AbstractList<E> {
         Node<E> currentNode = cursor;
         int currentNodeIndex;
         if (index < size >> 2) {
-            for (currentNodeIndex = 0; currentNodeIndex <= index; currentNodeIndex++) {
+            for (currentNodeIndex = 0; currentNodeIndex <= index;
+                    currentNodeIndex++) {
                 currentNode = currentNode.next;
             }
         } else {
-            for (currentNodeIndex = size; currentNodeIndex > index; currentNodeIndex--) {
+            for (currentNodeIndex = size; currentNodeIndex > index;
+                    currentNodeIndex--) {
                 currentNode = currentNode.previous;
             }
         }
@@ -421,14 +423,16 @@ public final class LinkedList<E> extends AbstractList<E> {
         int index = 0;
         Node<E> currentNode;
         if (object == null) {
-            for (currentNode = cursor.next; currentNode != cursor; currentNode = currentNode.next) {
+            for (currentNode = cursor.next; currentNode != cursor;
+                    currentNode = currentNode.next) {
                 if (currentNode.element == null) {
                     return index;
                 }
                 index++;
             }
         } else {
-            for (currentNode = cursor.next; currentNode != cursor; currentNode = currentNode.next) {
+            for (currentNode = cursor.next; currentNode != cursor;
+                    currentNode = currentNode.next) {
                 if (object.equals(currentNode.element)) {
                     return index;
                 }
@@ -551,7 +555,8 @@ public final class LinkedList<E> extends AbstractList<E> {
 
         int index = 0;
         Node<E> currentNode;
-        for (currentNode = cursor.next; currentNode != cursor; currentNode = currentNode.next) {
+        for (currentNode = cursor.next; currentNode != cursor;
+                currentNode = currentNode.next) {
             array[index++] = currentNode.element;
         }
 
