@@ -1,5 +1,6 @@
 package ua.khpi.oop.pavlova10;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import ua.khpi.oop.pavlova03.TextUtil;
@@ -68,7 +69,9 @@ import ua.khpi.oop.pavlova10.util.SortUtil;
  * @author pavlova-mv
  *
  */
-public class HotelGuest {
+public class HotelGuest implements Serializable {
+
+	private static final long serialVersionUID = 7031102196856488159L;
 	private static final String DEFAULT_GUEST_NAME_SURNAME = "Петренко А.Л.";
 	private static final String DEFAULT_GUEST_BIRTH = "01-Сентябрь-1987";
 	private static final String DEFAULT_GUEST_COUNTRY_CITY = "Украина, Львов";
