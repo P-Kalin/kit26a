@@ -24,7 +24,7 @@ import ua.khpi.oop.malokhvii05.common.eventbus.subscribe.SubscriberRegistry;
  * таким чином, бути в курсі один одного).
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
+ * @version 1.0.1
  */
 public final class EventBus {
 
@@ -133,6 +133,18 @@ public final class EventBus {
      */
     public void abortCleanup() {
         cleanupAvailable = false;
+    }
+
+    /**
+     * Призначений, для перевірки чи присутній підписчик у поточному сховищі.
+     *
+     * @param subscriber
+     *            підписчик, для перевірки
+     * @return результат перевірки
+     * @since 1.0.1
+     */
+    public boolean contains(final Object subscriber) {
+        return subscribers.contains(subscriber);
     }
 
     /**
