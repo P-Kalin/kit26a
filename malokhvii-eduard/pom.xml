@@ -319,8 +319,7 @@
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
                 <configuration>
-                    <message>${github.deployTicket} ${project.name}:
-                        upload ${project.version}</message>
+                    <message>${github.deployTicket} ${project.name}: upload ${project.version}</message>
                     <noJekyll>false</noJekyll>
                     <merge>true</merge>
                     <outputDirectory>${project.build.directory}/${github.deployBranch}</outputDirectory>
