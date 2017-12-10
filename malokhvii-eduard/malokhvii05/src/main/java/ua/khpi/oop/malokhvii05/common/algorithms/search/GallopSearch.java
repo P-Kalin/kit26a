@@ -60,8 +60,7 @@ public class GallopSearch<T> extends AbstractSearchInRangeAlgorithm<T> {
         int offset = 1;
         T currentValue;
         int nextLeftValue;
-        jump:
-        while (left <= right) {
+        jump: while (left <= right) {
             currentValue = array[leftIndex];
             if (comparator.compare(currentValue, value) == 0) {
                 lastFoundIndex = leftIndex;
