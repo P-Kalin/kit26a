@@ -8,7 +8,7 @@
         <class>ua.khpi.oop.malokhvii07.navigation.component.NavigationComponent</class>
         <class>ua.khpi.oop.malokhvii07.navigation.component.marker.NavigationMarker</class>
         <class>ua.khpi.oop.malokhvii07.navigation.component.connection.NavigationConnection</class>
-        <class>ua.khpi.oop.malokhvii07.navigation.component.shema.NavigationSchema</class>
+        <class>ua.khpi.oop.malokhvii07.navigation.component.schema.NavigationSchema</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.SQLiteDialect"></property>
             <property name="hibernate.connection.driver_class" value="org.sqlite.JDBC"></property>
