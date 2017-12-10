@@ -57,37 +57,38 @@ public interface CompositeSpecification<T> extends Specification<T> {
         }
     }
 
-    default @Nonnull Set<Specification<T>> getUnsatisfied(
-            @Nullable T candidate) {
-        return getSpecifications().stream().filter(
-                specification -> !specification.isSatisfiedBy(candidate))
-                .collect(Collectors.toSet());
+    @CanIgnoreReturnValue
+    default boolean add(@Nonnull final Specification<T> specification) {
+        return getSpecifications().add(checkNotNull(specification));
     }
 
-    default @Nonnull Set<Specification<T>> getSatisfied(@Nullable T candidate) {
+    default @Nullable Specification<T> get(@Nonnegative final int index) {
+        return getSpecifications().get(index);
+    }
+
+    default @Nonnull Set<Specification<T>> getSatisfied(
+            @Nullable final T candidate) {
         return getSpecifications().stream()
                 .filter(specification -> specification.isSatisfiedBy(candidate))
                 .collect(Collectors.toSet());
     }
 
-    default @Nullable Specification<T> get(@Nonnegative int index) {
-        return getSpecifications().get(index);
+    default @Nonnull Set<Specification<T>> getUnsatisfied(
+            @Nullable final T candidate) {
+        return getSpecifications().stream().filter(
+                specification -> !specification.isSatisfiedBy(candidate))
+                .collect(Collectors.toSet());
     }
 
-    @CanIgnoreReturnValue
-    default @Nullable Specification<T> set(@Nonnegative int index,
-            @Nullable Specification<T> specification) {
-        return getSpecifications().set(index, specification);
-    }
+    @Override
+    default boolean isSatisfiedBy(final T candidate) {
+        for (final Specification<T> specification : getSpecifications()) {
+            if (!specification.isSatisfiedBy(candidate)) {
+                return false;
+            }
+        }
 
-    @CanIgnoreReturnValue
-    default boolean add(@Nonnull Specification<T> specification) {
-        return getSpecifications().add(checkNotNull(specification));
-    }
-
-    @CanIgnoreReturnValue
-    default @Nullable Specification<T> remove(@Nonnegative int index) {
-        return getSpecifications().remove(index);
+        return true;
     }
 
     @Override
@@ -96,14 +97,14 @@ public interface CompositeSpecification<T> extends Specification<T> {
                 getSpecifications().iterator());
     }
 
-    @Override
-    default boolean isSatisfiedBy(T candidate) {
-        for (final Specification<T> specification : getSpecifications()) {
-            if (!specification.isSatisfiedBy(candidate)) {
-                return false;
-            }
-        }
+    @CanIgnoreReturnValue
+    default @Nullable Specification<T> remove(@Nonnegative final int index) {
+        return getSpecifications().remove(index);
+    }
 
-        return true;
+    @CanIgnoreReturnValue
+    default @Nullable Specification<T> set(@Nonnegative final int index,
+            @Nullable final Specification<T> specification) {
+        return getSpecifications().set(index, specification);
     }
 }

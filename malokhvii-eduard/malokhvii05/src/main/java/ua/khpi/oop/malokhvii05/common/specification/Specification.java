@@ -12,27 +12,35 @@ import com.google.common.collect.Lists;
 
 public interface Specification<T> extends Iterable<Specification<T>> {
 
-    boolean isSatisfiedBy(@Nullable T candidate);
-
-    default @Nonnull Specification<T> or(
-            @Nonnull final Specification<T> specification) {
-        return Specifications.newDisjunctionSpecification(this, specification);
-    }
-
     default @Nonnull Specification<T> and(
             @Nonnull final Specification<T> specification) {
         return Specifications.newConjuctionSpecification(this, specification);
+    }
+
+    default @Nonnull List<Specification<T>> getSpecifications() {
+        return Lists.newArrayList(this);
+    }
+
+    boolean isSatisfiedBy(@Nullable T candidate);
+
+    default @Override Iterator<Specification<T>> iterator() {
+        return Collections.emptyListIterator();
     }
 
     default @Nonnull Specification<T> not() {
         return Specifications.newNegationSpecification(this);
     }
 
+    default @Nonnull Specification<T> or(
+            @Nonnull final Specification<T> specification) {
+        return Specifications.newDisjunctionSpecification(this, specification);
+    }
+
     default @Nonnull Predicate<T> toPredicate() {
         return new Predicate<T>() {
 
             @Override
-            public boolean apply(@Nonnull T candidate) {
+            public boolean apply(@Nonnull final T candidate) {
                 return isSatisfiedBy(candidate);
             }
         };
@@ -42,17 +50,9 @@ public interface Specification<T> extends Iterable<Specification<T>> {
         return new java.util.function.Predicate<T>() {
 
             @Override
-            public boolean test(@Nonnull T candidate) {
+            public boolean test(@Nonnull final T candidate) {
                 return isSatisfiedBy(candidate);
             }
         };
-    }
-
-    default @Nonnull List<Specification<T>> getSpecifications() {
-        return Lists.newArrayList(this);
-    }
-
-    default @Override Iterator<Specification<T>> iterator() {
-        return Collections.emptyListIterator();
     }
 }

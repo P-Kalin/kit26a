@@ -13,16 +13,17 @@ public class NotFixedCompositeSpecification<T>
         this.specifications = Lists.newArrayList();
     }
 
-    @SafeVarargs
-    public NotFixedCompositeSpecification(Specification<T>... specifications) {
+    public NotFixedCompositeSpecification(
+            final Iterable<Specification<T>> specifications) {
         this();
         for (final Specification<T> specification : specifications) {
             add(specification);
         }
     }
 
+    @SafeVarargs
     public NotFixedCompositeSpecification(
-            Iterable<Specification<T>> specifications) {
+            final Specification<T>... specifications) {
         this();
         for (final Specification<T> specification : specifications) {
             add(specification);

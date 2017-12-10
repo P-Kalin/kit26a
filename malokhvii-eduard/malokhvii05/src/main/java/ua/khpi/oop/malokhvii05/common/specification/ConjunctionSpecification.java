@@ -5,7 +5,7 @@ import javax.annotation.Nullable;
 
 final class ConjunctionSpecification<T> extends SpecificationPair<T> {
 
-    ConjunctionSpecification(@Nonnull Specification<T> specification1,
+    ConjunctionSpecification(@Nonnull final Specification<T> specification1,
             @Nonnull final Specification<T> specification2) {
         super(specification1, specification2);
     }
