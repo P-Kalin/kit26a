@@ -1,7 +1,6 @@
 package ua.khpi.oop.pavlova15;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import ua.khpi.oop.pavlova10.HotelGuest;
@@ -28,8 +27,7 @@ public class CommandParser {
 		return auto;
 	}
 
-	public static void doCommand(ArrayList<HotelGuest> array)
-			throws FileNotFoundException, IOException, ClassNotFoundException {
+	public static void doCommand(ArrayList<HotelGuest> array) throws FileNotFoundException {
 		ExtraFunctions.showSetups();
 		setSetup();
 		ExtraFunctions.showCommands();
@@ -119,6 +117,7 @@ public class CommandParser {
 				}
 			case 9:
 				array.clear();
+				System.out.println("-array is clear-");
 				break;
 			case 10:
 				SerializeUtil.standartSerialization(array);
@@ -134,6 +133,8 @@ public class CommandParser {
 				System.out.println("-result of serialization/deserialization-");
 				System.out.println(array);
 				break;
+			case 12:
+				System.out.println("-exit-");
 			default:
 				break;
 			}

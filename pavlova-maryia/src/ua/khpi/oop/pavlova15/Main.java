@@ -8,7 +8,8 @@ import ua.khpi.oop.pavlova10.HotelGuest;
 
 public class Main {
 	public static void main(final String[] args) throws FileNotFoundException, ClassNotFoundException, IOException {
-		ArrayList<HotelGuest> arrayList = new ArrayList<>();
+		ArrayList<HotelGuest> arrayList = ExtraFunctions.createDefaultArrayList();
 		CommandParser.doCommand(arrayList);
+
 	}
 }

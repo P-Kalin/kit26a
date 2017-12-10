@@ -98,7 +98,7 @@ public class ExtraFunctions {
 		arrayList.clear();
 		if (type.equals("ROOM_CLASS")) {
 			for (int i = 0; i < strings.size(); i++) {
-				for (int j = 0; i < temp.size(); i++) {
+				for (int j = 0; i < strings.size(); j++) {
 					if (temp.get(j) != null) {
 						if (temp.get(j).getRoomClass().equals(strings.get(i))) {
 							arrayList.add(temp.get(j));
@@ -111,7 +111,7 @@ public class ExtraFunctions {
 			}
 		} else if (type.equals("SURNAME")) {
 			for (int i = 0; i < strings.size(); i++) {
-				for (int j = 0; i < temp.size(); i++) {
+				for (int j = 0; i < strings.size(); j++) {
 					if (temp.get(j) != null) {
 						if (temp.get(j).getGuestNameSurname().equals(strings.get(i))) {
 							arrayList.add(temp.get(j));
@@ -119,11 +119,12 @@ public class ExtraFunctions {
 							break;
 						}
 					}
+
 				}
 			}
 		} else if (type.equals("MOTHERLAND")) {
 			for (int i = 0; i < strings.size(); i++) {
-				for (int j = 0; i < temp.size(); i++) {
+				for (int j = 0; i < strings.size(); j++) {
 					if (temp.get(j) != null) {
 						if (temp.get(j).getGuestMotherland().equals(strings.get(i))) {
 							arrayList.add(temp.get(j));
@@ -135,7 +136,7 @@ public class ExtraFunctions {
 			}
 		} else if (type.equals("REASON")) {
 			for (int i = 0; i < strings.size(); i++) {
-				for (int j = 0; i < temp.size(); i++) {
+				for (int j = 0; i < strings.size(); j++) {
 					if (temp.get(j) != null) {
 						if (temp.get(j).getReasonOfArrival().equals(strings.get(i))) {
 							arrayList.add(temp.get(j));
@@ -147,7 +148,7 @@ public class ExtraFunctions {
 			}
 		} else {
 			for (int i = 0; i < strings.size(); i++) {
-				for (int j = 0; i < temp.size(); i++) {
+				for (int j = 0; i < strings.size(); j++) {
 					if (temp.get(j) != null) {
 						if (temp.get(j).getRoomClass().equals(strings.get(i))) {
 							arrayList.add(temp.get(j));

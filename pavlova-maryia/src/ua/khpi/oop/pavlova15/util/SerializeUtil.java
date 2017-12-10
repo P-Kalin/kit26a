@@ -15,21 +15,36 @@ import java.util.ArrayList;
 import ua.khpi.oop.pavlova10.HotelGuest;
 
 public class SerializeUtil {
-	public static void standartSerialization(ArrayList<HotelGuest> toSerialize)
-			throws FileNotFoundException, IOException {
-		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("SerialArr"));
-		out.writeObject(toSerialize);
-		out.close();
-
+	public static void standartSerialization(ArrayList<HotelGuest> toSerialize) {
+		try {
+			FileOutputStream fos = new FileOutputStream("SerialArray");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(toSerialize);
+			oos.close();
+			fos.close();
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
 	}
 
 	@SuppressWarnings("unchecked")
-	public static ArrayList<HotelGuest> standartDeserialization()
-			throws FileNotFoundException, IOException, ClassNotFoundException {
-		ObjectInputStream in = new ObjectInputStream(new FileInputStream("SerialArr"));
-		ArrayList<HotelGuest> array = (ArrayList<HotelGuest>) in.readObject();
-		in.close();
-		return array;
+	public static ArrayList<HotelGuest> standartDeserialization() {
+		ArrayList<HotelGuest> arraylist = null;
+		try {
+			FileInputStream fis = new FileInputStream("SerialArray");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			arraylist = (ArrayList<HotelGuest>) ois.readObject();
+			ois.close();
+			fis.close();
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+			return arraylist;
+		} catch (ClassNotFoundException c) {
+			System.out.println("Class not found");
+			c.printStackTrace();
+			return arraylist;
+		}
+		return arraylist;
 	}
 
 	public static void longTermPersistanceSerialization(ArrayList<HotelGuest> arrayList) throws FileNotFoundException {
