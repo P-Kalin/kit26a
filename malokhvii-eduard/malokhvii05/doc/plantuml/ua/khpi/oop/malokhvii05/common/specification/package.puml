@@ -2,22 +2,12 @@
 
     namespace ua.khpi.oop.malokhvii05.common.specification {
 
-        class TrueSpecification<T> {
-            {static} -serialVersionUID: long
-            {static} ~INSTANCE: Specification
-            ~TrueSpecification()
-            +isSatisfiedBy(T): boolean
-            -writeObject(ObjectOutputStream): void
-            -readObject(ObjectInputStream): void
-        }
-
         class Specifications {
             -Specifications()
             {static} +newEmptySpecification(): Specification<T>
-            {static} +newEmptyCompositeSpecification(): CompositeSpecification<T>
-            {static} +newDisjunctionSpecification(Specification<T>, Specification<T>): SpecificationPair<T>
-            {static} +newConjuctionSpecification(Specification<T>, Specification<T>): SpecificationPair<T>
-            {static} +newNegationSpecification(Specification<T>): SpecificationDecorator<T>
+            {static} +newDisjunctionSpecification(Specification<T>, Specification<T>): Specification<T>
+            {static} +newConjuctionSpecification(Specification<T>, Specification<T>): Specification<T>
+            {static} +newNegationSpecification(Specification<T>): Specification<T>
             {static} +newTrueSpecification(): Specification<T>
             {static} +newFalseSpecification(): Specification<T>
             {static} +newCompositeSpecification(): CompositeSpecification<T>
@@ -25,163 +15,91 @@
             {static} +newCompositeSpecification(Specification<T>[]): CompositeSpecification<T>
         }
 
-        interface SpecificationPair<T> {
-        }
-
-        interface SpecificationDecorator<T> {
+        class SpecificationPair<T> {
+            +SpecificationPair(Specification<T>, Specification<T>)
         }
 
         interface Specification<T> {
+            +or(Specification<T>): Specification<T>
+            +and(Specification<T>): Specification<T>
+            +not(): Specification<T>
+            +toPredicate(): Predicate<T>
+            +toUtilPredicate(): Predicate<T>
+            +iterator(): Iterator<Specification<T>>
             {abstract} +isSatisfiedBy(T): boolean
-            {abstract} +or(Specification<T>): Specification<T>
-            {abstract} +and(Specification<T>): Specification<T>
-            {abstract} +not(): Specification<T>
-            {abstract} +toPredicate(): Predicate<T>
+        }
+
+        class NotFixedCompositeSpecification<T> {
+            +NotFixedCompositeSpecification()
+            +NotFixedCompositeSpecification(Specification<T>[])
+            +NotFixedCompositeSpecification(Iterable<Specification<T>>)
         }
 
         class NegationSpecification<T> {
-            {static} -serialVersionUID: long
             ~NegationSpecification(Specification<T>)
             +isSatisfiedBy(T): boolean
         }
 
-        class FalseSpecification<T> {
-            {static} -serialVersionUID: long
-            {static} ~INSTANCE: Specification
-            ~FalseSpecification()
-            +isSatisfiedBy(T): boolean
-            -writeObject(ObjectOutputStream): void
-            -readObject(ObjectInputStream): void
+        class FixedCompositeSpecification<T> {
+            -fixedSize: int
+            +FixedCompositeSpecification(int)
+            +FixedCompositeSpecification(int, Specification<T>[])
+            +FixedCompositeSpecification(int, Iterable<Specification<T>>)
+            +getFixedSize(): int
+            +add(Specification<T>): boolean
         }
 
         class EmptySpecification<T> {
-            {static} -serialVersionUID: long
             {static} ~INSTANCE: Specification
             ~EmptySpecification()
             +isSatisfiedBy(T): boolean
-            -writeObject(ObjectOutputStream): void
-            -readObject(ObjectInputStream): void
-        }
-
-        class EmptyCompositeSpecification<T> {
-            {static} -serialVersionUID: long
-            {static} ~INSTANCE: CompositeSpecification
-            ~EmptyCompositeSpecification()
-            +getUnsatisfiedSpecifications(T): Set<Specification<T>>
-            +getSatisfiedSpecifications(T): Set<Specification<T>>
-            +getSpecification(int): Specification<T>
-            +addSpecification(Specification<T>): boolean
-            +removeSpecification(int): Specification<T>
-            +isSatisfiedBy(T): boolean
-            -writeObject(ObjectOutputStream): void
-            -readObject(ObjectInputStream): void
         }
 
         class DisjunctionSpecification<T> {
-            {static} -serialVersionUID: long
             ~DisjunctionSpecification(Specification<T>, Specification<T>)
             +isSatisfiedBy(T): boolean
         }
 
-        class DefaultCompositeSpecification<T> {
-            {static} -serialVersionUID: long
-            ~DefaultCompositeSpecification()
-            ~DefaultCompositeSpecification(Iterable<Specification<T>>)
-            ~DefaultCompositeSpecification(Specification<T>[])
-        }
-
         class ConjunctionSpecification<T> {
-            {static} -serialVersionUID: long
             ~ConjunctionSpecification(Specification<T>, Specification<T>)
             +isSatisfiedBy(T): boolean
         }
 
         interface CompositeSpecification<T> {
-            {abstract} +getUnsatisfiedSpecifications(T): Set<Specification<T>>
-            {abstract} +getSatisfiedSpecifications(T): Set<Specification<T>>
-            {abstract} +getSpecification(int): Specification<T>
-            {abstract} +addSpecification(Specification<T>): boolean
-            {abstract} +removeSpecification(int): Specification<T>
-        }
-
-        interface ua.khpi.oop.malokhvii05.common.specification.CompositeSpecification.CompositeSpecificationIterator<T> {
-        }
-
-        abstract class AbstractSpecificationPair<T> {
-            {static} -serialVersionUID: long
-            #AbstractSpecificationPair(Specification<T>, Specification<T>)
-            +addSpecification(Specification<T>): boolean
-            +removeSpecification(int): Specification<T>
-            +toString(): String
-        }
-
-        abstract class AbstractSpecificationDecorator<T> {
-            {static} -serialVersionUID: long
-            #AbstractSpecificationDecorator(Specification<T>)
-            +isSatisfiedBy(T): boolean
-            +toString(): String
-        }
-
-        abstract class AbstractSpecification<T> {
-            {static} -serialVersionUID: long
-            +AbstractSpecification()
+            +getUnsatisfied(T): Set<Specification<T>>
+            +getSatisfied(T): Set<Specification<T>>
+            +get(int): Specification<T>
+            +set(int, Specification<T>): Specification<T>
+            +add(Specification<T>): boolean
+            +remove(int): Specification<T>
             +iterator(): Iterator<Specification<T>>
-            +or(Specification<T>): Specification<T>
-            +and(Specification<T>): Specification<T>
-            +not(): Specification<T>
-            +toPredicate(): Predicate<T>
-        }
-
-        abstract class AbstractCompositeSpecification<T> {
-            {static} -serialVersionUID: long
-            #AbstractCompositeSpecification()
-            #AbstractCompositeSpecification(Specification<T>[])
-            #AbstractCompositeSpecification(Iterable<Specification<T>>)
-            +getUnsatisfiedSpecifications(T): Set<Specification<T>>
-            +getSatisfiedSpecifications(T): Set<Specification<T>>
-            +getSpecification(int): Specification<T>
-            +iterator(): Iterator<Specification<T>>
-            +removeSpecification(int): Specification<T>
-            +addSpecification(Specification<T>): boolean
-            +toString(): String
             +isSatisfiedBy(T): boolean
         }
 
-        class ua.khpi.oop.malokhvii05.common.specification.AbstractCompositeSpecification.AbstractCompositeSpecificationIterator {
-            -AbstractCompositeSpecificationIterator(Iterator<Specification<T>>)
+        class ua.khpi.oop.malokhvii05.common.specification.CompositeSpecification.CompositeSpecificationIterator<T> {
+            -CompositeSpecificationIterator(Iterator<Specification<T>>)
             +hasNext(): boolean
             +next(): Specification<T>
         }
 
-        AbstractSpecification <|-- TrueSpecification
-
-        CompositeSpecification <|.. SpecificationPair
-
-        Specification <|.. SpecificationDecorator
-
-        interface java.io.Serializable
-        java.io.Serializable <|.. Specification
+        FixedCompositeSpecification <|-- SpecificationPair
 
         interface java.lang.Iterable<T> {
             {abstract} +iterator(): Iterator<T>
         }
         java.lang.Iterable <|.. Specification
 
-        AbstractSpecificationDecorator <|-- NegationSpecification
+        CompositeSpecification <|.. NotFixedCompositeSpecification
 
-        AbstractSpecification <|-- FalseSpecification
+        Specification <|.. NegationSpecification
 
-        AbstractSpecification <|-- EmptySpecification
+        CompositeSpecification <|.. FixedCompositeSpecification
 
-        AbstractSpecification <|-- EmptyCompositeSpecification
+        Specification <|.. EmptySpecification
 
-        CompositeSpecification <|.. EmptyCompositeSpecification
+        SpecificationPair <|-- DisjunctionSpecification
 
-        AbstractSpecificationPair <|-- DisjunctionSpecification
-
-        AbstractCompositeSpecification <|-- DefaultCompositeSpecification
-
-        AbstractSpecificationPair <|-- ConjunctionSpecification
+        SpecificationPair <|-- ConjunctionSpecification
 
         Specification <|.. CompositeSpecification
 
@@ -193,39 +111,17 @@
 
         CompositeSpecification +-- ua.khpi.oop.malokhvii05.common.specification.CompositeSpecification.CompositeSpecificationIterator
 
-        AbstractCompositeSpecification <|-- AbstractSpecificationPair
-
-        SpecificationPair <|.. AbstractSpecificationPair
-
-        AbstractSpecification <|-- AbstractSpecificationDecorator
-
-        SpecificationDecorator <|.. AbstractSpecificationDecorator
-
-        Specification <|.. AbstractSpecification
-
-        AbstractSpecification <|-- AbstractCompositeSpecification
-
-        CompositeSpecification <|.. AbstractCompositeSpecification
-
-        ua.khpi.oop.malokhvii05.common.specification.CompositeSpecification.CompositeSpecificationIterator <|.. ua.khpi.oop.malokhvii05.common.specification.AbstractCompositeSpecification.AbstractCompositeSpecificationIterator
-
-        AbstractCompositeSpecification +-- ua.khpi.oop.malokhvii05.common.specification.AbstractCompositeSpecification.AbstractCompositeSpecificationIterator
-
-        SpecificationPair --> Specification: firstSpecification\nsecondSpecification
-
-        SpecificationDecorator --> Specification: specification
+        SpecificationPair --> Specification: first\nsecond
 
         Specification --> "*" Specification: specifications
 
-        AbstractSpecificationPair --> Specification: firstSpecification\nsecondSpecification
+        NotFixedCompositeSpecification --> "*" Specification: specifications
 
-        AbstractSpecificationDecorator --> Specification: specification
+        NegationSpecification --> Specification: specification
 
-        AbstractSpecification --> "*" Specification: specifications
+        FixedCompositeSpecification --> "*" Specification: specifications
 
-        AbstractCompositeSpecification --> "*" Specification: specifications
-
-        ua.khpi.oop.malokhvii05.common.specification.AbstractCompositeSpecification.AbstractCompositeSpecificationIterator --> "*" java.util.Iterator: iterators
+        ua.khpi.oop.malokhvii05.common.specification.CompositeSpecification.CompositeSpecificationIterator --> "*" java.util.Iterator: iterators
 
     }
 

@@ -1,0 +1,15 @@
+@startuml
+
+    class HibernateConfigurationBean.Builder {
+        -Builder()
+        +setUrl(String): HibernateConfigurationBean.Builder
+        +setHbm2dll(String): HibernateConfigurationBean.Builder
+        +setUsername(String): HibernateConfigurationBean.Builder
+        +setPassword(String): HibernateConfigurationBean.Builder
+        +serPersistenceUnitName(String): HibernateConfigurationBean.Builder
+        +setSqlShowAvailable(boolean): HibernateConfigurationBean.Builder
+        +setFormatSqlAvailable(boolean): HibernateConfigurationBean.Builder
+        +build(): HibernateConfigurationBean
+    }
+
+@enduml

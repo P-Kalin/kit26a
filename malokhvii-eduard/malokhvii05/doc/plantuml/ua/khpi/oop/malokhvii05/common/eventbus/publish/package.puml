@@ -2,13 +2,29 @@
 
     namespace ua.khpi.oop.malokhvii05.common.eventbus.publish {
 
-        interface Publisher {
-            {abstract} +publish(Object): void
-            {abstract} +publishAll(Iterable<Object>): void
-            {abstract} +subscribe(Object): void
-            {abstract} +subscribeAll(Iterable<Object>): void
-            {abstract} +unsubscribe(Object): void
-            {abstract} +unsubscribeAll(Iterable<Object>): void
+        class EventServiceBuilder {
+            ~dispatcher: Dispatcher
+            ~exceptionHandler: SubscriberExceptionHandler
+            ~executor: Executor
+            -EventServiceBuilder()
+            {static} +newBuilder(): EventServiceBuilder
+            +setDispatcher(Dispatcher): EventServiceBuilder
+            +setExceptionHandler(SubscriberExceptionHandler): EventServiceBuilder
+            +setExecutor(Executor): EventServiceBuilder
+            +imediate(): EventServiceBuilder
+            +asynchronous(): EventServiceBuilder
+            +build(): EventService
+        }
+
+        class EventService {
+            ~EventService(EventServiceBuilder)
+            +subscribe(Object): void
+            +unsubscribe(Object): void
+            +publish(Object): void
+            +isSubscriber(Object): boolean
+            +getDispatcher(): Dispatcher
+            +getExecutor(): Executor
+            +setDispatcher(Dispatcher): void
         }
 
         class EventBus {
@@ -24,6 +40,7 @@
             +abortCleanup(): void
             +getDispatcher(): Dispatcher
             +getExecutor(): Executor
+            +contains(Object): boolean
             +handleSubscriberException(Throwable, SubscriberExceptionContext): void
             +post(Object): void
             +register(Object): void
@@ -40,19 +57,7 @@
             +getEventBus(): Object
         }
 
-        abstract class AbstractPublisher {
-            #AbstractPublisher(EventBus)
-            +publish(Object): void
-            +publishAll(Iterable<Object>): void
-            +subscribe(Object): void
-            +subscribeAll(Iterable<Object>): void
-            +unsubscribe(Object): void
-            +unsubscribeAll(Iterable<Object>): void
-        }
-
-        Publisher <|.. AbstractPublisher
-
-        AbstractPublisher --> EventBus: eventBus
+        EventService --> EventBus: eventBus
 
     }
 

@@ -1,0 +1,27 @@
+@startuml
+
+    class HibernateConfigurationBean {
+        -url: String
+        -hbm2dll: String
+        -username: String
+        -password: String
+        -persistenceUnitName: String
+        -sqlShowAvailable: boolean
+        -formatSqlAvailable: boolean
+        -HibernateConfigurationBean()
+        {static} +load(String): HibernateConfigurationBean
+        {static} +save(HibernateConfigurationBean, String): void
+        +getUrl(): String
+        +getHbm2dll(): String
+        +getUsername(): String
+        +getPassword(): String
+        +isSqlShowAvailable(): boolean
+        +isFormatSqlAvailable(): boolean
+        +setFormatSqlAvailable(boolean): void
+        +toProperties(): Properties
+        +toMappedProperties(): Map<String, String>
+        {static} +newBuilder(): HibernateConfigurationBean.Builder
+        +getPersistenceUnitName(): String
+    }
+
+@enduml

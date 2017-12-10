@@ -1,0 +1,11 @@
+@startuml
+
+    class NotFixedCompositeSpecification<T> {
+        -specifications: List<Specification<T>>
+        +NotFixedCompositeSpecification()
+        +NotFixedCompositeSpecification(Specification<T>[])
+        +NotFixedCompositeSpecification(Iterable<Specification<T>>)
+        +getSpecifications(): List<Specification<T>>
+    }
+
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+
+    interface Entity<K> {
+        {abstract} +getId(): K
+        {abstract} +setId(K): void
+    }
+
+@enduml

@@ -13,6 +13,7 @@
         +abortCleanup(): void
         +getDispatcher(): Dispatcher
         +getExecutor(): Executor
+        +contains(Object): boolean
         +handleSubscriberException(Throwable, SubscriberExceptionContext): void
         +post(Object): void
         +register(Object): void

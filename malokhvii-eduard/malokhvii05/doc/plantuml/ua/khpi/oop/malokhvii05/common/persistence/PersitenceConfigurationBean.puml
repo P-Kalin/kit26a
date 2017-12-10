@@ -1,0 +1,9 @@
+@startuml
+
+    interface PersitenceConfigurationBean {
+        {abstract} +getPersistenceUnitName(): String
+        {abstract} +toProperties(): Properties
+        {abstract} +toMappedProperties(): Map<String, String>
+    }
+
+@enduml

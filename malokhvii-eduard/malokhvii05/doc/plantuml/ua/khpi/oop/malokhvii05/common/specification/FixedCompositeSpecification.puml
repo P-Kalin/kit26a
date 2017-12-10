@@ -1,0 +1,14 @@
+@startuml
+
+    class FixedCompositeSpecification<T> {
+        -specifications: List<Specification<T>>
+        -fixedSize: int
+        +FixedCompositeSpecification(int)
+        +FixedCompositeSpecification(int, Specification<T>[])
+        +FixedCompositeSpecification(int, Iterable<Specification<T>>)
+        +getFixedSize(): int
+        +add(Specification<T>): boolean
+        +getSpecifications(): List<Specification<T>>
+    }
+
+@enduml
