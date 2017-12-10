@@ -1,0 +1,7 @@
+@startuml
+
+    class ConfigurableNavigationMap {
+        ~ConfigurableNavigationMap(NavigationMapBuilder)
+    }
+
+@enduml

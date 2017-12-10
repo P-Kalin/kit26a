@@ -1,0 +1,18 @@
+@startuml
+
+    class NavigationMarker {
+        {static} -serialVersionUID: long
+        -latitude: Double
+        -label: String
+        -longitude: Double
+        +NavigationMarker()
+        ~NavigationMarker(NavigationMarkerBuilder)
+        +getLabel(): String
+        +setLabel(String): void
+        +getLatitude(): Double
+        +setLatitude(Double): void
+        +getLongitude(): Double
+        +setLongitude(Double): void
+    }
+
+@enduml

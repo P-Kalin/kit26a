@@ -1,0 +1,7 @@
+@startuml
+
+    interface NavigationMap {
+        {abstract} +toNavigationSchema(): NavigationSchema
+    }
+
+@enduml

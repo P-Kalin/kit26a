@@ -1,0 +1,20 @@
+@startuml
+
+    class NavigationMarkerCriterias {
+        -NavigationMarkerCriterias()
+        {static} +newCriteriaByLabel(String): <any>
+        {static} +newCriteriaByLongitude(Double): <any>
+        {static} +newCriteriaByLatitude(Double): <any>
+        {static} +newCriteriaByLatitudeLessThan(Double): <any>
+        {static} +newCriteriaByLatitudeLessThanOrEqual(Double): <any>
+        {static} +newCriteriaByLatitudeGreaterThan(Double): <any>
+        {static} +newCriteriaByLatitudeGreaterThanOrEqual(Double): <any>
+        {static} +newCriteriaByLongitudeLessThan(Double): <any>
+        {static} +newCriteriaByLongitudeLessThanOrEqual(Double): <any>
+        {static} +newCriteriaByLongitudeGreaterThan(Double): <any>
+        {static} +newCriteriaByLongitudeGreaterThanOrEqual(Double): <any>
+        {static} +newCriteriaByLongitudeBetween(Double, Double): <any>
+        {static} +newCriteriaByLatitudeBetween(Double, Double): <any>
+    }
+
+@enduml

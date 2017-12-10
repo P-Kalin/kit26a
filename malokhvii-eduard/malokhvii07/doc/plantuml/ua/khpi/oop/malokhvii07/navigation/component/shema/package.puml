@@ -1,0 +1,64 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii07.navigation.component.shema {
+
+        class NavigationSchemaCriterias {
+            -NavigationSchemaCriterias()
+            {static} +newCriteriaByLabel(String): <any>
+            {static} +newCriteriaByMutableTrue(): <any>
+            {static} +newCriteriaByMutableFalse(): <any>
+            {static} +newCriteriaByDirectedTrue(): <any>
+            {static} +newCriteriaByDirectedFalse(): <any>
+            {static} +newCriteriaBySelfLoopsTrue(): <any>
+            {static} +newCriteriaBySelfLoopsFalse(): <any>
+        }
+
+        class NavigationSchemaBuilder {
+            ~navigationMarkers: List<NavigationMarker>
+            ~navigationConnections: List<NavigationConnection>
+            -NavigationSchemaBuilder()
+            {static} +newBuilder(): NavigationSchemaBuilder
+            +setNavigationMarker(NavigationMarker): NavigationSchemaBuilder
+            +setNavigationMarkers(Iterable<NavigationMarker>): NavigationSchemaBuilder
+            +setNavigationConnection(NavigationConnection): NavigationSchemaBuilder
+            +setNavigationConnections(Iterable<NavigationConnection>): NavigationSchemaBuilder
+            +build(): NavigationSchema
+        }
+
+        class NavigationSchema {
+            {static} -serialVersionUID: long
+            -label: String
+            -navigationMarkers: List<NavigationMarker>
+            -navigationConnections: List<NavigationConnection>
+            -mutable: Boolean
+            -directed: Boolean
+            -selfLoops: Boolean
+            +NavigationSchema()
+            ~NavigationSchema(NavigationSchemaBuilder)
+            +getLabel(): String
+            +setLabel(String): void
+            +getNavigationMarkers(): List<NavigationMarker>
+            +setNavigationMarkers(List<NavigationMarker>): void
+            +getNavigationMarker(int): NavigationMarker
+            +setNavigationMarker(int, NavigationMarker): void
+            +getNavigationConnections(): List<NavigationConnection>
+            +setNavigationConnections(List<NavigationConnection>): void
+            +getSelfLoops(): Boolean
+            +setSelfLoops(Boolean): void
+            +getMutable(): Boolean
+            +setMutable(Boolean): void
+            +getDirected(): Boolean
+            +setDirected(Boolean): void
+        }
+
+        interface ua.khpi.oop.malokhvii07.navigation.component.NavigationComponentBuilder {
+            {abstract} +build(): NavigationComponent
+        }
+        ua.khpi.oop.malokhvii07.navigation.component.NavigationComponentBuilder <|.. NavigationSchemaBuilder
+
+        abstract class ua.khpi.oop.malokhvii07.navigation.component.NavigationComponent
+        ua.khpi.oop.malokhvii07.navigation.component.NavigationComponent <|-- NavigationSchema
+
+    }
+
+@enduml

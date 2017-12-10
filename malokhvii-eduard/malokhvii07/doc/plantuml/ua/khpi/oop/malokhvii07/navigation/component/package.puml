@@ -1,0 +1,22 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii07.navigation.component {
+
+        interface NavigationComponentBuilder {
+            {abstract} +build(): NavigationComponent
+        }
+
+        abstract class NavigationComponent {
+            {static} -serialVersionUID: long
+            -id: UUID
+            -version: Integer
+            +NavigationComponent()
+            +getId(): UUID
+            +setId(UUID): void
+            +getVersion(): Integer
+            +setVersion(Integer): void
+        }
+
+    }
+
+@enduml

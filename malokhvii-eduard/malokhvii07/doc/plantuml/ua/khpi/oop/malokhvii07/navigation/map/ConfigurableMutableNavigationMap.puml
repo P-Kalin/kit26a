@@ -1,0 +1,11 @@
+@startuml
+
+    class ConfigurableMutableNavigationMap {
+        ~ConfigurableMutableNavigationMap(NavigationMapBuilder)
+        +addNode(NavigationMarker): boolean
+        +putEdgeValue(NavigationMarker, NavigationMarker, NavigationConnection): NavigationConnection
+        +removeNode(NavigationMarker): boolean
+        +removeEdge(NavigationMarker, NavigationMarker): NavigationConnection
+    }
+
+@enduml

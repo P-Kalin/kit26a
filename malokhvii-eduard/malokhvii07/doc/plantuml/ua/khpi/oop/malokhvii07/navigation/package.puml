@@ -1,0 +1,78 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii07.navigation {
+
+        class NavigationServiceImpl {
+            -navigationMarkers: <any>
+            -navigationConnections: <any>
+            -navigationSchemas: <any>
+            ~NavigationServiceImpl(<any>, <any>, <any>)
+            +getNavigationMarkers(): List<NavigationMarker>
+            +getNavigationConnections(): List<NavigationConnection>
+            +getNavigationSchemas(): List<NavigationSchema>
+            +registerNavigationMarker(NavigationMarker): void
+            +registerNavigationConnection(NavigationConnection): void
+            +registerNavigationShema(NavigationSchema): void
+            +refreshNavigationMarker(NavigationMarker): void
+            +refreshNavigationConnection(NavigationConnection): void
+            +refreshNavigationShema(NavigationSchema): void
+            +unregisterNavigationMarker(NavigationMarker): void
+            +unregisterNavigationConnection(NavigationConnection): void
+            +unregisterNavigationShema(NavigationSchema): void
+            +getNavigationMarkers(<any>): List<NavigationMarker>
+            +getNavigationConnections(<any>): List<NavigationConnection>
+            +getNavigationSchemas(<any>): List<NavigationSchema>
+            +getNavigationMarker(UUID): Optional<NavigationMarker>
+            +getNavigationConnecton(UUID): Optional<NavigationConnection>
+            +getNavigationSchema(UUID): Optional<NavigationSchema>
+        }
+
+        interface NavigationService {
+            {abstract} +getNavigationMarkers(): List<NavigationMarker>
+            {abstract} +getNavigationConnections(): List<NavigationConnection>
+            {abstract} +getNavigationSchemas(): List<NavigationSchema>
+            {abstract} +getNavigationMarker(UUID): Optional<NavigationMarker>
+            {abstract} +getNavigationConnecton(UUID): Optional<NavigationConnection>
+            {abstract} +getNavigationSchema(UUID): Optional<NavigationSchema>
+            {abstract} +getNavigationMarkers(<any>): List<NavigationMarker>
+            {abstract} +getNavigationConnections(<any>): List<NavigationConnection>
+            {abstract} +getNavigationSchemas(<any>): List<NavigationSchema>
+            {abstract} +registerNavigationMarker(NavigationMarker): void
+            {abstract} +registerNavigationConnection(NavigationConnection): void
+            {abstract} +registerNavigationShema(NavigationSchema): void
+            {abstract} +refreshNavigationMarker(NavigationMarker): void
+            {abstract} +refreshNavigationConnection(NavigationConnection): void
+            {abstract} +refreshNavigationShema(NavigationSchema): void
+            {abstract} +unregisterNavigationMarker(NavigationMarker): void
+            {abstract} +unregisterNavigationConnection(NavigationConnection): void
+            {abstract} +unregisterNavigationShema(NavigationSchema): void
+        }
+
+        class NavigationModule {
+            +NavigationModule()
+            #configure(): void
+            #provideNavigationMarkerClass(): Class<NavigationMarker>
+            #provideNavigationConnectionClass(): Class<NavigationConnection>
+            #provideNavigationSchemaClass(): Class<NavigationSchema>
+        }
+
+        class NavigationContext {
+            -injector: Injector
+            -NavigationContext(PersitenceConfigurationBean)
+            {static} +create(PersitenceConfigurationBean): NavigationContext
+            +createNavigationService(): NavigationService
+            +createPersistService(): PersistService
+            +createUnitOfWork(): UnitOfWork
+            +getInjector(): Injector
+        }
+
+        NavigationService <|.. NavigationServiceImpl
+
+        abstract class com.google.inject.AbstractModule {
+            {abstract} #configure(): void
+        }
+        com.google.inject.AbstractModule <|-- NavigationModule
+
+    }
+
+@enduml

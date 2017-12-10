@@ -1,0 +1,15 @@
+@startuml
+
+    class NavigationSchemaBuilder {
+        ~navigationMarkers: List<NavigationMarker>
+        ~navigationConnections: List<NavigationConnection>
+        -NavigationSchemaBuilder()
+        {static} +newBuilder(): NavigationSchemaBuilder
+        +setNavigationMarker(NavigationMarker): NavigationSchemaBuilder
+        +setNavigationMarkers(Iterable<NavigationMarker>): NavigationSchemaBuilder
+        +setNavigationConnection(NavigationConnection): NavigationSchemaBuilder
+        +setNavigationConnections(Iterable<NavigationConnection>): NavigationSchemaBuilder
+        +build(): NavigationSchema
+    }
+
+@enduml

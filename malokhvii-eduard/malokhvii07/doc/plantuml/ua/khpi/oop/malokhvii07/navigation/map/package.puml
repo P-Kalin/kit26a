@@ -1,0 +1,110 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii07.navigation.map {
+
+        class NavigationMapBuilder {
+            ~navigationConnections: Map<UUID, NavigationConnection>
+            ~navigationMarkers: Map<UUID, NavigationMarker>
+            ~directed: boolean
+            ~selfLoops: boolean
+            ~mutable: boolean
+            -NavigationMapBuilder()
+            {static} +newBuilder(): NavigationMapBuilder
+            +setNavigationMarker(NavigationMarker): NavigationMapBuilder
+            +setNavigationMarkers(Iterable<NavigationMarker>): NavigationMapBuilder
+            +setNavigationConnection(NavigationConnection): NavigationMapBuilder
+            +setNavigationConnections(Iterable<NavigationConnection>): NavigationMapBuilder
+            +mutable(): NavigationMapBuilder
+            +immutable(): NavigationMapBuilder
+            +allowSelfLoops(): NavigationMapBuilder
+            +directed(): NavigationMapBuilder
+            +setNavigationSchema(NavigationSchema): NavigationMapBuilder
+            -buildNavigationGraph(): MutableValueGraph<NavigationMarker, NavigationConnection>
+            +build(): NavigationMap
+        }
+
+        interface NavigationMap {
+            {abstract} +toNavigationSchema(): NavigationSchema
+        }
+
+        interface MutableNavigationMap {
+        }
+
+        class ConfigurableNavigationMap {
+            ~ConfigurableNavigationMap(NavigationMapBuilder)
+        }
+
+        class ConfigurableMutableNavigationMap {
+            ~ConfigurableMutableNavigationMap(NavigationMapBuilder)
+            +addNode(NavigationMarker): boolean
+            +putEdgeValue(NavigationMarker, NavigationMarker, NavigationConnection): NavigationConnection
+            +removeNode(NavigationMarker): boolean
+            +removeEdge(NavigationMarker, NavigationMarker): NavigationConnection
+        }
+
+        abstract class AbstractNavigationMap {
+            #navigationMarkers: Map<UUID, NavigationMarker>
+            #navigationConnections: Map<UUID, NavigationConnection>
+            #AbstractNavigationMap(NavigationMapBuilder)
+            +adjacentNodes(NavigationMarker): Set<NavigationMarker>
+            +degree(NavigationMarker): int
+            +edges(): Set<EndpointPair<NavigationMarker>>
+            +outDegree(NavigationMarker): int
+            +inDegree(NavigationMarker): int
+            +successors(NavigationMarker): Set<NavigationMarker>
+            +predecessors(NavigationMarker): Set<NavigationMarker>
+            +isDirected(): boolean
+            +edgeValue(NavigationMarker, NavigationMarker): Optional<NavigationConnection>
+            +edgeValueOrDefault(NavigationMarker, NavigationMarker, NavigationConnection): NavigationConnection
+            +asGraph(): Graph<NavigationMarker>
+            +nodeOrder(): ElementOrder<NavigationMarker>
+            +hasEdgeConnecting(NavigationMarker, NavigationMarker): boolean
+            +nodes(): Set<NavigationMarker>
+            +allowsSelfLoops(): boolean
+            +toNavigationSchema(): NavigationSchema
+        }
+
+        interface com.google.common.graph.ValueGraph<N, V> {
+            {abstract} +nodes(): Set<N>
+            {abstract} +edges(): Set<EndpointPair<N>>
+            {abstract} +asGraph(): Graph<N>
+            {abstract} +isDirected(): boolean
+            {abstract} +allowsSelfLoops(): boolean
+            {abstract} +nodeOrder(): ElementOrder<N>
+            {abstract} +adjacentNodes(N): Set<N>
+            {abstract} +predecessors(N): Set<N>
+            {abstract} +successors(N): Set<N>
+            {abstract} +degree(N): int
+            {abstract} +inDegree(N): int
+            {abstract} +outDegree(N): int
+            {abstract} +hasEdgeConnecting(N, N): boolean
+            {abstract} +edgeValue(N, N): Optional<V>
+            {abstract} +edgeValueOrDefault(N, N, V): V
+        }
+        com.google.common.graph.ValueGraph <|.. NavigationMap
+
+        interface com.google.common.graph.MutableValueGraph<N, V> {
+            {abstract} +addNode(N): boolean
+            {abstract} +putEdgeValue(N, N, V): V
+            {abstract} +removeNode(N): boolean
+            {abstract} +removeEdge(N, N): V
+        }
+        com.google.common.graph.MutableValueGraph <|.. MutableNavigationMap
+
+        NavigationMap <|.. MutableNavigationMap
+
+        AbstractNavigationMap <|-- ConfigurableNavigationMap
+
+        AbstractNavigationMap <|-- ConfigurableMutableNavigationMap
+
+        MutableNavigationMap <|.. ConfigurableMutableNavigationMap
+
+        NavigationMap <|.. AbstractNavigationMap
+
+        NavigationMapBuilder --> com.google.common.graph.MutableValueGraph: navigationGraph
+
+        AbstractNavigationMap --> com.google.common.graph.MutableValueGraph: navigationGraph
+
+    }
+
+@enduml

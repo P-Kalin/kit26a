@@ -1,0 +1,24 @@
+@startuml
+
+    interface NavigationService {
+        {abstract} +getNavigationMarkers(): List<NavigationMarker>
+        {abstract} +getNavigationConnections(): List<NavigationConnection>
+        {abstract} +getNavigationSchemas(): List<NavigationSchema>
+        {abstract} +getNavigationMarker(UUID): Optional<NavigationMarker>
+        {abstract} +getNavigationConnecton(UUID): Optional<NavigationConnection>
+        {abstract} +getNavigationSchema(UUID): Optional<NavigationSchema>
+        {abstract} +getNavigationMarkers(<any>): List<NavigationMarker>
+        {abstract} +getNavigationConnections(<any>): List<NavigationConnection>
+        {abstract} +getNavigationSchemas(<any>): List<NavigationSchema>
+        {abstract} +registerNavigationMarker(NavigationMarker): void
+        {abstract} +registerNavigationConnection(NavigationConnection): void
+        {abstract} +registerNavigationShema(NavigationSchema): void
+        {abstract} +refreshNavigationMarker(NavigationMarker): void
+        {abstract} +refreshNavigationConnection(NavigationConnection): void
+        {abstract} +refreshNavigationShema(NavigationSchema): void
+        {abstract} +unregisterNavigationMarker(NavigationMarker): void
+        {abstract} +unregisterNavigationConnection(NavigationConnection): void
+        {abstract} +unregisterNavigationShema(NavigationSchema): void
+    }
+
+@enduml

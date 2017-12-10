@@ -1,0 +1,28 @@
+@startuml
+
+    class NavigationServiceImpl {
+        -navigationMarkers: <any>
+        -navigationConnections: <any>
+        -navigationSchemas: <any>
+        ~NavigationServiceImpl(<any>, <any>, <any>)
+        +getNavigationMarkers(): List<NavigationMarker>
+        +getNavigationConnections(): List<NavigationConnection>
+        +getNavigationSchemas(): List<NavigationSchema>
+        +registerNavigationMarker(NavigationMarker): void
+        +registerNavigationConnection(NavigationConnection): void
+        +registerNavigationShema(NavigationSchema): void
+        +refreshNavigationMarker(NavigationMarker): void
+        +refreshNavigationConnection(NavigationConnection): void
+        +refreshNavigationShema(NavigationSchema): void
+        +unregisterNavigationMarker(NavigationMarker): void
+        +unregisterNavigationConnection(NavigationConnection): void
+        +unregisterNavigationShema(NavigationSchema): void
+        +getNavigationMarkers(<any>): List<NavigationMarker>
+        +getNavigationConnections(<any>): List<NavigationConnection>
+        +getNavigationSchemas(<any>): List<NavigationSchema>
+        +getNavigationMarker(UUID): Optional<NavigationMarker>
+        +getNavigationConnecton(UUID): Optional<NavigationConnection>
+        +getNavigationSchema(UUID): Optional<NavigationSchema>
+    }
+
+@enduml
