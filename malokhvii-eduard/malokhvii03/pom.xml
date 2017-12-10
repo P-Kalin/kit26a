@@ -13,7 +13,6 @@
         <dependency>
             <groupId>ua.khpi.oop</groupId>
             <artifactId>malokhvii05</artifactId>
-            <version>1.0.5-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
