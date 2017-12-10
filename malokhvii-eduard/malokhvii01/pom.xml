@@ -5,10 +5,10 @@
     <parent>
         <groupId>ua.khpi.oop</groupId>
         <artifactId>malokhvii-eduard</artifactId>
-        <version>1.6.0</version>
+        <version>1.7.0</version>
     </parent>
     <artifactId>malokhvii01</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <properties>
         <entryPoint>ua.khpi.oop.malokhvii01.Application</entryPoint>
     </properties>
