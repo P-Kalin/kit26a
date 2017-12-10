@@ -1,0 +1,14 @@
+@startuml
+
+    class NavigationSchemaCriterias {
+        -NavigationSchemaCriterias()
+        {static} +newCriteriaByLabel(String): <any>
+        {static} +newCriteriaByMutableTrue(): <any>
+        {static} +newCriteriaByMutableFalse(): <any>
+        {static} +newCriteriaByDirectedTrue(): <any>
+        {static} +newCriteriaByDirectedFalse(): <any>
+        {static} +newCriteriaBySelfLoopsTrue(): <any>
+        {static} +newCriteriaBySelfLoopsFalse(): <any>
+    }
+
+@enduml

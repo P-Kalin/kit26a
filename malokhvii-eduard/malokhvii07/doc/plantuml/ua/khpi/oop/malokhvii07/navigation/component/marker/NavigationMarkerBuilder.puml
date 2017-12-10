@@ -1,0 +1,15 @@
+@startuml
+
+    class NavigationMarkerBuilder {
+        ~latitude: Double
+        ~label: String
+        ~longitude: Double
+        +NavigationMarkerBuilder()
+        {static} +newBuilder(): NavigationMarkerBuilder
+        +setLatitude(Double): NavigationMarkerBuilder
+        +setLongitude(Double): NavigationMarkerBuilder
+        +setLabel(String): NavigationMarkerBuilder
+        +build(): NavigationMarker
+    }
+
+@enduml

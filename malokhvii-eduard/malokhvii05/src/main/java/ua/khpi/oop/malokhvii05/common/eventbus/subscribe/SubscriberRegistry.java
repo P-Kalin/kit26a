@@ -45,7 +45,7 @@ import ua.khpi.oop.malokhvii05.common.eventbus.publish.EventBus;
  * {@link EventBus}.
  *
  * @author malokhvii-eduard (malokhvii.ee@gmail.com)
- * @version 1.0.0
+ * @version 1.0.1
  */
 public final class SubscriberRegistry {
 
@@ -238,6 +238,32 @@ public final class SubscriberRegistry {
     }
 
     /**
+     * Призначений, для перевірки чи присутній підписчик у поточному сховищі.
+     *
+     * @param subscriber
+     *            підписчик, для перевірки
+     * @return результат перевірки
+     * @since 1.0.1
+     */
+    public boolean contains(final Object subscriber) {
+        checkNotNull(subscriber);
+        final Multimap<Class<?>, Subscriber> subscriberMethods = findAllSubscribers(
+                subscriber);
+
+        for (final Map.Entry<Class<?>, Collection<Subscriber>> entry : subscriberMethods
+                .asMap().entrySet()) {
+            final Class<?> eventType = entry.getKey();
+            for (final Subscriber subscriberEntry : subscribers
+                    .get(eventType)) {
+                if (subscriberEntry.getSubscriber() == subscriber) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      * Призначений, для пошуку усіх підписчиків (обробників) в об'єкті
      * підписчика.
      *
@@ -314,6 +340,7 @@ public final class SubscriberRegistry {
      * @throws AnnotationMetadataException
      *             виконавця події (метод) не було відмічено анотацією
      *             {@link Subscribe}
+     * @since 1.0.0
      */
     private @Nonnull Subscriber newSubscriberEntry(
             @Nonnull final Object subscriber, @Nonnull final Method method,

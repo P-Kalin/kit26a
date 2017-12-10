@@ -1,0 +1,25 @@
+@startuml
+
+    class NavigationMapBuilder {
+        ~navigationConnections: Map<UUID, NavigationConnection>
+        ~navigationMarkers: Map<UUID, NavigationMarker>
+        ~navigationGraph: MutableValueGraph<NavigationMarker, NavigationConnection>
+        ~directed: boolean
+        ~selfLoops: boolean
+        ~mutable: boolean
+        -NavigationMapBuilder()
+        {static} +newBuilder(): NavigationMapBuilder
+        +setNavigationMarker(NavigationMarker): NavigationMapBuilder
+        +setNavigationMarkers(Iterable<NavigationMarker>): NavigationMapBuilder
+        +setNavigationConnection(NavigationConnection): NavigationMapBuilder
+        +setNavigationConnections(Iterable<NavigationConnection>): NavigationMapBuilder
+        +mutable(): NavigationMapBuilder
+        +immutable(): NavigationMapBuilder
+        +allowSelfLoops(): NavigationMapBuilder
+        +directed(): NavigationMapBuilder
+        +setNavigationSchema(NavigationSchema): NavigationMapBuilder
+        -buildNavigationGraph(): MutableValueGraph<NavigationMarker, NavigationConnection>
+        +build(): NavigationMap
+    }
+
+@enduml

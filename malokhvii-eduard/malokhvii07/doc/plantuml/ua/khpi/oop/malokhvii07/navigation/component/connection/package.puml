@@ -1,0 +1,54 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii07.navigation.component.connection {
+
+        class NavigationConnectionCritetias {
+            -NavigationConnectionCritetias()
+            {static} +newCritetiaByInputNavigationMarker(NavigationMarker): <any>
+            {static} +newCriteriaByOutputNavigationMarker(NavigationMarker): <any>
+            {static} +newCriteriaByDistance(Double): <any>
+            {static} +newCriteriaByDistanceLessThan(Double): <any>
+            {static} +newCriteriaByDistanceLessThanOrEqual(Double): <any>
+            {static} +newCriteriaByDistanceGreaterThan(Double): <any>
+            {static} +newCriteriaByDistanceGreaterThanOrEqual(Double): <any>
+            {static} +newCriteriaByDistanceBetween(Double, Double): <any>
+        }
+
+        class NavigationConnectionBuilder {
+            ~outputNavigationMarker: NavigationMarker
+            ~inputNavigationMarker: NavigationMarker
+            ~distance: Double
+            +NavigationConnectionBuilder()
+            {static} +newBuilder(): NavigationConnectionBuilder
+            +setOutputNavigationMarker(NavigationMarker): NavigationConnectionBuilder
+            +setInputNavigationMarker(NavigationMarker): NavigationConnectionBuilder
+            +setDistance(Double): NavigationConnectionBuilder
+            +build(): NavigationConnection
+        }
+
+        class NavigationConnection {
+            {static} -serialVersionUID: long
+            -distance: Double
+            -outputNavigationMarker: NavigationMarker
+            -inputNavigationMarker: NavigationMarker
+            +NavigationConnection()
+            ~NavigationConnection(NavigationConnectionBuilder)
+            +getOutputNavigationMarker(): NavigationMarker
+            +setOutputNavigationMarker(NavigationMarker): void
+            +getInputNavigationMarker(): NavigationMarker
+            +setInputNavigationMarker(NavigationMarker): void
+            +getDistance(): Double
+            +setDistance(Double): void
+        }
+
+        interface ua.khpi.oop.malokhvii07.navigation.component.NavigationComponentBuilder {
+            {abstract} +build(): NavigationComponent
+        }
+        ua.khpi.oop.malokhvii07.navigation.component.NavigationComponentBuilder <|.. NavigationConnectionBuilder
+
+        abstract class ua.khpi.oop.malokhvii07.navigation.component.NavigationComponent
+        ua.khpi.oop.malokhvii07.navigation.component.NavigationComponent <|-- NavigationConnection
+
+    }
+
+@enduml

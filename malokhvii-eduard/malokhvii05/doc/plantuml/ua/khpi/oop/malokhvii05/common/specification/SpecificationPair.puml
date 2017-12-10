@@ -1,8 +1,11 @@
 @startuml
 
-    interface SpecificationPair<T> {
-        {abstract} +getFirstSpecification(): Specification<T>
-        {abstract} +getSecondSpecification(): Specification<T>
+    class SpecificationPair<T> {
+        +SpecificationPair(Specification<T>, Specification<T>)
+        +setFirst(Specification<T>): Specification<T>
+        +setSecond(Specification<T>): Specification<T>
+        +getFirst(): Specification<T>
+        +getSecond(): Specification<T>
     }
 
 @enduml

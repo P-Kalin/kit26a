@@ -1,0 +1,29 @@
+@startuml
+
+    class NavigationSchema {
+        {static} -serialVersionUID: long
+        -label: String
+        -navigationMarkers: List<NavigationMarker>
+        -navigationConnections: List<NavigationConnection>
+        -mutable: Boolean
+        -directed: Boolean
+        -selfLoops: Boolean
+        +NavigationSchema()
+        ~NavigationSchema(NavigationSchemaBuilder)
+        +getLabel(): String
+        +setLabel(String): void
+        +getNavigationMarkers(): List<NavigationMarker>
+        +setNavigationMarkers(List<NavigationMarker>): void
+        +getNavigationMarker(int): NavigationMarker
+        +setNavigationMarker(int, NavigationMarker): void
+        +getNavigationConnections(): List<NavigationConnection>
+        +setNavigationConnections(List<NavigationConnection>): void
+        +getSelfLoops(): Boolean
+        +setSelfLoops(Boolean): void
+        +getMutable(): Boolean
+        +setMutable(Boolean): void
+        +getDirected(): Boolean
+        +setDirected(Boolean): void
+    }
+
+@enduml

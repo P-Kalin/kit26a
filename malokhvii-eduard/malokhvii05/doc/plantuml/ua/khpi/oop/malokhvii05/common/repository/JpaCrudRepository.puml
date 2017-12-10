@@ -1,0 +1,18 @@
+@startuml
+
+    class JpaCrudRepository<K, V> {
+        -entityManager: EntityManager
+        -entityType: Class<V>
+        +JpaCrudRepository(EntityManager, Class<V>)
+        +existById(K): boolean
+        +exist(V): boolean
+        +findAll(EntityCriteria<V>): List<V>
+        +findById(K): Optional<V>
+        +findAll(): List<V>
+        +update(V): void
+        +save(V): void
+        +delete(V): void
+        +deleteById(K): void
+    }
+
+@enduml

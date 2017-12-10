@@ -1,0 +1,60 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii05.common.repository {
+
+        class JpaCrudRepository<K, V> {
+            -entityManager: EntityManager
+            -entityType: Class<V>
+            +JpaCrudRepository(EntityManager, Class<V>)
+            +existById(K): boolean
+            +exist(V): boolean
+            +findAll(EntityCriteria<V>): List<V>
+            +findById(K): Optional<V>
+            +findAll(): List<V>
+            +update(V): void
+            +save(V): void
+            +delete(V): void
+            +deleteById(K): void
+        }
+
+        interface EntityCriteria<T> {
+            {abstract} +toPredicate(Root<T>, CriteriaBuilder): Predicate
+        }
+
+        interface Entity<K> {
+            {abstract} +getId(): K
+            {abstract} +setId(K): void
+        }
+
+        interface CrudRepository<K, V> {
+            +findById(K): Optional<V>
+            +findAll(EntityCriteria<V>): List<V>
+            +updateAll(V[]): void
+            +updateAll(Iterable<V>): void
+            +saveAll(V[]): void
+            +saveAll(Iterable<V>): void
+            +delete(V): void
+            +deleteAll(V[]): void
+            +deleteAll(Iterable<V>): void
+            +deleteAll(EntityCriteria<V>): void
+            {abstract} +existById(K): boolean
+            {abstract} +exist(V): boolean
+            {abstract} +findAll(): List<V>
+            {abstract} +update(V): void
+            {abstract} +save(V): void
+            {abstract} +deleteById(K): void
+        }
+
+        CrudRepository <|.. JpaCrudRepository
+
+        interface ua.khpi.oop.malokhvii05.common.specification.Specification<T> {
+            {abstract} +isSatisfiedBy(T): boolean
+        }
+        ua.khpi.oop.malokhvii05.common.specification.Specification <|.. EntityCriteria
+
+        interface java.io.Serializable
+        java.io.Serializable <|.. Entity
+
+    }
+
+@enduml

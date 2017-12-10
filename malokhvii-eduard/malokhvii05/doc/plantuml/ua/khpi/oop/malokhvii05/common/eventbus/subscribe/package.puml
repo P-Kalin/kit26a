@@ -30,6 +30,7 @@
             +register(Object): void
             +removeUnusedSubscribers(): void
             +unregister(Object): void
+            +contains(Object): boolean
         }
 
         class ua.khpi.oop.malokhvii05.common.eventbus.subscribe.SubscriberRegistry.MethodIdentifier {

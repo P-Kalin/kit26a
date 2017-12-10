@@ -1,0 +1,17 @@
+@startuml
+
+    class EventServiceBuilder {
+        ~dispatcher: Dispatcher
+        ~exceptionHandler: SubscriberExceptionHandler
+        ~executor: Executor
+        -EventServiceBuilder()
+        {static} +newBuilder(): EventServiceBuilder
+        +setDispatcher(Dispatcher): EventServiceBuilder
+        +setExceptionHandler(SubscriberExceptionHandler): EventServiceBuilder
+        +setExecutor(Executor): EventServiceBuilder
+        +imediate(): EventServiceBuilder
+        +asynchronous(): EventServiceBuilder
+        +build(): EventService
+    }
+
+@enduml

@@ -1,7 +1,6 @@
 @startuml
 
     class ConjunctionSpecification<T> {
-        {static} -serialVersionUID: long
         ~ConjunctionSpecification(Specification<T>, Specification<T>)
         +isSatisfiedBy(T): boolean
     }

@@ -1,0 +1,8 @@
+@startuml
+
+    class SQLiteDialect.SQLiteUniqueDelegate {
+        +SQLiteUniqueDelegate(Dialect)
+        +getColumnDefinitionUniquenessFragment(Column): String
+    }
+
+@enduml

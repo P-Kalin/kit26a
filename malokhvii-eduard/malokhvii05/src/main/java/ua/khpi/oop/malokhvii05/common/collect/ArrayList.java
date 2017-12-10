@@ -374,7 +374,7 @@ public final class ArrayList<E> extends AbstractList<E> {
     @CanIgnoreReturnValue
     public @Nullable E remove(@Nonnegative final int index) {
         if (isIndexInRange(index)) {
-            E element = get(index);
+            final E element = get(index);
             removeElement(index);
             return element;
         }
@@ -425,7 +425,7 @@ public final class ArrayList<E> extends AbstractList<E> {
     @Override
     @CanIgnoreReturnValue
     public @Nullable E removeFirst() {
-        E element = getFirst();
+        final E element = getFirst();
         removeElement(0);
         return element;
     }
@@ -433,7 +433,7 @@ public final class ArrayList<E> extends AbstractList<E> {
     @Override
     @CanIgnoreReturnValue
     public @Nullable E removeLast() {
-        E element = getLast();
+        final E element = getLast();
         removeElement(size - 1);
         return element;
     }
@@ -487,12 +487,12 @@ public final class ArrayList<E> extends AbstractList<E> {
         return array;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public @Nullable <T> T[] toArray(@Nullable final T[] array) {
-        // TODO(20-11-2017): Розширення розміру масиву, якщо його розмір не
-        // достатній для звичайного копіювання
+    public @Nullable <T> T[] toArray(@Nullable T[] array) {
         if (array == null || array.length < size) {
-            return null;
+            array = (T[]) new Object[array.length];
+            System.arraycopy(this.data, 0, array, 1, size);
         }
 
         System.arraycopy(this.data, 0, array, 0, size);

@@ -1,6 +1,10 @@
 @startuml
 
-    interface CompositeSpecification.CompositeSpecificationIterator<T> {
+    class CompositeSpecification.CompositeSpecificationIterator<T> {
+        -iterators: Deque<Iterator<Specification<T>>>
+        -CompositeSpecificationIterator(Iterator<Specification<T>>)
+        +hasNext(): boolean
+        +next(): Specification<T>
     }
 
 @enduml

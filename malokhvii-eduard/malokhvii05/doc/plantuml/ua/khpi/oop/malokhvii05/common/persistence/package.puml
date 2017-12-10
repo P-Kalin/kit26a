@@ -1,0 +1,53 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii05.common.persistence {
+
+        interface PersitenceConfigurationBean {
+            {abstract} +getPersistenceUnitName(): String
+            {abstract} +toProperties(): Properties
+            {abstract} +toMappedProperties(): Map<String, String>
+        }
+
+        class HibernateConfigurationBean {
+            -url: String
+            -hbm2dll: String
+            -username: String
+            -password: String
+            -persistenceUnitName: String
+            -sqlShowAvailable: boolean
+            -formatSqlAvailable: boolean
+            -HibernateConfigurationBean()
+            {static} +load(String): HibernateConfigurationBean
+            {static} +save(HibernateConfigurationBean, String): void
+            +getUrl(): String
+            +getHbm2dll(): String
+            +getUsername(): String
+            +getPassword(): String
+            +isSqlShowAvailable(): boolean
+            +isFormatSqlAvailable(): boolean
+            +setFormatSqlAvailable(boolean): void
+            +toProperties(): Properties
+            +toMappedProperties(): Map<String, String>
+            {static} +newBuilder(): HibernateConfigurationBean.Builder
+            +getPersistenceUnitName(): String
+        }
+
+        class ua.khpi.oop.malokhvii05.common.persistence.HibernateConfigurationBean.Builder {
+            -Builder()
+            +setUrl(String): HibernateConfigurationBean.Builder
+            +setHbm2dll(String): HibernateConfigurationBean.Builder
+            +setUsername(String): HibernateConfigurationBean.Builder
+            +setPassword(String): HibernateConfigurationBean.Builder
+            +serPersistenceUnitName(String): HibernateConfigurationBean.Builder
+            +setSqlShowAvailable(boolean): HibernateConfigurationBean.Builder
+            +setFormatSqlAvailable(boolean): HibernateConfigurationBean.Builder
+            +build(): HibernateConfigurationBean
+        }
+
+        PersitenceConfigurationBean <|.. HibernateConfigurationBean
+
+        HibernateConfigurationBean +-- ua.khpi.oop.malokhvii05.common.persistence.HibernateConfigurationBean.Builder
+
+    }
+
+@enduml

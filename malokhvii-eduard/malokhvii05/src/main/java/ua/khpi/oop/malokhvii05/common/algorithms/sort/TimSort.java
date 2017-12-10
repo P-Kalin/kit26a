@@ -645,8 +645,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
         int oldMinGallop = minGallop;
         int amountOfCorrectFirstRuns;
         int amountOfCorrectSecondRuns;
-        outerLoop:
-        while (true) {
+        outerLoop: while (true) {
             amountOfCorrectFirstRuns = 0;
             amountOfCorrectSecondRuns = 0;
 
@@ -772,8 +771,7 @@ public final class TimSort<T> extends AbstractSortAlgorithm<T> {
         int oldMinGallop = minGallop;
         int amountOfCorrectFirstRuns;
         int amountOfCorrectSecondRuns;
-        outerLoop:
-        while (true) {
+        outerLoop: while (true) {
             amountOfCorrectFirstRuns = 0;
             amountOfCorrectSecondRuns = 0;
 

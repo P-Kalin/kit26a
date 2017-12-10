@@ -1,0 +1,15 @@
+@startuml
+
+    class NavigationConnectionBuilder {
+        ~outputNavigationMarker: NavigationMarker
+        ~inputNavigationMarker: NavigationMarker
+        ~distance: Double
+        +NavigationConnectionBuilder()
+        {static} +newBuilder(): NavigationConnectionBuilder
+        +setOutputNavigationMarker(NavigationMarker): NavigationConnectionBuilder
+        +setInputNavigationMarker(NavigationMarker): NavigationConnectionBuilder
+        +setDistance(Double): NavigationConnectionBuilder
+        +build(): NavigationConnection
+    }
+
+@enduml

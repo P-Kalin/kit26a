@@ -1,0 +1,22 @@
+@startuml
+
+    interface CrudRepository<K, V> {
+        +findById(K): Optional<V>
+        +findAll(EntityCriteria<V>): List<V>
+        +updateAll(V[]): void
+        +updateAll(Iterable<V>): void
+        +saveAll(V[]): void
+        +saveAll(Iterable<V>): void
+        +delete(V): void
+        +deleteAll(V[]): void
+        +deleteAll(Iterable<V>): void
+        +deleteAll(EntityCriteria<V>): void
+        {abstract} +existById(K): boolean
+        {abstract} +exist(V): boolean
+        {abstract} +findAll(): List<V>
+        {abstract} +update(V): void
+        {abstract} +save(V): void
+        {abstract} +deleteById(K): void
+    }
+
+@enduml

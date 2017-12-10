@@ -1,0 +1,13 @@
+@startuml
+
+    class NavigationContext {
+        -injector: Injector
+        -NavigationContext(PersitenceConfigurationBean)
+        {static} +create(PersitenceConfigurationBean): NavigationContext
+        +createNavigationService(): NavigationService
+        +createPersistService(): PersistService
+        +createUnitOfWork(): UnitOfWork
+        +getInjector(): Injector
+    }
+
+@enduml

@@ -1,0 +1,59 @@
+@startuml
+
+    namespace ua.khpi.oop.malokhvii07.navigation.component.marker {
+
+        class NavigationMarkerCriterias {
+            -NavigationMarkerCriterias()
+            {static} +newCriteriaByLabel(String): <any>
+            {static} +newCriteriaByLongitude(Double): <any>
+            {static} +newCriteriaByLatitude(Double): <any>
+            {static} +newCriteriaByLatitudeLessThan(Double): <any>
+            {static} +newCriteriaByLatitudeLessThanOrEqual(Double): <any>
+            {static} +newCriteriaByLatitudeGreaterThan(Double): <any>
+            {static} +newCriteriaByLatitudeGreaterThanOrEqual(Double): <any>
+            {static} +newCriteriaByLongitudeLessThan(Double): <any>
+            {static} +newCriteriaByLongitudeLessThanOrEqual(Double): <any>
+            {static} +newCriteriaByLongitudeGreaterThan(Double): <any>
+            {static} +newCriteriaByLongitudeGreaterThanOrEqual(Double): <any>
+            {static} +newCriteriaByLongitudeBetween(Double, Double): <any>
+            {static} +newCriteriaByLatitudeBetween(Double, Double): <any>
+        }
+
+        class NavigationMarkerBuilder {
+            ~latitude: Double
+            ~label: String
+            ~longitude: Double
+            +NavigationMarkerBuilder()
+            {static} +newBuilder(): NavigationMarkerBuilder
+            +setLatitude(Double): NavigationMarkerBuilder
+            +setLongitude(Double): NavigationMarkerBuilder
+            +setLabel(String): NavigationMarkerBuilder
+            +build(): NavigationMarker
+        }
+
+        class NavigationMarker {
+            {static} -serialVersionUID: long
+            -latitude: Double
+            -label: String
+            -longitude: Double
+            +NavigationMarker()
+            ~NavigationMarker(NavigationMarkerBuilder)
+            +getLabel(): String
+            +setLabel(String): void
+            +getLatitude(): Double
+            +setLatitude(Double): void
+            +getLongitude(): Double
+            +setLongitude(Double): void
+        }
+
+        interface ua.khpi.oop.malokhvii07.navigation.component.NavigationComponentBuilder {
+            {abstract} +build(): NavigationComponent
+        }
+        ua.khpi.oop.malokhvii07.navigation.component.NavigationComponentBuilder <|.. NavigationMarkerBuilder
+
+        abstract class ua.khpi.oop.malokhvii07.navigation.component.NavigationComponent
+        ua.khpi.oop.malokhvii07.navigation.component.NavigationComponent <|-- NavigationMarker
+
+    }
+
+@enduml

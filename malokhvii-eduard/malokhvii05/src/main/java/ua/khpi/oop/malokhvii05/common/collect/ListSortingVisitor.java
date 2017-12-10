@@ -53,8 +53,9 @@ class ListSortingVisitor<E> implements ListVisitor<E> {
     }
 
     /**
-     * Вважає останній елемент як шарнір, розміщує в ньому шарнірний елемент
-     * правильне положення у відсортованому масиві, і менші елементи ніж шарнір
+     * Призначений, для визначення шарнірного елементу, розміщує в останньому
+     * елементі шарнірний елемент, для подальшого визначення правильного
+     * положення у відсортованому масиві, тобто елементи меньші ніж шарнір
      * наліво від шарніру, більші елементи праворуч від шарніра.
      *
      * @param leftNode
@@ -66,7 +67,7 @@ class ListSortingVisitor<E> implements ListVisitor<E> {
      */
     private @Nonnull Node<E> linkedListPartition(
             @Nonnull final Node<E> leftNode, @Nonnull final Node<E> rightNode) {
-        E element = rightNode.element;
+        final E element = rightNode.element;
         E tempElement;
 
         Node<E> i = leftNode.previous;
@@ -101,7 +102,8 @@ class ListSortingVisitor<E> implements ListVisitor<E> {
             @Nonnull final Node<E> rightNode) {
         if (rightNode != null && leftNode != rightNode
                 && leftNode != rightNode.next) {
-            Node<E> partitionNode = linkedListPartition(leftNode, rightNode);
+            final Node<E> partitionNode = linkedListPartition(leftNode,
+                    rightNode);
             linkedListQuickSort(leftNode, partitionNode.previous);
             linkedListQuickSort(partitionNode.next, rightNode);
         }
@@ -115,7 +117,7 @@ class ListSortingVisitor<E> implements ListVisitor<E> {
             return;
         }
 
-        SortAlgorithm<E> sortAlgorithm = SortAlgorithmFactory
+        final SortAlgorithm<E> sortAlgorithm = SortAlgorithmFactory
                 .getDefaultAlgorithm(comparator);
         sortAlgorithm.sort((E[]) arrayList.data, arrayList.size);
     }

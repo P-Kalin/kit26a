@@ -4,20 +4,19 @@
     <parent>
         <groupId>ua.khpi.oop</groupId>
         <artifactId>malokhvii-eduard</artifactId>
-        <version>1.6.0</version>
+        <version>1.7.0</version>
     </parent>
     <artifactId>malokhvii04</artifactId>
-    <version>1.2.6</version>
+    <version>1.2.7</version>
     <dependencies>
         <dependency>
             <groupId>ua.khpi.oop</groupId>
             <artifactId>malokhvii03</artifactId>
-            <version>1.2.3</version>
+            <version>1.2.4</version>
         </dependency>
         <dependency>
             <groupId>ua.khpi.oop</groupId>
             <artifactId>malokhvii05</artifactId>
-            <version>1.0.5-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.reflections</groupId>

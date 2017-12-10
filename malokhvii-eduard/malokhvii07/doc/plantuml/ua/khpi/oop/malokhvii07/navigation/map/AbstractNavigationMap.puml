@@ -1,0 +1,26 @@
+@startuml
+
+    abstract class AbstractNavigationMap {
+        #navigationMarkers: Map<UUID, NavigationMarker>
+        #navigationConnections: Map<UUID, NavigationConnection>
+        #navigationGraph: MutableValueGraph<NavigationMarker, NavigationConnection>
+        #AbstractNavigationMap(NavigationMapBuilder)
+        +adjacentNodes(NavigationMarker): Set<NavigationMarker>
+        +degree(NavigationMarker): int
+        +edges(): Set<EndpointPair<NavigationMarker>>
+        +outDegree(NavigationMarker): int
+        +inDegree(NavigationMarker): int
+        +successors(NavigationMarker): Set<NavigationMarker>
+        +predecessors(NavigationMarker): Set<NavigationMarker>
+        +isDirected(): boolean
+        +edgeValue(NavigationMarker, NavigationMarker): Optional<NavigationConnection>
+        +edgeValueOrDefault(NavigationMarker, NavigationMarker, NavigationConnection): NavigationConnection
+        +asGraph(): Graph<NavigationMarker>
+        +nodeOrder(): ElementOrder<NavigationMarker>
+        +hasEdgeConnecting(NavigationMarker, NavigationMarker): boolean
+        +nodes(): Set<NavigationMarker>
+        +allowsSelfLoops(): boolean
+        +toNavigationSchema(): NavigationSchema
+    }
+
+@enduml

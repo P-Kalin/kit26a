@@ -1,0 +1,15 @@
+@startuml
+
+    class EventService {
+        -eventBus: EventBus
+        ~EventService(EventServiceBuilder)
+        +subscribe(Object): void
+        +unsubscribe(Object): void
+        +publish(Object): void
+        +isSubscriber(Object): boolean
+        +getDispatcher(): Dispatcher
+        +getExecutor(): Executor
+        +setDispatcher(Dispatcher): void
+    }
+
+@enduml

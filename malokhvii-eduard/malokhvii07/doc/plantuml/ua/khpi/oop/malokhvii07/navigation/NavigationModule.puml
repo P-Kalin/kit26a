@@ -1,0 +1,11 @@
+@startuml
+
+    class NavigationModule {
+        +NavigationModule()
+        #configure(): void
+        #provideNavigationMarkerClass(): Class<NavigationMarker>
+        #provideNavigationConnectionClass(): Class<NavigationConnection>
+        #provideNavigationSchemaClass(): Class<NavigationSchema>
+    }
+
+@enduml

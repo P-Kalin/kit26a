@@ -1,7 +1,7 @@
 @startuml
 
     class NegationSpecification<T> {
-        {static} -serialVersionUID: long
+        -specification: Specification<T>
         ~NegationSpecification(Specification<T>)
         +isSatisfiedBy(T): boolean
     }

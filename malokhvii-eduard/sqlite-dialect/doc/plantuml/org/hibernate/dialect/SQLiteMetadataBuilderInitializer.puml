@@ -1,0 +1,11 @@
+@startuml
+
+    class SQLiteMetadataBuilderInitializer {
+        {static} -logger: Logger
+        {static} -dialect: SQLiteDialect
+        {static} -resolver: DialectResolver
+        +SQLiteMetadataBuilderInitializer()
+        +contribute(MetadataBuilder, StandardServiceRegistry): void
+    }
+
+@enduml

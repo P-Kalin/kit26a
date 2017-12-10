@@ -1,0 +1,14 @@
+@startuml
+
+    abstract class NavigationComponent {
+        {static} -serialVersionUID: long
+        -id: UUID
+        -version: Integer
+        +NavigationComponent()
+        +getId(): UUID
+        +setId(UUID): void
+        +getVersion(): Integer
+        +setVersion(Integer): void
+    }
+
+@enduml

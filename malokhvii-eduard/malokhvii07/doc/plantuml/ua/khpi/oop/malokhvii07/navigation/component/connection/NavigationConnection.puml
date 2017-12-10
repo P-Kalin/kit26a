@@ -1,0 +1,18 @@
+@startuml
+
+    class NavigationConnection {
+        {static} -serialVersionUID: long
+        -distance: Double
+        -outputNavigationMarker: NavigationMarker
+        -inputNavigationMarker: NavigationMarker
+        +NavigationConnection()
+        ~NavigationConnection(NavigationConnectionBuilder)
+        +getOutputNavigationMarker(): NavigationMarker
+        +setOutputNavigationMarker(NavigationMarker): void
+        +getInputNavigationMarker(): NavigationMarker
+        +setInputNavigationMarker(NavigationMarker): void
+        +getDistance(): Double
+        +setDistance(Double): void
+    }
+
+@enduml

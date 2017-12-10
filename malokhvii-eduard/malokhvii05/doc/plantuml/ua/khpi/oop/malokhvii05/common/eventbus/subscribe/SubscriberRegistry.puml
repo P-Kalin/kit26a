@@ -15,6 +15,7 @@
         +register(Object): void
         +removeUnusedSubscribers(): void
         +unregister(Object): void
+        +contains(Object): boolean
     }
 
 @enduml

@@ -1,0 +1,15 @@
+@startuml
+
+    class NavigationConnectionCritetias {
+        -NavigationConnectionCritetias()
+        {static} +newCritetiaByInputNavigationMarker(NavigationMarker): <any>
+        {static} +newCriteriaByOutputNavigationMarker(NavigationMarker): <any>
+        {static} +newCriteriaByDistance(Double): <any>
+        {static} +newCriteriaByDistanceLessThan(Double): <any>
+        {static} +newCriteriaByDistanceLessThanOrEqual(Double): <any>
+        {static} +newCriteriaByDistanceGreaterThan(Double): <any>
+        {static} +newCriteriaByDistanceGreaterThanOrEqual(Double): <any>
+        {static} +newCriteriaByDistanceBetween(Double, Double): <any>
+    }
+
+@enduml
