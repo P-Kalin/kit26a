@@ -13,50 +13,55 @@ public final class Specifications {
         return EmptySpecification.INSTANCE;
     }
 
-    @SuppressWarnings("unchecked")
-    public static @Nonnull <T> CompositeSpecification<T> newEmptyCompositeSpecification() {
-        return EmptyCompositeSpecification.INSTANCE;
-    }
-
-    public static @Nonnull <T> SpecificationPair<T> newDisjunctionSpecification(
+    public static @Nonnull <T> Specification<T> newDisjunctionSpecification(
             @Nonnull final Specification<T> specification1,
             @Nonnull final Specification<T> specification2) {
         return new DisjunctionSpecification<>(specification1, specification2);
     }
 
-    public static @Nonnull <T> SpecificationPair<T> newConjuctionSpecification(
+    public static @Nonnull <T> Specification<T> newConjuctionSpecification(
             @Nonnull final Specification<T> specification1,
             @Nonnull final Specification<T> specification2) {
         return new ConjunctionSpecification<>(specification1, specification2);
     }
 
-    public static @Nonnull <T> SpecificationDecorator<T> newNegationSpecification(
+    public static @Nonnull <T> Specification<T> newNegationSpecification(
             @Nonnull final Specification<T> specification) {
         return new NegationSpecification<>(specification);
     }
 
-    @SuppressWarnings("unchecked")
     public static @Nonnull <T> Specification<T> newTrueSpecification() {
-        return TrueSpecification.INSTANCE;
+        return new Specification<T>() {
+
+            @Override
+            public boolean isSatisfiedBy(T candidate) {
+                return true;
+            }
+        };
     }
 
-    @SuppressWarnings("unchecked")
     public static @Nonnull <T> Specification<T> newFalseSpecification() {
-        return FalseSpecification.INSTANCE;
+        return new Specification<T>() {
+
+            @Override
+            public boolean isSatisfiedBy(T candidate) {
+                return false;
+            }
+        };
     }
 
     public static @Nonnull <T> CompositeSpecification<T> newCompositeSpecification() {
-        return new DefaultCompositeSpecification<>();
+        return new NotFixedCompositeSpecification<>();
     }
 
     public static @Nonnull <T> CompositeSpecification<T> newCompositeSpecification(
             @Nonnull final Iterable<Specification<T>> specitfications) {
-        return new DefaultCompositeSpecification<>(specitfications);
+        return new NotFixedCompositeSpecification<>(specitfications);
     }
 
     @SafeVarargs
     public static @Nonnull <T> CompositeSpecification<T> newCompositeSpecification(
             @Nonnull final Specification<T>... specifications) {
-        return new DefaultCompositeSpecification<>(specifications);
+        return new NotFixedCompositeSpecification<>(specifications);
     }
 }
